@@ -97,4 +97,27 @@ class Commentaire
     {
         return $this->commentaire;
     }
+
+    /**
+     * Set article
+     *
+     * @param \BackBundle\Entity\Article $article
+     * @return Commentaire
+     */
+    public function setArticle(\BackBundle\Entity\Article $article = null)
+    {
+        $this->article = $article;
+
+        return $this;
+    }
+
+    /**
+     * Get article
+     *
+     * @return \BackBundle\Entity\Article 
+     */
+    public function getArticle()
+    {
+        return $this->article;
+    }
 }
