@@ -457,4 +457,72 @@ class Candidat
     {
         return $this->documents;
     }
+
+    /**
+     * Add vote
+     *
+     * @param \BackBundle\Entity\Vote $vote
+     *
+     * @return Candidat
+     */
+    public function addVote(\BackBundle\Entity\Vote $vote)
+    {
+        $this->votes[] = $vote;
+
+        return $this;
+    }
+
+    /**
+     * Remove vote
+     *
+     * @param \BackBundle\Entity\Vote $vote
+     */
+    public function removeVote(\BackBundle\Entity\Vote $vote)
+    {
+        $this->votes->removeElement($vote);
+    }
+
+    /**
+     * Get votes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getVotes()
+    {
+        return $this->votes;
+    }
+
+    /**
+     * Add validation
+     *
+     * @param \BackBundle\Entity\Validation $validation
+     *
+     * @return Candidat
+     */
+    public function addValidation(\BackBundle\Entity\Validation $validation)
+    {
+        $this->validations[] = $validation;
+
+        return $this;
+    }
+
+    /**
+     * Remove validation
+     *
+     * @param \BackBundle\Entity\Validation $validation
+     */
+    public function removeValidation(\BackBundle\Entity\Validation $validation)
+    {
+        $this->validations->removeElement($validation);
+    }
+
+    /**
+     * Get validations
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getValidations()
+    {
+        return $this->validations;
+    }
 }
