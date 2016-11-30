@@ -74,4 +74,52 @@ class Vote
     {
         return $this->note;
     }
+
+    /**
+     * Set candidat
+     *
+     * @param \BackBundle\Entity\Candidat $candidat
+     *
+     * @return Vote
+     */
+    public function setCandidat(\BackBundle\Entity\Candidat $candidat = null)
+    {
+        $this->candidat = $candidat;
+
+        return $this;
+    }
+
+    /**
+     * Get candidat
+     *
+     * @return \BackBundle\Entity\Candidat
+     */
+    public function getCandidat()
+    {
+        return $this->candidat;
+    }
+
+    /**
+     * Set jury
+     *
+     * @param \BackBundle\Entity\Jury $jury
+     *
+     * @return Vote
+     */
+    public function setJury(\BackBundle\Entity\Jury $jury = null)
+    {
+        $this->jury = $jury;
+
+        return $this;
+    }
+
+    /**
+     * Get jury
+     *
+     * @return \BackBundle\Entity\Jury
+     */
+    public function getJury()
+    {
+        return $this->jury;
+    }
 }
