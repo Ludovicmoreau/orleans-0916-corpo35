@@ -100,4 +100,28 @@ class Document
     {
         return $this->contenu;
     }
+
+    /**
+     * Set candidat
+     *
+     * @param \BackBundle\Entity\Candidat $candidat
+     *
+     * @return Document
+     */
+    public function setCandidat(\BackBundle\Entity\Candidat $candidat = null)
+    {
+        $this->candidat = $candidat;
+
+        return $this;
+    }
+
+    /**
+     * Get candidat
+     *
+     * @return \BackBundle\Entity\Candidat
+     */
+    public function getCandidat()
+    {
+        return $this->candidat;
+    }
 }

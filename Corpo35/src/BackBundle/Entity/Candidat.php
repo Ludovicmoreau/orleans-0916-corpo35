@@ -13,6 +13,11 @@ use Doctrine\ORM\Mapping as ORM;
 class Candidat
 {
     /**
+     * @ORM\OneToOne(targetEntity="Promotion")
+     */
+    private $promotion;
+
+    /**
      * @ORM\OneToMany(targetEntity="Document", mappedBy="candidat")
      */
     private $documents;
@@ -376,5 +381,70 @@ class Candidat
     public function getDecision()
     {
         return $this->decision;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->documents = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set promotion
+     *
+     * @param \BackBundle\Entity\Promotion $promotion
+     *
+     * @return Candidat
+     */
+    public function setPromotion(\BackBundle\Entity\Promotion $promotion = null)
+    {
+        $this->promotion = $promotion;
+
+        return $this;
+    }
+
+    /**
+     * Get promotion
+     *
+     * @return \BackBundle\Entity\Promotion
+     */
+    public function getPromotion()
+    {
+        return $this->promotion;
+    }
+
+    /**
+     * Add document
+     *
+     * @param \BackBundle\Entity\Document $document
+     *
+     * @return Candidat
+     */
+    public function addDocument(\BackBundle\Entity\Document $document)
+    {
+        $this->documents[] = $document;
+
+        return $this;
+    }
+
+    /**
+     * Remove document
+     *
+     * @param \BackBundle\Entity\Document $document
+     */
+    public function removeDocument(\BackBundle\Entity\Document $document)
+    {
+        $this->documents->removeElement($document);
+    }
+
+    /**
+     * Get documents
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getDocuments()
+    {
+        return $this->documents;
     }
 }
