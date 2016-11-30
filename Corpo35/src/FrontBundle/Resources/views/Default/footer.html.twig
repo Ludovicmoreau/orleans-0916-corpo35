@@ -2,15 +2,36 @@
 {% extends 'FrontBundle:Default:structure.html.twig' %}
 
 
-{% block stylesheet %}
-<link rel="stylesheet" href="{{ asset('footerstyle.css') }}">
+{% block head %}
+    {{ parent() }}
+<link rel="stylesheet" href="{{ asset('css/footerstyle.css') }}">
 {% endblock %}
 
 
 {% block footer %}
 <footer>
-    <div class>
-ddf
+    <div class="container-fluid well text-center">
+       <div class="row">
+           <div class=" borderfooterleft footertext col-md-offset-1 col-md-2 col-xs-4">
+               <a class="lienfooter" href="#">Galerie d'images </a>
+           </div>
+           <div class="footertext col-md-2 col-xs-4">
+               <a class="lienfooter"  href="#">Règlement du concours </a>
+           </div>
+           <div class="footertext col-md-2 col-xs-4">
+               <a class="lienfooter"  href="#">Plan du site </a>
+           </div><div class="footertext col-md-2 pull-xs-12 col-xs-12">
+               <a class="lienfooter"  href="#">Nous contacter </a>
+           </div>
+           <div class=" footertext col-md-2 col-xs-12">
+               <a class="lienfooter"  href="#">Mentions légales </a>
+           </div>
+           <div class="row">
+               <div class="col-md-12 block-center">
+                   <i class="logolinkedin fa fa-linkedin-square fa-5x" aria-hidden="true"></i>
+               </div>
+           </div>
+       </div>
     </div>
 </footer>
 
