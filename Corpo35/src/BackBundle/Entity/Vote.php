@@ -13,13 +13,13 @@ use Doctrine\ORM\Mapping as ORM;
 class Vote
 {
     /**
-     * @ORM\ManytoOne(targetEntity="Candidat", inversedBy="votes")
+     * @ORM\ManyToOne(targetEntity="Candidat", inversedBy="votes")
      *
      */
     private $candidat;
 
     /**
-     * @ORM\ManytoOne(targetEntity="Jury", inversedBy="votes")
+     * @ORM\ManyToOne(targetEntity="Jury", inversedBy="votes")
      *
      */
     private $jury;
