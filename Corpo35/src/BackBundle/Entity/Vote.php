@@ -13,6 +13,18 @@ use Doctrine\ORM\Mapping as ORM;
 class Vote
 {
     /**
+     * @ORM\ManytoOne(targetEntity="Candidat", inversedBy="votes")
+     *
+     */
+    private $candidat;
+
+    /**
+     * @ORM\ManytoOne(targetEntity="Jury", inversedBy="votes")
+     *
+     */
+    private $jury;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")

@@ -13,6 +13,16 @@ use Doctrine\ORM\Mapping as ORM;
 class Candidat
 {
     /**
+     * @ORM\OneToMany(targetEntity="Vote", mappedBy="candidat")
+     */
+    private $votes;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Validation", mappedBy="candidat")
+     */
+    private $validations;
+
+    /**
      * @ORM\OneToOne(targetEntity="Promotion")
      */
     private $promotion;
