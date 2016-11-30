@@ -22,4 +22,11 @@ class DefaultController extends Controller
     {
         return $this->render('FrontBundle:Default:inscription.html.twig');
     }
+    /**
+     * @Route("/footer")
+     */
+    public function footerAction()
+    {
+        return $this->render('FrontBundle:Default:footer.html.twig');
+    }
 }
