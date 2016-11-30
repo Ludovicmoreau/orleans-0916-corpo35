@@ -1,5 +1,6 @@
 .footertext{
     border-right: 1px solid black;
+
 }
 
 .logolinkedin{
@@ -11,6 +12,7 @@
 }
 
 .lienfooter{
+    text-decoration: none;
     color: black;
 }
 @media all and (max-width:1000px){
