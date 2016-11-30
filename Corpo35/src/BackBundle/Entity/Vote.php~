@@ -13,18 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Vote
 {
     /**
-     * @ORM\ManyToOne(targetEntity="Candidat", inversedBy="votes")
-     *
-     */
-    private $candidat;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Jury", inversedBy="votes")
-     *
-     */
-    private $jury;
-
-    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
@@ -75,3 +63,4 @@ class Vote
         return $this->note;
     }
 }
+
