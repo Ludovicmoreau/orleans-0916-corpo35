@@ -14,7 +14,7 @@ class Document
 {
 
     /**
-     * @ORM\ManytoOne(targetEntity="Candidat", inversedBy="documents")
+     * @ORM\ManyToOne(targetEntity="Candidat", inversedBy="documents")
      *
      */
     private $candidat;
