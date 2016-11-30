@@ -1,5 +1,23 @@
-{% extends 'FrontBundle:Default:structure.html.twig' %}
+{% extends 'FrontBundle:Default:layout.html.twig' %}
+
+
+{% block stylesheet %}
+    {{ parent () }}
+    <link href="{{ asset('css/partners_style.css')}}" rel="stylesheet">
+{% endblock %}
+
+
+
+{% block header %}
+    {% include 'FrontBundle:Default:header.html.twig' %}
+{% endblock %}
 
 {% block content %}
-    <p>Blablalbalblalbkjdsfkjsdlkjflskdjfljksd test</p>
+
+    {% include 'FrontBundle:Default:partners.html.twig' %}
+{% endblock %}
+
+
+{% block footer %}
+    {% include 'FrontBundle:Default:footer.html.twig' %}
 {% endblock %}
