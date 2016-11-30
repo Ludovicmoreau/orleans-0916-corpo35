@@ -1,7 +1,24 @@
+.navbar-inverse {
+    height: 5%!important;
+}
+
+.linkNavbar {
+    color: white!important;
+}
+
+.linkNavbar:hover {
+    color: white!important;
+}
+
 .logoHeader {
-    width: 40%;
+    width: 30%;
     margin-top: 15%;
     margin-bottom: 5%;
+}
+
+.navbar-default {
+    background-color: white!important;
+    border-style: none!important;
 }
 
 .nav2 {
@@ -15,8 +32,17 @@
 
 .Navbar2 {
     margin-top: 2%;
+    border-right: solid 1px black;
 }
 
 .linkNavbar2 {
+    color: black;
+}
+
+.linkNavbar2:hover {
+    color: black;
+}
+
+.linkNavbar2:focus {
     color: black;
 }
