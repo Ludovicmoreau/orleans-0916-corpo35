@@ -13,6 +13,10 @@
     z-index: 1;
 }
 
-.linkNavbar2 {
+.Navbar2 {
     margin-top: 2%;
+}
+
+.linkNavbar2 {
+    color: black;
 }
