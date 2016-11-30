@@ -1,3 +1,18 @@
-.collapse {
-    color: white;
+.logoHeader {
+    width: 40%;
+    margin-top: 15%;
+    margin-bottom: 5%;
+}
+
+.nav2 {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    position: sticky;
+    top: 7%;
+    z-index: 1;
+}
+
+.linkNavbar2 {
+    margin-top: 2%;
 }
