@@ -42,7 +42,7 @@ class DefaultController extends Controller
         }
 
     /**
-     * @Route("/reglement")
+     * @Route("/reglement", name="reglement")
      */
     public function reglementAction()
     {
