@@ -13,13 +13,13 @@ use Doctrine\ORM\Mapping as ORM;
 class Validation
 {
     /**
-     * @ORM\ManytoOne(targetEntity="Jury", inversedBy="validations")
+     * @ORM\ManyToOne(targetEntity="Jury", inversedBy="validations")
      *
      */
     private $jury;
 
     /**
-     * @ORM\ManytoOne(targetEntity="Candidat", inversedBy="validations")
+     * @ORM\ManyToOne(targetEntity="Candidat", inversedBy="validations")
      *
      */
     private $candidat;
