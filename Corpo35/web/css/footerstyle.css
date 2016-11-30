@@ -1,0 +1,36 @@
+.footertext{
+    border-right: 1px solid black;
+}
+
+.logolinkedin{
+    padding-top:20px;
+}
+
+.borderfooterleft{
+    border-left: 1px solid black;
+}
+
+.lienfooter{
+    color: black;
+}
+@media all and (max-width:1000px){
+    .footertext{
+        border:none;
+    }
+    .contactfooter{
+        border-bottom: 1px solid black;
+        border-right: 1px solid black ;
+        border-left: 1px solid black ;
+        border-radius: 3px ;
+        padding-bottom: 5px;
+        margin-top:10px;
+    }
+    .mentionlegalesfooter{
+        border-bottom: 1px solid black;
+        padding-top: 15px;
+        padding-bottom: 5px;
+    }
+    .paddingfooter{
+        padding-top:15px;
+    }
+}
