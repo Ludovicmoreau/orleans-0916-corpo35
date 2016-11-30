@@ -12,6 +12,13 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Document
 {
+
+    /**
+     * @ORM\ManytoOne(targetEntity="Candidat", inversedBy="documents")
+     *
+     */
+    private $candidat;
+
     /**
      * @var int
      *

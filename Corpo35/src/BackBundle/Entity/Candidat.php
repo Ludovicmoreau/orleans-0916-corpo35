@@ -13,6 +13,11 @@ use Doctrine\ORM\Mapping as ORM;
 class Candidat
 {
     /**
+     * @ORM\OneToMany(targetEntity="Document", mappedBy="candidat")
+     */
+    private $documents;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
