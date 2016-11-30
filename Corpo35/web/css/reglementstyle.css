@@ -1,0 +1,38 @@
+div.text {
+    text-align: justify;
+}
+
+h2 {
+    position: relative;
+    font-size: 2em;
+    text-align: center;
+    overflow: hidden;
+}
+
+div.header-title {
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    height: 20vh;
+}
+
+a {
+    text-decoration: none;
+}
+
+@media screen and (max-width: 450px) {
+    h2 {
+        font-size: 1.7em;
+    }
+}
+
+@media screen and (max-width: 365px) {
+    h2 {
+        font-size: 1.4em;
+    }
+}
+
+@media screen and (max-width: 265px) {
+    h2 {
+        font-size: 1.2em;
+    }
+}

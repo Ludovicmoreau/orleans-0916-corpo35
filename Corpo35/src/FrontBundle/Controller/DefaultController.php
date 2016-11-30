@@ -41,5 +41,15 @@ class DefaultController extends Controller
 
         }
 
+    /**
+     * @Route("/reglement")
+     */
+    public function reglementAction()
+    {
+        return $this->render('FrontBundle:Default:reglement.html.twig');
+
+    }
+
+
 }
 
