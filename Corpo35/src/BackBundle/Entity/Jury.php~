@@ -13,6 +13,16 @@ use Doctrine\ORM\Mapping as ORM;
 class Jury
 {
     /**
+     * @ORM\OneToMany(targetEntity="Vote", mappedBy="jury")
+     */
+    private $votes;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Validation", mappedBy="jury")
+     */
+    private $validations;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
