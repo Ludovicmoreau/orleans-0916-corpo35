@@ -13,6 +13,16 @@ use Doctrine\ORM\Mapping as ORM;
 class Candidat
 {
     /**
+     * @ORM\OneToOne(targetEntity="Promotion")
+     */
+    private $promotion;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Document", mappedBy="candidat")
+     */
+    private $documents;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
@@ -373,4 +383,3 @@ class Candidat
         return $this->decision;
     }
 }
-

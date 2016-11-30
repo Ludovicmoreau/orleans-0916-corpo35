@@ -63,4 +63,3 @@ class Promotion
         return $this->archivage;
     }
 }
-
