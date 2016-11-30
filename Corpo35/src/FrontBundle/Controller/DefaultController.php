@@ -22,4 +22,13 @@ class DefaultController extends Controller
     {
         return $this->render('FrontBundle:Default:inscription.html.twig');
     }
+
+    /**
+     * @Route("/header")
+     */
+    public function headerAction()
+    {
+        return $this->render('FrontBundle:Default:header.html.twig');
+    }
 }
+
