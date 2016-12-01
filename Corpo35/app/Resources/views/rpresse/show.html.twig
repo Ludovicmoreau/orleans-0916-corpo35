@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Rpresse</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ rpresse.id }}</td>
+            </tr>
+            <tr>
+                <th>Document</th>
+                <td>{{ rpresse.document }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ rpresse.description }}</td>
+            </tr>
+            <tr>
+                <th>Source</th>
+                <td>{{ rpresse.source }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{% if rpresse.date %}{{ rpresse.date|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('rpresse_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('rpresse_edit', { 'id': rpresse.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
