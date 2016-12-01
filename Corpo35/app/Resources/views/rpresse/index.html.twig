@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Rpresses list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Document</th>
+                <th>Description</th>
+                <th>Source</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for rpresse in rpresses %}
+            <tr>
+                <td><a href="{{ path('rpresse_show', { 'id': rpresse.id }) }}">{{ rpresse.id }}</a></td>
+                <td>{{ rpresse.document }}</td>
+                <td>{{ rpresse.description }}</td>
+                <td>{{ rpresse.source }}</td>
+                <td>{% if rpresse.date %}{{ rpresse.date|date('Y-m-d') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('rpresse_show', { 'id': rpresse.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('rpresse_edit', { 'id': rpresse.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('rpresse_new') }}">Create a new rpresse</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Jury</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ jury.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ jury.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ jury.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Entreprise</th>
+                <td>{{ jury.entreprise }}</td>
+            </tr>
+            <tr>
+                <th>Mail</th>
+                <td>{{ jury.mail }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('jury_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('jury_edit', { 'id': jury.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

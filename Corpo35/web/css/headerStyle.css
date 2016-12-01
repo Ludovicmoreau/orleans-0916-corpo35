@@ -17,7 +17,7 @@
 }
 
 .navbar-default {
-    background-color: white!important;
+    background-color: rgba(255, 255, 255, 0.8)!important;
     border-style: none!important;
 }
 
@@ -30,9 +30,12 @@
     z-index: 1;
 }
 
+.borderNavbar2 {
+    border-right: solid 1px black;
+}
+
 .Navbar2 {
     margin-top: 2%;
-    border-right: solid 1px black;
 }
 
 .linkNavbar2 {
