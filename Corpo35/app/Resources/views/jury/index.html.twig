@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Juries list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Entreprise</th>
+                <th>Mail</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for jury in juries %}
+            <tr>
+                <td><a href="{{ path('jury_show', { 'id': jury.id }) }}">{{ jury.id }}</a></td>
+                <td>{{ jury.nom }}</td>
+                <td>{{ jury.prenom }}</td>
+                <td>{{ jury.entreprise }}</td>
+                <td>{{ jury.mail }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('jury_show', { 'id': jury.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('jury_edit', { 'id': jury.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('jury_new') }}">Create a new jury</a>
+        </li>
+    </ul>
+{% endblock %}

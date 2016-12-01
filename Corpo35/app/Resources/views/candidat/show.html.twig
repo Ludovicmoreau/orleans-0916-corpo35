@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Candidat</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ candidat.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ candidat.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ candidat.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Numrue</th>
+                <td>{{ candidat.numrue }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ candidat.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ candidat.ville }}</td>
+            </tr>
+            <tr>
+                <th>Cp</th>
+                <td>{{ candidat.cp }}</td>
+            </tr>
+            <tr>
+                <th>Formation</th>
+                <td>{{ candidat.formation }}</td>
+            </tr>
+            <tr>
+                <th>Profession</th>
+                <td>{{ candidat.profession }}</td>
+            </tr>
+            <tr>
+                <th>Presentation</th>
+                <td>{{ candidat.presentation }}</td>
+            </tr>
+            <tr>
+                <th>Mail</th>
+                <td>{{ candidat.mail }}</td>
+            </tr>
+            <tr>
+                <th>Decision</th>
+                <td>{% if candidat.decision %}Yes{% else %}No{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('candidat_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('candidat_edit', { 'id': candidat.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

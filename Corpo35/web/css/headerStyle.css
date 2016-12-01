@@ -1,3 +1,51 @@
-.collapse {
-    color: white;
+.navbar-inverse {
+    height: 5%!important;
+}
+
+.linkNavbar {
+    color: white!important;
+}
+
+.linkNavbar:hover {
+    color: white!important;
+}
+
+.logoHeader {
+    width: 30%;
+    margin-top: 15%;
+    margin-bottom: 5%;
+}
+
+.navbar-default {
+    background-color: rgba(255, 255, 255, 0.8)!important;
+    border-style: none!important;
+}
+
+.nav2 {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    position: sticky;
+    top: 7%;
+    z-index: 1;
+}
+
+.borderNavbar2 {
+    border-right: solid 1px black;
+}
+
+.Navbar2 {
+    margin-top: 2%;
+}
+
+.linkNavbar2 {
+    color: black;
+}
+
+.linkNavbar2:hover {
+    color: black;
+}
+
+.linkNavbar2:focus {
+    color: black;
 }

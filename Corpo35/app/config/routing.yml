@@ -30,3 +30,28 @@ fos_user_resetting:
 fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /profile
+
+agenda:
+    resource: "@BackBundle/Controller/AgendaController.php"
+    type:     annotation
+    prefix:   /agenda
+
+candidat:
+    resource: "@BackBundle/Controller/CandidatController.php"
+    type:     annotation
+    prefix:   /candidat
+
+jury:
+    resource: "@BackBundle/Controller/JuryController.php"
+    type:     annotation
+    prefix:   /jury
+
+article:
+    resource: "@BackBundle/Controller/ArticleController.php"
+    type:     annotation
+    prefix:   /article
+
+rpresse:
+    resource: "@BackBundle/Controller/RpresseController.php"
+    type:     annotation
+    prefix:   /rpresse
