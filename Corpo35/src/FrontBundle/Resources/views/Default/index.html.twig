@@ -4,6 +4,7 @@
 {% block stylesheet %}
     {{ parent () }}
     <link href="{{ asset('css/partners_style.css')}}" rel="stylesheet">
+    <link href="{{ asset('css/concours_style.css')}}" rel="stylesheet">
 {% endblock %}
 
 
@@ -13,7 +14,7 @@
 {% endblock %}
 
 {% block content %}
-
+    {% include 'FrontBundle:Default:concours.html.twig' %}
     {% include 'FrontBundle:Default:partners.html.twig' %}
 {% endblock %}
 

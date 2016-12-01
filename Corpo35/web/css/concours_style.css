@@ -1,0 +1,16 @@
+section {
+    column-width: 16rem;
+    line-height: 1.5;
+    width: 45rem;
+    column-gap: 7rem;
+    margin: 2rem auto;
+    text-align: justify;
+    widows: 2;
+    position: relative;
+    column-fill: balance;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+section p:first-of-type {
+    margin-top: 0;
+}
