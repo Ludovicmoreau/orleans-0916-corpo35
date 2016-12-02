@@ -9,8 +9,7 @@
             <div class="col-md-offset-4 col-md-4">
                 <div class="text-center">
                     <h2>Bienvenue sur la page d'inscription au concours Corpo35</h2>
-                    <p>Sur cette page, merci de renseigner l'ensemble des renseignements demandés fin que votre demande soit bien prise en compte.</p>
-                    <p>Pensez à bien lire le <a href="{{ path('reglement') }}">règlement du concours</a></p>
+                   <p> le <a href="{{ path('reglement') }}">règlement du concours</a> est à télécharger, signer et à nous renvoyer</p>
                 </div>
                 <form METHOD=POST ENCTYPE="text/plain" >
                         <div class="form-group">
@@ -22,8 +21,12 @@
                             <input type="text" class="form-control" id="Prenom" placeholder="Prenom" required="required">
                         </div>
                         <div class="form-group">
+                            <label for="date_naissance">Date de naissance</label>
+                            <input type="datetime" class="form-control" id="date_naissance" placeholder="date de naissance" required="required">
+                        </div>
+                        <div class="form-group">
                             <label for="N°">N° de rue</label>
-                            <input type="number" class="form-control" placeholder="N° de rue" required="required">
+                            <input type="number" class="form-control" id="N°" placeholder="N° de rue" required="required">
                         </div>
                         <div class="form-group">
                             <label for="Adresse">Adresse</label>
@@ -42,8 +45,20 @@
                             <input type="text" class="form-control" id="Formation" placeholder="Formation" required="required">
                         </div>
                         <div class="form-group">
+                            <label for="Diplome">Diplômes dans le secteur de la parfumerie</label>
+                            <input type="text" class="form-control" id="Diplome" placeholder="Diplôme" >
+                        </div>
+                        <div class="form-group">
                             <label for="Profession">Profession (Etudiant) si vous êtes en études</label>
                             <input type="text" class="form-control" id="Ville" placeholder="Ville" required="required">
+                        </div>
+                        <div class="form-group">
+                            <label for="telephone">N° de téléphone</label>
+                            <input type="number" class="form-control" id="telephone" placeholder="N° de téléphone" required="required">
+                        </div>
+                        <div class="form-group">
+                            <label for="Blog">Blog, Site, Autres</label>
+                            <input type="text" class="form-control" id="Blog" placeholder="Blog, Site, Autres..." >
                         </div>
                         <div class="form-group">
                             <label for="Présentation">Présentation</label>
@@ -58,8 +73,14 @@
                             <input type="file" id="Photo">
                             <p class="help-block">Mettez une photographie de vous !</p>
                         </div>
-                        <button type="submit" class="btn btn-default">Envoyer</button>
+                        <div class="form-group">
+                            <label for="CV">CV</label>
+                            <input type="file" id="CV">
+                            <p class="help-block">Merci de nous envoyer votre CV</p>
+                        </div>
+                        <button type="submit" class="btn btn-default form-group">Envoyer</button>
                 </form>
+                <p class="cacher">L'inscription au concours nécessite le téléchargement de documents.<br/> Veuillez passez sur la version PC du site.</p>
             </div>
         </div>
     </div>
