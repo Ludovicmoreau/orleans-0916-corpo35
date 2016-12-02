@@ -1,0 +1,16 @@
+.cacher{
+    visibility: hidden;
+    font-size: 20px;
+}
+
+
+
+
+@media all and (max-width:500px){
+    .form-group{
+        visibility: hidden;
+    }
+    .cacher{
+        visibility: visible;
+    }
+}
