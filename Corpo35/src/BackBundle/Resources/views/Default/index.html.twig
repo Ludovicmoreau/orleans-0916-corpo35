@@ -1,1 +1,21 @@
-Hello World!
+{% extends 'BackBundle:Default:backLayout.html.twig' %}
+
+
+{% block stylesheet %}
+    {{ parent () }}
+{% endblock %}
+
+
+
+{% block backHeader %}
+    {% include 'BackBundle:Default:backHeader.html.twig' %}
+{% endblock %}
+
+{% block backContent %}
+    {% include 'BackBundle:Default:backIndex.html.twig' %}
+{% endblock %}
+
+
+{% block backFooter %}
+
+{% endblock %}
