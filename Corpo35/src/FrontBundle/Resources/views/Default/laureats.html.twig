@@ -2,6 +2,10 @@
 
 {% block stylesheet %}
     {{ parent() }}
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:200" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/laureats.css') }}">
+    <script src="dist/html5shiv.js"></script>
 {% endblock %}
 
 {% block header %}
@@ -9,36 +13,70 @@
 {% endblock %}
 
 {% block content %}
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:200" rel="stylesheet">
 
-    <div class="container" ng-class="{'no-scroll': selected.length}" ng-app="app" ng-controller="mainCtrl">
-        <div class="page">
-            <div class="grid">
-                <div class="grid-item" ng-repeat="item in boxes">
-                    <box class="box" item="item" on-select="selectBox" ng-class="{'selected': selected[0].item.name == item.name}"></box>
-                </div>
-            </div>
-        </div>
-        <div class="fullscreen-background top-up" ng-show="selected.length" ng-style="{'background-image': 'url(' + selected[0].item.image + ')'}"></div>
-        <div class="scroller" ng-show="selected.length">
-            <a class="close-button" ng-click="clearSelection()">
-                <i class="material-icons">close</i>
-            </a>
-            <h1>{{selected[0].item.name}}</h1>
-            <div big-box ng-repeat="item in selected" class="box on-top" position="item.position" selected="item.item">
-                <img ng-src="{{item.item.image}}" alt="" />
-                <div class="content">
-                    <h2>Lorem ipsum dolor</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime laborum perferendis, ullam minus. Illo ad aliquid ab magni, enim nesciunt at consequuntur dolores explicabo nisi. Dolor, reiciendis suscipit alias nemo.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus consequatur, sit saepe reprehenderit nisi dolorem, voluptates amet quos ab assumenda non id accusamus, dicta soluta laboriosam voluptas fuga sint deleniti. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam officiis minus tenetur ex molestias qui possimus sit facilis dolorum suscipit. Cumque, aperiam inventore nobis? Veniam voluptatibus sapiente ea, voluptate dolores?</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur dicta ducimus ratione reiciendis officia odit omnis distinctio, eveniet et modi fuga nisi voluptatem nihil aliquam ex pariatur possimus repudiandae vero?</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, quos ducimus nobis. Necessitatibus provident impedit, neque quia dolores? Quas, architecto id. Iure distinctio, illum eaque at quia assumenda modi saepe. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero soluta quisquam autem quasi ut ex ab modi. Sit soluta dicta incidunt quaerat tenetur fugiat, natus perspiciatis illo. Totam, quo, minus.</p>
-                </div>
-            </div>
+    <body>
 
-        </div>
-    </div>
+    <div class="container">
+        <div id="gallery row clearfix">
+
+            <div class="gallery-item"><img src="http://placehold.it/200x200.png&text=Katell Plisson" alt="gallery image six" /></div>
+            <div class="gallery-item"><img src="http://placehold.it/200x200.png&text=Juliette Dubois Espinasse" alt="gallery image six" /></div>
+            <div class="gallery-item"><img src="http://placehold.it/200x200.png&text=Ugo Charron6" alt="gallery image six" /></div>
+            <div class="gallery-item"><img src="http://placehold.it/200x200.png&text=Julie Mortreuil" alt="gallery image six" /></div>
+            <div class="gallery-item"><img src="http://placehold.it/200x200.png&text=Ismahen Kahoul" alt="gallery image six" /></div>
+            <div class="gallery-item"><img src="http://placehold.it/200x200.png&text=Jean-Baptiste Darrouzel" alt="gallery image six" /></div>
+            <div class="gallery-item"><img src="http://placehold.it/200x200.png&text=Xavier Biaizot" alt="gallery image six" /></div>
+            <div class="gallery-item"><img src="http://placehold.it/200x200.png&text=Pierre Benard" alt="gallery image six" /></div>
+            <div class="gallery-item"><img src="http://placehold.it/200x200.png&text=Florian Gallo" alt="gallery image six" /></div>
+            <div class="gallery-item"><img src="http://placehold.it/200x200.png&text=Flora Gourdon" alt="gallery image six" /></div>
+            <div class="gallery-item"><img src="http://placehold.it/200x200.png&text=Marie Van de Zande" alt="gallery image six" /></div>
+            <div class="gallery-item"><img src="http://placehold.it/200x200.png&text=Frédérick Lagarde-Marin" alt="gallery image six" /></div>
+            <div class="gallery-item"><img src="http://placehold.it/200x200.png&text=Adeline Monediere" alt="gallery image six" /></div>
+            <div class="gallery-item"><img src="http://placehold.it/200x200.png&text=Eléonore de Staël" alt="gallery image six" /></div>
+            <div class="gallery-item"><img src="http://placehold.it/200x200.png&text=Sabah Dihmane" alt="gallery image six" /></div>
+            <div class="gallery-item"><img src="http://placehold.it/200x200.png&text=Fatiha Ouchen" alt="gallery image six" /></div>
+            <div class="gallery-item"><img src="http://placehold.it/200x200.png&text=Vincent Médran-Navarrete" alt="gallery image six" /></div>
+            <div class="gallery-item"><img src="http://placehold.it/200x200.png&text=Bérénice Watteau" alt="gallery image six" /></div>
+            <div class="gallery-item"><img src="http://placehold.it/200x200.png&text=Delphine Dentraygues" alt="gallery image six" /></div>
+            <div class="gallery-item"><img src="http://placehold.it/200x200.png&text=Lucie Vienot" alt="gallery image six" /></div>
+            <div class="gallery-item"><img src="http://placehold.it/200x200.png&text=Alban Vauvelle" alt="gallery image six" /></div>
+            <div class="gallery-item"><img src="http://placehold.it/200x200.png&text=Wahiba Beloudini" alt="gallery image six" /></div>
+            <div class="gallery-item"><img src="http://placehold.it/200x200.png&text=Anne Dussourt" alt="gallery image six" /></div>
+            <div class="gallery-item"><img src="http://placehold.it/200x200.png&text=Antoinette Annaloro" alt="gallery image six" /></div>
+            <div class="gallery-item"><img src="http://placehold.it/200x200.png&text=Stéphane Deschaintre" alt="gallery image six" /></div>
+            <div class="gallery-item"><img src="http://placehold.it/200x200.png&text=Avana Rakotomanana" alt="gallery image six" /></div>
+            <div class="gallery-item"><img src="http://placehold.it/200x200.png&text=Ophélien François Guigon" alt="gallery image six" /></div>
+            <div class="gallery-item"><img src="http://placehold.it/200x200.png&text=Anatole Lebreton" alt="gallery image six" /></div>
+            <div class="gallery-item"><img src="http://placehold.it/200x200.png&text=Mereyem Kheloujani" alt="gallery image six" /></div>
+            <div class="gallery-item"><img src="http://placehold.it/200x200.png&text=Tanguy Guesnet" alt="gallery image six" /></div>
+            <div class="gallery-item"><img src="http://placehold.it/200x200.png&text=Théo Belmas" alt="gallery image six" /></div>
+            <div class="gallery-item"><img src="http://placehold.it/200x200.png&text=Cécile Muller" alt="gallery image six" /></div>
+            <div class="gallery-item"><img src="http://placehold.it/200x200.png&text=Romain Eripret" alt="gallery image six" /></div>
+            <div class="gallery-item"><img src="http://placehold.it/200x200.png&text=Lucie Barratault" alt="gallery image six" style="font-size: 0.2em" /></div>
+            <div class="gallery-item"><img src="http://placehold.it/200x200.png&text=Jacek Laszczynski" alt="gallery image six" /></div>
+
+        </div><!-- /.gllery -->
+    </div><!-- /.container -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Image from Gallery.</h4>
+                    <br/>
+                    <nav></nav>
+                </div>
+                <div class="modal-body clearfix">
+                    <h4 class='modal-image-caption'></h4>
+                    <img id="modal-image" class="img-responsive" src=""><br/>
+                </div>
+
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    </body>
 
 {% endblock %}
 
