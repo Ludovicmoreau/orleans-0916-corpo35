@@ -6,7 +6,7 @@
 
 
 
-@media all and (max-width:500px){
+@media all and (max-width:800px){
     .form-group{
         visibility: hidden;
     }
