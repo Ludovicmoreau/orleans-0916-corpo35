@@ -6,5 +6,45 @@
 
 {% block backContent %}
 
-   <h2 class="text-center">Bienvenue sur votre page d'administration</h2>
+   <h2 class="titreAdminIndex text-center">Bienvenue sur votre page d'administration</h2>
+
+
+    <div class="tabbable"> <!-- Only required for left/right tabs -->
+        <ul class="nav nav-tabs">
+            <li class="active"><a class="linkNavAdmin fa fa-user-plus fa-1x" href="#candidat" data-toggle="tab">Candidats</a></li>
+            <li><a class="linkNavAdmin fa fa-user-plus fa-1x" href="#jury" data-toggle="tab">Jury</a></li>
+            <li><a class="linkNavAdmin fa fa-calendar fa-1x" href="#agenda" data-toggle="tab">Agenda</a></li>
+            <li><a class="linkNavAdmin fa fa-rss fa-1x" href="#blog" data-toggle="tab">Blog</a></li>
+            <li><a class="linkNavAdmin fa fa-newspaper-o fa-1x" href="#rpresse" data-toggle="tab">Revue de Presse</a></li>
+            <li><a class="linkNavAdmin fa fa-sign-out fa-1x" href="{{ path('index') }}">Retour au site</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="candidat">
+                <a class="linkNavAdmin" href="{{ path('candidat_index') }}">Voir la liste des candidats</a><br/>
+                <a class="linkNavAdmin" href="{{ path('candidat_new') }}">Créer un nouveau candidat</a>
+            </div>
+            <div class="tab-pane" id="jury">
+                <ul>
+                    <li><a class="linkNavAdmin" href="{{ path('jury_index') }}">Voir la liste des jurés</a></li>
+                    <li><a class="linkNavAdmin" href="{{ path('jury_new') }}">Créer un nouveau juré</a></li>
+                </ul>            </div>
+            <div class="tab-pane" id="agenda">
+                <ul>
+                    <li><a class="linkNavAdmin" href="{{ path('agenda_index') }}">Voir l'agenda</a></li>
+                    <li><a class="linkNavAdmin" href="{{ path('agenda_new') }}">Créer un nouvel évènement</a></li>
+                </ul>
+            </div>
+            <div class="tab-pane" id="blog">
+                <ul>
+                    <li><a class="linkNavAdmin" href="{{ path('article_index') }}">Voir la liste des articles</a></li>
+                    <li><a class="linkNavAdmin" href="{{ path('article_new') }}">Créer un nouvel article</a></li>
+                </ul>
+            </div>
+            <div class="tab-pane" id="rpresse">
+                <ul>
+                    <li><a class="linkNavAdmin" href="{{ path('rpresse_index') }}">Voir la liste des revues de presse</a></li>
+                    <li><a class="linkNavAdmin" href="{{ path('rpresse_new') }}">Créer une nouvelle revue de presse</a></li>
+                </ul>            </div>
+        </div>
+    </div>
 {% endblock %}
