@@ -59,5 +59,14 @@ class DefaultController extends Controller
         return $this->render('FrontBundle:Default:concours.html.twig');
 
     }
+
+    /**
+     * @Route("/laureats")
+     */
+    public function laureatsAction()
+    {
+        return $this->render('FrontBundle:Default:laureats.html.twig');
+
+    }
 }
 
