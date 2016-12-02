@@ -10,8 +10,9 @@
                 <div class="text-center">
                     <h2>Bienvenue sur la page d'inscription au concours Corpo35</h2>
                     <p>Sur cette page, merci de renseigner l'ensemble des renseignements demandés fin que votre demande soit bien prise en compte.</p>
+                    <p>Pensez à bien lire le <a href="{{ path('reglement') }}">règlement du concours</a></p>
                 </div>
-                <form METHOD=POST ENCTYPE="text/plain" ACTION="mailto:example@example.com">
+                <form METHOD=POST ENCTYPE="text/plain" >
                         <div class="form-group">
                             <label for="Nom">Nom</label>
                             <input type="text" class="form-control" id="Nom" placeholder="Nom" required="required">
@@ -45,20 +46,19 @@
                             <input type="text" class="form-control" id="Ville" placeholder="Ville" required="required">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            <label for="Présentation">Présentation</label>
+                            <textarea class="form-control" id="Présentation" rows="7"></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputFile">File input</label>
-                            <input type="file" id="exampleInputFile">
-                            <p class="help-block">Example block-level help text here.</p>
+                            <label for="E-mail">E-Mail</label>
+                            <input type="email" class="form-control" id="E-mail" placeholder="E-mail" required="required">
                         </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox"> Check me out
-                            </label>
+                        <div class="form-group">
+                            <label for="Photo">Photographie</label>
+                            <input type="file" id="Photo">
+                            <p class="help-block">Mettez une photographie de vous !</p>
                         </div>
-                        <button type="submit" class="btn btn-default">Submit</button>
+                        <button type="submit" class="btn btn-default">Envoyer</button>
                 </form>
             </div>
         </div>
