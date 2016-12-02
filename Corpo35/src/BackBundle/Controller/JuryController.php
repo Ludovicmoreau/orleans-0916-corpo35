@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 /**
  * Jury controller.
  *
- * @Route("/")
+ * @Route("/jury")
  */
 class JuryController extends Controller
 {
