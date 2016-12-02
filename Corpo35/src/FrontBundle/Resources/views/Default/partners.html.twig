@@ -1,5 +1,11 @@
+{% extends 'FrontBundle:Default:layout.html.twig' %}
 
+{% block stylesheet %}
+    {{ parent() }}
+        <link rel="stylesheet" href="{{ asset('css/partners_style.css') }}">
+{% endblock %}
 
+{% block content %}
 <div class="container-fluid partners">
     <div class="row">
         <div class="col-md-9 col-sm-12 col-xs-12 ">
@@ -7,12 +13,10 @@
                 <div class="col-md-5">
                 <img class="img-responsive damiette1" src="{{ asset('images/35.jpeg') }}" alt="image partenaire 35 rue Damiette"/>
                 </div>
-
                 <div class="col-md-7">
                     <p class="text-center damiette2">La maison de Parfums « 35 rue Damiette » située dans le quartier des Antiquaires à Rouen, est le lieu des expériences olfactives, un lieu de rencontres où l’on vient avec ses souvenirs et ses désirs pour découvrir un parfum, le
                         sien. La boutique propose en exclusivité des fragrances d’exception, des parfums chargés d’histoire, les dernières créations des nez et parfumeurs de renom.</p>
                 </div>
-
                 <div class="col-md-12 ">
                     <h3>UN VOYAGE VERS L’EXCELLENCE, À FLORENCE AVEC </h3>
                     <P>La gamme de la maison Santa Maria Novella datant de 1612 et dont les cosmétiques, essences et parfums célèbres, sont aujourd’hui encore produits en grande partie selon les formules élaborées au cours du XVIe siècle pour Catherine de Medicis.</P>
@@ -20,12 +24,11 @@
                     <P>Les parfums Lubin, maison créée en 1798 à Paris et qui, avec L’Eau de Lubin, reçut les faveurs de l’impératrice Joséphine et de la cour impériale mais aussi ORIZA L.Legrand, Houbigant,</P>
                     <P>Les parfums de la maison d’Orsay, fragrances mythiques du chevalier d’Orsay, artiste complet, alchimiste du luxe et de l’élégance aux flacons de cristal de Lalique ou de Baccarat.</P>
                     <P>La gamme de bougies, de bain, et eaux de parfums Jardins d’Écrivains. Les parfums Lalique, Volnay, </P>
-                    <h4>L’ÉLÉGANCE À L’ANGLAISE AVEC </h4>
+                    <h4 class="test">L’ÉLÉGANCE À L’ANGLAISE AVEC </h4>
                     <P>Le pointu avec les créations contemporaines de James Heeley, parfumeur et designer anglais.</P>
                     <P>Les parfums Floris, parfumeur de la Reine d’Angleterre et dont les secrets olfactifs sont bien gardés depuis 1730.</P>
                     <P>Ainsi que beaucoup d’autres marques confidentielles.</P>
                 </div>
-
             </div>
         </div>
         <div class="col-md-3 col-sm-12 col-xs-12 ">
@@ -87,32 +90,27 @@
                         <p>International Flavors & Fragrances</p>
                     </a>
                 </li>
-
-
             </ul>
         </div>
-
-
-
-
     </div>
-    <!-- modal -->
-    <div class="modal-overlay">
-        <div class="modal">
-
-            <a class="close-modal">
-                <svg viewBox="0 0 20 20">
-                    <path fill="#000000" d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z"></path>
-                </svg>
-            </a><!-- close modal -->
-
-            <div class="modal-content">
-                <h3>Some content here</h3>
-            </div><!-- content -->
-
-        </div><!-- modal -->
-    </div><!-- overlay -->
 </div>
+    <!-- modal -->
+<div class="modal-overlay">
+    <div class="modal">
+
+        <a class="close-modal">
+            <svg viewBox="0 0 20 20">
+                <path fill="#000000" d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z"></path>
+            </svg>
+        </a><!-- close modal -->
+
+        <div class="modal-content">
+            <h3>Some content here</h3>
+        </div><!-- content -->
+
+    </div><!-- modal -->
+</div><!-- overlay -->
+
 <script>
 
     var elements = $('.modal-overlay, .modal');
@@ -126,5 +124,5 @@
     });
 </script>
 
-
+{% endblock %}
 
