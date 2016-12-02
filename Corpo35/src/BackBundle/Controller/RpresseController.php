@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 /**
  * Rpresse controller.
  *
- * @Route("/")
+ * @Route("/rpresse")
  */
 class RpresseController extends Controller
 {

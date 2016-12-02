@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 /**
  * Agenda controller.
  *
- * @Route("/")
+ * @Route("/agenda")
  */
 class AgendaController extends Controller
 {

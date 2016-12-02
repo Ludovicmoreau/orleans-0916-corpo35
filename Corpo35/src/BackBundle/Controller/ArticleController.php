@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 /**
  * Article controller.
  *
- * @Route("/")
+ * @Route("/article")
  */
 class ArticleController extends Controller
 {
