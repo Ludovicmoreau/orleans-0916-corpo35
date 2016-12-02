@@ -1,12 +1,6 @@
 {% extends 'FrontBundle:Default:layout.html.twig' %}
 
 
-{% block stylesheet %}
-    {{ parent () }}
-    <link href="{{ asset('css/partners_style.css')}}" rel="stylesheet">
-{% endblock %}
-
-
 
 {% block header %}
     {% include 'FrontBundle:Default:header.html.twig' %}
@@ -16,7 +10,6 @@
     {% include 'FrontBundle:Default:concours.html.twig' %}
     {% include 'FrontBundle:Default:partners.html.twig' %}
 {% endblock %}
-
 
 {% block footer %}
     {% include 'FrontBundle:Default:footer.html.twig' %}
