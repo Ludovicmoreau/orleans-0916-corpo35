@@ -51,5 +51,13 @@ class DefaultController extends Controller
     }
 
 
+    /**
+     * @Route("/concours")
+     */
+    public function concoursAction()
+    {
+        return $this->render('FrontBundle:Default:concours.html.twig');
+
+    }
 }
 

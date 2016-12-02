@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 /**
  * Candidat controller.
  *
- * @Route("/")
+ * @Route("/candidat")
  */
 class CandidatController extends Controller
 {
