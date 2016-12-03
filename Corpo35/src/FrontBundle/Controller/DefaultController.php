@@ -59,5 +59,13 @@ class DefaultController extends Controller
         return $this->render('FrontBundle:Default:concours.html.twig');
 
     }
+
+    /**
+     * @Route("/blog", name="blog")
+     */
+    public function blogAction()
+    {
+        return $this->render('FrontBundle:Default:blog.html.twig');
+    }
 }
 
