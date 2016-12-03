@@ -1,4 +1,3 @@
-
 .partners{
     width: 80%;
     margin-top: 100px;
@@ -10,10 +9,50 @@
     padding: 0;
 }
 
+.content_left{
+    padding: 0;
+    width: 100%;
+}
 
-.damiette1{
-    display: block;
-    margin: 15px auto;
+.content_right{
+    text-align: center;
+    font-style: italic;
+}
+.row-centered {
+    text-align:center;
+    width: 100%;
+}
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+
+    /* inline-block space fix */
+    margin-right:-4px;
+}
+.col-fixed {
+    /* custom width */
+    width:320px;
+}
+.col-min {
+    /* custom min width */
+    min-width:320px;
+}
+.col-max {
+    /* custom max width */
+    max-width:320px;
+}
+
+
+
+.title{
+    text-align: center;
+    color: white;
+    background: rgb(34, 34, 34);
+
+}
+.paragraphe{
+
 }
 
 #hexGrid {
@@ -23,6 +62,7 @@
     padding:0.866% 0;
     font-family: 'Raleway', sans-serif;
 
+
 }
 #hexGrid:after {
     content: "";
@@ -31,7 +71,7 @@
 }
 .hex {
     position: relative;
-    list-style-type: none;
+
     float: left;
     overflow: hidden;
     visibility: hidden;
@@ -39,6 +79,7 @@
     -webkit-transform: rotate(-60deg) skewY(30deg) translatez(-1px);
     -ms-transform: rotate(-60deg) skewY(30deg) translatez(-1px);
     transform: rotate(-60deg) skewY(30deg) translatez(-1px);
+
 }
 .flip .hex {
     -webkit-transform: rotate(60deg) skewX(30deg) translatez(-1px);
@@ -49,6 +90,7 @@
     position: absolute;
     visibility: visible;
     outline:1px solid transparent; /* fix for jagged edges in FF on hover transition */
+
 }
 .hexIn {
     display:block;
@@ -74,19 +116,22 @@
     width: auto;
     height: 100%;
     margin: 0 auto;
+    border: 1px solid grey;
+    box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.5);
 }
 
-.hex h4, .hex p {
+.hex h6, .hex p {
     width: 102%;
     left:-1%; /* prevent line on the right where background doesn't cover image */
     padding: 5%;
     box-sizing:border-box;
-    background-color: rgba(0, 128, 128, 0.8);
-    font-weight: 300;
+    background-color: rgba(34, 34, 34, .9);
+    font-weight: 500;
     -webkit-transition:  -webkit-transform .2s ease-out, opacity .3s ease-out;
     transition:          transform .2s ease-out, opacity .3s ease-out;
+    color: white;
 }
-.hex h4 {
+.hex h6 {
     bottom: 50%;
     padding-top:50%;
 
@@ -95,7 +140,7 @@
     -ms-transform:translateY(-100%) translatez(-1px);
     transform:translateY(-100%) translatez(-1px);
 }
-.hex h4:after {
+.hex h6:after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -115,7 +160,7 @@
 
 
 /*** HOVER EFFECT  **********************************************************************/
-.hexIn:hover h4, .hexIn:focus h4,
+.hexIn:hover h6, .hexIn:focus h6,
 .hexIn:hover p, .hexIn:focus p{
     -webkit-transform:translateY(0%) translatez(-1px);
     -ms-transform:translateY(0%) translatez(-1px);
@@ -352,166 +397,41 @@
 
 
 
-/* MODAL LOGO*/
+/* MODAL LOGO */
+/* EFFECT SLIDE LEFT CSS*/
 
+#myModal--slideLeft.modal.fade .modal-dialog {
 
-button {
-    background-color: #0D52E9;
-    position: relative;
-    color: #fff;
-    border: none;
-    padding: 1.25em 2em;
-    font-size: 0.75em;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    -webkit-transition: background 0.25s cubic-bezier(0.55, 0, 0.1, 1);
-    transition: background 0.25s cubic-bezier(0.55, 0, 0.1, 1);
-}
-button:hover {
-    background: #0c4ddb;
-}
-button:focus {
-    outline: none;
-}
-
-/**
- * Overlay
- * -- only show for tablet and up
- */
-@media only screen and (min-width: 40em) {
-    .modal-overlay {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: center;
-        -webkit-align-items: center;
-        -ms-flex-align: center;
-        align-items: center;
-        -webkit-box-pack: center;
-        -webkit-justify-content: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 5;
-        background-color: rgba(0, 0, 0, 0.6);
-        opacity: 0;
-        visibility: hidden;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        -webkit-transition: opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1), visibility 0.6s cubic-bezier(0.55, 0, 0.1, 1);
-        transition: opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1), visibility 0.6s cubic-bezier(0.55, 0, 0.1, 1);
-    }
-    .modal-overlay.active {
-        opacity: 1;
-        visibility: visible;
-    }
-}
-/**
- * Modal
- */
-.modal {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    position: relative;
-    margin: 0 auto;
-    background-color: #fff;
-    width: 600px;
-    max-width: 75rem;
-    min-height: 20rem;
-    padding: 1rem;
-    border-radius: 3px;
-    opacity: 0;
-    overflow-y: auto;
-    visibility: hidden;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-transform: scale(1.2);
-    transform: scale(1.2);
-    -webkit-transition: all 0.6s cubic-bezier(0.55, 0, 0.1, 1);
-    transition: all 0.6s cubic-bezier(0.55, 0, 0.1, 1);
-}
-.modal .close-modal {
-    position: absolute;
-    cursor: pointer;
-    top: 5px;
-    right: 15px;
-    opacity: 0;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-transition: opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1), -webkit-transform 0.6s cubic-bezier(0.55, 0, 0.1, 1);
-    transition: opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1), -webkit-transform 0.6s cubic-bezier(0.55, 0, 0.1, 1);
-    transition: opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1), transform 0.6s cubic-bezier(0.55, 0, 0.1, 1);
-    transition: opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1), transform 0.6s cubic-bezier(0.55, 0, 0.1, 1), -webkit-transform 0.6s cubic-bezier(0.55, 0, 0.1, 1);
-    -webkit-transition-delay: 0.3s;
-    transition-delay: 0.3s;
-}
-.modal .close-modal svg {
-    width: 1.75em;
-    height: 1.75em;
-}
-.modal .modal-content {
-    opacity: 0;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-transition: opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1);
-    transition: opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1);
-    -webkit-transition-delay: 0.3s;
-    transition-delay: 0.3s;
-}
-.modal.active {
+    transform: translate3d(-100%, 0, 0);
     visibility: visible;
-    opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1);
-}
-.modal.active .modal-content {
-    opacity: 1;
-}
-.modal.active .close-modal {
-    -webkit-transform: translateY(10px);
-    transform: translateY(10px);
-    opacity: 1;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    margin: 50px auto;
+    top: 10%;
+    left: -6%;
+    width: 65%;
+    padding: 15px 15px 15px 0;
+    background-color: transparent;
+    box-shadow: 0 0 10px black;
 }
 
-/**
- * Mobile styling
- */
-@media only screen and (max-width: 39.9375em) {
-    h1 {
-        font-size: 1.5rem;
-    }
-
-    .modal {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        -webkit-overflow-scrolling: touch;
-        border-radius: 0;
-        -webkit-transform: scale(1.1);
-        transform: scale(1.1);
-        padding: 0 !important;
-    }
-
-    .close-modal {
-        right: 20px !important;
-    }
+#myModal--slideLeft.modal.fade.in .modal-dialog {
+    transform: scale3d(1, 1, 1) translate3d(0, 0px, 0);
+    opacity: 1;
+    background-color: transparent;
+    color: grey;
 }
+
+.modal_logo{
+    with: 100%;
+}
+
+.modal_content+p{
+    border-top: 5px solid #222222;
+}
+.modal_footer{
+    width: 80%;
+}
+
+
