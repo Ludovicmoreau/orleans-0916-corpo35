@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 /**
  * Candidat controller.
  *
- * @Route("/candidat")
+ * @Route("/")
  */
 class CandidatController extends Controller
 {
@@ -51,7 +51,7 @@ class CandidatController extends Controller
             return $this->redirectToRoute('candidat_show', array('id' => $candidat->getId()));
         }
 
-        return $this->render('candidat/new.html.twig', array(
+        return $this->render('BackBundle:Default:formCandidat.html.twig', array(
             'candidat' => $candidat,
             'form' => $form->createView(),
         ));
