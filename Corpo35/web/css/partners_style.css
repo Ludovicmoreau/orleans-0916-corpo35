@@ -17,6 +17,8 @@
 .content_right{
     text-align: center;
     font-style: italic;
+    display: table-cell;
+    width: 100%;
 }
 
 .col-fixed {
@@ -388,17 +390,19 @@
     -moz-transition: all 0.3s;
     transition: all 0.3s;
     margin: 50px auto;
-    left: -6%;
+    top:22%;
+    outline: none;
+    left: -7.5%;
     width: 65%;
     padding: 15px 15px 15px 0;
-    background-color: transparent;
-    box-shadow: 0 0 10px black;
+    background-color: white;
+    box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.3);
 }
 
 #myModal--slideLeft.modal.fade.in .modal-dialog {
     transform: scale3d(1, 1, 1) translate3d(0, 0px, 0);
     opacity: 1;
-    background-color: transparent;
+    background-color: white;
     color: grey;
 }
 
@@ -412,8 +416,63 @@
 .modal_footer{
     width: 80%;
 }
-
-
+dt{
+    padding: 15px 0 15px 0;
+}
+.close-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #000000;
+    left: 104%;
+    top: 8%;
+    margin-top: -75px;
+    margin-left: -75px;
+    position: absolute;
+    display: block;
+    z-index: 200;
+    text-indent: -9999px;
+}
+.close-button:before,
+.close-button:after {
+    content: '';
+    width: 55%;
+    height: 2px;
+    background: #ffffff;
+    position: absolute;
+    top: 48%;
+    left: 22%;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+.close-button:after {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+.close-button:hover:before,
+.close-button:hover:after {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
 
 
 
