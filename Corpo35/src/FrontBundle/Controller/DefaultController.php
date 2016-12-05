@@ -76,5 +76,16 @@ class DefaultController extends Controller
         return $this->render('FrontBundle:Default:laureats.html.twig');
 
     }
+    /**
+     * @Route("/archives", name="archives")
+     */
+    public function archivesAction()
+    {
+        return $this->render('FrontBundle:Default:archives.html.twig');
+    }
+
+
+
 }
+
 
