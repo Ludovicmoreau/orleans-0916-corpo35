@@ -1,16 +1,22 @@
-{% extends 'base.html.twig' %}
+{% extends 'BackBundle:Default:backLayout.html.twig' %}
 
-{% block body %}
-    <h1>Candidat creation</h1>
-
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('candidat_index') }}">Back to the list</a>
-        </li>
-    </ul>
+{% block content %}
+    <h2 class="text-center">Créer un nouveau candidat</h2>
+        <div class="container">
+            <div class="well">
+                {{ form_start(form) }}
+                    {{ form_widget(form) }}
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <input type="submit" value="Créer" class="btn-primary btn-lg center-block"/>
+                        </div>
+                        <div class="col-xs-6">
+                            <a href="{{ path('backIndex') }}">
+                            <input type="button" class="btn-danger btn-lg center-block" value="Retour">
+                            </a>
+                        </div>
+                    </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
 {% endblock %}

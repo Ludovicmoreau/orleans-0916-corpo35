@@ -30,7 +30,7 @@ section{
 h2{
     color: rgb(130,130,130);
     margin-bottom: .4em;
-    font-weight: 0;5em;
+    font-weight: bold;
     padding: 0;
 }
 div.text-concours+div.text-concours{
