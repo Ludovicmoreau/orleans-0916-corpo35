@@ -17,7 +17,7 @@ class CandidatController extends Controller
     /**
      * Lists all candidat entities.
      *
-     * @Route("/", name="candidat_index")
+     * @Route("/list", name="candidat_index")
      * @Method("GET")
      */
     public function indexAction()
@@ -51,7 +51,7 @@ class CandidatController extends Controller
             return $this->redirectToRoute('candidat_show', array('id' => $candidat->getId()));
         }
 
-        return $this->render('BackBundle:Default:formCandidat.html.twig', array(
+        return $this->render('candidat/new.html.twig', array(
             'candidat' => $candidat,
             'form' => $form->createView(),
         ));
