@@ -84,6 +84,13 @@ class DefaultController extends Controller
         return $this->render('FrontBundle:Default:archives.html.twig');
     }
 
+    /**
+     * @Route("/contact", name="contact")
+     */
+    public function contactAction()
+    {
+        return $this->render('FrontBundle:Default:contact.html.twig');
+    }
 
 
 }
