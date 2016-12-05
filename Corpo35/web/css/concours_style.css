@@ -4,18 +4,20 @@
 }
 h1{
     display: inline-block;
+    font-size: 2em;
 }
-.title {
-    color:white;
-   padding: 30px;
-
+.title-concours-first{
+    margin: 0;
+    padding: 0;
+}
+.title-concours {
+    color: black;
 }
 a:hover{
     color: rgb(190,190,190);
 }
 section{
     padding: 40px;
-    background-color: rgb(0, 0, 0);
 }
 .wrap{
     -webkit-columns: 300px;
@@ -28,17 +30,17 @@ section{
     padding: 0;
 }
 h2{
-    color: rgb(130,130,130);
+    color: black;
     margin-bottom: .4em;
+    font-size: 1.5em;
     font-weight: bold;
     padding: 0;
 }
 div.text-concours+div.text-concours{
-    margin-top: .7em;
+    margin-top: 0;
 }
 article{
     padding: 30px;
-    background-color: rgb(245, 245, 245);
     -webkit-column-break-inside: avoid;
     page-break-inside: avoid;
     break-inside: avoid;
