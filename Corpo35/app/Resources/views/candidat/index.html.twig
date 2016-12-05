@@ -6,8 +6,15 @@
 {% endblock %}
 
 {% block content %}
-    <h2 class="text-center">Liste des candidats</h2>
-    <div class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <h2 class="text-center">Liste des candidats</h2>
+        </div>
+        <div class="row linkBackListcandidat">
+            <a href="{{ path('backIndex') }}">Retour à l'accueil</a>
+        </div>
+    </div>
+    <div class="container">
         <div class="row">
             {% for candidat in candidats %}
                 <div class="col-xs-3 well blockCandidat">
