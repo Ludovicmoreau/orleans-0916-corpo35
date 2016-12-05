@@ -1,0 +1,10 @@
+{% extends 'FrontBundle:Default:index.html.twig' %}
+
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/archives.css') }}">
+{% endblock %}
+
+{% block content %}
+    <h1 class="text-center">Voir les différentes sessions d'archives</h1>
+{% endblock %}
