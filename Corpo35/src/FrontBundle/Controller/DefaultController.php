@@ -69,7 +69,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/laureats")
+     * @Route("/laureats", name="laureats")
      */
     public function laureatsAction()
     {
