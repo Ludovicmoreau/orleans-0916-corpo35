@@ -1,59 +1,88 @@
-{% extends 'base.html.twig' %}
+{% extends 'BackBundle:Default:backLayout.html.twig' %}
 
-{% block body %}
-    <h1>Candidats list</h1>
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/listCandidatStyle.css') }}">
+{% endblock %}
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Prenom</th>
-                <th>Numrue</th>
-                <th>Adresse</th>
-                <th>Ville</th>
-                <th>Cp</th>
-                <th>Formation</th>
-                <th>Profession</th>
-                <th>Presentation</th>
-                <th>Mail</th>
-                <th>Decision</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for candidat in candidats %}
-            <tr>
-                <td><a href="{{ path('candidat_show', { 'id': candidat.id }) }}">{{ candidat.id }}</a></td>
-                <td>{{ candidat.nom }}</td>
-                <td>{{ candidat.prenom }}</td>
-                <td>{{ candidat.numrue }}</td>
-                <td>{{ candidat.adresse }}</td>
-                <td>{{ candidat.ville }}</td>
-                <td>{{ candidat.cp }}</td>
-                <td>{{ candidat.formation }}</td>
-                <td>{{ candidat.profession }}</td>
-                <td>{{ candidat.presentation }}</td>
-                <td>{{ candidat.mail }}</td>
-                <td>{% if candidat.decision %}Yes{% else %}No{% endif %}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('candidat_show', { 'id': candidat.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('candidat_edit', { 'id': candidat.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+{% block content %}
+    <h2 class="text-center">Liste des candidats</h2>
+    <div class="container-fluid">
+        <div class="row">
+            {% for candidat in candidats %}
+                <div class="col-xs-3 well blockCandidat">
+                    <h3 class="text-center">{{ candidat.nom }} {{ candidat.prenom }}</h3>
+                    <p>{{ candidat.numrue }} {{ candidat.adresse }} {{ candidat.ville }} {{ candidat.cp }}</p>
+                    <p>{{ candidat.mail }}</p>
+                    <p>{{ candidat.formation }}</p>
+                    <p>{{ candidat.profession }}</p>
+                    <p>{{ candidat.presentation }}</p>
+                    <p>Candidat validé: {% if candidat.decision %}Yes{% else %}No{% endif %}</p>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <p><a href="{{ path('candidat_show', { 'id': candidat.id }) }}">voir en détail</a></p>
+                        </div>
+                        <div class="col-xs-6">
+                            <p><a href="{{ path('candidat_edit', { 'id': candidat.id }) }}">éditer</a></p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {#<h1>Candidats list</h1>#}
 
-    <ul>
-        <li>
-            <a href="{{ path('candidat_new') }}">Create a new candidat</a>
-        </li>
-    </ul>
+    {#<table>#}
+        {#<thead>#}
+            {#<tr>#}
+                {#<th>Id</th>#}
+                {#<th>Nom</th>#}
+                {#<th>Prenom</th>#}
+                {#<th>Numrue</th>#}
+                {#<th>Adresse</th>#}
+                {#<th>Ville</th>#}
+                {#<th>Cp</th>#}
+                {#<th>Formation</th>#}
+                {#<th>Profession</th>#}
+                {#<th>Presentation</th>#}
+                {#<th>Mail</th>#}
+                {#<th>Decision</th>#}
+                {#<th>Actions</th>#}
+            {#</tr>#}
+        {#</thead>#}
+        {#<tbody>#}
+        {#{% for candidat in candidats %}#}
+            {#<tr>#}
+                {#<td><a href="{{ path('candidat_show', { 'id': candidat.id }) }}">{{ candidat.id }}</a></td>#}
+                {#<td>{{ candidat.nom }}</td>#}
+                {#<td>{{ candidat.prenom }}</td>#}
+                {#<td>{{ candidat.numrue }}</td>#}
+                {#<td>{{ candidat.adresse }}</td>#}
+                {#<td>{{ candidat.ville }}</td>#}
+                {#<td>{{ candidat.cp }}</td>#}
+                {#<td>{{ candidat.formation }}</td>#}
+                {#<td>{{ candidat.profession }}</td>#}
+                {#<td>{{ candidat.presentation }}</td>#}
+                {#<td>{{ candidat.mail }}</td>#}
+                {#<td>{% if candidat.decision %}Yes{% else %}No{% endif %}</td>#}
+                {#<td>#}
+                    {#<ul>#}
+                        {#<li>#}
+                            {#<a href="{{ path('candidat_show', { 'id': candidat.id }) }}">show</a>#}
+                        {#</li>#}
+                        {#<li>#}
+                            {#<a href="{{ path('candidat_edit', { 'id': candidat.id }) }}">edit</a>#}
+                        {#</li>#}
+                    {#</ul>#}
+                {#</td>#}
+            {#</tr>#}
+        {#{% endfor %}#}
+        {#</tbody>#}
+    {#</table>#}
+
+    {#<ul>#}
+        {#<li>#}
+            {#<a href="{{ path('candidat_new') }}">Create a new candidat</a>#}
+        {#</li>#}
+    {#</ul>#}
 {% endblock %}

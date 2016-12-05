@@ -7,86 +7,93 @@
 
 {% block content %}
 <div class="container-fluid partners">
-    <div class="row">
-        <div class="col-md-9 col-sm-12 col-xs-12 ">
-            <div class="row flex-items-xs-middle">
-                <div class="col-md-5">
-                <img class="img-responsive damiette1" src="{{ asset('images/35.jpeg') }}" alt="image partenaire 35 rue Damiette"/>
+    <div class="row content">
+
+            <div class="col-md-10 col-sm-12 col-xs-12" id="logo_modal">
+                <div class="row ">
+                    <div class="col-md-4">
+                        <img class="content_left" src="{{ asset('images/35.jpeg') }}" alt="image partenaire 35 rue Damiette"/>
+                    </div>
+                    <div class="col-md-8">
+                        <p class="lead text-responsive content_right">La maison de Parfums « 35 rue Damiette » située dans le quartier des Antiquaires à Rouen, est le lieu des expériences olfactives, un lieu de rencontres où l’on vient avec ses souvenirs et ses désirs pour découvrir un parfum, le
+                            sien. La boutique propose en exclusivité des fragrances d’exception, des parfums chargés d’histoire, les dernières créations des nez et parfumeurs de renom.</p>
+                    </div>
                 </div>
-                <div class="col-md-7">
-                    <p class="text-center damiette2">La maison de Parfums « 35 rue Damiette » située dans le quartier des Antiquaires à Rouen, est le lieu des expériences olfactives, un lieu de rencontres où l’on vient avec ses souvenirs et ses désirs pour découvrir un parfum, le
-                        sien. La boutique propose en exclusivité des fragrances d’exception, des parfums chargés d’histoire, les dernières créations des nez et parfumeurs de renom.</p>
+                <div class="row">
+                    <div class="col-md-4 content_center">
+                        <h5 class="title">UN VOYAGE VERS L’EXCELLENCE, À FLORENCE </h5>
+                        <p class="paragraphe">La gamme de la maison Santa Maria Novella datant de 1612 et dont les cosmétiques, essences et parfums célèbres, sont aujourd’hui encore produits en grande partie selon les formules élaborées au cours du XVIe siècle pour Catherine de Medicis.</p>
+                    </div>
+                    <div class="col-md-4 content_center">
+                        <h5 class="title">LE LUXE À LA FRANÇAIS </h5>
+                        <dd>Les parfums Lubin, maison créée en 1798 à Paris et qui, avec L’Eau de Lubin, reçut les faveurs de l’impératrice Joséphine et de la cour impériale mais aussi ORIZA L.Legrand, Houbigant,</dd>
+                        <dd>Les parfums de la maison d’Orsay, fragrances mythiques du chevalier d’Orsay, artiste complet, alchimiste du luxe et de l’élégance aux flacons de cristal de Lalique ou de Baccarat.</dd>
+                        <dd>La gamme de bougies, de bain, et eaux de parfums Jardins d’Écrivains. Les parfums Lalique, Volnay, <dd>
+                    </div>
+                    <div class="col-md-4 content_center">
+                        <h5 class="title">L’ÉLÉGANCE À L’ANGLAISE </h5>
+                        <dd>Le pointu avec les créations contemporaines de James Heeley, parfumeur et designer anglais.<dd>
+                        <dd>Les parfums Floris, parfumeur de la Reine d’Angleterre et dont les secrets olfactifs sont bien gardés depuis 1730.<dd>
+                        <dd>Ainsi que beaucoup d’autres marques confidentielles.</dd>
+                    </div>
                 </div>
-                <div class="col-md-12 ">
-                    <h3>UN VOYAGE VERS L’EXCELLENCE, À FLORENCE AVEC </h3>
-                    <P>La gamme de la maison Santa Maria Novella datant de 1612 et dont les cosmétiques, essences et parfums célèbres, sont aujourd’hui encore produits en grande partie selon les formules élaborées au cours du XVIe siècle pour Catherine de Medicis.</P>
-                    <h3>LE LUXE À LA FRANÇAISE AVEC </h3>
-                    <P>Les parfums Lubin, maison créée en 1798 à Paris et qui, avec L’Eau de Lubin, reçut les faveurs de l’impératrice Joséphine et de la cour impériale mais aussi ORIZA L.Legrand, Houbigant,</P>
-                    <P>Les parfums de la maison d’Orsay, fragrances mythiques du chevalier d’Orsay, artiste complet, alchimiste du luxe et de l’élégance aux flacons de cristal de Lalique ou de Baccarat.</P>
-                    <P>La gamme de bougies, de bain, et eaux de parfums Jardins d’Écrivains. Les parfums Lalique, Volnay, </P>
-                    <h4 class="test">L’ÉLÉGANCE À L’ANGLAISE AVEC </h4>
-                    <P>Le pointu avec les créations contemporaines de James Heeley, parfumeur et designer anglais.</P>
-                    <P>Les parfums Floris, parfumeur de la Reine d’Angleterre et dont les secrets olfactifs sont bien gardés depuis 1730.</P>
-                    <P>Ainsi que beaucoup d’autres marques confidentielles.</P>
-                </div>
-            </div>
+
         </div>
-        <div class="col-md-3 col-sm-12 col-xs-12 ">
+        <div class="col-md-2 col-sm-12 col-xs-12">
             <ul id="hexGrid">
                 <li class="hex">
-                      <a class="hexIn" href="#">
-                        <img class="img-responsive logo" src="{{ asset('images/isipca.png') }}" alt="image partenaire isipca"/>
-                        <h4>ISIPCA</h4>
+                    <a class="btn btn-primary btn-lg hexIn" data-toggle="modal" data-target="#myModal--slideLeft" href="#modal">
+                        <img src="{{ asset('images/isipca.jpeg') }}" alt="image partenaire isipca"/>
+                        <h6 >ISIPCA</h6>
                         <p>Form senses to expertise</p>
-                    </a>
-
-                </li>
-                <li class="hex">
-                    <a class="hexIn" href="#">
-                        <img class="img-responsive logo" src="{{ asset('images/coptis.jpeg') }}" alt="image partenaire coptis"/>
-                        <h4>Coptis</h4>
-                        <p>software soutions for Cosmetics R&D</p>
-                    </a>
-                </li>
-                <li class="hex">
-                    <a class="hexIn" href="#">
-                        <img class="img-responsive logo" src="{{ asset('images/auparfum.png') }}" alt="image partenaire auparfum"/>
-                        <h4>Au Parfum</h4>
-                        <p>Sentez inspiré</p>
-                    </a>
-                </li>
-                <li class="hex">
-                    <a class="hexIn" href="#">
-                        <img class="img-responsive logo" src="{{ asset('images/ecomundo.jpeg') }}" alt="image partenaire ecomundo"/>
-                        <h4>Eco Mundo</h4>
-                        <p>Innovante, dynamique, experte, réactive </p>
                     </a>
                 </li>
                 <li class="hex">
                     <a class="hexIn" href="#">
                         <img class="img-responsive logo" src="{{ asset('images/cosmed.png') }}" alt="image partenaire cosmed"/>
-                        <h4>Cosmed</h4>
+                        <h6>Cosmed</h6>
                         <p>The french Cosmetics Association for SMEs</p>
                     </a>
                 </li>
                 <li class="hex">
                     <a class="hexIn" href="#">
-                        <img class="img-responsive logo" src="{{ asset('images/alternative.jpeg') }}" alt="image partenaire alternative"/>
-                        <h4>Alternative</h4>
+                        <img class="img-responsive logo" src="{{ asset('images/auparfum.jpeg') }}" alt="image partenaire auparfum"/>
+                        <h6>Au Parfum</h6>
+                        <p>Sentez inspiré</p>
+                    </a>
+                </li>
+                <li class="hex">
+                    <a class="hexIn" href="#">
+                        <img class="img-responsive logo" src="{{ asset('images/ecomundo.png') }}" alt="image partenaire ecomundo"/>
+                        <h6>Eco Mundo</h6>
+                        <p>Innovante, dynamique, experte, réactive </p>
+                    </a>
+                </li>
+                <li class="hex">
+                    <a class="hexIn" href="#">
+                        <img class="img-responsive logo" src="{{ asset('images/coptis.jpeg') }}" alt="image partenaire coptis"/>
+                        <h6>Coptis</h6>
+                        <p>software soutions for Cosmetics R&D</p>
+                    </a>
+                </li>
+                <li class="hex">
+                    <a class="hexIn" href="#">
+                        <img class="img-responsive logo" src="{{ asset('images/alternative.png') }}" alt="image partenaire alternative"/>
+                        <h6>Alternative</h6>
                         <p>Fragrances & Beauty</p>
                     </a>
                 </li>
                 <li class="hex">
                     <a class="hexIn" href="#">
                         <img class="img-responsive logo" src="{{ asset('images/saverglass.jpeg') }}" alt="image partenaire saverglass"/>
-                        <h4>SaverGlass</h4>
+                        <h6>SaverGlass</h6>
                         <p>ESPRIT DESIGN</p>
                     </a>
                 </li>
                 <li class="hex">
                     <a class="hexIn" href="#">
-                        <img class="img-responsive logo" src="{{ asset('images/IFF.png') }}" alt="image partenaire IFF"/>
-                        <h4>IFF</h4>
+                        <img class="img-responsive logo" src="{{ asset('images/IFF.jpeg') }}" alt="image partenaire IFF"/>
+                        <h6>IFF</h6>
                         <p>International Flavors & Fragrances</p>
                     </a>
                 </li>
@@ -94,34 +101,80 @@
         </div>
     </div>
 </div>
-    <!-- modal -->
-<div class="modal-overlay">
-    <div class="modal">
-
-        <a class="close-modal">
-            <svg viewBox="0 0 20 20">
-                <path fill="#000000" d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z"></path>
-            </svg>
-        </a><!-- close modal -->
-
-        <div class="modal-content">
-            <h3>Some content here</h3>
-        </div><!-- content -->
-
-    </div><!-- modal -->
-</div><!-- overlay -->
+    <!-- Modal -->
+<div class="modal fade  " id="myModal--slideLeft"  data-backdrop="false" data-target="#logo_modal" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="container-fluid modal_logo">
+            <div class="row ">
+                <button type="button" class="close-button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <div class="col-md-4 col-centered" >
+                    <img class="content_left" src="{{ asset('images/isipca.jpeg') }}" alt="image partenaire isipca"/>
+                </div>
+                <div class="col-md-8 col-centered">
+                    <p class="lead content_right">Fondé en 1970 à l’initiative de Jean-Jacques Guerlain, ISIPCA est une des écoles d’enseignement supérieur gérée par la CCI de Paris Ile-de-France.</p>
+                </div>
+            </div>
+            <div class="row modal_body">
+                <div class="col-md-4 modal_content">
+                    <dt>ISIPCA est la référence nationale et internationale dans la formation et la recherche des domaines du parfum, de la cosmétique et de l’aromatique alimentaire.</dt>
+                </div>
+                <div class="col-md-4 modal_content">
+                    <dt>3 prestations au service des entreprises de l’industrie de la parfumerie, de la cosmétique et de l’aromatique alimentaire : </dt>
+                    <dd>- 10  formations post BAC à BAC + 6 dont 8 en apprentissage (Filière scientifique et filière commerciale). </dd>
+                    <dd>- Un catalogue de formation continue (inter et intra entreprise). </dd>
+                    <dd>- Des prestations de services et de recherches avec un centre de recherche dédié.</dd>
+                </div>
+                <div class="col-md-4 modal_content">
+                    <dt>14 laboratoires spécialisés en parfumerie, fine et fonctionnelle, cosmétiques et maquillage, aromatiquealimentaire, analyses physico-chimiques, analyse sensorielle.</dt>
+                    <dt>Un réseau unique d’entreprises partenaires. Un réseau de près de 500 entreprises.</dt>
+                    <dt>80% des étudiants sortants en 2014 ont trouvé un emploi dans les 6 mois.</dt>
+                </div>
+            </div>
+            <div class="modal_footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p><i class="fa fa-globe" aria-hidden="true"></i><a href="https://www.isipca.fr" alt="site Isipca"/></p>
+                        </div>
+                        <div class="col-md-4">
+                            <p><i class="fa fa-envelope-o fa-1x linkNavbar" aria-hidden="true"></i> Paul du Foupdufou@isipca.fr</p>
+                        </div>
+                        <div class="col-md-4">
+                            <p><i class="fa fa-phone" aria-hidden="true"></i> 01 39 23 70 27</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script>
+    // Get the modal
+    var modal = document.getElementById('myModal');
 
-    var elements = $('.modal-overlay, .modal');
+    // Get the button that opens the modal
+    var btn = document.getElementById("hexIn");
 
-    $('button').click(function(){
-        elements.addClass('active');
-    });
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
 
-    $('.close-modal').click(function(){
-        elements.removeClass('active');
-    });
+    // When the user clicks the button, open the modal
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
 </script>
 
 {% endblock %}

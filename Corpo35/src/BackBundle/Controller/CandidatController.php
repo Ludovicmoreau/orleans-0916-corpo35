@@ -10,14 +10,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 /**
  * Candidat controller.
  *
- * @Route("/candidat")
+ * @Route("/")
  */
 class CandidatController extends Controller
 {
     /**
      * Lists all candidat entities.
      *
-     * @Route("/", name="candidat_index")
+     * @Route("/list", name="candidat_index")
      * @Method("GET")
      */
     public function indexAction()
