@@ -76,7 +76,7 @@ class Promotion
      *
      */public function setAnnee($annee)
     {
-    $this->annee = $annee;
+        $this->annee = $annee;
     }
 
     /**
