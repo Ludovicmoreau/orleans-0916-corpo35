@@ -10,9 +10,15 @@
         <div class="row">
             <h2 class="text-center">Liste des candidats</h2>
         </div>
+        {% if is_granted ('ROLE_ADMIN') %}
         <div class="row linkBackListcandidat">
             <a href="{{ path('backIndex') }}">Retour à l'accueil</a>
         </div>
+            {% else %}
+                <div class="row linkBackListcandidat">
+                    <a href="{{ path('backJury') }}">Retour à l'accueil</a>
+                </div>
+        {% endif %}
     </div>
     <div class="container">
         <div class="row">
@@ -24,6 +30,7 @@
                     <p>{{ candidat.formation }}</p>
                     <p>{{ candidat.profession }}</p>
                     <p>{{ candidat.presentation }}</p>
+                    <p>{{ promotion.annee }}</p>
                     <p>Candidat validé: {% if candidat.decision %}Yes{% else %}No{% endif %}</p>
                     <div class="row">
                         <div class="col-xs-6">
