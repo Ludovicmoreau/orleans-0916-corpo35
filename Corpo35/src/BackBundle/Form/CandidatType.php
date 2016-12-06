@@ -2,6 +2,7 @@
 
 namespace BackBundle\Form;
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -27,7 +28,7 @@ class CandidatType extends AbstractType
         $builder
             ->add('nom', TextType::class, array('label'=>'Nom', 'attr'=>array('placeholder'=>'Votre Nom *', 'class'=>'form-control', 'aria-label'=> 'Votre Nom')))
             ->add('prenom', TextType::class, array('label'=>'Prénom', 'attr'=>array('placeholder'=>'Votre Prénom *', 'class'=>'form-control', 'aria-label'=> 'Votre Prénom')))
-            ->add('numrue', IntegerType::class, array('label'=>'Numéro', 'attr'=>array('class'=>'form-control')))
+            ->add('numrue', IntegerType::class, array('label'=>'Numéro de rue', 'attr'=>array('class'=>'form-control')))
             ->add('adresse', TextType::class, array('label'=>'Adresse', 'attr'=>array('placeholder'=>'Votre adresse *', 'class'=>'form-control', 'aria-label'=> 'Votre adresse')))
             ->add('ville', TextType::class, array('label'=>'Ville', 'attr'=>array('placeholder'=>'Votre ville *', 'class'=>'form-control', 'aria-label'=> 'Votre ville')))
             ->add('cp', IntegerType::class, array('label'=>'Code Postal', 'attr'=>array('class'=>'form-control', 'aria-label'=> 'Votre code postal' )))
@@ -35,7 +36,7 @@ class CandidatType extends AbstractType
             ->add('profession', TextType::class, array('label'=>'Profession','attr'=>array('placeholder'=>'Votre profession *', 'class'=>'form-control', 'aria-label'=> 'Votre profession')))
             ->add('presentation', TextareaType::class, array('label'=>'Présentation', 'attr'=>array('class'=>'form-control input-lg', 'aria-label'=>'Vitre présentation')))
             ->add('mail', EmailType::class, array('label'=>'Email', 'attr'=>array('placeholder'=>'toto@monmail.com', 'class'=>'form-control', 'aria-label'=>'Votre mail')))
-            ->add('promotion')
+            ->add('promotion', EntityType::class, array('class'=>'BackBundle\Entity\Promotion', 'choice_label'=>'year'))
             ->add('decision', CheckboxType::class, array('label'=>'Cocher pour valider le candidat', 'required' => false))
         ;
     }
