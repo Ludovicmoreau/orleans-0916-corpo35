@@ -3,6 +3,7 @@
 namespace BackBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * Promotion
@@ -20,6 +21,13 @@ class Promotion
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
+    /**
+     * @var DateTime
+     *
+     * @ORM\Column(name="annee", type="datetime")
+     */
+    private $annee;
 
     /**
      * @var bool
@@ -61,5 +69,21 @@ class Promotion
     public function getArchivage()
     {
         return $this->archivage;
+    }
+
+    /**
+     * @param DateTime $annee
+     *
+     */public function setAnnee($annee)
+    {
+    $this->annee = $annee;
+    }
+
+    /**
+     * @return DateTime
+     *
+     */public function getAnnee()
+    {
+    return $this->annee;
     }
 }

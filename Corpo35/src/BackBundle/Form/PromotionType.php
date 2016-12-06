@@ -3,10 +3,13 @@
 namespace BackBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Date;
+use Symfony\Component\Validator\Constraints\DateTime;
 
-class AgendaType extends AbstractType
+class PromotionType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -14,9 +17,10 @@ class AgendaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('date')
-            ->add('lieu')
-            ->add('evenement')        ;
+            ->add('archivage')
+            ->add('annee', DateType::class, array('label'=>'année', 'attr'=>array('choice'=>'years')))
+
+        ;
     }
     
     /**
@@ -25,7 +29,7 @@ class AgendaType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'BackBundle\Entity\Agenda'
+            'data_class' => 'BackBundle\Entity\Promotion'
         ));
     }
 
@@ -34,7 +38,7 @@ class AgendaType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'backbundle_agenda';
+        return 'backbundle_promotion';
     }
 
 
