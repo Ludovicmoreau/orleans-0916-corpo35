@@ -8,6 +8,7 @@
             <tr>
                 <th>Id</th>
                 <th>Archivage</th>
+                <th>Année</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -16,6 +17,7 @@
             <tr>
                 <td><a href="{{ path('promotion_show', { 'id': promotion.id }) }}">{{ promotion.id }}</a></td>
                 <td>{% if promotion.archivage %}Yes{% else %}No{% endif %}</td>
+                <td>{{ promotion.year }}</td>
                 <td>
                     <ul>
                         <li>
