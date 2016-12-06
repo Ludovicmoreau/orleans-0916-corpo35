@@ -5,16 +5,8 @@ namespace BackBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
-class DefaultController extends Controller
+class BackJuryController extends Controller
 {
-    /**
-     * @Route("/", name="backIndex")
-     */
-    public function indexAction()
-    {
-        return $this->render('BackBundle:Default:backIndex.html.twig');
-    }
-
     /**
      * @Route("/", name="backJury")
      */

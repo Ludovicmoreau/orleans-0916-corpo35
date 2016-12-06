@@ -12,6 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Candidat
 {
+
     /**
      * @ORM\OneToMany(targetEntity="Vote", mappedBy="candidat")
      */
@@ -59,8 +60,10 @@ class Candidat
      * @var int
      *
      * @ORM\Column(name="numrue", type="integer")
+     *
      */
     private $numrue;
+
 
     /**
      * @var string
@@ -80,6 +83,7 @@ class Candidat
      * @var int
      *
      * @ORM\Column(name="cp", type="integer")
+     *
      */
     private $cp;
 
