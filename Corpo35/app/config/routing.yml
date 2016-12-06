@@ -55,3 +55,8 @@ rpresse:
     resource: "@BackBundle/Controller/RpresseController.php"
     type:     annotation
     prefix:   /admin
+
+backjury:
+    resource: "@BackBundle/Controller/BackJuryController.php"
+    type:     annotation
+    prefix:   /jury
