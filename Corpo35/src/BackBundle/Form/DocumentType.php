@@ -5,8 +5,9 @@ namespace BackBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use BackBundle\Entity\Candidat;
 
-class AgendaType extends AbstractType
+class DocumentType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -14,9 +15,9 @@ class AgendaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('date')
-            ->add('lieu')
-            ->add('evenement')        ;
+            ->add('type')
+            ->add('contenu')
+            ->add('candidat')        ;
     }
     
     /**
@@ -25,7 +26,7 @@ class AgendaType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'BackBundle\Entity\Agenda'
+            'data_class' => 'BackBundle\Entity\Document'
         ));
     }
 
@@ -34,7 +35,7 @@ class AgendaType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'backbundle_agenda';
+        return 'backbundle_document';
     }
 
 
