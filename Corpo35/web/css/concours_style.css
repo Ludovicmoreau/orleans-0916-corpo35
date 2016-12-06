@@ -25,16 +25,16 @@ h1{
 h2{
     margin-bottom: .4em;
     padding: 0;
+    font-size: 1.6em;
 }
 .titre-concours{
-    font-size: 1.6em;
+    font-size: 1.4em;
 }
 div.text-concours+div.text-concours{
     margin-top: 0;
 }
 article{
     padding: 30px;
-    background-color: rgb(245, 245, 245);
     -webkit-column-break-inside: avoid;
     page-break-inside: avoid;
     break-inside: avoid;
