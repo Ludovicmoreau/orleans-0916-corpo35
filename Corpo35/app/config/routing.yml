@@ -39,7 +39,7 @@ agenda:
 candidat:
     resource: "@BackBundle/Controller/CandidatController.php"
     type:     annotation
-    prefix:   /admin
+    prefix:   /jury
 
 jury:
     resource: "@BackBundle/Controller/JuryController.php"
