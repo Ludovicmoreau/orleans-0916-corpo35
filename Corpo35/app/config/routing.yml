@@ -60,3 +60,8 @@ backjury:
     resource: "@BackBundle/Controller/BackJuryController.php"
     type:     annotation
     prefix:   /jury
+
+backpartenaire:
+    resource: "@BackBundle/Controller/BackPartenaireController.php"
+    type:     annotation
+    prefix:   /partenaire
