@@ -3,6 +3,8 @@
 namespace BackBundle\Controller;
 
 use BackBundle\Entity\Candidat;
+use BackBundle\Entity\Document;
+use BackBundle\Entity\Validation;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -41,6 +43,11 @@ class CandidatController extends Controller
     public function newAction(Request $request)
     {
         $candidat = new Candidat();
+
+        $doc = new Document();
+        $candidat->addDocument($doc);
+
+
         $form = $this->createForm('BackBundle\Form\CandidatType', $candidat);
         $form->handleRequest($request);
 

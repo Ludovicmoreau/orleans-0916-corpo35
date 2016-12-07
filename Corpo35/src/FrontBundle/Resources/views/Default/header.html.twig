@@ -26,6 +26,8 @@
 
                         {% if is_granted ('ROLE_ADMIN') %}
                             <li><a href="{{ path('backIndex') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Administration</a></li>
+                            <li><a href="{{ path('backJury') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Jury</a></li>
+                            <li><a href="{{ path('backPartenaire') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Partenaires</a></li>
                         {% elseif is_granted ('ROLE_JURY') %}
                             <li><a href="{{ path('backJury') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Jury</a></li>
                         {% elseif is_granted ('ROLE_PARTENAIRE') %}

@@ -12,11 +12,13 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use BackBundle\Entity\Candidat;
 use BackBundle\Entity\Document;
+use BackBundle\Entity\Validation;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
 class CandidatType extends AbstractType
 {
@@ -37,6 +39,17 @@ class CandidatType extends AbstractType
             ->add('presentation', TextareaType::class, array('label'=>'Présentation', 'attr'=>array('class'=>'form-control input-lg', 'aria-label'=>'Vitre présentation')))
             ->add('mail', EmailType::class, array('label'=>'Email', 'attr'=>array('placeholder'=>'toto@monmail.com', 'class'=>'form-control', 'aria-label'=>'Votre mail')))
             ->add('promotion', EntityType::class, array('class'=>'BackBundle\Entity\Promotion', 'choice_label'=>'year'))
+          //  ->add('contenu', EntityType::class, array('class'=>'BackBundle\Entity\Document'))
+            ->add('validations', EntityType::class, array(
+              'label'=>'Validez-vous la candidature de ce candidat ?',
+              'class'=>'BackBundle\Entity\Validation',
+              'attr'=>array(
+                  'class'=>'form-control')
+                 ))
+            ->add('documents', CollectionType::class, array(
+                'entry_type'=>DocumentType::class,
+                'allow_add'=>true,
+            ))
             ->add('decision', CheckboxType::class, array('label'=>'Cocher pour valider le candidat', 'required' => false))
         ;
     }
