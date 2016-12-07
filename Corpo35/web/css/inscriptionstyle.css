@@ -2,10 +2,6 @@
     visibility: hidden;
     font-size: 20px;
 }
-
-
-
-
 @media all and (max-width:800px){
     .form-group{
         visibility: hidden;

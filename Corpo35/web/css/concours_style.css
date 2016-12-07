@@ -13,41 +13,33 @@ h1{
 a:hover{
     color: rgb(190,190,190);
 }
-section{
-    padding: 40px;
-    background-color: rgb(0, 0, 0);
-}
-.wrap{
-    -webkit-columns: 300px;
-    -moz-columns: 300px;
-    columns: 300px;
-    -webkit-column-gap: 40px;
-    -moz-column-gap: 40px;
-    column-gap: 40px;
+h1{
+    background-color: rgba(255, 255, 255, 1)!important;
     margin: 0;
     padding: 0;
+    width: 100%;
+    position: sticky;
+    top: 18%;
+    z-index: 5;
 }
 h2{
-    color: rgb(130,130,130);
     margin-bottom: .4em;
-    font-weight: bold;
     padding: 0;
+    font-size: 1.6em;
+}
+.titre-concours{
+    font-size: 1.4em;
 }
 div.text-concours+div.text-concours{
-    margin-top: .7em;
+    margin-top: 0;
 }
 article{
     padding: 30px;
-    background-color: rgb(245, 245, 245);
     -webkit-column-break-inside: avoid;
     page-break-inside: avoid;
     break-inside: avoid;
     margin: 0;
 }
-article+article{
-    margin: 20px 0;
-}
-
 li {
     list-style-type:none;
     margin: 0;

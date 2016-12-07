@@ -3,17 +3,17 @@
 {% block stylesheet %}
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/concours_style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/partners_style.css') }}">
 {% endblock %}
 
 {% block content %}
 <section>
-    <div class="container-fluid concours">
-        <div class="row concours-block">
-        <h1 class="title">Présentation du concours</h1>
-        </div>
-            <div class="wrap">
+    <div class="container concours">
+        <h1 class="text-center">Présentation du concours</h1>
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4">
                 <article>
-                    <h2>Pourquoi ce concours ?</h2>
+                    <h2 class="titre-concours">Pourquoi ce concours ?</h2>
                     <p class="text-concours">Le secteur de la haute parfumerie, tout comme celui de la gastronomie, voit émerger des talents au nom souvent
                     peu connu du grand public et dont les créations sont de toute beauté. <br />
                     La parfumerie d'art (Maisons historiques constitutives de la parfumerie moderne, marques de niche et de créateurs,
@@ -29,9 +29,11 @@
                     nobles.
                     À l'initiative du "35 Rue Damiette", l'ISIPCA, Coptis, IFF, Au Parfum, Saverglass, soutiennent ce concours.</p>
                 </article>
+            </div>
 
+            <div class="col-lg-4 col-md-4 col-sm-4">
                 <article>
-                    <h2>Pour quel type de concourants ?</h2>
+                    <h2 class="titre-concours">Pour quel type de concourants ?</h2>
                     <p>Le concours est ouvert à toute personne sachant composer un parfum et capable de rédiger une formule. Le Logiciel Coptis LAB,
                     sera mis à disposition de chacun des 35 candidats sélectionnés à participer au concours.
                     Une session de formation est incluse dans le programme offert aux candidats.
@@ -51,9 +53,11 @@
                         <li>Distributeurs.</li>
                     </ul>
                 </article>
+            </div>
 
+            <div class="col-lg-4 col-md-4 col-sm-4">
                 <article>
-                    <h2>La journée d'intégration.</h2>
+                    <h2 class="titre-concours">La journée d'intégration.</h2>
                     <p>La journée d'intégration au concours Corpo 35 à l'ISIPCA, a comme objectif de favoriser les échanges entre les
                     candidats et les professionnels et de lancer le compte à rebours des 6 mois de création.
                     Il y aura donc lors de cette journée :</p> <br />
@@ -68,7 +72,8 @@
                         <li>Un portrait et une interview réalisés pour chaque candidat afin de valoriser son profil.</li>
                     </ul>
                 </article>
-             </div>
+            </div>
+         </div>
     </div>
 </section>
 {% endblock %}
