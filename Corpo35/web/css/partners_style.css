@@ -38,6 +38,8 @@
     text-align: center;
     color: white;
     background: rgb(34, 34, 34);
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 #hexGrid {

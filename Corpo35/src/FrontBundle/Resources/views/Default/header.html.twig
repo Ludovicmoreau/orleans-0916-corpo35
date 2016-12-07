@@ -23,7 +23,20 @@
                     <li><a href="#" class="linkNavbar"><i class="fa fa-newspaper-o fa-1x linkNavbar" aria-hidden="true"></i> La revue de presse</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{{ path('fos_user_security_login') }}"class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Mon compte</a></li>
+
+                        {% if is_granted ('ROLE_ADMIN') %}
+                            <li><a href="{{ path('backIndex') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Administration</a></li>
+                        {% elseif is_granted ('ROLE_JURY') %}
+                            <li><a href="{{ path('backJury') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Jury</a></li>
+                        {% endif %}
+
+                        {% if is_granted ('ROLE_ADMIN') %}
+                            <li><a href="{{ path('fos_user_security_logout') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Se déconnecter</a></li>
+                        {% elseif is_granted ('ROLE_JURY') %}
+                            <li><a href="{{ path('fos_user_security_logout') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Se déconnecter</a></li>
+                        {% else %}
+                            <li><a href="{{ path('fos_user_security_login') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Se connecter</a></li>
+                        {% endif %}
                 </ul>
             </div>
         </div>
@@ -70,7 +83,7 @@
                 </div>
             </div>
         </nav>
-        </div>
+    </div>
 
 
     <!-- End Navbar 2 -->

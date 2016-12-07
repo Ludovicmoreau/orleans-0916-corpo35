@@ -1,6 +1,6 @@
 img{
     max-width: 100%;
-    height: auto;
+    maxheight: 100px;
     border-radius: 3px;
     width: 100%;
 }
@@ -8,7 +8,6 @@ img{
 .post-link{
     text-decoration: none;
     color: #009ACD;
-
 }
 
 i{
@@ -17,26 +16,19 @@ i{
 }
 i:hover{
     color: #009ACD;
-
 }
 /* Blog Posts */
-.scroll-content{
 
-
-
-
-
-
-}
 .blog{
     max-width: 1020px;
     margin: 0 auto;
     padding-top: 100px;
     padding-bottom: 100px;
 }
-
+.pagelines_title{
+    color: #DD3333;
+}
 .blog-post{
-    background: #fff;
     margin: 0 auto 2em auto;
     padding: 35px 30px;
 
@@ -45,10 +37,13 @@ i:hover{
     box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.3);
 }
 .side-post{
-    background: #fff;
     margin: 0 auto 1.5em auto;
     width: 15em;
     padding: 20px;
+
+}
+.side-post:hover{
+    box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.3);
 }
 
 .side-post h2:hover{
@@ -56,7 +51,6 @@ i:hover{
 }
 .blog-content{
     font-size: 1em;
-
     padding-left: 15px;
 }
 
