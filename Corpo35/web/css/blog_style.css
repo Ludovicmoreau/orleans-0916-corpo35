@@ -8,7 +8,6 @@ img{
 .post-link{
     text-decoration: none;
     color: #009ACD;
-
 }
 
 i{
@@ -17,24 +16,18 @@ i{
 }
 i:hover{
     color: #009ACD;
-
 }
 /* Blog Posts */
-.scroll-content{
 
-
-
-
-
-
-}
 .blog{
     max-width: 1020px;
     margin: 0 auto;
     padding-top: 100px;
     padding-bottom: 100px;
 }
-
+.pagelines_title{
+    color: #DD3333;
+}
 .blog-post{
     background: #fff;
     margin: 0 auto 2em auto;
