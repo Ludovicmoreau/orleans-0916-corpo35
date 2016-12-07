@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use BackBundle\Entity\Candidat;
 use BackBundle\Entity\Document;
+use BackBundle\Entity\Validation;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -37,6 +38,7 @@ class CandidatType extends AbstractType
             ->add('presentation', TextareaType::class, array('label'=>'Présentation', 'attr'=>array('class'=>'form-control input-lg', 'aria-label'=>'Vitre présentation')))
             ->add('mail', EmailType::class, array('label'=>'Email', 'attr'=>array('placeholder'=>'toto@monmail.com', 'class'=>'form-control', 'aria-label'=>'Votre mail')))
             ->add('promotion', EntityType::class, array('class'=>'BackBundle\Entity\Promotion', 'choice_label'=>'year'))
+            // ->add('validation', EntityType::class, array('class'=>'BackBundle\Entity\Validation', 'attr'=>array('class'=>'form-control')))
             ->add('decision', CheckboxType::class, array('label'=>'Cocher pour valider le candidat', 'required' => false))
         ;
     }

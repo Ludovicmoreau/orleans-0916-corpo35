@@ -30,14 +30,19 @@
                     <p>{{ candidat.formation }}</p>
                     <p>{{ candidat.profession }}</p>
                     <p>{{ candidat.presentation }}</p>
-                    <p>{{ promotion.annee }}</p>
+                    {% if candidat.promotion.year is defined %}
+                        <p>{{ candidat.promotion.year }}</p>
+                    {% endif %}
+
                     <p>Candidat validé: {% if candidat.decision %}Yes{% else %}No{% endif %}</p>
                     <div class="row">
                         <div class="col-xs-6">
                             <p><a href="{{ path('candidat_show', { 'id': candidat.id }) }}">voir en détail</a></p>
                         </div>
                         <div class="col-xs-6">
+                            {% if is_granted ('ROLE_ADMIN')%}
                             <p><a href="{{ path('candidat_edit', { 'id': candidat.id }) }}">éditer</a></p>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
