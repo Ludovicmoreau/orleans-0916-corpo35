@@ -8,7 +8,7 @@ a.active {
 }
 
 section {
-    padding: 100px 0;
+    padding: 0;
 }
 section h2 {
     margin: 0;
@@ -29,6 +29,8 @@ section.success {
 #portfolio .portfolio-item {
     margin: 0 0 15px;
     right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 #portfolio .portfolio-item .portfolio-link {
     display: block;
