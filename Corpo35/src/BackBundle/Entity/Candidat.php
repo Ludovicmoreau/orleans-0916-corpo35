@@ -24,7 +24,7 @@ class Candidat
     private $validations;
 
     /**
-     * @ORM\OneToOne(targetEntity="Promotion")
+     * @ORM\ManyToOne(targetEntity="Promotion")
      */
     private $promotion;
 
