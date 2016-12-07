@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class JuryType extends AbstractType
+class ValidationType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -14,10 +14,10 @@ class JuryType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom')
-            ->add('prenom')
-            ->add('entreprise')
-            ->add('mail')        ;
+            ->add('validation')
+            ->add('commentaire')
+            ->add('jury')
+            ->add('candidat')        ;
     }
     
     /**
@@ -26,7 +26,7 @@ class JuryType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'BackBundle\Entity\Jury'
+            'data_class' => 'BackBundle\Entity\Validation'
         ));
     }
 
@@ -35,7 +35,7 @@ class JuryType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'backbundle_jury';
+        return 'backbundle_validation';
     }
 
 

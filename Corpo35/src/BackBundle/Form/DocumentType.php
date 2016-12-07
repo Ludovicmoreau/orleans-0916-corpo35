@@ -16,8 +16,8 @@ class DocumentType extends AbstractType
     {
         $builder
             ->add('type')
-            ->add('contenu')
-            ->add('candidat')        ;
+            ->add('contenu');
+            //->add('candidat')        ;
     }
     
     /**
