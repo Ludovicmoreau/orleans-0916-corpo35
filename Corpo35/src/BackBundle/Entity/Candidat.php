@@ -29,7 +29,7 @@ class Candidat
     private $promotion;
 
     /**
-     * @ORM\OneToMany(targetEntity="Document", mappedBy="candidat")
+     * @ORM\OneToMany(targetEntity="Document", mappedBy="candidat", cascade={"persist"})
      */
     private $documents;
 

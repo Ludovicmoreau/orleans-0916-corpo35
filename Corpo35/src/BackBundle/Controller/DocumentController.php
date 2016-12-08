@@ -2,6 +2,7 @@
 
 namespace BackBundle\Controller;
 
+use BackBundle\Entity\Candidat;
 use BackBundle\Entity\Document;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -25,6 +26,9 @@ class DocumentController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $documents = $em->getRepository('BackBundle:Document')->findAll();
+        $candidat = new Candidat($documents);
+        $em->persist($candidat);
+        $em->flush();
 
         return $this->render('document/index.html.twig', array(
             'documents' => $documents,
