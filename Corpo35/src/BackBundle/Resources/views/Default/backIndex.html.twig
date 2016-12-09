@@ -22,7 +22,7 @@
             <li><a class="linkNavAdmin fa fa-sign-out fa-1x" href="{{ path('index') }}">Retour au site</a></li>
         </ul>
         <div class="tab-content">
-            <div class="tab-pane active" id="candidat
+            <div class="tab-pane active" id="candidat">
                 <div class="container">
                     <div class="row text-center marginBack">
                         <div class="col-xs-6">
@@ -60,12 +60,24 @@
             </div>
             <div class="tab-pane" id="agenda">
                 <div class="container">
-                    <div class="row text-center marginBack">
-                        <div class="col-xs-6">
-                            <a class="linkNavAdmin" href="{{ path('agenda_evenement_index') }}">Voir l'agenda</a>
+                    <div class="row marginBack">
+                        <div class="col-md-12">
+                            <h4>Agenda Evenements</h4>
+                            <div class="col-md-6">
+                                <a class="linkNavAdmin" href="{{ path('agenda_evenement_index') }}">Voir l'agenda</a>
+                            </div>
+                            <div class="col-md-6">
+                                <a class="linkNavAdmin" href="{{ path('agenda_evenement_new') }}">Créer un nouvel évènement</a>
+                            </div>
                         </div>
-                        <div class="col-xs-6">
-                            <a class="linkNavAdmin" href="{{ path('agenda_evenement_new') }}">Créer un nouvel évènement</a>
+                        <div class="col-md-12">
+                            <h4>Agenda Laboratoire</h4>
+                            <div class="col-md-6">
+                                <a class="linkNavAdmin" href="{{ path('agenda_labo_index') }}">Voir l'agenda</a>
+                            </div>
+                            <div class="col-md-6">
+                                <a class="linkNavAdmin" href="{{ path('agenda_labo_new') }}">Créer un nouvel évènement</a>
+                            </div>
                         </div>
                     </div>
                 </div>

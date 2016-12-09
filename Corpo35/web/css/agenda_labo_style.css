@@ -1,0 +1,76 @@
+.agenda_labo{
+
+    margin:0 auto;
+    padding: 20px 15px 100px 15px;
+
+
+    box-shadow: 0 1px 7px rgba(0, 0, 0, 0.2);
+    margin-top: 100px;
+    margin-bottom: 100px;
+
+}
+.agenda_labo:after, .agenda_labo:before {
+    background: #ECECEC;
+    content: '';
+
+    position: absolute;
+    top: -20px;
+    width: 100%;
+    box-shadow: 0 5px 10px -7px rgba(0, 0, 0, 0.5);
+}
+.agenda_labo:after {
+    left: -40px;
+
+}
+.agenda_labo:before {
+    right: -40px;
+
+}
+.laboratory{
+
+
+}
+/* Corner Effect */
+* {
+    margin: 0;
+
+}
+
+.title_agenda_labo{
+
+}
+.img_agenda_labo{
+
+}
+.title_labo{
+    text-align: center;
+ }
+.table{
+    padding-top: 25px;
+}
+.th {
+    text-align: center;
+    vertical-align:middle;
+    background: rgba(34, 34, 34, .9);
+    box-shadow: 5px 5px 15px 0px rgba(0,0,0,0.3);
+    color: white;
+}
+
+
+
+tr {
+
+    font-weight:normal;
+    text-align: center;
+
+}
+
+td {
+    box-shadow: 2px 0px 5px 0px rgba(0,0,0,0.3);
+    text-align:center;
+    vertical-align:middle;
+
+
+}
+
+

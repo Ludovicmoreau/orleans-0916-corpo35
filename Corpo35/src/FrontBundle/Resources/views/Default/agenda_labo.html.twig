@@ -1,0 +1,62 @@
+{% extends 'FrontBundle:Default:index.html.twig' %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ asset('css/agenda_labo_style.css') }}">
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container agenda_labo">
+    <h2 class="title_agenda_labo"><span>Agenda LABORATOIRE</span></h2>
+    <div class="row">
+        <div class="col-md-4 laboratory">
+            <div class="laboratory">
+                <h3 class="">ISIPCA</h3>
+                <p>34-36 Rue du Parc de Clagny</p>
+                <p>78000 Versailles</p>
+                <p><i class="fa fa-paper-plane-o" aria-hidden="true"></i></p>
+                <p><i class="fa fa-phone" aria-hidden="true"></i> 01 39 23 70 00</p>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <img class="img-responsive img_agenda_labo" src="{{ asset('images/isipca_agenda.jpg') }}" alt="image Isipca bâtiments"/>
+        </div>
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                <tr >
+                    <div class="col-md-4">
+                        <th class="th">DATE</th>
+                    </div>
+                    <div class="col-md-4">
+                        <th class="th">HEURE MATINEE</th>
+                    </div>
+                    <div class="col-md-4">
+                        <th class="th">HEURE APRES-MIDI</th>
+                    </div>
+                </tr>
+                </thead>
+            </table>
+                <tbody>
+                    {% for agenda_Labo in listAgendas %}
+                    <tr>
+                        <div class="col-md-4">
+                            <td class="td">{{ agenda_Labo.date|date('d-m-Y') }}</td>
+                        </div>
+                        <div class="col-md-4">
+                            <td>{{ agenda_Labo.heureDebutAm|date('H:i')}} à {{ agenda_Labo.heureFinAm|date('H:i')}}</td>
+                        </div>
+                        <div class="col-md-4">
+                            <td>{{ agenda_Labo.heureDebutPm|date('H:i')}} à {{ agenda_Labo.heureFinPm|date('H:i')}}</td>
+                        </div>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
