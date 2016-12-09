@@ -171,7 +171,7 @@ class Candidat
     /**
      * @var bool
      *
-     * @ORM\Column(name="miseEnAvant", type="boolean")
+     * @ORM\Column(name="miseEnAvant", type="boolean", unique=true)
      */
     private $miseEnAvant;
 

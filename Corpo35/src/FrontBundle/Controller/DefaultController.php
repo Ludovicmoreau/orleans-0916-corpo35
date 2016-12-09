@@ -74,7 +74,8 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
         $candidat = $em
                         ->getRepository('BackBundle:Candidat')
-                        ->findOneByMiseEnAvant(true)
+
+                         ->findOneByMiseEnAvant(true)
         ;
 
         return $this->render('FrontBundle:Default:candidatenavant.html.twig', array(
