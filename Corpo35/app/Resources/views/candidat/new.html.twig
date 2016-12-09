@@ -1,12 +1,17 @@
 {% extends 'BackBundle:Default:backLayout.html.twig' %}
 
 {% block content %}
-    <h2 class="text-center">Créer un nouveau candidat</h2>
-        <div class="container">
+    <div class="container-fluid">
+        <div class="col-xs-12 text-center">
+            <h2>Bienvenue sur la page d'inscription au concours Corpo35</h2>
+            <p> le <a href="{{ path('reglement') }}">règlement du concours</a> est à télécharger, signer et à nous renvoyer</p>
+            <p class="hidden-lg hidden-md">L'inscription au concours nécessite le téléchargement de documents.<br/> Veuillez passez sur la version PC du site.</p>
+        </div>
+    </div>
+    <div class="container hidden-xs hidden-sm">
             <div class="well">
                 {{ form_start(form) }}
                     {{ form_widget(form) }}
-                {#{{ form_widget(form.promotion)|date("Y")}}#}
                     <div class="row">
                         <div class="col-xs-6">
                             <input type="submit" value="Créer" class="btn-primary btn-lg center-block"/>

@@ -15,3 +15,7 @@ div.title-login{
 .mdp{
     padding-top: 20px;
 }
+
+* {
+    background-color: black;
+}
