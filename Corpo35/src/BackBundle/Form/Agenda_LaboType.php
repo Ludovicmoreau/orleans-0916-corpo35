@@ -13,12 +13,7 @@ class Agenda_LaboType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('date')
-                ->add('heureDebutAM')
-                ->add('heureFinAM')
-                ->add('heureDebutPM')
-                ->add('heureFinPM')
-            ;
+        $builder->add('date')->add('heureDebutAM')->add('heureFinAM')->add('heureDebutPM')->add('heureFinPM')        ;
     }
     
     /**
