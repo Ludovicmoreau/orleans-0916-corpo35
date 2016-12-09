@@ -21,6 +21,7 @@ class Partenaire
      */
     private $id;
 
+
     /**
      * @var string
      *
@@ -35,6 +36,54 @@ class Partenaire
      */
     private $logo;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="titre", type="string", length=55)
+     */
+    private $titre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="text_resume", type="string", length=255)
+     */
+    private $text_resume;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="soustitre", type="string", length=255)
+     */
+    private $soustitre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="contenu", type="text")
+     */
+    private $contenu;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="site_web", type="string", length=255, nullable=true)
+     */
+    private $site_web;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="mail", type="string", length=255)
+     */
+    private $mail;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="tel", type="integer")
+     */
+    private $tel;
 
     /**
      * Get id
@@ -93,4 +142,119 @@ class Partenaire
     {
         return $this->logo;
     }
+
+    /**
+     * @return string
+     */
+    public function getTitre()
+    {
+        return $this->titre;
+    }
+
+    /**
+     * @param string $titre
+     */
+    public function setTitre($titre)
+    {
+        $this->titre = $titre;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTextResume()
+    {
+        return $this->text_resume;
+    }
+
+    /**
+     * @param string $text_resume
+     */
+    public function setTextResume($text_resume)
+    {
+        $this->text_resume = $text_resume;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSoustitre()
+    {
+        return $this->soustitre;
+    }
+
+    /**
+     * @param string $soustitre
+     */
+    public function setSoustitre($soustitre)
+    {
+        $this->soustitre = $soustitre;
+    }
+
+    /**
+     * @return string
+     */
+    public function getContenu()
+    {
+        return $this->contenu;
+    }
+
+    /**
+     * @param string $contenu
+     */
+    public function setContenu($contenu)
+    {
+        $this->contenu = $contenu;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSiteWeb()
+    {
+        return $this->site_web;
+    }
+
+    /**
+     * @param string $site_web
+     */
+    public function setSiteWeb($site_web)
+    {
+        $this->site_web = $site_web;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMail()
+    {
+        return $this->mail;
+    }
+
+    /**
+     * @param string $mail
+     */
+    public function setMail($mail)
+    {
+        $this->mail = $mail;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTel()
+    {
+        return $this->tel;
+    }
+
+    /**
+     * @param int $tel
+     */
+    public function setTel($tel)
+    {
+        $this->tel = $tel;
+    }
+
+
 }
+
