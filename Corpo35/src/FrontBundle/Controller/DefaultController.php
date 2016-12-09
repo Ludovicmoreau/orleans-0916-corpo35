@@ -64,6 +64,20 @@ class DefaultController extends Controller
         return $this->render('FrontBundle:Default:contact.html.twig');
     }
 
+    /**
+     * @Route("/candidatenavant", name="candidat")
+     */
+    public function candidatAction()
+
+    {
+        $em = $this->getDoctrine()->getManager();
+        $candidats = $em->getRepository('BackBundle:Candidat')->findAll();
+
+        return $this->render('FrontBundle:Default:candidatenavant.html.twig', array(
+            'candidats' => $candidats,
+        ));
+
+    }
 
 }
 
