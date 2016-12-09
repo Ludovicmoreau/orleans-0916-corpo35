@@ -65,13 +65,15 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/candidatenavant", name="candidat")
+     * @Route("/candidatenavant", name="candidatenavant")
      */
     public function candidatAction()
 
     {
         $em = $this->getDoctrine()->getManager();
-        $candidats = $em->getRepository('BackBundle:Candidat')->findAll();
+        $candidats = $em
+                        ->getRepository('BackBundle:Candidat')
+                        ->findbyId();
 
         return $this->render('FrontBundle:Default:candidatenavant.html.twig', array(
             'candidats' => $candidats,
