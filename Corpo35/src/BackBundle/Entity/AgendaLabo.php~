@@ -94,3 +94,7 @@ class AgendaLabo
         return $this->demiJournee;
     }
 }
+<<<<<<< HEAD
+
+=======
+>>>>>>> 39220703b42734d67fb731f2c958bccedd250308

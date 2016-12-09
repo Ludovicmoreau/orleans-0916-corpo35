@@ -156,4 +156,3 @@ class Agenda_evenement
         return $this->description;
     }
 }
-
