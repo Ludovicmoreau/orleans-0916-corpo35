@@ -57,6 +57,29 @@ class Candidat
     private $prenom;
 
     /**
+     * @return \DateTime
+     */
+    public function getDateNaissance()
+    {
+        return $this->date_naissance;
+    }
+
+    /**
+     * @param \DateTime $date_naissance
+     */
+    public function setDateNaissance($date_naissance)
+    {
+        $this->date_naissance = $date_naissance;
+    }
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_naissance", type="date")
+     */
+    private $date_naissance;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="numrue", type="integer")
@@ -107,6 +130,29 @@ class Candidat
      * @ORM\Column(name="presentation", type="text")
      */
     private $presentation;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="motivation", type="text")
+     */
+    private $motivation;
+
+    /**
+     * @return string
+     */
+    public function getMotivation()
+    {
+        return $this->motivation;
+    }
+
+    /**
+     * @param string $motivation
+     */
+    public function setMotivation($motivation)
+    {
+        $this->motivation = $motivation;
+    }
 
     /**
      * @var string

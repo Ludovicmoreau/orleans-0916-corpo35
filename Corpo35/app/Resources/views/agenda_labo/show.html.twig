@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Agenda_labo</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ agenda_Labo.id }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{% if agenda_Labo.date %}{{ agenda_Labo.date|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Heuredebutam</th>
+                <td>{% if agenda_Labo.heureDebutAM %}{{ agenda_Labo.heureDebutAM|date('H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Heurefinam</th>
+                <td>{% if agenda_Labo.heureFinAM %}{{ agenda_Labo.heureFinAM|date('H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Heuredebutpm</th>
+                <td>{% if agenda_Labo.heureDebutPM %}{{ agenda_Labo.heureDebutPM|date('H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Heurefinpm</th>
+                <td>{% if agenda_Labo.heureFinPM %}{{ agenda_Labo.heureFinPM|date('H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('agenda_labo_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('agenda_labo_edit', { 'id': agenda_Labo.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
