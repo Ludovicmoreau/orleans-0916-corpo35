@@ -67,16 +67,17 @@ class DefaultController extends Controller
     /**
      * @Route("/candidatenavant", name="candidatenavant")
      */
-    public function candidatAction()
+    public function miseEnAvantAction()
 
     {
         $em = $this->getDoctrine()->getManager();
-        $candidats = $em
+        $candidat = $em
                         ->getRepository('BackBundle:Candidat')
-                        ->findbyId();
+                        ->findOneByMiseEnAvant(true)
+        ;
 
         return $this->render('FrontBundle:Default:candidatenavant.html.twig', array(
-            'candidats' => $candidats,
+            'candidat' => $candidat,
         ));
 
     }

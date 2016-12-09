@@ -8,7 +8,7 @@
 
 {% block content %}
     {% include 'FrontBundle:Default:concours.html.twig' %}
-    {% include 'FrontBundle:Default:candidatenavant.html.twig' %}
+    {{ render(controller('FrontBundle:Default:miseEnAvant')) }}
     {% include 'FrontBundle:Default:partners.html.twig' %}
 {% endblock %}
 

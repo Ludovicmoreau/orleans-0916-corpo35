@@ -122,6 +122,12 @@ class Candidat
      */
     private $decision;
 
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="miseEnAvant", type="boolean")
+     */
+    private $miseEnAvant;
 
     /**
      * Get id
@@ -528,5 +534,21 @@ class Candidat
     public function getValidations()
     {
         return $this->validations;
+    }
+
+    /**
+     * @param boolean $miseEnAvant
+     */
+    public function setMiseEnAvant($miseEnAvant)
+    {
+        $this->miseEnAvant = $miseEnAvant;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getMiseEnAvant()
+    {
+        return $this->miseEnAvant;
     }
 }
