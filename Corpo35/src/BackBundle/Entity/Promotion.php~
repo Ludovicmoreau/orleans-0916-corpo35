@@ -82,8 +82,15 @@ class Promotion
     /**
      * @return DateTime
      *
-     */public function getAnnee()
+     */
+    public function getAnnee()
     {
-    return $this->annee;
+        return $this->annee;
+
+    }
+    public function getYear()
+    {
+        return $this->annee->format('Y');
+
     }
 }

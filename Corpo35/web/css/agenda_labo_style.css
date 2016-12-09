@@ -1,7 +1,7 @@
 .agenda_labo{
 
     margin:0 auto;
-    padding: 20px 15px 15px 15px;
+    padding: 20px 15px 100px 15px;
 
 
     box-shadow: 0 1px 7px rgba(0, 0, 0, 0.2);
@@ -33,7 +33,7 @@
 /* Corner Effect */
 * {
     margin: 0;
-    padding: 0;
+
 }
 
 .title_agenda_labo{
@@ -51,29 +51,25 @@
 .th {
     text-align: center;
     vertical-align:middle;
-
+    background: rgba(34, 34, 34, .9);
+    box-shadow: 5px 5px 15px 0px rgba(0,0,0,0.3);
+    color: white;
 }
 
 
 
 tr {
 
-    border-bottom-: 1px solid #C1C3D1;
-
     font-weight:normal;
-    text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
     text-align: center;
+
 }
 
-
-
 td {
-    background:#FFFFFF;
-    padding:20px;
-    text-align:left;
+    box-shadow: 2px 0px 5px 0px rgba(0,0,0,0.3);
+    text-align:center;
     vertical-align:middle;
-    font-weight:300;
-    text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+
 
 }
 

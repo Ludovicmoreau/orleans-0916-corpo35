@@ -24,12 +24,12 @@ class Candidat
     private $validations;
 
     /**
-     * @ORM\OneToOne(targetEntity="Promotion")
+     * @ORM\ManyToOne(targetEntity="Promotion")
      */
     private $promotion;
 
     /**
-     * @ORM\OneToMany(targetEntity="Document", mappedBy="candidat")
+     * @ORM\OneToMany(targetEntity="Document", mappedBy="candidat", cascade={"persist"})
      */
     private $documents;
 

@@ -135,19 +135,4 @@ class AgendaLaboController extends Controller
     }
 
 
-    /**
-     * @Route("/show", name="list_agenda_labo")
-     */
-    public function showAgendaAction()
-    {
-        $agendaLabos = new AgendaLabo();
-        $em = $this->getDoctrine()->getManager();
-
-        $agendaLabos = $em->getRepository('BackBundle:AgendaLabo')->findAll($agendaLabos);
-
-        return $this->render('FrontBundle:Default:agenda_labo.html.twig', array(
-            'agendaLabos' => $agendaLabos,
-        ));
-
-    }
 }
