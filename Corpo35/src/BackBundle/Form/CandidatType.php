@@ -39,17 +39,30 @@ class CandidatType extends AbstractType
             ->add('presentation', TextareaType::class, array('label'=>'Présentation', 'attr'=>array('class'=>'form-control input-lg', 'aria-label'=>'Vitre présentation')))
             ->add('mail', EmailType::class, array('label'=>'Email', 'attr'=>array('placeholder'=>'toto@monmail.com', 'class'=>'form-control', 'aria-label'=>'Votre mail')))
             ->add('promotion', EntityType::class, array('class'=>'BackBundle\Entity\Promotion', 'choice_label'=>'year'))
-          //  ->add('contenu', EntityType::class, array('class'=>'BackBundle\Entity\Document'))
-            ->add('validations', EntityType::class, array(
-              'label'=>'Validez-vous la candidature de ce candidat ?',
-              'class'=>'BackBundle\Entity\Validation',
-              'attr'=>array(
-                  'class'=>'form-control')
-                 ))
+//            ->add('validations', EntityType::class, array(
+//              'label'=>'Validez-vous la candidature de ce candidat ?',
+//              'class'=>'BackBundle\Entity\Validation',
+//              'attr'=>array(
+//                  'class'=>'form-control')
+//                 ))
             ->add('documents', CollectionType::class, array(
                 'entry_type'=>DocumentType::class,
-                'allow_add'=>true,
             ))
+//            ->add('documents', CollectionType::class, array(
+//                'entry_type'=>'entity',
+//                'entry_options'=> array(
+//                    'class'=>'BackBundle:Document',
+//                    'choice_label' => 'contenu',
+//                    'expanded' => false,
+//                    'multiple' => false,
+//                    'required' => false,
+//                ),
+//                'allow_add'=> true,
+//                'allow_delete'=> true,
+//                'required'=>false,
+//                'prototype' => true,
+//                'prototype_name' => 'contenu',
+//            ))
             ->add('decision', CheckboxType::class, array('label'=>'Cocher pour valider le candidat', 'required' => false))
         ;
     }
