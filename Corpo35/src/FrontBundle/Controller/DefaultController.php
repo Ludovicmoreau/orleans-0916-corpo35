@@ -64,7 +64,13 @@ class DefaultController extends Controller
         return $this->render('FrontBundle:Default:contact.html.twig');
     }
 
-
+    /**
+     * @Route("/agenda_labo", name="agenda_labo")
+     */
+    public function agendaLaboAction()
+    {
+        return $this->render('FrontBundle:Default:agenda_labo.html.twig');
+    }
 }
 
 
