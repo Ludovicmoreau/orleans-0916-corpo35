@@ -3,9 +3,14 @@
 namespace BackBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use BackBundle\Entity\Candidat;
+
 
 class CandidatControllerTest extends WebTestCase
 {
+    public function seeNomCandidat(){
+        $candidat = $this->getDoctrine()
+    }
     /*
     public function testCompleteScenario()
     {
