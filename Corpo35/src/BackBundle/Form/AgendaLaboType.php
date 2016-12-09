@@ -3,22 +3,18 @@
 namespace BackBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use BackBundle\Entity\Candidat;
 
-class DocumentType extends AbstractType
+class AgendaLaboType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('type')
-            ->add('contenu')
-            ->add('candidat', HiddenType::class)
+        $builder->add('date')
+                ->add('demiJournee')
         ;
     }
     
@@ -28,7 +24,7 @@ class DocumentType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'BackBundle\Entity\Document'
+            'data_class' => 'BackBundle\Entity\AgendaLabo'
         ));
     }
 
@@ -37,7 +33,7 @@ class DocumentType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'backbundle_document';
+        return 'backbundle_agendalabo';
     }
 
 
