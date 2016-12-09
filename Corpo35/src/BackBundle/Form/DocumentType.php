@@ -3,6 +3,7 @@
 namespace BackBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use BackBundle\Entity\Candidat;
@@ -16,8 +17,9 @@ class DocumentType extends AbstractType
     {
         $builder
             ->add('type')
-            ->add('contenu');
-            //->add('candidat')        ;
+            ->add('contenu')
+            ->add('candidat', HiddenType::class)
+        ;
     }
     
     /**

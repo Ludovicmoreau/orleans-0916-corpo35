@@ -54,6 +54,9 @@ class CandidatController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($candidat);
+            foreach($candidat->getDocuments() as $document) {
+                $candidat->addDocument($document);
+            }
             $em->flush($candidat);
 
             return $this->redirectToRoute('candidat_show', array('id' => $candidat->getId()));
