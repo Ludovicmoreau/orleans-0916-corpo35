@@ -1,0 +1,189 @@
+<?php
+
+namespace BackBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Agenda_Labo
+ *
+ * @ORM\Table(name="agenda__labo")
+ * @ORM\Entity(repositoryClass="BackBundle\Repository\Agenda_LaboRepository")
+ */
+class Agenda_Labo
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="datetime")
+     */
+    private $date;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="heureDebutAM", type="datetime")
+     */
+    private $heureDebutAM;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="heureFinAM", type="datetime")
+     */
+    private $heureFinAM;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="heureDebutPM", type="datetime")
+     */
+    private $heureDebutPM;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="heureFinPM", type="datetime")
+     */
+    private $heureFinPM;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     *
+     * @return Agenda_Labo
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set heureDebutAM
+     *
+     * @param \DateTime $heureDebutAM
+     *
+     * @return Agenda_Labo
+     */
+    public function setHeureDebutAM($heureDebutAM)
+    {
+        $this->heureDebutAM = $heureDebutAM;
+
+        return $this;
+    }
+
+    /**
+     * Get heureDebutAM
+     *
+     * @return \DateTime
+     */
+    public function getHeureDebutAM()
+    {
+        return $this->heureDebutAM;
+    }
+
+    /**
+     * Set heureFinAM
+     *
+     * @param \DateTime $heureFinAM
+     *
+     * @return Agenda_Labo
+     */
+    public function setHeureFinAM($heureFinAM)
+    {
+        $this->heureFinAM = $heureFinAM;
+
+        return $this;
+    }
+
+    /**
+     * Get heureFinAM
+     *
+     * @return \DateTime
+     */
+    public function getHeureFinAM()
+    {
+        return $this->heureFinAM;
+    }
+
+    /**
+     * Set heureDebutPM
+     *
+     * @param \DateTime $heureDebutPM
+     *
+     * @return Agenda_Labo
+     */
+    public function setHeureDebutPM($heureDebutPM)
+    {
+        $this->heureDebutPM = $heureDebutPM;
+
+        return $this;
+    }
+
+    /**
+     * Get heureDebutPM
+     *
+     * @return \DateTime
+     */
+    public function getHeureDebutPM()
+    {
+        return $this->heureDebutPM;
+    }
+
+    /**
+     * Set heureFinPM
+     *
+     * @param \DateTime $heureFinPM
+     *
+     * @return Agenda_Labo
+     */
+    public function setHeureFinPM($heureFinPM)
+    {
+        $this->heureFinPM = $heureFinPM;
+
+        return $this;
+    }
+
+    /**
+     * Get heureFinPM
+     *
+     * @return \DateTime
+     */
+    public function getHeureFinPM()
+    {
+        return $this->heureFinPM;
+    }
+}
