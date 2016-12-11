@@ -79,14 +79,16 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/partner", name="lpartner")
+
+     * @Route("/listAgenda_evenement", name="list_agenda_evenement")
      */
-    public function ShowPartnerAction()
+    public function ShowAgendaEvenementAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $partners = $em->getRepository('BackBundle:Partenaire')->findAll();
-        return $this->render('FrontBundle:Default:partners.html.twig', array(
-            'listAgendas' => $partners
+        $listAgendas = $em->getRepository('BackBundle:Agenda_evenement')->findAll();
+        return $this->render('FrontBundle:Default:agenda_evenement.html.twig', array(
+            'listAgendas' => $listAgendas
+
         ));
     }
 }
