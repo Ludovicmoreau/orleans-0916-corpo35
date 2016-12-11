@@ -21,69 +21,69 @@ class Partenaire
      */
     private $id;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="image", type="string", length=255)
+     */
+    private $image;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=255)
+     * @ORM\Column(name="resume", type="string", length=255)
      */
-    private $nom;
+    private $resume;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="logo", type="string", length=255)
+     * @ORM\Column(name="website", type="string", length=255)
      */
-    private $logo;
+    private $website;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="titre", type="string", length=55)
+     * @ORM\Column(name="email", type="string", length=255)
      */
-    private $titre;
+    private $email;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="text_resume", type="string", length=255)
+     * @ORM\Column(name="phone", type="string", length=255)
      */
-    private $text_resume;
+    private $phone;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="soustitre", type="string", length=255)
+     * @ORM\Column(name="contenu_1", type="string", length=255)
      */
-    private $soustitre;
+    private $contenu1;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="contenu", type="text")
+     * @ORM\Column(name="contenu_2", type="string", length=255)
      */
-    private $contenu;
+    private $contenu2;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="site_web", type="string", length=255, nullable=true)
+     * @ORM\Column(name="contenu_3", type="string", length=255)
      */
-    private $site_web;
+    private $contenu3;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="mail", type="string", length=255)
+     * @ORM\Column(name="contenu_4", type="string", length=255)
      */
-    private $mail;
+    private $contenu4;
 
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="tel", type="integer")
-     */
-    private $tel;
 
     /**
      * Get id
@@ -96,164 +96,219 @@ class Partenaire
     }
 
     /**
-     * Set nom
+     * Set image
      *
-     * @param string $nom
+     * @param string $image
      *
      * @return Partenaire
      */
-    public function setNom($nom)
+    public function setImage($image)
     {
-        $this->nom = $nom;
+        $this->image = $image;
 
         return $this;
     }
 
     /**
-     * Get nom
+     * Get image
      *
      * @return string
      */
-    public function getNom()
+    public function getImage()
     {
-        return $this->nom;
+        return $this->image;
     }
 
     /**
-     * Set logo
+     * Set resume
      *
-     * @param string $logo
+     * @param string $resume
      *
      * @return Partenaire
      */
-    public function setLogo($logo)
+    public function setResume($resume)
     {
-        $this->logo = $logo;
+        $this->resume = $resume;
 
         return $this;
     }
 
     /**
-     * Get logo
+     * Get resume
      *
      * @return string
      */
-    public function getLogo()
+    public function getResume()
     {
-        return $this->logo;
+        return $this->resume;
     }
 
     /**
+     * Set website
+     *
+     * @param string $website
+     *
+     * @return Partenaire
+     */
+    public function setWebsite($website)
+    {
+        $this->website = $website;
+
+        return $this;
+    }
+
+    /**
+     * Get website
+     *
      * @return string
      */
-    public function getTitre()
+    public function getWebsite()
     {
-        return $this->titre;
+        return $this->website;
     }
 
     /**
-     * @param string $titre
+     * Set email
+     *
+     * @param string $email
+     *
+     * @return Partenaire
      */
-    public function setTitre($titre)
+    public function setEmail($email)
     {
-        $this->titre = $titre;
+        $this->email = $email;
+
+        return $this;
     }
 
     /**
+     * Get email
+     *
      * @return string
      */
-    public function getTextResume()
+    public function getEmail()
     {
-        return $this->text_resume;
+        return $this->email;
     }
 
     /**
-     * @param string $text_resume
+     * Set phone
+     *
+     * @param string $phone
+     *
+     * @return Partenaire
      */
-    public function setTextResume($text_resume)
+    public function setPhone($phone)
     {
-        $this->text_resume = $text_resume;
+        $this->phone = $phone;
+
+        return $this;
     }
 
     /**
+     * Get phone
+     *
      * @return string
      */
-    public function getSoustitre()
+    public function getPhone()
     {
-        return $this->soustitre;
+        return $this->phone;
     }
 
     /**
-     * @param string $soustitre
+     * Set contenu1
+     *
+     * @param string $contenu1
+     *
+     * @return Partenaire
      */
-    public function setSoustitre($soustitre)
+    public function setContenu1($contenu1)
     {
-        $this->soustitre = $soustitre;
+        $this->contenu1 = $contenu1;
+
+        return $this;
     }
 
     /**
+     * Get contenu1
+     *
      * @return string
      */
-    public function getContenu()
+    public function getContenu1()
     {
-        return $this->contenu;
+        return $this->contenu1;
     }
 
     /**
-     * @param string $contenu
+     * Set contenu2
+     *
+     * @param string $contenu2
+     *
+     * @return Partenaire
      */
-    public function setContenu($contenu)
+    public function setContenu2($contenu2)
     {
-        $this->contenu = $contenu;
+        $this->contenu2 = $contenu2;
+
+        return $this;
     }
 
     /**
+     * Get contenu2
+     *
      * @return string
      */
-    public function getSiteWeb()
+    public function getContenu2()
     {
-        return $this->site_web;
+        return $this->contenu2;
     }
 
     /**
-     * @param string $site_web
+     * Set contenu3
+     *
+     * @param string $contenu3
+     *
+     * @return Partenaire
      */
-    public function setSiteWeb($site_web)
+    public function setContenu3($contenu3)
     {
-        $this->site_web = $site_web;
+        $this->contenu3 = $contenu3;
+
+        return $this;
     }
 
     /**
+     * Get contenu3
+     *
      * @return string
      */
-    public function getMail()
+    public function getContenu3()
     {
-        return $this->mail;
+        return $this->contenu3;
     }
 
     /**
-     * @param string $mail
+     * Set contenu4
+     *
+     * @param string $contenu4
+     *
+     * @return Partenaire
      */
-    public function setMail($mail)
+    public function setContenu4($contenu4)
     {
-        $this->mail = $mail;
+        $this->contenu4 = $contenu4;
+
+        return $this;
     }
 
     /**
-     * @return int
+     * Get contenu4
+     *
+     * @return string
      */
-    public function getTel()
+    public function getContenu4()
     {
-        return $this->tel;
+        return $this->contenu4;
     }
-
-    /**
-     * @param int $tel
-     */
-    public function setTel($tel)
-    {
-        $this->tel = $tel;
-    }
-
-
 }
+

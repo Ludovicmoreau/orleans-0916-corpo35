@@ -77,6 +77,18 @@ class DefaultController extends Controller
             'listAgendas' => $listAgendas
         ));
     }
+
+    /**
+     * @Route("/partner", name="lpartner")
+     */
+    public function ShowPartnerAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $partners = $em->getRepository('BackBundle:Partenaire')->findAll();
+        return $this->render('FrontBundle:Default:partners.html.twig', array(
+            'listAgendas' => $partners
+        ));
+    }
 }
 
 
