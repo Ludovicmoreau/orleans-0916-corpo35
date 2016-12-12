@@ -64,8 +64,6 @@ class DefaultController extends Controller
         return $this->render('FrontBundle:Default:contact.html.twig');
     }
 
-
-
     /**
      * @Route("/listAgenda_labo", name="list_agenda_labo")
      */
@@ -87,6 +85,18 @@ class DefaultController extends Controller
         $listAgendas = $em->getRepository('BackBundle:Agenda_evenement')->findAll();
         return $this->render('FrontBundle:Default:agenda_evenement.html.twig', array(
             'listAgendas' => $listAgendas
+        ));
+    }
+
+    /**
+     * @Route("/laureats", name="laureats")
+     */
+    public function ShowCandidatAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $listCandidat = $em->getRepository('BackBundle:Candidat')->findAll();
+        return $this->render('FrontBundle:Default:laureats.html.twig', array(
+            'listCandidat' => $listCandidat
         ));
     }
 }

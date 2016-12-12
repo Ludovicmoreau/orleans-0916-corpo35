@@ -405,6 +405,19 @@
         </div>
     </section>
 
+<div class="container">
+    {% for candidat in listCandidat %}
+        <tr>
+            <div class="col-md-4">
+                <td class="td">{{ candidat.nom }}</td>
+            </div>
+            <div class="col-md-4">
+                <td>{{ candidat.prenom }}</td>
+            </div>
+        </tr>
+    {% endfor %}
+</div>
+
 {% endblock %}
 
 {% block footer %}
