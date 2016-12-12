@@ -49,23 +49,9 @@ class CandidatType extends AbstractType
 //                 ))
             ->add('documents', CollectionType::class, array(
                 'entry_type'=>DocumentType::class,
+                'allow_add'=>true,
             ))
-//            ->add('documents', CollectionType::class, array(
-//                'entry_type'=>'entity',
-//                'entry_options'=> array(
-//                    'class'=>'BackBundle:Document',
-//                    'choice_label' => 'contenu',
-//                    'expanded' => false,
-//                    'multiple' => false,
-//                    'required' => false,
-//                ),
-//                'allow_add'=> true,
-//                'allow_delete'=> true,
-//                'required'=>false,
-//                'prototype' => true,
-//                'prototype_name' => 'contenu',
-//            ))
-//            ->add('decision', CheckboxType::class, array('label'=>'Cocher pour valider le candidat', 'required' => false))
+            ->add('decision', CheckboxType::class, array('label'=>'Cocher pour valider le candidat', 'required' => false))
         ;
     }
     
