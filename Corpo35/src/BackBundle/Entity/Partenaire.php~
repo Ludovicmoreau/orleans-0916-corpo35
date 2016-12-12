@@ -4,6 +4,7 @@ namespace BackBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+
 /**
  * Partenaire
  *
@@ -24,7 +25,7 @@ class Partenaire
     /**
      * @var string
      *
-     * @ORM\Column(name="image", type="string", length=255)
+     * @ORM\Column(name="image", type="string", length=255, nullable=true)
      */
     private $image;
 
@@ -46,6 +47,7 @@ class Partenaire
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255)
+     *
      */
     private $email;
 
@@ -59,28 +61,28 @@ class Partenaire
     /**
      * @var string
      *
-     * @ORM\Column(name="contenu_1", type="string", length=255)
+     * @ORM\Column(name="contenu_1", type="string", length=255, nullable=true)
      */
     private $contenu1;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="contenu_2", type="string", length=255)
+     * @ORM\Column(name="contenu_2", type="string", length=255, nullable=true)
      */
     private $contenu2;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="contenu_3", type="string", length=255)
+     * @ORM\Column(name="contenu_3", type="string", length=255, nullable=true)
      */
     private $contenu3;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="contenu_4", type="string", length=255)
+     * @ORM\Column(name="contenu_4", type="string", length=255, nullable=true)
      */
     private $contenu4;
 
@@ -311,4 +313,3 @@ class Partenaire
         return $this->contenu4;
     }
 }
-

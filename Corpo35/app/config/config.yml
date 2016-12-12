@@ -11,7 +11,6 @@ parameters:
     locale: fr
     upload_directory: '%kernel.root_dir%/../web/upload/'
 
-
 framework:
     #esi:             ~
     translator:       ~

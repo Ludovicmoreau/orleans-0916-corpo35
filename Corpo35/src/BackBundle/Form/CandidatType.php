@@ -19,6 +19,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 
 class CandidatType extends AbstractType
 {
@@ -30,7 +31,7 @@ class CandidatType extends AbstractType
         $builder
             ->add('nom', TextType::class, array('label'=>'Nom', 'attr'=>array('placeholder'=>'Votre Nom *', 'class'=>'form-control', 'aria-label'=> 'Votre Nom')))
             ->add('prenom', TextType::class, array('label'=>'Prénom', 'attr'=>array('placeholder'=>'Votre Prénom *', 'class'=>'form-control', 'aria-label'=> 'Votre Prénom')))
-            ->add('date_naissance', DateType::class, array('label'=>'Date de Naissance', 'attr'=>array('placeholder'=>'Votre Prénom *', 'aria-label'=> 'Votre date de naissance')))
+            ->add('date_naissance', BirthdayType::class, array('label'=>'Date de Naissance', 'attr'=>array('placeholder'=>'Votre Prénom *', 'aria-label'=> 'Votre date de naissance')))
             ->add('numrue', IntegerType::class, array('label'=>'Numéro de rue', 'attr'=>array('class'=>'form-control')))
             ->add('adresse', TextType::class, array('label'=>'Adresse', 'attr'=>array('placeholder'=>'Votre adresse *', 'class'=>'form-control', 'aria-label'=> 'Votre adresse')))
             ->add('ville', TextType::class, array('label'=>'Ville', 'attr'=>array('placeholder'=>'Votre ville *', 'class'=>'form-control', 'aria-label'=> 'Votre ville')))
@@ -51,7 +52,7 @@ class CandidatType extends AbstractType
                 'entry_type'=>DocumentType::class,
                 'allow_add'=>true,
             ))
-            ->add('decision', CheckboxType::class, array('label'=>'Cocher pour valider le candidat', 'required' => false))
+//            ->add('decision', CheckboxType::class, array('label'=>'Cocher pour valider le candidat', 'required' => false))
         ;
     }
     
