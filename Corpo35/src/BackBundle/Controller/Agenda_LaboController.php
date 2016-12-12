@@ -31,6 +31,7 @@ class Agenda_LaboController extends Controller
         ));
     }
 
+
     /**
      * Creates a new agenda_Labo entity.
      *
@@ -133,9 +134,4 @@ class Agenda_LaboController extends Controller
             ->getForm()
         ;
     }
-
-
-
-
-
 }

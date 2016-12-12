@@ -64,12 +64,32 @@ class DefaultController extends Controller
         return $this->render('FrontBundle:Default:contact.html.twig');
     }
 
+
+
     /**
-     * @Route("/agenda_labo", name="agenda_labo")
+     * @Route("/listAgenda_labo", name="list_agenda_labo")
      */
-    public function agendaLaboAction()
+    public function ShowAgendaLaboAction()
     {
-        return $this->render('FrontBundle:Default:agenda_labo.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $listAgendas = $em->getRepository('BackBundle:Agenda_Labo')->findAll();
+        return $this->render('FrontBundle:Default:agenda_labo.html.twig', array(
+            'listAgendas' => $listAgendas
+        ));
+    }
+
+    /**
+
+     * @Route("/listAgenda_evenement", name="list_agenda_evenement")
+     */
+    public function ShowAgendaEvenementAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $listAgendas = $em->getRepository('BackBundle:Agenda_evenement')->findAll();
+        return $this->render('FrontBundle:Default:agenda_evenement.html.twig', array(
+            'listAgendas' => $listAgendas
+
+        ));
     }
 }
 

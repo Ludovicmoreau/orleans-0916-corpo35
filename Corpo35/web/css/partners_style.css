@@ -20,7 +20,9 @@
     display: table-cell;
     width: 100%;
 }
-
+.col-centered{
+    vertical-align: middle;
+}
 .col-fixed {
     /* custom width */
     width:320px;
@@ -475,6 +477,11 @@ dt{
     -o-transform: rotate(180deg);
     transform: rotate(180deg);
 }
+
+
+
+
+
 
 
 

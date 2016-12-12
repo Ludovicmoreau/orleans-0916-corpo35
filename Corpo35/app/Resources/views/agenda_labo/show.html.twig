@@ -11,23 +11,23 @@
             </tr>
             <tr>
                 <th>Date</th>
-                <td>{% if agenda_Labo.date %}{{ agenda_Labo.date|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if agenda_Labo.date %}{{ agenda_Labo.date|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
                 <th>Heuredebutam</th>
-                <td>{% if agenda_Labo.heureDebutAM %}{{ agenda_Labo.heureDebutAM|date('H:i:s') }}{% endif %}</td>
+                <td>{% if agenda_Labo.heureDebutAM %}{{ agenda_Labo.heureDebutAM|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
                 <th>Heurefinam</th>
-                <td>{% if agenda_Labo.heureFinAM %}{{ agenda_Labo.heureFinAM|date('H:i:s') }}{% endif %}</td>
+                <td>{% if agenda_Labo.heureFinAM %}{{ agenda_Labo.heureFinAM|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
                 <th>Heuredebutpm</th>
-                <td>{% if agenda_Labo.heureDebutPM %}{{ agenda_Labo.heureDebutPM|date('H:i:s') }}{% endif %}</td>
+                <td>{% if agenda_Labo.heureDebutPM %}{{ agenda_Labo.heureDebutPM|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
                 <th>Heurefinpm</th>
-                <td>{% if agenda_Labo.heureFinPM %}{{ agenda_Labo.heureFinPM|date('H:i:s') }}{% endif %}</td>
+                <td>{% if agenda_Labo.heureFinPM %}{{ agenda_Labo.heureFinPM|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
         </tbody>
     </table>

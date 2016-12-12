@@ -3,14 +3,9 @@
 namespace BackBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use BackBundle\Entity\Candidat;
 
-
-class CandidatControllerTest extends WebTestCase
+class PartenairesControllerTest extends WebTestCase
 {
-    public function seeNomCandidat(){
-        $candidat = $this->getDoctrine()
-    }
     /*
     public function testCompleteScenario()
     {
@@ -18,13 +13,13 @@ class CandidatControllerTest extends WebTestCase
         $client = static::createClient();
 
         // Create a new entry in the database
-        $crawler = $client->request('GET', '/candidat/');
-        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /candidat/");
+        $crawler = $client->request('GET', '/partenaires/');
+        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /partenaires/");
         $crawler = $client->click($crawler->selectLink('Create a new entry')->link());
 
         // Fill in the form and submit it
         $form = $crawler->selectButton('Create')->form(array(
-            'backbundle_candidat[field_name]'  => 'Test',
+            'backbundle_partenaires[field_name]'  => 'Test',
             // ... other fields to fill
         ));
 
@@ -38,7 +33,7 @@ class CandidatControllerTest extends WebTestCase
         $crawler = $client->click($crawler->selectLink('Edit')->link());
 
         $form = $crawler->selectButton('Update')->form(array(
-            'backbundle_candidat[field_name]'  => 'Foo',
+            'backbundle_partenaires[field_name]'  => 'Foo',
             // ... other fields to fill
         ));
 

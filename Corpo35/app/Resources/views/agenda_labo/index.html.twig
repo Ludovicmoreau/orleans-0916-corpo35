@@ -1,11 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container">
     <h1>Agenda_labos list</h1>
 
-<div class = "table-responsive">
-    <table class="table table-bordered">
+    <table>
         <thead>
             <tr>
                 <th>Id</th>
@@ -21,11 +19,11 @@
         {% for agenda_Labo in agenda_Labos %}
             <tr>
                 <td><a href="{{ path('agenda_labo_show', { 'id': agenda_Labo.id }) }}">{{ agenda_Labo.id }}</a></td>
-                <td>{% if agenda_Labo.date %}{{ agenda_Labo.date|date('Y-m-d') }}{% endif %}</td>
-                <td>{% if agenda_Labo.heureDebutAM %}{{ agenda_Labo.heureDebutAM|date('H:i:s') }}{% endif %}</td>
-                <td>{% if agenda_Labo.heureFinAM %}{{ agenda_Labo.heureFinAM|date('H:i:s') }}{% endif %}</td>
-                <td>{% if agenda_Labo.heureDebutPM %}{{ agenda_Labo.heureDebutPM|date('H:i:s') }}{% endif %}</td>
-                <td>{% if agenda_Labo.heureFinPM %}{{ agenda_Labo.heureFinPM|date('H:i:s') }}{% endif %}</td>
+                <td>{% if agenda_Labo.date %}{{ agenda_Labo.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if agenda_Labo.heureDebutAM %}{{ agenda_Labo.heureDebutAM|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if agenda_Labo.heureFinAM %}{{ agenda_Labo.heureFinAM|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if agenda_Labo.heureDebutPM %}{{ agenda_Labo.heureDebutPM|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if agenda_Labo.heureFinPM %}{{ agenda_Labo.heureFinPM|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>
                     <ul>
                         <li>
@@ -40,11 +38,10 @@
         {% endfor %}
         </tbody>
     </table>
-</div>
+
     <ul>
         <li>
             <a href="{{ path('agenda_labo_new') }}">Create a new agenda_Labo</a>
         </li>
     </ul>
-    </div>
 {% endblock %}
