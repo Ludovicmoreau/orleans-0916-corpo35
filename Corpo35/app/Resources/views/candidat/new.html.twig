@@ -1,33 +1,6 @@
 {% extends 'BackBundle:Default:backLayout.html.twig' %}
 
 {% block content %}
-    <script>
-        var $collectionHolder;
-
-        // setup an "add a tag" link
-        var $addDocumentLink = $('<a href="#" class="add_document_link">Add a document</a>');
-        var $newDocumentLi = $('<li></li>').append($addDocumentLink);
-
-        jQuery(document).ready(function() {
-            // Get the ul that holds the collection of tags
-            $collectionHolder = $('ul.documents');
-
-            // add the "add a tag" anchor and li to the tags ul
-            $collectionHolder.append($newDocumentLi);
-
-            // count the current form inputs we have (e.g. 2), use that as the new
-            // index when inserting a new item (e.g. 2)
-            $collectionHolder.data('index', $collectionHolder.find(':input').length);
-
-            $addDocumentLink.on('click', function(e) {
-                // prevent the link from creating a "#" on the URL
-                e.preventDefault();
-
-                // add a new tag form (see next code block)
-                addDocumentForm($collectionHolder, $newDocumentLi);
-            });
-        });
-    </script>
     <div class="container-fluid">
         <div class="col-xs-12 text-center">
             <h2>Bienvenue sur la page d'inscription au concours Corpo35</h2>
@@ -70,5 +43,32 @@
                     </div>
                 {{ form_end(form) }}
             </div>
+        <script>
+            var $collectionHolder;
+
+            // setup an "add a tag" link
+            var $addDocumentLink = $('<a href="#" class="add_document_link">Add a document</a>');
+            var $newDocumentLi = $('<li></li>').append($addDocumentLink);
+
+            jQuery(document).ready(function() {
+                // Get the ul that holds the collection of tags
+                $collectionHolder = $('ul.documents');
+
+                // add the "add a tag" anchor and li to the tags ul
+                $collectionHolder.append($newDocumentLi);
+
+                // count the current form inputs we have (e.g. 2), use that as the new
+                // index when inserting a new item (e.g. 2)
+                $collectionHolder.data('index', $collectionHolder.find(':input').length);
+
+                $addDocumentLink.on('click', function(e) {
+                    // prevent the link from creating a "#" on the URL
+                    e.preventDefault();
+
+                    // add a new tag form (see next code block)
+                    addDocumentForm($collectionHolder, $newDocumentLi);
+                });
+            });
+        </script>
         </div>
 {% endblock %}

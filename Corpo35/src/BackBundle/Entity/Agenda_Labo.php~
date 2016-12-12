@@ -187,10 +187,3 @@ class Agenda_Labo
         return $this->heureFinPM;
     }
 }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> 39220703b42734d67fb731f2c958bccedd250308
->>>>>>> be665f8da674047233ff2adb9c2810149c4c51f7
