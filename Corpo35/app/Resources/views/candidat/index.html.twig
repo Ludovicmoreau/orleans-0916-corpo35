@@ -25,11 +25,16 @@
             {% for candidat in candidats %}
                 <div class="col-xs-3 well blockCandidat">
                     <h3 class="text-center">{{ candidat.nom }} {{ candidat.prenom }}</h3>
+                    <p>{{ candidat.photo }}</p>
                     <p>{{ candidat.numrue }} {{ candidat.adresse }} {{ candidat.ville }} {{ candidat.cp }}</p>
                     <p>{{ candidat.mail }}</p>
-                    <p>{{ candidat.formation }}</p>
-                    <p>{{ candidat.profession }}</p>
+                    <p>{{ candidat.tel }}</p>
+                    <p>{{ candidat.blog }}</p>
                     <p>{{ candidat.presentation }}</p>
+                    <p>{{ candidat.motivation }}</p>
+                    <p>{{ candidat.formation }}</p>
+                    <p>{{ candidat.competence }}</p>
+                    <p>{{ candidat.profession }}</p>
                     {% if candidat.promotion.year is defined %}
                         <p>{{ candidat.promotion.year }}</p>
                     {% endif %}

@@ -65,6 +65,16 @@ class CandidatController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
 
             /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+            $photo = $candidat->getPhoto();
+
+            $photoName = md5(uniqid()).'.'.$photo->guessExtension();
+            $photo->move(
+                $this->getParameter('upload_directory'),
+                $photoName
+            );
+
+            $candidat->setPhoto($photoName);
+
             $file = $document->getContenu();
 
             $fileName = md5(uniqid()).'.'.$file->guessExtension();

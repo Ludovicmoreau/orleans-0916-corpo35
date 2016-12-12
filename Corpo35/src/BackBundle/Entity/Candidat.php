@@ -162,6 +162,121 @@ class Candidat
     private $mail;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="tel", type="string", length=255)
+     */
+    private $tel;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="blog", type="string", length=255)
+     */
+    private $blog;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="competence", type="string", length=255)
+     */
+    private $competence;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cv", type="string", length=255)
+     */
+    private $cv;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="photo", type="string", length=255)
+     */
+    private $photo;
+
+    /**
+     * @return string
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+
+    /**
+     * @param string $photo
+     */
+    public function setPhoto($photo)
+    {
+        $this->photo = $photo;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTel()
+    {
+        return $this->tel;
+    }
+
+    /**
+     * @param string $tel
+     */
+    public function setTel($tel)
+    {
+        $this->tel = $tel;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBlog()
+    {
+        return $this->blog;
+    }
+
+    /**
+     * @param string $blog
+     */
+    public function setBlog($blog)
+    {
+        $this->blog = $blog;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCompetence()
+    {
+        return $this->competence;
+    }
+
+    /**
+     * @param string $competence
+     */
+    public function setCompetence($competence)
+    {
+        $this->competence = $competence;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCv()
+    {
+        return $this->cv;
+    }
+
+    /**
+     * @param string $cv
+     */
+    public function setCv($cv)
+    {
+        $this->cv = $cv;
+    }
+
+    /**
      * @var bool
      *
      * @ORM\Column(name="decision", type="boolean")
