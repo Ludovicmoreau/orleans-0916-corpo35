@@ -50,6 +50,14 @@
                 <td>{{ candidat.mail }}</td>
             </tr>
             <tr>
+                <th>Document</th>
+                {% for document in candidat.documents %}
+                        <td>
+                            <img src="{{ asset('upload/' ~ document.contenu) }}" class="img-responsive ">
+                        </td>
+                {% endfor %}
+            </tr>
+            <tr>
                 <th>Decision</th>
                 <td>{% if candidat.decision %}Yes{% else %}No{% endif %}</td>
             </tr>

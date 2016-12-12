@@ -7,6 +7,7 @@ use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use BackBundle\Entity\Candidat;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class DocumentType extends AbstractType
 {
@@ -17,8 +18,8 @@ class DocumentType extends AbstractType
     {
         $builder
             ->add('type')
-            ->add('contenu')
-            ->add('candidat', HiddenType::class)
+            ->add('contenu', FileType::class)
+           // ->add('candidat', HiddenType::class)
         ;
     }
     

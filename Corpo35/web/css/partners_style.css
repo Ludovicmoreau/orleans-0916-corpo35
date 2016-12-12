@@ -19,10 +19,11 @@
     font-style: italic;
     display: table-cell;
     width: 100%;
-}
-.col-centered{
     vertical-align: middle;
+    min-height: 10em;
+
 }
+
 .col-fixed {
     /* custom width */
     width:320px;
