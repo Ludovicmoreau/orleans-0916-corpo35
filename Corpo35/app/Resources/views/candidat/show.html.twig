@@ -1,57 +1,48 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Candidat</h1>
+    <h1>{{ candidat.nom }} {{ candidat.prenom }}</h1>
 
     <table>
         <tbody>
+
             <tr>
-                <th>Id</th>
-                <td>{{ candidat.id }}</td>
-            </tr>
-            <tr>
-                <th>Nom</th>
-                <td>{{ candidat.nom }}</td>
-            </tr>
-            <tr>
-                <th>Prenom</th>
-                <td>{{ candidat.prenom }}</td>
-            </tr>
-            <tr>
-                <th>Numrue</th>
-                <td>{{ candidat.numrue }}</td>
+                <th>Photo</th>
+                <td><img src="{{ asset('upload/' ~ candidat.photo) }}" class="img-responsive "></td>
             </tr>
             <tr>
                 <th>Adresse</th>
-                <td>{{ candidat.adresse }}</td>
+                <td>{{ candidat.numrue }} {{ candidat.adresse }} {{ candidat.cp }} {{ candidat.ville }}</td>
             </tr>
             <tr>
-                <th>Ville</th>
-                <td>{{ candidat.ville }}</td>
+                <th>Contact</th>
+                <td>{{ candidat.mail }} {{ candidat.tel }}</td>
             </tr>
             <tr>
-                <th>Cp</th>
-                <td>{{ candidat.cp }}</td>
-            </tr>
-            <tr>
-                <th>Formation</th>
-                <td>{{ candidat.formation }}</td>
+                <th>Présentation</th>
+                <td>{{ candidat.presentation }}</td>
+                <td>{{ candidat.blog }}</td>
             </tr>
             <tr>
                 <th>Profession</th>
                 <td>{{ candidat.profession }}</td>
             </tr>
             <tr>
-                <th>Presentation</th>
-                <td>{{ candidat.presentation }}</td>
+                <th>Formation</th>
+                <td>{{ candidat.formation }}</td>
             </tr>
             <tr>
-                <th>Mail</th>
-                <td>{{ candidat.mail }}</td>
+                <th>Compétences</th>
+                <td>{{ candidat.competence }}</td>
+            </tr>
+            <tr>
+                <th>Motivations</th>
+                <td>{{ candidat.motivation }}</td>
             </tr>
             <tr>
                 <th>Document</th>
                 {% for document in candidat.documents %}
+                        <td>{{ document.type }}</td>
                         <td>
                             <img src="{{ asset('upload/' ~ document.contenu) }}" class="img-responsive ">
                         </td>

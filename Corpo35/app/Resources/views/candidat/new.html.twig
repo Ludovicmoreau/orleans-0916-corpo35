@@ -1,6 +1,10 @@
 {% extends 'BackBundle:Default:backLayout.html.twig' %}
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/inscriptionStyle.css') }}">
+{% endblock %}
 
-{% block content %}
+    {% block content %}
     <div class="container-fluid">
         <div class="col-xs-12 text-center">
             <h2>Bienvenue sur la page d'inscription au concours Corpo35</h2>
@@ -11,21 +15,29 @@
     <div class="container hidden-xs hidden-sm">
             <div class="well">
                 {{ form_start(form) }}
+                    <h3 class="text-center titreForm">Informations générales</h3>
                     {{ form_row(form.nom) }}
                     {{ form_row(form.prenom) }}
                     {{ form_row(form.date_naissance) }}
+                    {{ form_row(form.photo) }}
+                    {{ form_row(form.cv) }}
                     {{ form_row(form.numrue) }}
                     {{ form_row(form.adresse) }}
                     {{ form_row(form.ville) }}
                     {{ form_row(form.cp) }}
+                    {{ form_row(form.tel) }}
                     {{ form_row(form.mail) }}
-                    {{ form_row(form.formation) }}
+                    {{ form_row(form.blog) }}
+                    <h3 class="text-center titreForm">Information concernant le concours</h3>
+                    {{ form_row(form.motivation) }}
                     {{ form_row(form.profession) }}
                     {{ form_row(form.presentation) }}
-                    {{ form_row(form.motivation) }}
+                    {{ form_row(form.formation) }}
+                    {{ form_row(form.competence) }}
                     {{ form_row(form.promotion) }}
                     {% for document in form.documents %}
-                        <h3>Documents</h3>
+                        <h3 class="text-center titreForm">Documents</h3>
+                        <p class="text-center">Vous pouvez telecharger vos inspirations ici (photos, vidéos, herbiers etc...)</p>
                         <ul class="documents" data-prototype="{{ form_widget(form.documents.vars.prototype)|e('html_attr') }}">
                             <li>{{ form_row(document.type) }}</li>
                             <li>{{ form_row(document.contenu) }}</li>
@@ -69,6 +81,25 @@
                     addDocumentForm($collectionHolder, $newDocumentLi);
                 });
             });
+
+            function addDocumentForm($collectionHolder, $newLinkLi) {
+                // Get the data-prototype explained earlier
+                var prototype = $collectionHolder.data('prototype');
+
+                // get the new index
+                var index = $collectionHolder.data('index');
+
+                // Replace '__name__' in the prototype's HTML to
+                // instead be a number based on how many items we have
+                var newForm = prototype.replace(/__name__/g, index);
+
+                // increase the index with one for the next item
+                $collectionHolder.data('index', index + 1);
+
+                // Display the form in the page in an li, before the "Add a tag" link li
+                var $newFormLi = $('<li></li>').append(newForm);
+                $newLinkLi.before($newFormLi);
+            }
         </script>
         </div>
 {% endblock %}
