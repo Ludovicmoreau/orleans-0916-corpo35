@@ -489,6 +489,7 @@ class Candidat
      */
     public function addDocument(\BackBundle\Entity\Document $document)
     {
+        $document->setCandidat($this);
         $this->documents[] = $document;
 
         return $this;

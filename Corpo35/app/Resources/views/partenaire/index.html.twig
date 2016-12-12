@@ -7,8 +7,15 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Nom</th>
-                <th>Logo</th>
+                <th>Image</th>
+                <th>Resume</th>
+                <th>Website</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Contenu1</th>
+                <th>Contenu2</th>
+                <th>Contenu3</th>
+                <th>Contenu4</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -16,8 +23,16 @@
         {% for partenaire in partenaires %}
             <tr>
                 <td><a href="{{ path('partenaire_show', { 'id': partenaire.id }) }}">{{ partenaire.id }}</a></td>
-                <td>{{ partenaire.nom }}</td>
-                <td>{{ partenaire.logo }}</td>
+
+                    <td>{% if partenaire.image %}<img src="{{ asset('upload/' ~ partenaire.image) }} " class="img-responsive" alt=""/>{% endif %}</td>
+                    <td>{{ partenaire.resume }}</td>
+                    <td>{{ partenaire.website }}</td>
+                    <td>{{ partenaire.email }}</td>
+                    <td>{{ partenaire.phone }}</td>
+                    <td>{{ partenaire.contenu1 }}</td>
+                    <td>{{ partenaire.contenu2 }}</td>
+                    <td>{{ partenaire.contenu3 }}</td>
+                    <td>{{ partenaire.contenu4 }}</td>
                 <td>
                     <ul>
                         <li>

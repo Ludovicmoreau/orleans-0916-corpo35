@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Agenda_evenements list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date</th>
+                <th>Lieu</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for agenda_evenement in agenda_evenements %}
+            <tr>
+                <td><a href="{{ path('agenda_evenement_show', { 'id': agenda_evenement.id }) }}">{{ agenda_evenement.id }}</a></td>
+                <td>{% if agenda_evenement.date %}{{ agenda_evenement.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ agenda_evenement.lieu }}</td>
+                <td>{{ agenda_evenement.titre }}</td>
+                <td>{{ agenda_evenement.description }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('agenda_evenement_show', { 'id': agenda_evenement.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('agenda_evenement_edit', { 'id': agenda_evenement.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('agenda_evenement_new') }}">Create a new agenda_evenement</a>
+        </li>
+    </ul>
+{% endblock %}

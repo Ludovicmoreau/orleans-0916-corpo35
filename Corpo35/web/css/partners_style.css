@@ -19,6 +19,9 @@
     font-style: italic;
     display: table-cell;
     width: 100%;
+    vertical-align: middle;
+    min-height: 10em;
+
 }
 
 .col-fixed {
@@ -485,4 +488,9 @@ h1{
     z-index: 4;
     padding-bottom: 20px;
 }
+
+
+
+
+
 

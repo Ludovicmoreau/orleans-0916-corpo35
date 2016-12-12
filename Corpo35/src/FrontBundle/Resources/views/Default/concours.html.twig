@@ -4,6 +4,7 @@
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/concours_style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/partners_style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/carousel.css') }}">
 {% endblock %}
 
 {% block content %}
@@ -78,6 +79,31 @@
          </div>
     </div>
 </section>
+
+    <!--CAROUSEL-->
+<div id="carouselFade" class="container carousel slide carousel-fade" data-ride="carousel">
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <div class="carousel-caption">
+            </div>
+        </div>
+        <div class="item">
+            <div class="carousel-caption">
+            </div>
+        </div>
+        <div class="item">
+            <div class="carousel-caption">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+
+<script src="{{ asset('s/carousel.js') }}"></script>
+    <!--//CAROUSEL-->
 {% endblock %}
 
 

@@ -24,35 +24,35 @@ class Agenda_Labo
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="date")
+     * @ORM\Column(name="date", type="datetime")
      */
     private $date;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="heureDebutAM", type="time")
+     * @ORM\Column(name="heureDebutAM", type="datetime")
      */
     private $heureDebutAM;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="heureFinAM", type="time")
+     * @ORM\Column(name="heureFinAM", type="datetime")
      */
     private $heureFinAM;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="heureDebutPM", type="time")
+     * @ORM\Column(name="heureDebutPM", type="datetime")
      */
     private $heureDebutPM;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="heureFinPM", type="time")
+     * @ORM\Column(name="heureFinPM", type="datetime")
      */
     private $heureFinPM;
 
@@ -187,4 +187,3 @@ class Agenda_Labo
         return $this->heureFinPM;
     }
 }
-

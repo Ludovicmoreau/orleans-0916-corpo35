@@ -4,21 +4,23 @@ namespace BackBundle\Controller;
 
 use BackBundle\Entity\Candidat;
 use BackBundle\Entity\Document;
+use BackBundle\Form\DocumentType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Document controller.
  *
- * @Route("document")
+ * @Route("/")
  */
 class DocumentController extends Controller
 {
     /**
      * Lists all document entities.
      *
-     * @Route("/", name="document_index")
+     * @Route("/list", name="document_index")
      * @Method("GET")
      */
     public function indexAction()
@@ -44,19 +46,32 @@ class DocumentController extends Controller
     public function newAction(Request $request)
     {
         $document = new Document();
-        $form = $this->createForm('BackBundle\Form\DocumentType', $document);
+        $form = $this->createForm(DocumentType::class, $document);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+            $file = $document->getContenu();
+
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+
+            $file->move(
+                $this->getParameter('upload_directory'),
+                $fileName
+            );
+
+            $document->setContenu($fileName);
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($document);
-            $em->flush($document);
+            $em->flush();
 
-            return $this->redirectToRoute('document_show', array('id' => $document->getId()));
+
+            return $this->redirect($this->generateUrl('document_show', array(
+                'id' => $document->getId())));
         }
 
         return $this->render('document/new.html.twig', array(
-            'document' => $document,
             'form' => $form->createView(),
         ));
     }

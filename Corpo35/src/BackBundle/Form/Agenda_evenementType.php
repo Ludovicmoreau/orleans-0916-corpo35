@@ -6,16 +6,14 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class AgendaLaboType extends AbstractType
+class Agenda_evenementType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('date')
-                ->add('demiJournee')
-        ;
+        $builder->add('date')->add('lieu')->add('titre')->add('description')        ;
     }
     
     /**
@@ -24,7 +22,7 @@ class AgendaLaboType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'BackBundle\Entity\AgendaLabo'
+            'data_class' => 'BackBundle\Entity\Agenda_evenement'
         ));
     }
 
@@ -33,7 +31,7 @@ class AgendaLaboType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'backbundle_agendalabo';
+        return 'backbundle_agenda_evenement';
     }
 
 
