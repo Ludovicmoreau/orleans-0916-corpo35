@@ -53,7 +53,7 @@
                 <th>Document</th>
                 {% for document in candidat.documents %}
                         <td>
-                        {{ document.contenu }}>
+                            <img src="{{ asset('upload/' ~ document.contenu) }}" class="img-responsive ">
                         </td>
                 {% endfor %}
             </tr>
