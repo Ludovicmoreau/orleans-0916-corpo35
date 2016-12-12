@@ -43,23 +43,48 @@ class CandidatController extends Controller
     public function newAction(Request $request)
     {
         $candidat = new Candidat();
+        $document = new Document();
 
-        $doc = new Document();
-        $candidat->addDocument($doc);
 
+        // dummy code - this is here just so that the Task has some tags
+        // otherwise, this isn't an interesting example
+//        $document1 = new Document();
+//        $document1->setContenu('document1');
+//        $candidat->getDocuments()->add($document1);
+//        $document2 = new Document();
+//        $document2->setContenu('document2');
+//        $candidat->getDocuments()->add($document2);
+        // end dummy code
+
+        $candidat->addDocument($document);
 
         $form = $this->createForm('BackBundle\Form\CandidatType', $candidat);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($candidat);
+
+            /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+            $file = $document->getContenu();
+
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $file->move(
+                $this->getParameter('upload_directory'),
+                $fileName
+            );
+
+            $document->setContenu($fileName);
+
             foreach($candidat->getDocuments() as $document) {
                 $candidat->addDocument($document);
             }
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($candidat);
             $em->flush($candidat);
 
-            return $this->redirectToRoute('candidat_show', array('id' => $candidat->getId()));
+            return $this->redirectToRoute('candidat_show', array(
+                'id' => $candidat->getId(),
+            ));
         }
 
         return $this->render('candidat/new.html.twig', array(
@@ -77,7 +102,6 @@ class CandidatController extends Controller
     public function showAction(Candidat $candidat)
     {
         $deleteForm = $this->createDeleteForm($candidat);
-
         return $this->render('candidat/show.html.twig', array(
             'candidat' => $candidat,
             'delete_form' => $deleteForm->createView(),

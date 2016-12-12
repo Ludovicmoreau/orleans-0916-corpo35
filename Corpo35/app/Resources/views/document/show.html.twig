@@ -9,14 +9,19 @@
                 <th>Id</th>
                 <td>{{ document.id }}</td>
             </tr>
+            {#<tr>#}
+                {#<th>Candidat Name</th>#}
+                {#<td>{{ candidat.nom }}</td>#}
+            {#</tr>#}
             <tr>
                 <th>Type</th>
                 <td>{{ document.type }}</td>
             </tr>
             <tr>
                 <th>Contenu</th>
-                <td>{{ document.contenu }}</td>
+                <td><img src="{{ asset('upload/' ~ document.contenu) }}"></td>
             </tr>
+
         </tbody>
     </table>
 

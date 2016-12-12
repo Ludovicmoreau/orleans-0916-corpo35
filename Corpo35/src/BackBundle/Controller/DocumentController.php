@@ -4,21 +4,23 @@ namespace BackBundle\Controller;
 
 use BackBundle\Entity\Candidat;
 use BackBundle\Entity\Document;
+use BackBundle\Form\DocumentType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Document controller.
  *
- * @Route("document")
+ * @Route("/")
  */
 class DocumentController extends Controller
 {
     /**
      * Lists all document entities.
      *
-     * @Route("/", name="document_index")
+     * @Route("/list", name="document_index")
      * @Method("GET")
      */
     public function indexAction()
@@ -44,19 +46,38 @@ class DocumentController extends Controller
     public function newAction(Request $request)
     {
         $document = new Document();
-        $form = $this->createForm('BackBundle\Form\DocumentType', $document);
+        $form = $this->createForm(DocumentType::class, $document);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // $file stores the uploaded PDF file
+            /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+            $file = $document->getContenu();
+
+            // Generate a unique name for the file before saving it
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+
+            // Move the file to the directory where brochures are stored
+            $file->move(
+                $this->getParameter('upload_directory'),
+                $fileName
+            );
+
+            // Update the 'brochure' property to store the PDF file name
+            // instead of its contents
+            $document->setContenu($fileName);
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($document);
-            $em->flush($document);
+            $em->flush();
 
-            return $this->redirectToRoute('document_show', array('id' => $document->getId()));
+            // ... persist the $product variable or any other work
+
+            return $this->redirect($this->generateUrl('document_show', array(
+                'id' => $document->getId())));
         }
 
         return $this->render('document/new.html.twig', array(
-            'document' => $document,
             'form' => $form->createView(),
         ));
     }

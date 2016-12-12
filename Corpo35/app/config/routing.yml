@@ -36,6 +36,11 @@ agenda:
     type:     annotation
     prefix:   /admin
 
+document:
+    resource: "@BackBundle/Controller/DocumentController.php"
+    type:     annotation
+    prefix:   /document
+
 candidat:
     resource: "@BackBundle/Controller/CandidatController.php"
     type:     annotation

@@ -1,6 +1,33 @@
 {% extends 'BackBundle:Default:backLayout.html.twig' %}
 
 {% block content %}
+    <script>
+        var $collectionHolder;
+
+        // setup an "add a tag" link
+        var $addDocumentLink = $('<a href="#" class="add_document_link">Add a document</a>');
+        var $newDocumentLi = $('<li></li>').append($addDocumentLink);
+
+        jQuery(document).ready(function() {
+            // Get the ul that holds the collection of tags
+            $collectionHolder = $('ul.documents');
+
+            // add the "add a tag" anchor and li to the tags ul
+            $collectionHolder.append($newDocumentLi);
+
+            // count the current form inputs we have (e.g. 2), use that as the new
+            // index when inserting a new item (e.g. 2)
+            $collectionHolder.data('index', $collectionHolder.find(':input').length);
+
+            $addDocumentLink.on('click', function(e) {
+                // prevent the link from creating a "#" on the URL
+                e.preventDefault();
+
+                // add a new tag form (see next code block)
+                addDocumentForm($collectionHolder, $newDocumentLi);
+            });
+        });
+    </script>
     <div class="container-fluid">
         <div class="col-xs-12 text-center">
             <h2>Bienvenue sur la page d'inscription au concours Corpo35</h2>
@@ -11,7 +38,26 @@
     <div class="container hidden-xs hidden-sm">
             <div class="well">
                 {{ form_start(form) }}
-                    {{ form_widget(form) }}
+                    {{ form_row(form.nom) }}
+                    {{ form_row(form.prenom) }}
+                    {{ form_row(form.date_naissance) }}
+                    {{ form_row(form.numrue) }}
+                    {{ form_row(form.adresse) }}
+                    {{ form_row(form.ville) }}
+                    {{ form_row(form.cp) }}
+                    {{ form_row(form.mail) }}
+                    {{ form_row(form.formation) }}
+                    {{ form_row(form.profession) }}
+                    {{ form_row(form.presentation) }}
+                    {{ form_row(form.motivation) }}
+                    {{ form_row(form.promotion) }}
+                    {% for document in form.documents %}
+                        <h3>Documents</h3>
+                        <ul class="documents" data-prototype="{{ form_widget(form.documents.vars.prototype)|e('html_attr') }}">
+                            <li>{{ form_row(document.type) }}</li>
+                            <li>{{ form_row(document.contenu) }}</li>
+                        </ul>
+                    {% endfor %}
                     <div class="row">
                         <div class="col-xs-6">
                             <input type="submit" value="Créer" class="btn-primary btn-lg center-block"/>
