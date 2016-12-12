@@ -5,6 +5,7 @@ namespace BackBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 class Agenda_LaboType extends AbstractType
 {
@@ -13,7 +14,12 @@ class Agenda_LaboType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('date')->add('heureDebutAM')->add('heureFinAM')->add('heureDebutPM')->add('heureFinPM')        ;
+        $builder->add('date', DateType::class)
+                ->add('heureDebutAM')
+                ->add('heureFinAM')
+                ->add('heureDebutPM')
+                ->add('heureFinPM')
+        ;
     }
     
     /**

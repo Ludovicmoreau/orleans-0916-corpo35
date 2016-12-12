@@ -5,7 +5,9 @@ namespace BackBundle\Controller;
 use BackBundle\Entity\Partenaire;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * Partenaire controller.
@@ -39,20 +41,34 @@ class PartenaireController extends Controller
      */
     public function newAction(Request $request)
     {
-        $partenaire = new Partenaire();
-        $form = $this->createForm('BackBundle\Form\PartenaireType', $partenaire);
+        $imgPartenaire = new Partenaire();
+        $form = $this->createForm('BackBundle\Form\PartenaireType', $imgPartenaire);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($partenaire);
-            $em->flush($partenaire);
+            $file = $imgPartenaire->getFile();
 
-            return $this->redirectToRoute('partenaire_show', array('id' => $partenaire->getId()));
+            // Generate a unique name for the file before saving it
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+
+            // Move the file to the directory where brochures are stored
+            $file->move(
+                $this->getParameter('upload_directory'),
+                $fileName
+            );
+            // Update the 'brochure' property to store the PDF file name
+            // instead of its contents
+            $imgPartenaire->setFile($fileName);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($imgPartenaire);
+            $em->flush($imgPartenaire);
+
+            return $this->redirectToRoute('partenaire_show', array('id' => $imgPartenaire->getId()));
         }
 
         return $this->render('partenaire/new.html.twig', array(
-            'partenaire' => $partenaire,
+            'partenaire' => $imgPartenaire,
             'form' => $form->createView(),
         ));
     }
@@ -79,20 +95,47 @@ class PartenaireController extends Controller
      * @Route("/{id}/edit", name="partenaire_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, Partenaire $partenaire)
+    public function editAction(Request $request, Partenaire $imgPartenaire)
     {
-        $deleteForm = $this->createDeleteForm($partenaire);
-        $editForm = $this->createForm('BackBundle\Form\PartenaireType', $partenaire);
+        if (is_file ($imgPartenaire->getFile())) {
+            $partenaire = new File($this->getParameter('upload_directory') . '/' . $imgPartenaire->getFile());
+        } else {
+            $imgPartenaire->setFile('');
+        }
+
+        $deleteForm = $this->createDeleteForm($imgPartenaire);
+        $editForm = $this->createForm('BackBundle\Form\PartenaireType', $imgPartenaire);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+
+            // Update the 'brochure' property to store the PDF file name
+            // instead of its contents
+            if (!$imgPartenaire->getFile())
+            {
+                $imgPartenaire->setFile($partenaire);
+            } else
+            {
+                $file = $imgPartenaire->getFile();
+
+                // Generate a unique name for the file before saving it
+                $fileName = md5(uniqid()).'.'.$file->guessExtension();
+
+                // Move the file to the directory where brochures are stored
+                $file->move(
+                    $this->getParameter('upload_directory'),
+                    $fileName
+                );
+                $imgPartenaire->setFile($fileName);
+
+            }
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('partenaire_edit', array('id' => $partenaire->getId()));
+            return $this->redirectToRoute('partenaire_edit', array('id' => $imgPartenaire->getId()));
         }
 
         return $this->render('partenaire/edit.html.twig', array(
-            'partenaire' => $partenaire,
+            'partenaire' => $imgPartenaire,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));

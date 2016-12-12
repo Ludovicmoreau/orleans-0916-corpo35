@@ -77,6 +77,7 @@ class DefaultController extends Controller
     }
 
     /**
+
      * @Route("/listAgenda_evenement", name="list_agenda_evenement")
      */
     public function ShowAgendaEvenementAction()
@@ -85,6 +86,7 @@ class DefaultController extends Controller
         $listAgendas = $em->getRepository('BackBundle:Agenda_evenement')->findAll();
         return $this->render('FrontBundle:Default:agenda_evenement.html.twig', array(
             'listAgendas' => $listAgendas
+
         ));
     }
 
