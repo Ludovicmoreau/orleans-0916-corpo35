@@ -1,11 +1,8 @@
 <?php
-
 namespace BackBundle\Form;
-
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-
 class AgendaType extends AbstractType
 {
     /**
@@ -18,7 +15,7 @@ class AgendaType extends AbstractType
             ->add('lieu')
             ->add('evenement')        ;
     }
-    
+
     /**
      * {@inheritdoc}
      */
@@ -28,7 +25,6 @@ class AgendaType extends AbstractType
             'data_class' => 'BackBundle\Entity\Agenda'
         ));
     }
-
     /**
      * {@inheritdoc}
      */
@@ -36,6 +32,4 @@ class AgendaType extends AbstractType
     {
         return 'backbundle_agenda';
     }
-
-
 }

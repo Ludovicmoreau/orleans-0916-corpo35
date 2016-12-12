@@ -46,7 +46,7 @@ class Agenda
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -69,7 +69,7 @@ class Agenda
     /**
      * Get date
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDate()
     {
@@ -92,7 +92,7 @@ class Agenda
     /**
      * Get lieu
      *
-     * @return string 
+     * @return string
      */
     public function getLieu()
     {
@@ -115,7 +115,7 @@ class Agenda
     /**
      * Get evenement
      *
-     * @return string 
+     * @return string
      */
     public function getEvenement()
     {
