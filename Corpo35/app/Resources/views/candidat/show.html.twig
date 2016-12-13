@@ -1,71 +1,118 @@
-{% extends 'base.html.twig' %}
+{% extends 'FrontBundle:Default:layout.html.twig' %}
 
-{% block body %}
-    <h1>{{ candidat.nom }} {{ candidat.prenom }}</h1>
-
-    <table>
-        <tbody>
-
-            <tr>
-                <th>Photo</th>
-                <td><img src="{{ asset('upload/' ~ candidat.photo) }}" class="img-responsive "></td>
-            </tr>
-            <tr>
-                <th>Adresse</th>
-                <td>{{ candidat.numrue }} {{ candidat.adresse }} {{ candidat.cp }} {{ candidat.ville }}</td>
-            </tr>
-            <tr>
-                <th>Contact</th>
-                <td>{{ candidat.mail }} {{ candidat.tel }}</td>
-            </tr>
-            <tr>
-                <th>Présentation</th>
-                <td>{{ candidat.presentation }}</td>
-                <td>{{ candidat.blog }}</td>
-            </tr>
-            <tr>
-                <th>Profession</th>
-                <td>{{ candidat.profession }}</td>
-            </tr>
-            <tr>
-                <th>Formation</th>
-                <td>{{ candidat.formation }}</td>
-            </tr>
-            <tr>
-                <th>Compétences</th>
-                <td>{{ candidat.competence }}</td>
-            </tr>
-            <tr>
-                <th>Motivations</th>
-                <td>{{ candidat.motivation }}</td>
-            </tr>
-            <tr>
-                <th>Document</th>
-                {% for document in candidat.documents %}
-                        <td>{{ document.type }}</td>
-                        <td>
-                            <img src="{{ asset('upload/' ~ document.contenu) }}" class="img-responsive ">
-                        </td>
-                {% endfor %}
-            </tr>
-            <tr>
-                <th>Decision</th>
-                <td>{% if candidat.decision %}Yes{% else %}No{% endif %}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('candidat_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('candidat_edit', { 'id': candidat.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+{% block content %}
+    <div class="container">
+        <div class="well">
+            <div class="row">
+                <div class="col-xs-12">
+                    <img src="{{ asset('upload/' ~ candidat.photo) }}" class="img-responsive center-block">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <h2 class="text-center">{{ candidat.nom }} {{ candidat.prenom }}</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3>Contact</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>{{ candidat.numrue }} {{ candidat.adresse }} {{ candidat.cp }} {{ candidat.ville }}</p>
+                    <p>{{ candidat.mail }} {{ candidat.tel }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3>Présentation</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>{{ candidat.presentation }}</p>
+                    <p><a href="{{ candidat.blog }}"></a></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3>Profession</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>{{ candidat.profession }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3>Formation</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>{{ candidat.formation }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3>Autres compétences/formations</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>{{ candidat.competence }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3>Motivations</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>{{ candidat.motivation }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3>Inspirations</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    {% for document in candidat.documents %}
+                    <p>{{ document.type }}</p>
+                        <img src="{{ asset('upload/' ~ document.contenu) }}" class="img-responsive ">
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3>Décision</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>{% if candidat.decision %}Validé{% else %}Non-validé{% endif %}</p>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-xs-6">
+                    <a href="{{ path('candidat_index') }}">Voir la liste des inscrits</a>
+                </div>
+                <div class="col-xs-6">
+                    <a href="{{ path('candidat_edit', { 'id': candidat.id }) }}">Editer</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    {{ form_start(delete_form) }}
+                        <input type="submit" value="Supprimer le candidat" class="btn-lg btn-danger center-block">
+                    {{ form_end(delete_form) }}
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
