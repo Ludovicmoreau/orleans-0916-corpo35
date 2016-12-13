@@ -5,6 +5,7 @@ namespace BackBundle\Form;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -58,8 +59,8 @@ class CandidatType extends AbstractType
                 'entry_type'=>DocumentType::class,
                 'allow_add'=>true,
             ))
-            ->add('decision', CheckboxType::class, array('label'=>'Cocher pour valider le candidat', 'required' => false))
-        ;
+            ->add('decision', CheckboxType::class, array('label'=>'Cocher pour valider le candidat', 'required' => false));
+
     }
     
     /**

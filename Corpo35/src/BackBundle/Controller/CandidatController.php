@@ -64,6 +64,7 @@ class CandidatController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
 
+
             /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
             $photo = $candidat->getPhoto();
 
@@ -88,6 +89,7 @@ class CandidatController extends Controller
             foreach($candidat->getDocuments() as $document) {
                 $candidat->addDocument($document);
             }
+            $candidat->setMiseEnAvant(0);
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($candidat);
@@ -96,12 +98,15 @@ class CandidatController extends Controller
             return $this->redirectToRoute('candidat_show', array(
                 'id' => $candidat->getId(),
             ));
+
         }
 
         return $this->render('candidat/new.html.twig', array(
             'candidat' => $candidat,
-            'form' => $form->createView(),
-        ));
+            'form' => $form->createView())
+
+
+        );
     }
 
     /**
