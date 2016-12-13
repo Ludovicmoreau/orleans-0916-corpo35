@@ -99,7 +99,35 @@
                 // Display the form in the page in an li, before the "Add a tag" link li
                 var $newFormLi = $('<li></li>').append(newForm);
                 $newLinkLi.before($newFormLi);
+
+                addDocumentFormDeleteLink($newFormLi);
             }
+
+            jQuery(document).ready(function() {
+                // Get the ul that holds the collection of tags
+                $collectionHolder = $('ul.documents');
+
+                // add a delete link to all of the existing tag form li elements
+                $collectionHolder.find('li').each(function() {
+                    adddocumentFormDeleteLink($(this));
+                });
+
+                // ... the rest of the block from above
+            });
+
+            function addDocumentFormDeleteLink($documentFormLi) {
+                var $removeFormA = $('<a href="#">Delete this Document</a>');
+                $documentFormLi.append($removeFormA);
+
+                $removeFormA.on('click', function(e) {
+                    // prevent the link from creating a "#" on the URL
+                    e.preventDefault();
+
+                    // remove the li for the tag form
+                    $documentFormLi.remove();
+                });
+            }
+            
         </script>
         </div>
 {% endblock %}

@@ -42,11 +42,11 @@ class CandidatType extends AbstractType
             ->add('cp', IntegerType::class, array('label'=>'Code Postal', 'attr'=>array('class'=>'form-control', 'aria-label'=> 'Votre code postal' )))
             ->add('tel', IntegerType::class, array('label'=>'Telephone', 'attr'=>array('class'=>'form-control', 'aria-label'=> 'Votre n° de telephone' )))
             ->add('mail', EmailType::class, array('label'=>'Email', 'attr'=>array('placeholder'=>'toto@monmail.com', 'class'=>'form-control', 'aria-label'=>'Votre mail')))
-            ->add('formation', TextareaType::class, array('label'=>'Formation dans le secteur de la parfumerie', 'attr'=>array('placeholder'=>'Votre formation *', 'class'=>'form-control', 'aria-label'=> 'Votre formation')))
+            ->add('formation', TextareaType::class, array('label'=>'Parcours de formation dans le secteur de la parfumerie', 'attr'=>array('placeholder'=>'Votre formation *', 'class'=>'form-control', 'aria-label'=> 'Votre formation')))
             ->add('competence', TextType::class, array('label'=>'Autres formations ou compétences', 'attr'=>array('placeholder'=>'Votre formation *', 'class'=>'form-control', 'aria-label'=> 'Votre formation')))
             ->add('profession', TextType::class, array('label'=>'Profession','attr'=>array('placeholder'=>'Votre profession *', 'class'=>'form-control', 'aria-label'=> 'Votre profession')))
             ->add('blog', TextType::class, array('label'=>'Blog/site perso ou autre','attr'=>array('placeholder'=>'http://www.monblog;fr', 'class'=>'form-control', 'aria-label'=> 'Votre profession')))
-            ->add('presentation', TextareaType::class, array('label'=>'Présentation générale de votre parcours de formation', 'attr'=>array('class'=>'form-control', 'aria-label'=>'Votre présentation')))
+            ->add('presentation', TextareaType::class, array('label'=>'Présentation générale', 'attr'=>array('class'=>'form-control', 'aria-label'=>'Votre présentation')))
             ->add('motivation', TextareaType::class, array('label'=>'Vos motivations pour le concours', 'attr'=>array('class'=>'form-control', 'aria-label'=>'Vos motivations')))
             ->add('promotion', EntityType::class, array('class'=>'BackBundle\Entity\Promotion', 'choice_label'=>'year'))
 //            ->add('validations', EntityType::class, array(
@@ -58,6 +58,8 @@ class CandidatType extends AbstractType
             ->add('documents', CollectionType::class, array(
                 'entry_type'=>DocumentType::class,
                 'allow_add'=>true,
+                'allow_delete'=>true,
+                'by_reference'=>false,
             ))
             ->add('decision', CheckboxType::class, array('label'=>'Cocher pour valider le candidat', 'required' => false));
 
