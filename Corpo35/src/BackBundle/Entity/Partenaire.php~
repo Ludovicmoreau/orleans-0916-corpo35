@@ -4,7 +4,6 @@ namespace BackBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-
 /**
  * Partenaire
  *
@@ -25,9 +24,9 @@ class Partenaire
     /**
      * @var string
      *
-     * @ORM\Column(name="image", type="string", length=255, nullable=true)
+     * @ORM\Column(name="logo", type="text")
      */
-    private $image;
+    private $logo;
 
     /**
      * @var string
@@ -35,6 +34,34 @@ class Partenaire
      * @ORM\Column(name="resume", type="string", length=255)
      */
     private $resume;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="contenu_1", type="string", length=255)
+     */
+    private $contenu1;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="contenu_2", type="string", length=255)
+     */
+    private $contenu2;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="contenu_3", type="string", length=255)
+     */
+    private $contenu3;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="contenu_4", type="string", length=255)
+     */
+    private $contenu4;
 
     /**
      * @var string
@@ -47,7 +74,6 @@ class Partenaire
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255)
-     *
      */
     private $email;
 
@@ -57,34 +83,6 @@ class Partenaire
      * @ORM\Column(name="phone", type="string", length=255)
      */
     private $phone;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="contenu_1", type="string", length=255, nullable=true)
-     */
-    private $contenu1;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="contenu_2", type="string", length=255, nullable=true)
-     */
-    private $contenu2;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="contenu_3", type="string", length=255, nullable=true)
-     */
-    private $contenu3;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="contenu_4", type="string", length=255, nullable=true)
-     */
-    private $contenu4;
 
 
     /**
@@ -98,27 +96,27 @@ class Partenaire
     }
 
     /**
-     * Set image
+     * Set logo
      *
-     * @param string $image
+     * @param string $logo
      *
      * @return Partenaire
      */
-    public function setImage($image)
+    public function setLogo($logo)
     {
-        $this->image = $image;
+        $this->logo = $logo;
 
         return $this;
     }
 
     /**
-     * Get image
+     * Get logo
      *
      * @return string
      */
-    public function getImage()
+    public function getLogo()
     {
-        return $this->image;
+        return $this->logo;
     }
 
     /**
@@ -143,78 +141,6 @@ class Partenaire
     public function getResume()
     {
         return $this->resume;
-    }
-
-    /**
-     * Set website
-     *
-     * @param string $website
-     *
-     * @return Partenaire
-     */
-    public function setWebsite($website)
-    {
-        $this->website = $website;
-
-        return $this;
-    }
-
-    /**
-     * Get website
-     *
-     * @return string
-     */
-    public function getWebsite()
-    {
-        return $this->website;
-    }
-
-    /**
-     * Set email
-     *
-     * @param string $email
-     *
-     * @return Partenaire
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    /**
-     * Get email
-     *
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
-     * Set phone
-     *
-     * @param string $phone
-     *
-     * @return Partenaire
-     */
-    public function setPhone($phone)
-    {
-        $this->phone = $phone;
-
-        return $this;
-    }
-
-    /**
-     * Get phone
-     *
-     * @return string
-     */
-    public function getPhone()
-    {
-        return $this->phone;
     }
 
     /**
@@ -312,4 +238,77 @@ class Partenaire
     {
         return $this->contenu4;
     }
+
+    /**
+     * Set website
+     *
+     * @param string $website
+     *
+     * @return Partenaire
+     */
+    public function setWebsite($website)
+    {
+        $this->website = $website;
+
+        return $this;
+    }
+
+    /**
+     * Get website
+     *
+     * @return string
+     */
+    public function getWebsite()
+    {
+        return $this->website;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     *
+     * @return Partenaire
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set phone
+     *
+     * @param string $phone
+     *
+     * @return Partenaire
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Get phone
+     *
+     * @return string
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
 }
+
