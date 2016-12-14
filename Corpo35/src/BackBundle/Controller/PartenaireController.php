@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\Logo;
 
 /**
  * Partenaire controller.
@@ -41,34 +41,34 @@ class PartenaireController extends Controller
      */
     public function newAction(Request $request)
     {
-        $imgPartenaire = new Partenaire();
-        $form = $this->createForm('BackBundle\Form\PartenaireType', $imgPartenaire);
+        $partenaire = new Partenaire();
+        $form = $this->createForm('BackBundle\Form\PartenaireType', $partenaire);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $file = $imgPartenaire->getFile();
+            $logo = $partenaire->getLogo();
 
             // Generate a unique name for the file before saving it
-            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $logoName = md5(uniqid()).'.'.$logo->guessExtension();
 
             // Move the file to the directory where brochures are stored
-            $file->move(
+            $logo->move(
                 $this->getParameter('upload_directory'),
-                $fileName
+                $logoName
             );
             // Update the 'brochure' property to store the PDF file name
             // instead of its contents
-            $imgPartenaire->setFile($fileName);
+            $partenaire->setLogo($logoName);
 
             $em = $this->getDoctrine()->getManager();
-            $em->persist($imgPartenaire);
-            $em->flush($imgPartenaire);
+            $em->persist($partenaire);
+            $em->flush($partenaire);
 
-            return $this->redirectToRoute('partenaire_show', array('id' => $imgPartenaire->getId()));
+            return $this->redirectToRoute('partenaire_show', array('id' => $partenaire->getId()));
         }
 
         return $this->render('partenaire/new.html.twig', array(
-            'partenaire' => $imgPartenaire,
+            'partenaire' => $partenaire,
             'form' => $form->createView(),
         ));
     }
@@ -95,47 +95,47 @@ class PartenaireController extends Controller
      * @Route("/{id}/edit", name="partenaire_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, Partenaire $imgPartenaire)
+    public function editAction(Request $request, Partenaire $partenaire)
     {
-        if (is_file ($imgPartenaire->getFile())) {
-            $partenaire = new File($this->getParameter('upload_directory') . '/' . $imgPartenaire->getFile());
+        if (is_file ($partenaire->getLogo())) {
+            $old_logo = new Logo($this->getParameter('upload_directory') . '/' . $partenaire->getLogo());
         } else {
-            $imgPartenaire->setFile('');
+            $partenaire->setLogo('');
         }
 
-        $deleteForm = $this->createDeleteForm($imgPartenaire);
-        $editForm = $this->createForm('BackBundle\Form\PartenaireType', $imgPartenaire);
+        $deleteForm = $this->createDeleteForm($partenaire);
+        $editForm = $this->createForm('BackBundle\Form\PartenaireType', $partenaire);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
 
             // Update the 'brochure' property to store the PDF file name
             // instead of its contents
-            if (!$imgPartenaire->getFile())
+            if (!$partenaire->getLogo())
             {
-                $imgPartenaire->setFile($partenaire);
+                $partenaire->setLogo($old_logo);
             } else
             {
-                $file = $imgPartenaire->getFile();
+                $logo = $partenaire->getLogo();
 
                 // Generate a unique name for the file before saving it
-                $fileName = md5(uniqid()).'.'.$file->guessExtension();
+                $logoName = md5(uniqid()).'.'.$logo->guessExtension();
 
                 // Move the file to the directory where brochures are stored
-                $file->move(
+                $logo->move(
                     $this->getParameter('upload_directory'),
-                    $fileName
+                    $logoName
                 );
-                $imgPartenaire->setFile($fileName);
+                $partenaire->setLogo($logoName);
 
             }
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('partenaire_edit', array('id' => $imgPartenaire->getId()));
+            return $this->redirectToRoute('partenaire_edit', array('id' => $partenaire->getId()));
         }
 
         return $this->render('partenaire/edit.html.twig', array(
-            'partenaire' => $imgPartenaire,
+            'partenaire' => $partenaire,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
@@ -176,4 +176,5 @@ class PartenaireController extends Controller
             ->getForm()
         ;
     }
+
 }

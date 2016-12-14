@@ -4,7 +4,6 @@ namespace BackBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-
 /**
  * Partenaire
  *
@@ -21,20 +20,34 @@ class Partenaire
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
     /**
      * @var string
      *
-     * @ORM\Column(name="image", type="string", length=255, nullable=true)
+     * @ORM\Column(name="nom", type="string")
      */
-    private $image;
+    private $nom;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="logo", type="text")
+     */
+    private $logo;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="resume", type="string", length=255)
+     * @ORM\Column(name="resume", type="text")
      */
     private $resume;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="contenu", type="text", nullable=true)
+     */
+    private $contenu;
+
+
 
     /**
      * @var string
@@ -46,8 +59,7 @@ class Partenaire
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=255)
-     *
+     * @ORM\Column(name="email", type="string", length=255, nullable=true)
      */
     private $email;
 
@@ -57,34 +69,6 @@ class Partenaire
      * @ORM\Column(name="phone", type="string", length=255)
      */
     private $phone;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="contenu_1", type="string", length=255, nullable=true)
-     */
-    private $contenu1;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="contenu_2", type="string", length=255, nullable=true)
-     */
-    private $contenu2;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="contenu_3", type="string", length=255, nullable=true)
-     */
-    private $contenu3;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="contenu_4", type="string", length=255, nullable=true)
-     */
-    private $contenu4;
 
 
     /**
@@ -98,27 +82,27 @@ class Partenaire
     }
 
     /**
-     * Set image
+     * Set logo
      *
-     * @param string $image
+     * @param string $logo
      *
      * @return Partenaire
      */
-    public function setImage($image)
+    public function setLogo($logo)
     {
-        $this->image = $image;
+        $this->logo = $logo;
 
         return $this;
     }
 
     /**
-     * Get image
+     * Get logo
      *
      * @return string
      */
-    public function getImage()
+    public function getLogo()
     {
-        return $this->image;
+        return $this->logo;
     }
 
     /**
@@ -143,6 +127,30 @@ class Partenaire
     public function getResume()
     {
         return $this->resume;
+    }
+
+    /**
+     * Set contenu
+     *
+     * @param string $contenu
+     *
+     * @return Partenaire
+     */
+    public function setContenu($contenu)
+    {
+        $this->contenu = $contenu;
+
+        return $this;
+    }
+
+    /**
+     * Get contenu
+     *
+     * @return string
+     */
+    public function getContenu()
+    {
+        return $this->contenu;
     }
 
     /**
@@ -218,98 +226,18 @@ class Partenaire
     }
 
     /**
-     * Set contenu1
-     *
-     * @param string $contenu1
-     *
-     * @return Partenaire
-     */
-    public function setContenu1($contenu1)
-    {
-        $this->contenu1 = $contenu1;
-
-        return $this;
-    }
-
-    /**
-     * Get contenu1
-     *
      * @return string
      */
-    public function getContenu1()
+    public function getNom()
     {
-        return $this->contenu1;
+        return $this->nom;
     }
 
     /**
-     * Set contenu2
-     *
-     * @param string $contenu2
-     *
-     * @return Partenaire
+     * @param string $nom
      */
-    public function setContenu2($contenu2)
+    public function setNom($nom)
     {
-        $this->contenu2 = $contenu2;
-
-        return $this;
-    }
-
-    /**
-     * Get contenu2
-     *
-     * @return string
-     */
-    public function getContenu2()
-    {
-        return $this->contenu2;
-    }
-
-    /**
-     * Set contenu3
-     *
-     * @param string $contenu3
-     *
-     * @return Partenaire
-     */
-    public function setContenu3($contenu3)
-    {
-        $this->contenu3 = $contenu3;
-
-        return $this;
-    }
-
-    /**
-     * Get contenu3
-     *
-     * @return string
-     */
-    public function getContenu3()
-    {
-        return $this->contenu3;
-    }
-
-    /**
-     * Set contenu4
-     *
-     * @param string $contenu4
-     *
-     * @return Partenaire
-     */
-    public function setContenu4($contenu4)
-    {
-        $this->contenu4 = $contenu4;
-
-        return $this;
-    }
-
-    /**
-     * Get contenu4
-     *
-     * @return string
-     */
-    public function getContenu4()
-    {
-        return $this->contenu4;
+        $this->nom = $nom;
     }
 }
