@@ -64,6 +64,7 @@ class DefaultController extends Controller
         return $this->render('FrontBundle:Default:contact.html.twig');
     }
 
+
     /**
 
 
@@ -98,6 +99,9 @@ class DefaultController extends Controller
             'listAgendas' => $listAgendas
         ));
     }
+
+
+
 
     /**
 

@@ -32,7 +32,8 @@
             <div class="row">
                 <div class="col-xs-12">
                     <p>{{ candidat.presentation }}</p>
-                    <p><a href="{{ candidat.blog }}"></a></p>
+                    <p><a href="{{ asset('upload/' ~ candidat.cv) }}" target="_blank">Telecharger le cv au format pdf</a></p>
+                    <p><a href="{{ candidat.blog }}" target="_blank">Site/blog</a></p>
                 </div>
             </div>
             <div class="row">

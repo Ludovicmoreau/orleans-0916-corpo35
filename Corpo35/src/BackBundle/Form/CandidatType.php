@@ -4,6 +4,7 @@ namespace BackBundle\Form;
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -22,6 +23,7 @@ use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Validator\Constraints\Choice;
 
 class CandidatType extends AbstractType
 {
@@ -61,7 +63,12 @@ class CandidatType extends AbstractType
                 'allow_delete'=>true,
                 'by_reference'=>false,
             ))
-            ->add('decision', CheckboxType::class, array('label'=>'Cocher pour valider le candidat', 'required' => false));
+            ->add('decision', CheckboxType::class, array('label'=>'Cocher pour valider le candidat', 'required' => false))
+            ->add('miseEnAvant', ChoiceType::class, array(
+                'choices' => array(
+                    1=> 1,
+                    0=> 0),
+                'required' => false));
 
     }
     
@@ -71,7 +78,7 @@ class CandidatType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'BackBundle\Entity\Candidat'
+            'data_class' => 'BackBundle\Entity\Candidat',
         ));
     }
 

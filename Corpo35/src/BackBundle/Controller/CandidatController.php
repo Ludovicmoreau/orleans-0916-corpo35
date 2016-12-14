@@ -66,6 +66,17 @@ class CandidatController extends Controller
 
 
             /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+            $cv = $candidat->getCv();
+
+            $cvName = md5(uniqid()).'.'.$cv->guessExtension();
+            $cv->move(
+                $this->getParameter('upload_directory'),
+                $cvName
+            );
+
+            $candidat->setCv($cvName);
+
+
             $photo = $candidat->getPhoto();
 
             $photoName = md5(uniqid()).'.'.$photo->guessExtension();
@@ -89,7 +100,7 @@ class CandidatController extends Controller
             foreach($candidat->getDocuments() as $document) {
                 $candidat->addDocument($document);
             }
-            $candidat->setMiseEnAvant(0);
+            //$candidat->setMiseEnAvant(0);
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($candidat);
