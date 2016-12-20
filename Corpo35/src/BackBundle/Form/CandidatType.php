@@ -36,7 +36,7 @@ class CandidatType extends AbstractType
             ->add('nom', TextType::class, array('label'=>'Nom', 'attr'=>array('placeholder'=>'Votre Nom *', 'class'=>'form-control', 'aria-label'=> 'Votre Nom')))
             ->add('prenom', TextType::class, array('label'=>'Prénom', 'attr'=>array('placeholder'=>'Votre Prénom *', 'class'=>'form-control', 'aria-label'=> 'Votre Prénom')))
             ->add('date_naissance', BirthdayType::class, array('label'=>'Date de Naissance', 'attr'=>array('placeholder'=>'Votre Prénom *', 'aria-label'=> 'Votre date de naissance')))
-            ->add('photo', FileType::class)
+            ->add('photo', FileType::class )
             ->add('cv', FileType::class)
             ->add('numrue', IntegerType::class, array('label'=>'Numéro de rue', 'attr'=>array('class'=>'form-control')))
             ->add('adresse', TextType::class, array('label'=>'Adresse', 'attr'=>array('placeholder'=>'Votre adresse *', 'class'=>'form-control', 'aria-label'=> 'Votre adresse')))
@@ -80,6 +80,7 @@ class CandidatType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => 'BackBundle\Entity\Candidat',
         ));
+
     }
 
     /**
