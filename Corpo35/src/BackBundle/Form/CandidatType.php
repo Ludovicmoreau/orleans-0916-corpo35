@@ -162,9 +162,9 @@ class CandidatType extends AbstractType
                 'allow_delete'=>true,
                 'by_reference'=>false,
             ))
-            ->add('decision', CheckboxType::class, array(
-                'label'=>'Cocher pour valider le candidat',
-                'required' => false))
+//            ->add('decision', CheckboxType::class, array(
+//                'label'=>'Cocher pour valider le candidat',
+//                'required' => false))
         ;
     }
     
