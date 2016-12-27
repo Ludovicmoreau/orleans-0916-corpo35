@@ -6,10 +6,8 @@
 {% endblock %}
 
 {% block content %}
-<div class="container-fluid partners">
+<div class="container partners">
     <div class="row content">
-            <h1 class="text-center">Partenaires</h1>
-            <div class="col-md-10 col-sm-12 col-xs-12" id="logo_modal">
                 <div class="row ">
                     <div class="col-md-4">
                         <img class="content_left" src="{{ asset('images/35.jpeg') }}" alt="image partenaire 35 rue Damiette"/>
@@ -36,120 +34,17 @@
                         <dd>Ainsi que beaucoup d’autres marques confidentielles.</dd>
                     </div>
                 </div>
-
         </div>
-        <div class="col-md-2 col-sm-12 col-xs-12">
-            <ul id="hexGrid">
-                <li class="hex">
-                    <a class="btn btn-primary btn-lg hexIn" data-toggle="modal" data-target="#myModal--slideLeft" href="#modal">
-                        <img src="{{ asset('images/isipca.jpeg') }}" alt="image partenaire isipca"/>
-                        <h6 >ISIPCA</h6>
-                        <p>Form senses to expertise</p>
-                    </a>
-                </li>
-                <li class="hex">
-                    <a class="hexIn" href="#">
-                        <img class="img-responsive logo" src="{{ asset('images/cosmed.png') }}" alt="image partenaire cosmed"/>
-                        <h6>Cosmed</h6>
-                        <p>The french Cosmetics Association for SMEs</p>
-                    </a>
-                </li>
-                <li class="hex">
-                    <a class="hexIn" href="#">
-                        <img class="img-responsive logo" src="{{ asset('images/auparfum.jpeg') }}" alt="image partenaire auparfum"/>
-                        <h6>Au Parfum</h6>
-                        <p>Sentez inspiré</p>
-                    </a>
-                </li>
-                <li class="hex">
-                    <a class="hexIn" href="#">
-                        <img class="img-responsive logo" src="{{ asset('images/ecomundo.png') }}" alt="image partenaire ecomundo"/>
-                        <h6>Eco Mundo</h6>
-                        <p>Innovante, dynamique, experte, réactive </p>
-                    </a>
-                </li>
-                <li class="hex">
-                    <a class="hexIn" href="#">
-                        <img class="img-responsive logo" src="{{ asset('images/coptis.jpeg') }}" alt="image partenaire coptis"/>
-                        <h6>Coptis</h6>
-                        <p>software soutions for Cosmetics R&D</p>
-                    </a>
-                </li>
-                <li class="hex">
-                    <a class="hexIn" href="#">
-                        <img class="img-responsive logo" src="{{ asset('images/alternative.png') }}" alt="image partenaire alternative"/>
-                        <h6>Alternative</h6>
-                        <p>Fragrances & Beauty</p>
-                    </a>
-                </li>
-                <li class="hex">
-                    <a class="hexIn" href="#">
-                        <img class="img-responsive logo" src="{{ asset('images/saverglass.jpeg') }}" alt="image partenaire saverglass"/>
-                        <h6>SaverGlass</h6>
-                        <p>ESPRIT DESIGN</p>
-                    </a>
-                </li>
-                <li class="hex">
-                    <a class="hexIn" href="#">
-                        <img class="img-responsive logo" src="{{ asset('images/IFF.jpeg') }}" alt="image partenaire IFF"/>
-                        <h6>IFF</h6>
-                        <p>International Flavors & Fragrances</p>
-                    </a>
-                </li>
-            </ul>
+    </div>
+    <div class="container">
+        <div class="row">
+        {{ render(controller('FrontBundle:ListPartenaire:ShowLogo')) }}
         </div>
     </div>
 </div>
-    <!-- Modal -->
-<div class="modal fade  " id="myModal--slideLeft"  data-backdrop="false" data-target="#logo_modal" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="container-fluid modal_logo">
 
-            <div class="row ">
-                <button type="button" class="close-button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <div class="col-md-4 col-centered" >
-                    <img class="content_left" src="{{ asset('images/isipca.jpeg') }}" alt="image partenaire isipca"/>
-                </div>
-                <div class="col-md-8 col-centered">
-                    <p class="lead content_right">Fondé en 1970 à l’initiative de Jean-Jacques Guerlain, ISIPCA est une des écoles d’enseignement supérieur gérée par la CCI de Paris Ile-de-France.</p>
-                </div>
-            </div>
-            <div class="row modal_body">
-                <div class="col-md-4 modal_content">
-                    <dt>ISIPCA est la référence nationale et internationale dans la formation et la recherche des domaines du parfum, de la cosmétique et de l’aromatique alimentaire.</dt>
-                </div>
-                <div class="col-md-4 modal_content">
-                    <dt>3 prestations au service des entreprises de l’industrie de la parfumerie, de la cosmétique et de l’aromatique alimentaire : </dt>
-                    <dd>- 10  formations post BAC à BAC + 6 dont 8 en apprentissage (Filière scientifique et filière commerciale). </dd>
-                    <dd>- Un catalogue de formation continue (inter et intra entreprise). </dd>
-                    <dd>- Des prestations de services et de recherches avec un centre de recherche dédié.</dd>
-                </div>
-                <div class="col-md-4 modal_content">
-                    <dt>14 laboratoires spécialisés en parfumerie, fine et fonctionnelle, cosmétiques et maquillage, aromatiquealimentaire, analyses physico-chimiques, analyse sensorielle.</dt>
-                    <dt>Un réseau unique d’entreprises partenaires. Un réseau de près de 500 entreprises.</dt>
-                    <dt>80% des étudiants sortants en 2014 ont trouvé un emploi dans les 6 mois.</dt>
-                </div>
-            </div>
-            <div class="modal_footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <p><i class="fa fa-globe" aria-hidden="true"></i><a href="https://www.isipca.fr" alt="site Isipca"/></p>
-                        </div>
-                        <div class="col-md-4">
-                            <p><i class="fa fa-envelope-o fa-1x linkNavbar" aria-hidden="true"></i> Paul du Foupdufou@isipca.fr</p>
-                        </div>
-                        <div class="col-md-4">
-                            <p><i class="fa fa-phone" aria-hidden="true"></i> 01 39 23 70 27</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-        </div>
-    </div>
 
-</div>
 
 <script>
     // Get the modal

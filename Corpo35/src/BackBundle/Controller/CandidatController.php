@@ -76,7 +76,6 @@ class CandidatController extends Controller
 
             $candidat->setCv($cvName);
 
-
             $photo = $candidat->getPhoto();
 
             $photoName = md5(uniqid()).'.'.$photo->guessExtension();
