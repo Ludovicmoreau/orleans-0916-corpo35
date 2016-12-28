@@ -38,6 +38,13 @@ class Document
     /**
      * @var string
      *
+     * @ORM\Column(name="lien", type="string", length=255, nullable=true)
+     */
+    private $lien;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="contenu", type="text")
      */
     private $contenu;
@@ -125,5 +132,20 @@ class Document
         return $this->candidat;
     }
 
+    /**
+     * @return string
+     */
+    public function getLien()
+    {
+        return $this->lien;
+    }
+
+    /**
+     * @param string $lien
+     */
+    public function setLien($lien)
+    {
+        $this->lien = $lien;
+    }
 
 }

@@ -44,6 +44,7 @@ class CandidatController extends Controller
     {
         $candidat = new Candidat();
         $document = new Document();
+        $document1 = new Document();
 
 
         // dummy code - this is here just so that the Task has some tags
@@ -97,6 +98,20 @@ class CandidatController extends Controller
             foreach($candidat->getDocuments() as $document) {
                 $candidat->addDocument($document);
             }
+
+//            $file1 = $document1->getContenu();
+//
+//            $fileName1 = md5(uniqid()).'.'.$file1->guessExtension();
+//            $file1->move(
+//                $this->getParameter('upload_directory'),
+//                $fileName1
+//            );
+//
+//            $document1->setContenu($fileName1);
+//
+//            foreach($candidat->getDocuments() as $document1) {
+//                $candidat->addDocument($document1);
+//            }
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($candidat);

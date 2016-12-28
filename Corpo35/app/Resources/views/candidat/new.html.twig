@@ -1,10 +1,11 @@
-{% extends 'BackBundle:Default:backLayout.html.twig' %}
+{% extends 'FrontBundle:Default:layout.html.twig' %}
+
 {% block stylesheet %}
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/inscriptionStyle.css') }}">
 {% endblock %}
 
-    {% block content %}
+{% block content %}
     <div class="container-fluid">
         <div class="col-xs-12 text-center">
             <h2>Bienvenue sur la page d'inscription au concours Corpo35</h2>
@@ -16,31 +17,36 @@
             <div class="well">
                 {{ form_start(form) }}
                     <h3 class="text-center titreForm">Informations générales</h3>
-                    {{ form_row(form.nom) }}
-                    {{ form_row(form.prenom) }}
-                    {{ form_row(form.date_naissance) }}
-                    {{ form_row(form.photo) }}
-                    {{ form_row(form.cv) }}
-                    {{ form_row(form.numrue) }}
-                    {{ form_row(form.adresse) }}
-                    {{ form_row(form.ville) }}
-                    {{ form_row(form.cp) }}
-                    {{ form_row(form.tel) }}
-                    {{ form_row(form.mail) }}
-                    {{ form_row(form.blog) }}
+                    <div class="form">{{ form_row(form.nom) }}</div>
+                    <div class="form">{{ form_row(form.prenom) }}</div>
+                    <div class="form">{{ form_row(form.date_naissance) }}</div>
+                    <div class="form">{{ form_row(form.photo) }}</div>
+                    <div class="form">{{ form_row(form.cv) }}</div>
+                    <div class="form">{{ form_row(form.numrue) }}</div>
+                    <div class="form">{{ form_row(form.adresse) }}</div>
+                    <div class="form">{{ form_row(form.ville) }}</div>
+                    <div class="form">{{ form_row(form.cp) }}</div>
+                    <div class="form">{{ form_row(form.tel) }}</div>
+                    <div class="form">{{ form_row(form.mail) }}</div>
+                    <div class="form">{{ form_row(form.presentation) }}</div>
+                    <div class="form">{{ form_row(form.blog) }}</div>
                     <h3 class="text-center titreForm">Information concernant le concours</h3>
-                    {{ form_row(form.motivation) }}
-                    {{ form_row(form.profession) }}
-                    {{ form_row(form.presentation) }}
-                    {{ form_row(form.formation) }}
-                    {{ form_row(form.competence) }}
-                    {{ form_row(form.promotion) }}
+                    <div class="form">{{ form_row(form.motivation) }}</div>
+                    <div class="form">{{ form_row(form.profession) }}</div>
+                    <div class="form">{{ form_row(form.formation) }}</div>
+                    <div class="form">{{ form_row(form.competence) }}</div>
+                    <div class="form">{{ form_row(form.promotion) }}</div>
                     {% for document in form.documents %}
                         <h3 class="text-center titreForm">Documents</h3>
-                        <p class="text-center">Vous pouvez telecharger vos inspirations ici (photos, vidéos, herbiers etc...)</p>
+                        <p class="text-center">Vous pouvez telecharger jusqu'à 3 documents qui vous ont inspiré pour votre création (photos, vidéos, herbiers etc...)<br/>
+                            Les types de documents supportés sont "image", "vidéo", "musique" ou "pdf". Merci de respecter l'orthographe de ces types.<br/>
+                            Vous pouvez également ajouter un lien vers un site externe
+                        </p>
                         <ul class="documents" data-prototype="{{ form_widget(form.documents.vars.prototype)|e('html_attr') }}">
-                            <li>{{ form_row(document.type) }}</li>
-                            <li>{{ form_row(document.contenu) }}</li>
+                            <div class="form"><li>{{ form_row(document.type) }}</li></div>
+                            <div class="form"><li>{{ form_row(document.contenu) }}</li></div>
+                            <div class="form"><li>Ou</li></div>
+                            <div class="form"><li>{{ form_row(document.lien) }}</li></div>
                         </ul>
                     {% endfor %}
                     <div class="row">
@@ -59,7 +65,7 @@
             var $collectionHolder;
 
             // setup an "add a tag" link
-            var $addDocumentLink = $('<a href="#" class="add_document_link">Add a document</a>');
+            var $addDocumentLink = $('<div class="form"><a href="#" class="add_document_link">Ajouter un document</a></div>');
             var $newDocumentLi = $('<li></li>').append($addDocumentLink);
 
             jQuery(document).ready(function() {
@@ -116,7 +122,7 @@
             });
 
             function addDocumentFormDeleteLink($documentFormLi) {
-                var $removeFormA = $('<a href="#">Delete this Document</a>');
+                var $removeFormA = $('<div class="form"><a href="#">Supprimer un document</a></div>');
                 $documentFormLi.append($removeFormA);
 
                 $removeFormA.on('click', function(e) {
