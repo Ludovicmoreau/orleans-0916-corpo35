@@ -31,7 +31,7 @@ class Document
     /**
      * @var string
      *
-     * @ORM\Column(name="type", type="string", length=255)
+     * @ORM\Column(name="type", type="string", length=255, nullable=true)
      */
     private $type;
 
@@ -45,7 +45,7 @@ class Document
     /**
      * @var string
      *
-     * @ORM\Column(name="contenu", type="text")
+     * @ORM\Column(name="contenu", type="text", nullable=true)
      */
     private $contenu;
 

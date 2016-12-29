@@ -23,6 +23,7 @@ class DocumentType extends AbstractType
                 'required'=>'false',
                 ))
             ->add('contenu', FileType::class, array(
+//                'multiple'=>'true',
                 'label'=>'Contenu',
                 'required'=>'false',
                 ))
@@ -33,7 +34,6 @@ class DocumentType extends AbstractType
                     'placeholder'=>'http://...',
                 )
                 ))
-           // ->add('candidat', HiddenType::class)
         ;
     }
     

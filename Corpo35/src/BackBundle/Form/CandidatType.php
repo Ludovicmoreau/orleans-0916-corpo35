@@ -161,6 +161,7 @@ class CandidatType extends AbstractType
                 'allow_add'=>true,
                 'allow_delete'=>true,
                 'by_reference'=>false,
+                'required'=>false,
             ))
             ->add('decision', CheckboxType::class, array(
                 'label'=>'Cocher pour valider le candidat',

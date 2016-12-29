@@ -65,6 +65,8 @@ class CandidatController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
 
             /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+
+//            Ajout du cv
             $cv = $candidat->getCv();
 
             $cvName = md5(uniqid()).'.'.$cv->guessExtension();
@@ -74,7 +76,9 @@ class CandidatController extends Controller
             );
 
             $candidat->setCv($cvName);
+//            Fin de l'ajout du cv
 
+//            Ajout de la photo
             $photo = $candidat->getPhoto();
 
             $photoName = md5(uniqid()).'.'.$photo->guessExtension();
@@ -84,7 +88,9 @@ class CandidatController extends Controller
             );
 
             $candidat->setPhoto($photoName);
+//            Fin de l'ajout de la photo'
 
+//            Ajout du document 0
             $file = $document->getContenu();
 
             $fileName = md5(uniqid()).'.'.$file->guessExtension();
@@ -98,20 +104,23 @@ class CandidatController extends Controller
             foreach($candidat->getDocuments() as $document) {
                 $candidat->addDocument($document);
             }
+//            Fin de l'ajout du document 0
 
-//            $file1 = $document1->getContenu();
-//
-//            $fileName1 = md5(uniqid()).'.'.$file1->guessExtension();
-//            $file1->move(
-//                $this->getParameter('upload_directory'),
-//                $fileName1
-//            );
-//
-//            $document1->setContenu($fileName1);
-//
-//            foreach($candidat->getDocuments() as $document1) {
-//                $candidat->addDocument($document1);
-//            }
+//            Ajout du document 1
+            $file1 = $document1->getContenu();
+
+            $fileName1 = md5(uniqid()).'.'.$file1->guessExtension();
+            $file1->move(
+                $this->getParameter('upload_directory'),
+                $fileName1
+            );
+
+            $document1->setContenu($fileName1);
+
+            foreach($candidat->getDocuments() as $document1) {
+                $candidat->addDocument($document1);
+            }
+//            Fin de l'ajout du document 1
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($candidat);

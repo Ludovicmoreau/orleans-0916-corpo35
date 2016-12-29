@@ -26,7 +26,8 @@
             <div class="row">
                 <div class="col-xs-12">
                     <p>{{ candidat.numrue }} {{ candidat.adresse }} {{ candidat.cp }} {{ candidat.ville }}</p>
-                    <p>{{ candidat.mail }} {{ candidat.tel }}</p>
+                    <p>{{ candidat.mail }}</p>
+                    <p>{{ candidat.tel }}</p>
                 </div>
             </div>
             <div class="row">
@@ -36,8 +37,11 @@
             </div>
             <div class="row">
                 <div class="col-xs-12">
-                    <p>{{ candidat.presentation }}</p>
-                    <p><a href="{{ asset('upload/' ~ candidat.cv) }}" target="_blank">Telecharger le cv au format pdf</a></p>
+                    <h4>Motivations</h4>
+                        <p>{{ candidat.presentation }}</p>
+                    <h4>CV</h4>
+                        <p><a href="{{ asset('upload/' ~ candidat.cv) }}" target="_blank">Telecharger le cv au format pdf</a></p>
+                    <h4>Blog/site perso</h4>
                     <p><a href="{{ candidat.blog }}" target="_blank">Site/blog</a></p>
                 </div>
             </div>
@@ -92,9 +96,9 @@
                         {% if document.type == "image" %}
                             <img src="{{ asset('upload/' ~ document.contenu) }}" class="img-responsive"><br/>
                             {% elseif document.type == "vidéo" %}
-                                <video controls src="{{ asset('upload/' ~ document.contenu) }}" class="img-responsive "><br/>
+                                <video controls src="{{ asset('upload/' ~ document.contenu) }}" class="img-responsive "></video><br/>
                             {% elseif document.type == "musique" %}
-                                <audio controls src="{{ asset('upload/' ~ document.contenu) }}"><br/>
+                                <audio controls src="{{ asset('upload/' ~ document.contenu) }}"></audio><br/>
                             {% elseif document.type == "pdf" %}
                                 <a href="{{ asset('upload/' ~ document.contenu) }}" target="_blank">Voir le document</a>
                             {% else %}
