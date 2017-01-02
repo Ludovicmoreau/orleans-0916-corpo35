@@ -5,8 +5,22 @@
 
         {{ form_start(edit_form) }}
             {{ form_widget(edit_form) }}
-            <input type="submit" value="Edit" />
+
+
+        {%  if is_granted ('ROLE_ADMIN') %}
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox"> Mettre le candidat en valeur sur la page d'accueil
+                </label>
+            </div>
+        {%  endif %}
+
+        <input type="submit" value="Edit" />
+
+
         {{ form_end(edit_form) }}
+
+
 
         <ul>
             <li>
@@ -14,8 +28,10 @@
             </li>
             <li>
                 {{ form_start(delete_form) }}
+
                     <input type="submit" value="Delete">
                 {{ form_end(delete_form) }}
+                
             </li>
         </ul>
     {% endblock %}
