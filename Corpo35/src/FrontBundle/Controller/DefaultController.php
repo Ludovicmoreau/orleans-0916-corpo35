@@ -56,6 +56,8 @@ class DefaultController extends Controller
         return $this->render('FrontBundle:Default:contact.html.twig');
     }
 
+
+
     /**
 
      * @Route("/listAgenda_evenement", name="list_agenda_evenement")
@@ -81,7 +83,6 @@ class DefaultController extends Controller
             'listCandidat' => $listCandidat
         ));
     }
-
 }
 
 

@@ -1,0 +1,24 @@
+.img-responsive{
+
+    margin: 0 auto;
+
+}
+
+.list-partners{
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+.partner{
+    box-shadow: 0 1px 7px rgba(0, 0, 0, 0.2);
+    margin-bottom: 50px;
+    padding: 20px;
+}
+
+.partner-resume{
+    padding: 10px;
+}
+
+.i-fa-partner{
+    font-size: 0.8em;
+    text-align: center;
+}

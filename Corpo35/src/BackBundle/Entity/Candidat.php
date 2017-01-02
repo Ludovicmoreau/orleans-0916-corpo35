@@ -691,4 +691,5 @@ class Candidat
     {
         return $this->validations;
     }
+
 }
