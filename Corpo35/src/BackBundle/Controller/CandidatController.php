@@ -10,6 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 
+
 /**
  * Candidat controller.
  *
@@ -64,6 +65,7 @@ class CandidatController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
 
+
             /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
 
 //            Ajout du cv
@@ -104,23 +106,27 @@ class CandidatController extends Controller
             foreach($candidat->getDocuments() as $document) {
                 $candidat->addDocument($document);
             }
+
+            //$candidat->setMiseEnAvant(0);
+
 //            Fin de l'ajout du document 0
 
 //            Ajout du document 1
-            $file1 = $document1->getContenu();
+            //      $file1 = $document1->getContenu();
 
-            $fileName1 = md5(uniqid()).'.'.$file1->guessExtension();
-            $file1->move(
-                $this->getParameter('upload_directory'),
-                $fileName1
-            );
+            //     $fileName1 = md5(uniqid()).'.'.$file1->guessExtension();
+            //      $file1->move(
+            //         $this->getParameter('upload_directory'),
+                //         $fileName1
+        //     );
 
-            $document1->setContenu($fileName1);
+            //     $document1->setContenu($fileName1);
 
-            foreach($candidat->getDocuments() as $document1) {
-                $candidat->addDocument($document1);
-            }
+            //   foreach($candidat->getDocuments() as $document1) {
+                //     $candidat->addDocument($document1);
+                //   }
 //            Fin de l'ajout du document 1
+
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($candidat);
@@ -129,12 +135,15 @@ class CandidatController extends Controller
             return $this->redirectToRoute('candidat_show', array(
                 'id' => $candidat->getId(),
             ));
+
         }
 
         return $this->render('candidat/new.html.twig', array(
             'candidat' => $candidat,
-            'form' => $form->createView(),
-        ));
+            'form' => $form->createView())
+
+
+        );
     }
 
     /**
@@ -174,6 +183,7 @@ class CandidatController extends Controller
             'candidat' => $candidat,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+
         ));
     }
 

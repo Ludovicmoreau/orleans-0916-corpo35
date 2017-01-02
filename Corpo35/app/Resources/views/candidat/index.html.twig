@@ -38,8 +38,14 @@
                     {% if candidat.promotion.year is defined %}
                         <p>{{ candidat.promotion.year }}</p>
                     {% endif %}
-
                     <p>Candidat validé: {% if candidat.decision %}Yes{% else %}No{% endif %}</p>
+                    <p>
+
+                        {% if is_granted ('ROLE_ADMIN') %}
+                            <a href="{{ path('recandidatenavant' , { 'id': candidat.id }) }}"> Mettre en avant un candidat</a>
+                        {% endif %}
+                    </p>
+
                     <div class="row">
                         <div class="col-xs-6">
                             <p><a href="{{ path('candidat_show', { 'id': candidat.id }) }}">voir en détail</a></p>
@@ -47,6 +53,7 @@
                         <div class="col-xs-6">
                             {% if is_granted ('ROLE_ADMIN')%}
                             <p><a href="{{ path('candidat_edit', { 'id': candidat.id }) }}">éditer</a></p>
+
                             {% endif %}
                         </div>
                     </div>

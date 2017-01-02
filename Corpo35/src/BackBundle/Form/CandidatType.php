@@ -4,7 +4,9 @@ namespace BackBundle\Form;
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -21,6 +23,7 @@ use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Validator\Constraints\Choice;
 
 class CandidatType extends AbstractType
 {
@@ -30,6 +33,7 @@ class CandidatType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+
             ->add('nom', TextType::class, array(
                 'label'=>'Nom',
                 'attr'=>array(
@@ -150,6 +154,7 @@ class CandidatType extends AbstractType
                 'class'=>'BackBundle\Entity\Promotion',
                 'choice_label'=>'year'
             ))
+
 //            ->add('validations', EntityType::class, array(
 //              'label'=>'Validez-vous la candidature de ce candidat ?',
 //              'class'=>'BackBundle\Entity\Validation',
@@ -163,20 +168,28 @@ class CandidatType extends AbstractType
                 'by_reference'=>false,
                 'required'=>false,
             ))
-            ->add('decision', CheckboxType::class, array(
-                'label'=>'Cocher pour valider le candidat',
-                'required' => false))
-        ;
+
+            ->add('decision', CheckboxType::class, array('label'=>'Cocher pour valider le candidat', 'required' => false))
+            ->add('miseEnAvant', ChoiceType::class, array(
+                'choices' => array(
+                    1=> 1,
+                    0=> 0),
+                'required' => false));
+
+
+
+
     }
-    
+
     /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'BackBundle\Entity\Candidat'
+            'data_class' => 'BackBundle\Entity\Candidat',
         ));
+
     }
 
     /**

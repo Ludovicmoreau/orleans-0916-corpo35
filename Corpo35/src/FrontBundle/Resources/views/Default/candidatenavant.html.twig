@@ -1,0 +1,63 @@
+{% extends 'FrontBundle:Default:layout.html.twig' %}
+
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/candidatEnAvant_style.css') }}">
+{% endblock %}
+
+{% block content %}
+    <section>
+        <div class="container-fluid">
+
+            <div class="présentation">
+                <h1 class="text-center "> Candidat mis avant</h1>
+                <p class="text-center">
+                    <div class="row">
+                        <div class="col-md-offset-2 col-md-3">
+                            <img src="{{ asset('upload/' ~ candidat.photo) }}" alt="photo profil">
+                            <div class="prenom">
+                                Prénom :
+                                {{ candidat.prenom }}
+                            </div>
+                            <div>
+                                Nom :
+                                {{ candidat.nom }}
+                            </div>
+                            <div>
+                                Ville :
+                                {{ candidat.ville }}
+                            </div>
+                            <div>
+                                Code Postal :
+                                {{ candidat.cp }}
+                            </div>
+                            <div>
+                                {% for document in candidat.documents %} {% if document.type == "image" %} <img
+                                        src="{{ asset('upload/' ~ document.contenu) }}"
+                                        class="img-responsive"><br/> {% elseif document.type == "vidéo" %}
+                                    <video controls src="{{ asset('upload/' ~ document.contenu) }}"
+                                           class="img-responsive "></video><br/> {% elseif document.type == "musique" %}
+                                    <audio controls src="{{ asset('upload/' ~ document.contenu) }}"></audio>
+                                    <br/> {% elseif document.type == "pdf" %} <a
+                                        href="{{ asset('upload/' ~ document.contenu) }}" target="_blank">Voir le
+                                    document</a> {% else %}
+                <p>Le format du document n'est pas supporté</p> {% endif %} <h4>Lien</h4> <a href="{{ document.lien }}"
+                                                                                             target="_blank">{{ document.lien }}</a> {% endfor %}
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            Présentation du candidat :
+            {{ candidat.presentation }}
+        </div>
+        <div class="col-md-4">
+            Motivation du candidat :
+            {{ candidat.motivation }}
+        </div>
+        </div>
+        </p>
+        </div>
+
+        </div>
+    </section>
+{% endblock %}
