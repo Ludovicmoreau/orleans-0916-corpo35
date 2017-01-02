@@ -713,4 +713,5 @@ class Candidat
     {
         return $this->miseEnAvant;
     }
+
 }

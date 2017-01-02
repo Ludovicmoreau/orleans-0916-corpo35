@@ -61,7 +61,7 @@ class CandidatType extends AbstractType
             ->add('cv', FileType::class, array(
                 'label'=>'CV (au format pdf)'
             ))
-            ->add('numrue', IntegerType::class, array(
+            ->add('numrue', TextType::class, array(
                 'label'=>'Numéro de rue',
                 'attr'=>array(
                     'class'=>'form-control'
@@ -83,14 +83,14 @@ class CandidatType extends AbstractType
                     'aria-label'=> 'Votre ville'
                 )
             ))
-            ->add('cp', IntegerType::class, array(
+            ->add('cp', TextType::class, array(
                 'label'=>'Code Postal',
                 'attr'=>array(
                     'class'=>'form-control',
                     'aria-label'=> 'Votre code postal'
                 )
             ))
-            ->add('tel', IntegerType::class, array(
+            ->add('tel', TextType::class, array(
                 'label'=>'Telephone',
                 'attr'=>array(
                     'class'=>'form-control',
@@ -166,8 +166,8 @@ class CandidatType extends AbstractType
                 'allow_add'=>true,
                 'allow_delete'=>true,
                 'by_reference'=>false,
+                'required'=>false,
             ))
-
 
             ->add('decision', CheckboxType::class, array('label'=>'Cocher pour valider le candidat', 'required' => false))
             ->add('miseEnAvant', ChoiceType::class, array(
@@ -175,6 +175,7 @@ class CandidatType extends AbstractType
                     1=> 1,
                     0=> 0),
                 'required' => false));
+
 
 
 

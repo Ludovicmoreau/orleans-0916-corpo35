@@ -80,11 +80,46 @@ class DefaultController extends Controller
                          ->findOneByMiseEnAvant(true)
         ;
 
+
         return $this->render('FrontBundle:Default:candidatenavant.html.twig', array(
             'candidat' => $candidat,
         ));
 
     }
+
+
+    /**
+     * @Route("/recandidatenavant", name="recandidatenavant")
+     */
+    public function RemiseEnAvantAction($id)
+
+    {
+        $em = $this->getDoctrine()->getManager();
+        $candidat = $em
+            ->getRepository('BackBundle:Candidat')
+
+            ->findByMiseEnAvant(true)
+            ->setMiseEnAvant(false);
+
+            $em->persist($candidat);
+            $em->flush($candidat);
+
+        ;
+
+
+         $candidat = $em
+             ->getRepository('BackBundle:Candidat')
+             ->findBy($id)
+            ->setMiseEnAvant(true);
+            $em->persist($candidat);
+            $em->flush($candidat);
+
+        return $this->render('FrontBundle:Default:index.html.twig', array(
+            'candidat' => $candidat,
+        ));
+
+    }
+
 
     /**
      * @Route("/agenda_labo", name="agenda_labo")

@@ -22,4 +22,6 @@ class DefaultController extends Controller
     {
         return $this->render('BackBundle:Default:BackJury.html.twig');
     }
+
+
 }
