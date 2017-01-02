@@ -3,9 +3,11 @@
 namespace BackBundle\Controller;
 
 use BackBundle\Entity\Rpresse;
+use BackBundle\Entity\Document;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Rpresse controller.
@@ -40,13 +42,23 @@ class RpresseController extends Controller
     public function newAction(Request $request)
     {
         $rpresse = new Rpresse();
+
         $form = $this->createForm('BackBundle\Form\RpresseType', $rpresse);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $document = $rpresse->getDocument();
+
+            $documentName = md5(uniqid()).'.'.$document->guessExtension();
+            $document->move(
+                $this->getParameter('upload_directory'),
+                $documentName
+            );
+            $rpresse->setDocument($documentName);
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($rpresse);
-            $em->flush($rpresse);
+            $em->flush();
 
             return $this->redirectToRoute('rpresse_show', array('id' => $rpresse->getId()));
         }
