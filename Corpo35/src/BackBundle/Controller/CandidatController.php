@@ -44,20 +44,8 @@ class CandidatController extends Controller
     {
         $candidat = new Candidat();
         $document = new Document();
-        $document1 = new Document();
-
-
-        // dummy code - this is here just so that the Task has some tags
-        // otherwise, this isn't an interesting example
-//        $document1 = new Document();
-//        $document1->setContenu('document1');
-//        $candidat->getDocuments()->add($document1);
-//        $document2 = new Document();
-//        $document2->setContenu('document2');
-//        $candidat->getDocuments()->add($document2);
-        // end dummy code
-
         $candidat->addDocument($document);
+
 
         $form = $this->createForm('BackBundle\Form\CandidatType', $candidat);
         $form->handleRequest($request);
@@ -88,40 +76,26 @@ class CandidatController extends Controller
             );
 
             $candidat->setPhoto($photoName);
-//            Fin de l'ajout de la photo'
+//            Fin de l'ajout de la photo
 
-//            Ajout du document 0
-            $file = $document->getContenu();
+//            Ajout du document
+            $documents = $candidat->getDocuments();
+            foreach ($documents as $document) {
 
-            $fileName = md5(uniqid()).'.'.$file->guessExtension();
-            $file->move(
-                $this->getParameter('upload_directory'),
-                $fileName
-            );
+                $file = $document->getContenu();
 
-            $document->setContenu($fileName);
+                $fileName = md5(uniqid()) . '.' . $file->guessExtension();
+                $file->move(
+                    $this->getParameter('upload_directory'),
+                    $fileName
+                );
 
-            foreach($candidat->getDocuments() as $document) {
+                $document->setContenu($fileName);
                 $candidat->addDocument($document);
             }
-//            Fin de l'ajout du document 0
+//            Fin de l'ajout du document
 
-//            Ajout du document 1
-            $file1 = $document1->getContenu();
-
-            $fileName1 = md5(uniqid()).'.'.$file1->guessExtension();
-            $file1->move(
-                $this->getParameter('upload_directory'),
-                $fileName1
-            );
-
-            $document1->setContenu($fileName1);
-
-            foreach($candidat->getDocuments() as $document1) {
-                $candidat->addDocument($document1);
-            }
-//            Fin de l'ajout du document 1
-
+            $candidat->setDecision(false);
             $em = $this->getDoctrine()->getManager();
             $em->persist($candidat);
             $em->flush($candidat);

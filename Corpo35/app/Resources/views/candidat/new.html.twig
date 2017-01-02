@@ -36,11 +36,12 @@
                     <div class="form">{{ form_row(form.formation) }}</div>
                     <div class="form">{{ form_row(form.competence) }}</div>
                     <div class="form">{{ form_row(form.promotion) }}</div>
+                    <div class="form">{{ form_row(form.decision) }}</div>
                     {% for document in form.documents %}
                         <h3 class="text-center titreForm">Documents</h3>
                         <p class="text-center">
-                            Vous pouvez telecharger jusqu'à 3 documents qui vous ont inspiré pour votre création (photos, vidéos, herbiers etc...)<br/>
-                            Les types de documents supportés sont "image", "vidéo", "musique" ou "pdf". Merci de respecter l'orthographe de ces types.<br/>
+                            Vous pouvez telecharger jusqu'à 3 documents qui vous ont inspiré pour votre création<br/>
+                            Les types de documents supportés sont "image", "vidéo", "musique" ou "pdf".<br/>
                             Vous pouvez également ajouter un lien vers un site externe
                         </p>
                         <ul class="documents" data-prototype="{{ form_widget(form.documents.vars.prototype)|e('html_attr') }}">

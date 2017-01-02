@@ -3,6 +3,7 @@
 namespace BackBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -18,18 +19,24 @@ class DocumentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('type', TextType::class, array(
+            ->add('type', ChoiceType::class, array(
                 'label'=>'Type de document',
-                'required'=>'false',
+                'required'=>false,
+                'choices' => array(
+                    'vidéo' => 'vidéo',
+                    'musique' => 'musique',
+                    'image' => 'image',
+                    'pdf' => 'pdf',
+                ),
                 ))
             ->add('contenu', FileType::class, array(
 //                'multiple'=>'true',
                 'label'=>'Contenu',
-                'required'=>'false',
+                'required'=>false,
                 ))
             ->add('lien', TextType::class, array(
                 'label'=>'Lien externe',
-                'required'=>'false',
+                'required'=>false,
                 'attr'=>array(
                     'placeholder'=>'http://...',
                 )
