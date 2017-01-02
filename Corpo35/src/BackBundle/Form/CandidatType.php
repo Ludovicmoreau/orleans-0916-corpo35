@@ -169,12 +169,12 @@ class CandidatType extends AbstractType
                 'required'=>false,
             ))
 
-            ->add('decision', CheckboxType::class, array('label'=>'Cocher pour valider le candidat', 'required' => false))
-            ->add('miseEnAvant', ChoiceType::class, array(
-                'choices' => array(
-                    1=> 1,
-                    0=> 0),
-                'required' => false));
+            ->add('decision', CheckboxType::class, array('label'=>'Cocher pour valider le candidat', 'required' => false));
+            //->add('miseEnAvant', ChoiceType::class, array(
+              //  'choices' => array(
+                //    1=> 1,
+                 //   0=> 0),
+               // 'required' => false));
 
 
 
