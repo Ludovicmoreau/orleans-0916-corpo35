@@ -70,3 +70,8 @@ backpartenaire:
     resource: "@BackBundle/Controller/BackPartenaireController.php"
     type:     annotation
     prefix:   /partenaire
+
+backpartenaire:
+    resource: "@BackBundle/Controller/BackIsipcaController.php"
+    type:     annotation
+    prefix:   /isipca

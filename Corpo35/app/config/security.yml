@@ -7,6 +7,7 @@ security:
     role_hierarchy:
         ROLE_PARTENAIRE: ROLE_USER
         ROLE_JURY:        ROLE_USER
+        ROLE_ISIPCA:        ROLE_USER
         ROLE_ADMIN:       ROLE_JURY, ROLE_PARTENAIRE
 
 
@@ -32,6 +33,7 @@ security:
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/candidat/new, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/partenaire/, role: ROLE_PARTENAIRE  }
+        - { path: ^/isipca/, role: ROLE_ISIPCA  }
         - { path: ^/jury/, role: ROLE_JURY  }
         - { path: ^/admin, role: ROLE_ADMIN   }
 
