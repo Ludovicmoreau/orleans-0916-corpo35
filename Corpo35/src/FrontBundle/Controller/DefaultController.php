@@ -2,6 +2,7 @@
 
 namespace FrontBundle\Controller;
 
+use BackBundle\Entity\Candidat;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
@@ -89,30 +90,29 @@ class DefaultController extends Controller
 
 
     /**
-     * @Route("/recandidatenavant", name="recandidatenavant")
+     * @Route("/recandidatenavant/{id}", name="recandidatenavant")
      */
-    public function RemiseEnAvantAction($id)
-
+    public function RemiseEnAvantAction(Candidat $id)
     {
         $em = $this->getDoctrine()->getManager();
+        $oldCandidat = $em
+            ->getRepository('BackBundle:Candidat')
+            ->findOneByMiseEnAvant(true);
+        $oldCandidat ->setMiseEnAvant(false);
+
+            $em->persist($oldCandidat);
+
+
+
         $candidat = $em
             ->getRepository('BackBundle:Candidat')
+            ->find($id);
 
-            ->findByMiseEnAvant(true)
-            ->setMiseEnAvant(false);
+        $candidat ->setMiseEnAvant(true);
 
             $em->persist($candidat);
-            $em->flush($candidat);
 
-        ;
-
-
-         $candidat = $em
-             ->getRepository('BackBundle:Candidat')
-             ->findBy($id)
-            ->setMiseEnAvant(true);
-            $em->persist($candidat);
-            $em->flush($candidat);
+        $em->flush();
 
         return $this->render('FrontBundle:Default:index.html.twig', array(
             'candidat' => $candidat,

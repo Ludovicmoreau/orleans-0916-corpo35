@@ -42,7 +42,7 @@
                     <p>
 
                         {% if is_granted ('ROLE_ADMIN') %}
-                            <a href="{{ path('recandidatenavant') }}"> Mettre en avant un candidat</a>
+                            <a href="{{ path('recandidatenavant' , { 'id': candidat.id }) }}"> Mettre en avant un candidat</a>
                         {% endif %}
                     </p>
 
