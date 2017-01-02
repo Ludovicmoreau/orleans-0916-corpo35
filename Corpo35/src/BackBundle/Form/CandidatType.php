@@ -35,116 +35,119 @@ class CandidatType extends AbstractType
         $builder
 
             ->add('nom', TextType::class, array(
-                'label'=>'Nom',
+                'label'=>'Nom*',
                 'attr'=>array(
-                    'placeholder'=>'Votre Nom *',
+                    'placeholder'=>'Votre Nom',
                     'class'=>'form-control',
                     'aria-label'=> 'Votre Nom'
                 )
             ))
             ->add('prenom', TextType::class, array(
-                'label'=>'Prénom',
+                'label'=>'Prénom*',
                 'attr'=>array(
-                    'placeholder'=>'Votre Prénom *',
+                    'placeholder'=>'Votre Prénom',
                     'class'=>'form-control',
                     'aria-label'=> 'Votre Prénom'
                 )
             ))
             ->add('date_naissance', BirthdayType::class, array(
-                'label'=>'Date de Naissance',
+                'label'=>'Date de Naissance*',
                 'attr'=>array(
-                    'placeholder'=>'Votre Prénom *',
                     'aria-label'=> 'Votre date de naissance'
                 )
             ))
             ->add('photo', FileType::class)
             ->add('cv', FileType::class, array(
-                'label'=>'CV (au format pdf)'
+                'label'=>'CV* (au format pdf)'
             ))
             ->add('numrue', TextType::class, array(
-                'label'=>'Numéro de rue',
+                'label'=>'Numéro de rue*',
                 'attr'=>array(
-                    'class'=>'form-control'
+                    'class'=>'form-control',
+                    'placeholder'=>'Votre n° de rue'
                 )
             ))
             ->add('adresse', TextType::class, array(
-                'label'=>'Adresse',
+                'label'=>'Adresse*',
                 'attr'=>array(
-                    'placeholder'=>'Votre adresse *',
+                    'placeholder'=>'Votre adresse',
                     'class'=>'form-control',
                     'aria-label'=> 'Votre adresse'
                 )
             ))
             ->add('ville', TextType::class, array(
-                'label'=>'Ville',
+                'label'=>'Ville*',
                 'attr'=>array(
-                    'placeholder'=>'Votre ville *',
+                    'placeholder'=>'Votre ville',
                     'class'=>'form-control',
                     'aria-label'=> 'Votre ville'
                 )
             ))
             ->add('cp', TextType::class, array(
-                'label'=>'Code Postal',
+                'label'=>'Code Postal*',
                 'attr'=>array(
                     'class'=>'form-control',
                     'aria-label'=> 'Votre code postal'
                 )
             ))
             ->add('tel', TextType::class, array(
-                'label'=>'Telephone',
+                'label'=>'Telephone*',
                 'attr'=>array(
                     'class'=>'form-control',
                     'aria-label'=> 'Votre n° de telephone'
                 )
             ))
             ->add('mail', EmailType::class, array(
-                'label'=>'Email',
+                'label'=>'Email*',
                 'attr'=>array(
-                    'placeholder'=>'toto@monmail.com',
+                    'placeholder'=>'mail@monmail.com',
                     'class'=>'form-control',
                     'aria-label'=>'Votre mail'
                 )
             ))
             ->add('formation', TextareaType::class, array(
-                'label'=>'Parcours de formation dans le secteur de la parfumerie',
+                'label'=>'Parcours de formation dans le secteur de la parfumerie le cas échéant',
+                'required'=>false,
                 'attr'=>array(
-                    'placeholder'=>'Votre formation *',
+                    'placeholder'=>'Votre formation',
                     'class'=>'form-control',
                     'aria-label'=> 'Votre formation'
                 )
             ))
             ->add('competence', TextType::class, array(
                 'label'=>'Autres formations ou compétences',
-                'attr'=>array('placeholder'=>'Votre formation *',
+                'required'=>false,
+                'attr'=>array('placeholder'=>'Vos compétences',
                     'class'=>'form-control',
                     'aria-label'=> 'Votre formation'
                 )
             ))
             ->add('profession', TextType::class, array(
-                'label'=>'Profession',
+                'label'=>'Profession* (ou étudiant le cas échéant)',
                 'attr'=>array(
-                    'placeholder'=>'Votre profession *',
+                    'placeholder'=>'Votre profession',
                     'class'=>'form-control',
                     'aria-label'=> 'Votre profession'
                 )
             ))
             ->add('blog', TextType::class, array(
                 'label'=>'Blog/site perso ou autre',
+                'required'=>false,
                 'attr'=>array(
                     'placeholder'=>'http://www.monblog;fr',
                     'class'=>'form-control',
-                    'aria-label'=> 'Votre profession'
+                    'aria-label'=> 'Votre blog'
                 )
             ))
             ->add('presentation', TextareaType::class, array(
-                'label'=>'Présentation générale',
+                'label'=>'Présentation générale*',
                 'attr'=>array(
                     'class'=>'form-control',
                     'aria-label'=>'Votre présentation'
                 )
             ))
             ->add('motivation', TextareaType::class, array(
-                'label'=>'Vos motivations pour le concours',
+                'label'=>'Vos motivations pour le concours*',
                 'attr'=>array(
                     'class'=>'form-control',
                     'aria-label'=>'Vos motivations'
@@ -157,6 +160,7 @@ class CandidatType extends AbstractType
 
 //            ->add('validations', EntityType::class, array(
 //              'label'=>'Validez-vous la candidature de ce candidat ?',
+//              'required'=>false,
 //              'class'=>'BackBundle\Entity\Validation',
 //              'attr'=>array(
 //                  'class'=>'form-control')
@@ -169,16 +173,11 @@ class CandidatType extends AbstractType
                 'required'=>false,
             ))
 
-            ->add('decision', CheckboxType::class, array('label'=>'Cocher pour valider le candidat', 'required' => false));
-            //->add('miseEnAvant', ChoiceType::class, array(
-              //  'choices' => array(
-                //    1=> 1,
-                 //   0=> 0),
-               // 'required' => false));
-
-
-
-
+            ->add('decision', HiddenType::class, array(
+                'label'=>'Cocher pour valider le candidat',
+                'required' => false
+            ))
+        ;
     }
 
     /**
