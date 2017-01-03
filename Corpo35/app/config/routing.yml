@@ -71,7 +71,7 @@ backpartenaire:
     type:     annotation
     prefix:   /partenaire
 
-backpartenaire:
+backisipca:
     resource: "@BackBundle/Controller/BackIsipcaController.php"
     type:     annotation
     prefix:   /isipca
