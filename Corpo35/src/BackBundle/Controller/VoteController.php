@@ -154,12 +154,11 @@ class VoteController extends Controller
         $note = 0;
 
         if ($typeVote=='positif') {
-            $note += 1;
+            $note = 1;
         } elseif ($typeVote=='negatif'){
-            $note -= 1;
-        }
-        elseif ($typeVote=='neutre'){
-            $note += 0;
+            $note = -1;
+        } elseif ($typeVote=='neutre'){
+            $note = 0;
         }
 
         $vote->setNote($note);
