@@ -75,10 +75,10 @@ class CandidatController extends Controller
 //            Fin de l'ajout de la photo
 
 //            Ajout des documents
-//            if (!empty($document)) {
-                $documents = $candidat->getDocuments();
-                foreach ($documents as $document) {
-                    $file = $document->getContenu();
+            $documents = $candidat->getDocuments();
+            foreach ($documents as $document) {
+                $file = $document->getContenu();
+                if  ($file) {
                     $fileName = md5(uniqid()) . '.' . $file->guessExtension();
                     $file->move(
                         $this->getParameter('upload_directory'),
@@ -87,7 +87,8 @@ class CandidatController extends Controller
                     $document->setContenu($fileName);
                     $candidat->addDocument($document);
                 }
-//            }
+            }
+
 
 //            Fin de l'ajout des documents
             $candidat->setMiseEnAvant(0);
