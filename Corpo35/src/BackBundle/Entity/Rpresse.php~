@@ -151,5 +151,4 @@ class Rpresse
     {
         return $this->date;
     }
-
 }

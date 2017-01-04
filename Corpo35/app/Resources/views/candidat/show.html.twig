@@ -114,7 +114,7 @@
             {% if is_granted ('ROLE_JURY') %}
                 <div class="row text-center">
                     <div class="col-xs-4">
-                        <a href="#"><i class="fa fa-star fa-5x" style="color: yellow" aria-hidden="true"></i>
+                        <a href="{{ path('vote' , { 'id': candidat.id } , { 'typeVote' :positif}) }}"><i class="fa fa-star fa-5x" style="color: yellow" aria-hidden="true"></i>
                         <p style="color: black">Voter pour le candidat</p></a>
                     </div>
                     <div class="col-xs-4">

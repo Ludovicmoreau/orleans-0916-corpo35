@@ -37,7 +37,6 @@ class CandidatController extends Controller
 
     /**
      * Creates a new candidat entity.
-     *
      * @Route("/new", name="candidat_new")
      * @Method({"GET", "POST"})
      */
