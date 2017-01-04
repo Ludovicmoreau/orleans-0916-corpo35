@@ -1,44 +1,38 @@
 {% block stylesheet %}
+    <link rel="stylesheet" href="{{ asset('css/agenda_evenement_style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/agenda_labo_style.css') }}">
 {% endblock %}
 
 
 {% block content %}
 
-    <div class="container agenda_labo">
-        <h2 class="title_agenda_labo"><span>Agenda EVENEMENT</span></h2>
+    <div class="container agenda_evenement">
+        <h2 class="title_agenda_evenement"><span>Agenda EVENEMENT</span></h2>
         <div class="row">
-            <div class="col-md-4 laboratory">
-                <div class="laboratory">
-                    <h3 class="">ISIPCA</h3>
-                    <p>34-36 Rue du Parc de Clagny</p>
-                    <p>78000 Versailles</p>
-                    <p><i class="fa fa-paper-plane-o" aria-hidden="true"></i></p>
-                    <p><i class="fa fa-phone" aria-hidden="true"></i> 01 39 23 70 00</p>
+            <div class="col-md-4 events">
+                <div class="events">
+                    <h3 class="">CORPO 35 - 35 Rue Damiette</h3>
+                    <p>35 Rue Damiette</p>
+                    <p>76 000 Rouen</p>
+                    <p><i class="fa fa-paper-plane-o" aria-hidden="true"> contact@35ruedamiette.com</i></p>
+                    <p><i class="fa fa-phone" aria-hidden="true"></i> 02 35 71 16 54</p>
                 </div>
             </div>
-            <div class="col-md-8">
-                <img class="img-responsive img_agenda_labo" src="{{ asset('images/isipca_agenda.jpg') }}" alt="image Isipca bâtiments"/>
+            <div class="row">
+                <div class="col-md-4 col-lg-offset-3 col-lg-4">
+                    <img class="img-responsive img_agenda_evenement" src="{{ asset('images/logocorpo.png') }}" alt="image Isipca bâtiments"/>
+                </div>
             </div>
-            <div class="col-md-12">
-                <table class="table">
-                    <thead>
-                    <tr >
-                        <div class="col-md-4">
-                            <th class="th">DATE</th>
-                        </div>
-                        <div class="col-md-4">
-                            <th class="th">LIEU</th>
-                        </div>
-                        <div class="col-md-4">
-                            <th class="th">TITRE</th>
-                        </div>
-                        <div class="col-md-4">
-                            <th class="th">DESCRIPTION</th>
-                        </div>
-                    </tr>
-                    </thead>
-                    </table>
+            {% for agenda_evenement in listAgendas %}
+            <div class="row">
+                <div class="col-xs-18 col-sm-6 col-md-3 col-lg-3">
+                    <h4>{{ agenda_evenement.titre }}</h4>
+                    <p> {{ agenda_evenement.date|date('d/m/Y') }}</p> <br />
+                    <p>{{ agenda_evenement.date|date('H:i') }}</p> <br />
+                    <p>{{ agenda_evenement.lieu }}</p> <br />
+                    <p>{{ agenda_evenement.description }}</p> <br />
+            {% endfor %}
+                </div>
             </div>
         </div>
     </div>

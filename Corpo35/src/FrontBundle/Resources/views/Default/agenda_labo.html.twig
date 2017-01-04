@@ -6,8 +6,8 @@
 
 
 {% block content %}
-    <div class="container">
-    {% include 'FrontBundle:Default:agenda_evenement.html.twig' %}
+    <div class="container agenda_evenement">
+        {{ render(controller('FrontBundle:Default:ShowAgendaEvenement')) }}
     </div>
 
 <div class="container agenda_labo">

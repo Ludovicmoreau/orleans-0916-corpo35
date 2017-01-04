@@ -75,3 +75,13 @@ backisipca:
     resource: "@BackBundle/Controller/BackIsipcaController.php"
     type:     annotation
     prefix:   /isipca
+
+newpartenaire:
+    resource: "@BackBundle/Controller/PartenaireController.php"
+    type:     annotation
+    prefix:   /partenairenew
+
+newisipca:
+    resource: "@BackBundle/Controller/Agenda_LaboController.php"
+    type:     annotation
+    prefix:   /isipcanew
