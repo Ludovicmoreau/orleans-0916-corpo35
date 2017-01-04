@@ -28,7 +28,6 @@ class CandidatController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $candidats = $em->getRepository('BackBundle:Candidat')->findAll();
 
         return $this->render('candidat/index.html.twig', array(
             'candidats' => $candidats,
