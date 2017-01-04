@@ -10,4 +10,17 @@ namespace BackBundle\Repository;
  */
 class PromotionRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function archiveAction()
+    {
+    $rsm = new ResultSetMapping();
+    $rsm->addEntityResult('App\BlogBundle\Entity\Articles', 'a');
+    $rsm->addFieldResult(...);
+
+    $sql = 'SELECT YEAR(a.dateCreation) as y, MONTH(a.dateCreation) as m, COUNT(a.id) as c
+        FROM article a GROUP BY YEAR(a.dateCreation), MONTH(a.dateCreation) order by YEAR(a.dateCreation) desc, MONTH(a.dateCreation) asc';
+
+    $query = $em->createNativeQuery($sql, $rsm);
+
+    $projects = $query->getResult();
+    }
 }
