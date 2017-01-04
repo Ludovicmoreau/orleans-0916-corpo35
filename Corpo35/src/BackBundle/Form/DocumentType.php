@@ -29,11 +29,13 @@ class DocumentType extends AbstractType
                     'pdf' => 'pdf',
                 ),
                 ))
+
             ->add('contenu', FileType::class, array(
 //                'multiple'=>'true',
                 'label'=>'Contenu',
                 'required'=>false,
                 ))
+
             ->add('lien', TextType::class, array(
                 'label'=>'Lien externe',
                 'required'=>false,
