@@ -24,7 +24,7 @@
             <div class="row">
                 {% for candidat in listCandidat %}
                     <div class="col-sm-4 portfolio-item">
-                        <a href="ogm.html" class="portfolio-link">
+                        <a href="{{ path('candidat_show', { 'id': candidat.id }) }}" class="portfolio-link">
                             <div class="caption">
                                 <div class="caption-content">
                                     <p>{{ candidat.nom }} {{ candidat.prenom }}</p>
