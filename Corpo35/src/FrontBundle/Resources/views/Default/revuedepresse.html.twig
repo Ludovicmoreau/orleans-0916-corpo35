@@ -1,0 +1,5 @@
+{% for Rpresse in listRpresse %}
+    {{ Rpresse.description }}
+    {{ Rpresse.source }}
+    {{ Rpresse.date|date('Y') }}
+{% endfor %}

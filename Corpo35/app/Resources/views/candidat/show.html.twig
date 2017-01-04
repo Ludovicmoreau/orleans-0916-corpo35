@@ -42,7 +42,7 @@
                     <h4>CV</h4>
                         <p><a href="{{ asset('upload/' ~ candidat.cv) }}" target="_blank">Telecharger le cv au format pdf</a></p>
                     <h4>Blog/site perso</h4>
-                    <p><a href="{{ candidat.blog }}" target="_blank">Site/blog</a></p>
+                    <p><a href="{{ candidat.blog }}" target="_blank">{{ candidat.blog }}</a></p>
                 </div>
             </div>
             <div class="row">
@@ -104,8 +104,10 @@
                             {% else %}
                                 <p>Le format du document n'est pas supporté</p>
                         {% endif %}
-                        <h4>Lien</h4>
-                            <a href="{{ document.lien }}" target="_blank">{{ document.lien }}</a>
+                        {% if document.lien != "" %}
+                            <h4>Lien</h4>
+                                <a href="{{ document.lien }}" target="_blank">{{ document.lien }}</a><br/>
+                        {% endif %}
                     {% endfor %}
                 </div>
             </div>

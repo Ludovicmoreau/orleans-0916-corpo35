@@ -57,14 +57,10 @@ class DefaultController extends Controller
         return $this->render('FrontBundle:Default:contact.html.twig');
     }
 
-
     /**
-
-
      * @Route("/candidatenavant", name="candidatenavant")
      */
     public function miseEnAvantAction()
-
     {
         $em = $this->getDoctrine()->getManager();
         $candidat = $em
@@ -77,7 +73,6 @@ class DefaultController extends Controller
         return $this->render('FrontBundle:Default:candidatenavant.html.twig', array(
             'candidat' => $candidat,
         ));
-
     }
 
 
@@ -112,7 +107,6 @@ class DefaultController extends Controller
 
     }
 
-
     /**
      * @Route("/agenda_labo", name="agenda_labo")
      * @Route("/listAgenda_labo", name="list_agenda_labo")
@@ -127,13 +121,7 @@ class DefaultController extends Controller
         ));
     }
 
-
-
-
-
-
     /**
-
      * @Route("/listAgenda_evenement", name="list_agenda_evenement")
      */
     public function ShowAgendaEvenementAction()
@@ -158,7 +146,15 @@ class DefaultController extends Controller
         ));
     }
 
-
+    /**
+     * @Route("/revuedepresse", name="revuedepresse")
+     */
+    public function ShowRpresseAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $listRpresse = $em->getRepository('BackBundle:Rpresse')->findAll();
+        return $this->render('FrontBundle:Default:revuedepresse.html.twig', array(
+            'listRpresse' => $listRpresse
+        ));
+    }
 }
-
-
