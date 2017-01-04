@@ -96,7 +96,7 @@ class CandidatController extends Controller
                 $candidat->addDocument($document);
             }
 
-            //$candidat->setMiseEnAvant(0);
+            $candidat->setMiseEnAvant(0);
 
 //            Fin de l'ajout du document 0
 
