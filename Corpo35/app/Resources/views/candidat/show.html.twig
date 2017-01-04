@@ -111,6 +111,33 @@
                     {% endfor %}
                 </div>
             </div>
+            {% if is_granted ('ROLE_JURY') %}
+                <div class="row text-center">
+                    <div class="col-xs-4">
+                        <a href="#"><i class="fa fa-star fa-5x" style="color: yellow" aria-hidden="true"></i>
+                        <p style="color: black">Voter pour le candidat</p></a>
+                    </div>
+                    <div class="col-xs-4">
+                        <a href="#"><i class="fa fa-times fa-5x" style="color: red" aria-hidden="true"></i>
+                        <p style="color: black">Ne pas voter pour le candidat</p></a>
+                    </div>
+                    <div class="col-xs-4">
+                        <a href="#"><i class="fa fa-commenting-o fa-5x" style="color: black" aria-hidden="true"></i>
+                        <p style="color: black">Ne sais pas</p></a>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h3>Laisser un commentaire (obligatoire si indécis)</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <textarea cols="100" rows="10"></textarea>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+
             {% if is_granted ('ROLE_ADMIN') %}
                 <div class="row">
                     <div class="col-xs-12">

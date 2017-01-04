@@ -61,6 +61,11 @@ rpresse:
     type:     annotation
     prefix:   /admin
 
+vote:
+    resource: "@BackBundle/Controller/VoteController.php"
+    type:     annotation
+    prefix:   /jury
+
 backjury:
     resource: "@BackBundle/Controller/BackJuryController.php"
     type:     annotation
