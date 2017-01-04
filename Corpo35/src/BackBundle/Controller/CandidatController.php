@@ -52,10 +52,7 @@ class CandidatController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
-
             /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
-
 //            Ajout du cv
             $cv = $candidat->getCv();
 
@@ -64,58 +61,50 @@ class CandidatController extends Controller
                 $this->getParameter('upload_directory'),
                 $cvName
             );
-
             $candidat->setCv($cvName);
 //            Fin de l'ajout du cv
 
 //            Ajout de la photo
             $photo = $candidat->getPhoto();
-
             $photoName = md5(uniqid()).'.'.$photo->guessExtension();
             $photo->move(
                 $this->getParameter('upload_directory'),
                 $photoName
             );
-
             $candidat->setPhoto($photoName);
 //            Fin de l'ajout de la photo
 
-//            Ajout du document
+//            Ajout des documents
             $documents = $candidat->getDocuments();
             foreach ($documents as $document) {
-
                 $file = $document->getContenu();
-
-                $fileName = md5(uniqid()) . '.' . $file->guessExtension();
-                $file->move(
-                    $this->getParameter('upload_directory'),
-                    $fileName
-                );
-
-                $document->setContenu($fileName);
-                $candidat->addDocument($document);
+                if  ($file) {
+                    $fileName = md5(uniqid()) . '.' . $file->guessExtension();
+                    $file->move(
+                        $this->getParameter('upload_directory'),
+                        $fileName
+                    );
+                    $document->setContenu($fileName);
+                    $candidat->addDocument($document);
+                }
             }
 
+
+//            Fin de l'ajout des documents
             $candidat->setMiseEnAvant(0);
-
-//            Fin de l'ajout du document 0
-
             $candidat->setDecision(false);
             $em = $this->getDoctrine()->getManager();
             $em->persist($candidat);
-            $em->flush($candidat);
+            $em->flush();
 
             return $this->redirectToRoute('candidat_show', array(
                 'id' => $candidat->getId(),
             ));
-
         }
 
         return $this->render('candidat/new.html.twig', array(
             'candidat' => $candidat,
             'form' => $form->createView())
-
-
         );
     }
 

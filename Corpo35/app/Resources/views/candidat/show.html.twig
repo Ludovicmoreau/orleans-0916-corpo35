@@ -102,7 +102,7 @@
                             {% elseif document.type == "pdf" %}
                                 <a href="{{ asset('upload/' ~ document.contenu) }}" target="_blank">Voir le document</a>
                             {% else %}
-                                <p>Le format du document n'est pas supporté</p>
+                                <p>Le candidat n'a pas téléchargé de document ou le format n'est pas supporté</p>
                         {% endif %}
                         {% if document.lien != "" %}
                             <h4>Lien</h4>
