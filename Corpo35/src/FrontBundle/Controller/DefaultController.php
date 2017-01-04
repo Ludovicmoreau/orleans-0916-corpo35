@@ -110,7 +110,6 @@ class DefaultController extends Controller
     /**
      * @Route("/agenda_labo", name="agenda_labo")
      * @Route("/listAgenda_labo", name="list_agenda_labo")
-
      */
     public function ShowAgendaLaboAction()
     {
@@ -156,5 +155,6 @@ class DefaultController extends Controller
         return $this->render('FrontBundle:Default:revuedepresse.html.twig', array(
             'listRpresse' => $listRpresse
         ));
+
     }
 }
