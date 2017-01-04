@@ -21,8 +21,6 @@
                     <hr class="line" style="padding: 0; border: none; border-top: solid 5px; text-align: center; max-width: 250px; margin: 25px auto 30px; color: rgb(51, 51, 51)">
                 </div>
             </div>
-
-
             <div class="row">
                 {% for candidat in listCandidat %}
                     <div class="col-sm-4 portfolio-item">
@@ -32,7 +30,7 @@
                                     <p>{{ candidat.nom }} {{ candidat.prenom }}</p>
                                 </div>
                             </div>
-                            <img src="{{ asset('images/parfum-2.jpg') }}" class="img-responsive" alt="">
+                            <img src="{{ asset('upload/'~candidat.photo|e) }}" class="img-responsive profil" alt="">
                         </a>
                     </div>
                 {% endfor %}

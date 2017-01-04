@@ -3,6 +3,7 @@
 namespace BackBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,7 +14,13 @@ class RpresseType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('document')->add('description')->add('source')->add('date')        ;
+        $builder->add('description')
+                ->add('source')
+                ->add('date')
+                ->add('document', FileType::class, array(
+                'data_class' => null
+                ))
+        ;
     }
     
     /**
