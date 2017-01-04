@@ -23,9 +23,9 @@
     <div class="container">
         <div class="row">
             {% for candidat in candidats %}
-                <div class="col-xs-3 well blockCandidat">
+                <div class="col-xs-4 well blockCandidat">
                     <h3 class="text-center">{{ candidat.nom }} {{ candidat.prenom }}</h3>
-                    <p><img src="{{ asset('upload/' ~ candidat.photo) }}"></p>
+                    <p><img src="{{ asset('upload/' ~ candidat.photo) }}" class="img-responsive photoCandidat center-block"></p>
                     <p>{{ candidat.numrue }} {{ candidat.adresse }} {{ candidat.ville }} {{ candidat.cp }}</p>
                     <p>{{ candidat.mail }}</p>
                     <p>{{ candidat.tel }}</p>

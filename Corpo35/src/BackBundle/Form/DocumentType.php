@@ -21,6 +21,7 @@ class DocumentType extends AbstractType
         $builder
             ->add('type', ChoiceType::class, array(
                 'label'=>'Type de document',
+//                'data_class'=>null,
                 'required'=>false,
                 'choices' => array(
                     'vidéo' => 'vidéo',
@@ -32,12 +33,14 @@ class DocumentType extends AbstractType
 
             ->add('contenu', FileType::class, array(
 //                'multiple'=>'true',
+                'data_class'=>null,
                 'label'=>'Contenu',
                 'required'=>false,
                 ))
 
             ->add('lien', TextType::class, array(
                 'label'=>'Lien externe',
+//                'data_class'=>null,
                 'required'=>false,
                 'attr'=>array(
                     'placeholder'=>'http://...',
