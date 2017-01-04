@@ -57,6 +57,32 @@
                             {% endif %}
                         </div>
                     </div>
+                    {% if is_granted ('ROLE_JURY') %}
+                        <div class="row text-center">
+                            <div class="col-xs-4">
+                                <a href="#"><i class="fa fa-star fa-2x" style="color: yellow" aria-hidden="true"></i>
+                                    <p style="color: black; font-size: 80%">Voter pour le candidat</p></a>
+                            </div>
+                            <div class="col-xs-4">
+                                <a href="#"><i class="fa fa-times fa-2x" style="color: red" aria-hidden="true"></i>
+                                    <p style="color: black; font-size: 80%">Ne pas voter pour le candidat</p></a>
+                            </div>
+                            <div class="col-xs-4">
+                                <a href="#"><i class="fa fa-commenting-o fa-2x" style="color: black" aria-hidden="true"></i>
+                                    <p style="color: black; font-size: 80%">Ne sais pas</p></a>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <h3 style="font-size: 100%">Laisser un commentaire (obligatoire si indécis)</h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <textarea cols="30" rows="5"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
                 </div>
             {% endfor %}
         </div>
