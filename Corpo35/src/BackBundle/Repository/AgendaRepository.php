@@ -1,9 +1,6 @@
 <?php
-
 namespace BackBundle\Repository;
-
 use Doctrine\ORM\EntityRepository;
-
 /**
  * AgendaRepository
  *

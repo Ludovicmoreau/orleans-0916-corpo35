@@ -24,7 +24,7 @@ class Rpresse
     /**
      * @var string
      *
-     * @ORM\Column(name="document", type="string", length=255)
+     * @ORM\Column(name="document", type="text")
      */
     private $document;
 
@@ -45,7 +45,7 @@ class Rpresse
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="date")
+     * @ORM\Column(name="date", type="datetime")
      */
     private $date;
 
