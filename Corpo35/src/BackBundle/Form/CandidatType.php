@@ -56,12 +56,16 @@ class CandidatType extends AbstractType
                     'aria-label'=> 'Votre date de naissance'
                 )
             ))
-            ->add('photo', FileType::class)
+            ->add('photo', FileType::class, array(
+                'data_class'=>null,
+            ))
             ->add('cv', FileType::class, array(
-                'label'=>'CV* (au format pdf)'
+                'label'=>'CV* (au format pdf)',
+                'data_class'=>null,
             ))
             ->add('numrue', TextType::class, array(
                 'label'=>'Numéro de rue*',
+                'data_class'=>null,
                 'attr'=>array(
                     'class'=>'form-control',
                     'placeholder'=>'Votre n° de rue'
@@ -69,6 +73,7 @@ class CandidatType extends AbstractType
             ))
             ->add('adresse', TextType::class, array(
                 'label'=>'Adresse*',
+                'data_class'=>null,
                 'attr'=>array(
                     'placeholder'=>'Votre adresse',
                     'class'=>'form-control',
@@ -77,6 +82,7 @@ class CandidatType extends AbstractType
             ))
             ->add('ville', TextType::class, array(
                 'label'=>'Ville*',
+                'data_class'=>null,
                 'attr'=>array(
                     'placeholder'=>'Votre ville',
                     'class'=>'form-control',
@@ -85,6 +91,7 @@ class CandidatType extends AbstractType
             ))
             ->add('cp', TextType::class, array(
                 'label'=>'Code Postal*',
+                'data_class'=>null,
                 'attr'=>array(
                     'class'=>'form-control',
                     'aria-label'=> 'Votre code postal'
@@ -92,6 +99,7 @@ class CandidatType extends AbstractType
             ))
             ->add('tel', TextType::class, array(
                 'label'=>'Telephone*',
+                'data_class'=>null,
                 'attr'=>array(
                     'class'=>'form-control',
                     'aria-label'=> 'Votre n° de telephone'
@@ -99,6 +107,7 @@ class CandidatType extends AbstractType
             ))
             ->add('mail', EmailType::class, array(
                 'label'=>'Email*',
+                'data_class'=>null,
                 'attr'=>array(
                     'placeholder'=>'mail@monmail.com',
                     'class'=>'form-control',
@@ -108,6 +117,7 @@ class CandidatType extends AbstractType
             ->add('formation', TextareaType::class, array(
                 'label'=>'Parcours de formation dans le secteur de la parfumerie le cas échéant',
                 'required'=>false,
+                'data_class'=>null,
                 'attr'=>array(
                     'placeholder'=>'Votre formation',
                     'class'=>'form-control',
@@ -117,6 +127,7 @@ class CandidatType extends AbstractType
             ->add('competence', TextType::class, array(
                 'label'=>'Autres formations ou compétences',
                 'required'=>false,
+                'data_class'=>null,
                 'attr'=>array('placeholder'=>'Vos compétences',
                     'class'=>'form-control',
                     'aria-label'=> 'Votre formation'
@@ -124,6 +135,7 @@ class CandidatType extends AbstractType
             ))
             ->add('profession', TextType::class, array(
                 'label'=>'Profession* (ou étudiant le cas échéant)',
+                'data_class'=>null,
                 'attr'=>array(
                     'placeholder'=>'Votre profession',
                     'class'=>'form-control',
@@ -133,6 +145,7 @@ class CandidatType extends AbstractType
             ->add('blog', TextType::class, array(
                 'label'=>'Blog/site perso ou autre',
                 'required'=>false,
+                'data_class'=>null,
                 'attr'=>array(
                     'placeholder'=>'http://www.monblog;fr',
                     'class'=>'form-control',
@@ -141,6 +154,7 @@ class CandidatType extends AbstractType
             ))
             ->add('presentation', TextareaType::class, array(
                 'label'=>'Présentation générale*',
+                'data_class'=>null,
                 'attr'=>array(
                     'class'=>'form-control',
                     'aria-label'=>'Votre présentation'
@@ -148,6 +162,7 @@ class CandidatType extends AbstractType
             ))
             ->add('motivation', TextareaType::class, array(
                 'label'=>'Vos motivations pour le concours*',
+                'data_class'=>null,
                 'attr'=>array(
                     'class'=>'form-control',
                     'aria-label'=>'Vos motivations'
@@ -155,7 +170,7 @@ class CandidatType extends AbstractType
             ))
             ->add('promotion', EntityType::class, array(
                 'class'=>'BackBundle\Entity\Promotion',
-                'choice_label'=>'year'
+                'choice_label'=>'year',
             ))
 
 //            ->add('validations', EntityType::class, array(
@@ -166,6 +181,7 @@ class CandidatType extends AbstractType
 //                  'class'=>'form-control')
 //                 ))
             ->add('documents', CollectionType::class, array(
+                'data_class'=>null,
                 'entry_type'=>DocumentType::class,
                 'allow_add'=>true,
                 'allow_delete'=>true,
@@ -175,6 +191,7 @@ class CandidatType extends AbstractType
 
             ->add('decision', HiddenType::class, array(
                 'label'=>'Cocher pour valider le candidat',
+                'data_class'=>null,
                 'required' => false
             ))
         ;
