@@ -26,6 +26,7 @@ class Partenaire
      * @ORM\Column(name="nom", type="string")
      */
     private $nom;
+
     /**
      * @var string
      *
