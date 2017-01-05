@@ -46,10 +46,10 @@ candidat:
     type:     annotation
     prefix:   /candidat
 
-jury:
+jurylist:
     resource: "@BackBundle/Controller/JuryController.php"
     type:     annotation
-    prefix:   /admin
+    prefix:   /jurylist
 
 article:
     resource: "@BackBundle/Controller/ArticleController.php"

@@ -164,9 +164,9 @@ class VoteController extends Controller
         $vote->setNote($note);
 
         $user = $em->getRepository('BackBundle:User')->find($this->getUser());
-        $vote->setJury($user->getJury());
+        $vote->setUser($user->getJury());
 
-      // $candidats = $em->getRepository('BackBundle:Candidat')->find($id);
+       $candidats = $em->getRepository('BackBundle:Candidat')->find($id);
 
        //$toto = $em->getRepository('BackBundle:Vote')->findAll();
         $candidat -> addVote($vote);
@@ -179,8 +179,6 @@ class VoteController extends Controller
             'candidat' => $candidat,
             'vote' => $vote,
             'note' => $note,
-
-
         ));
 
     }

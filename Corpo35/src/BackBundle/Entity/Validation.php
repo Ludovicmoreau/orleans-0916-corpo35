@@ -13,6 +13,31 @@ use Doctrine\ORM\Mapping as ORM;
 class Validation
 {
     /**
+     *
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="votes")
+     *
+     */
+    private $user;
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
+
+
+
+    /**
      * @ORM\ManyToOne(targetEntity="Jury", inversedBy="validations")
      *
      */
