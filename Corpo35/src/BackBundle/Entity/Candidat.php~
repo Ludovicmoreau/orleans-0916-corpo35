@@ -178,7 +178,7 @@ class Candidat
     /**
      * @var string
      *
-     * @ORM\Column(name="competence", type="string", length=255)
+     * @ORM\Column(name="competence", type="string", length=255, nullable=true)
      */
     private $competence;
 
@@ -279,7 +279,7 @@ class Candidat
     /**
      * @var bool
      *
-     * @ORM\Column(name="decision", type="boolean")
+     * @ORM\Column(name="decision", type="boolean", nullable=true)
      */
     private $decision;
 

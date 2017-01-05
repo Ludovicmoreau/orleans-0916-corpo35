@@ -6,6 +6,7 @@ use BackBundle\Entity\Vote;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\DependencyInjection\Tests\Compiler\C;
 use Symfony\Component\HttpFoundation\Request;
 use BackBundle\Entity\Candidat;
 
@@ -138,5 +139,49 @@ class VoteController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+
+    /**
+     *
+     * @Route("/vote/{id}/{typeVote}", name="vote")
+     *
+     */
+
+    public function voteAction(Candidat $candidat, $typeVote)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $vote = New Vote();
+        $note = 0;
+
+        if ($typeVote=='positif') {
+            $note = 1;
+        } elseif ($typeVote=='negatif'){
+            $note = -1;
+        } elseif ($typeVote=='neutre'){
+            $note = 0;
+        }
+
+        $vote->setNote($note);
+
+        $user = $em->getRepository('BackBundle:User')->find($this->getUser());
+        $vote->setJury($user->getJury());
+
+      // $candidats = $em->getRepository('BackBundle:Candidat')->find($id);
+
+       //$toto = $em->getRepository('BackBundle:Vote')->findAll();
+        $candidat -> addVote($vote);
+
+
+        $em->persist($vote);
+        $em->flush();
+
+        return $this->render('candidat/index.html.twig', array(
+            'candidat' => $candidat,
+            'vote' => $vote,
+            'note' => $note,
+
+
+        ));
+
     }
 }

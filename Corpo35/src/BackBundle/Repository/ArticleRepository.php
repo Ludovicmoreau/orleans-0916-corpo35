@@ -12,4 +12,11 @@ use Doctrine\ORM\EntityRepository;
  */
 class ArticleRepository extends EntityRepository
 {
+    public function findLimitedOrderedByDateDebut($limit = 3, $offset = 0){
+        return $this->getEntityManager()
+            ->createQuery('SELECT e FROM BackBundle:Thing e ORDER BY e.dateDebut DESC')
+            ->setFirstResult($offset)
+            ->setMaxResults($limit)
+            ->getResult();
+    }
 }
