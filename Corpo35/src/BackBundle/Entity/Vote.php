@@ -14,6 +14,31 @@ class Vote
 {
     /**
      *
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="votes")
+     *
+     */
+    private $user;
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
+
+
+
+    /**
+     *
      * @ORM\ManyToOne(targetEntity="Candidat", inversedBy="votes")
      *
      */
