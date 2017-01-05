@@ -63,18 +63,12 @@ class DefaultController extends Controller
     public function miseEnAvantAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $candidat = $em
-                        ->getRepository('BackBundle:Candidat')
-
-                         ->findOneByMiseEnAvant(true)
-        ;
-
-
+        $candidat = $em ->getRepository('BackBundle:Candidat')
+                        ->findOneByMiseEnAvant(true);
         return $this->render('FrontBundle:Default:candidatenavant.html.twig', array(
             'candidat' => $candidat,
         ));
     }
-
 
     /**
      * @Route("/recandidatenavant/{id}", name="recandidatenavant")
@@ -82,54 +76,17 @@ class DefaultController extends Controller
     public function RemiseEnAvantAction(Candidat $id)
     {
         $em = $this->getDoctrine()->getManager();
-        $oldCandidat = $em
-            ->getRepository('BackBundle:Candidat')
-            ->findOneByMiseEnAvant(true);
+        $oldCandidat = $em ->getRepository('BackBundle:Candidat')
+                           ->findOneByMiseEnAvant(true);
         $oldCandidat ->setMiseEnAvant(false);
-
-            $em->persist($oldCandidat);
-
-
-
-        $candidat = $em
-            ->getRepository('BackBundle:Candidat')
-            ->find($id);
-
+        $em->persist($oldCandidat);
+        $candidat = $em ->getRepository('BackBundle:Candidat')
+                        ->find($id);
         $candidat ->setMiseEnAvant(true);
-
-            $em->persist($candidat);
-
-        $em->flush();
-
+        $em ->persist($candidat);
+        $em ->flush();
         return $this->render('FrontBundle:Default:index.html.twig', array(
             'candidat' => $candidat,
-        ));
-
-    }
-
-    /**
-     * @Route("/agenda_labo", name="agenda_labo")
-     * @Route("/listAgenda_labo", name="list_agenda_labo")
-     */
-    public function ShowAgendaLaboAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-        $listAgendas = $em->getRepository('BackBundle:Agenda_Labo')->findAll();
-        return $this->render('FrontBundle:Default:agenda_labo.html.twig', array(
-            'listAgendas' => $listAgendas
-        ));
-    }
-
-    /**
-     * @Route("/listAgenda_evenement", name="list_agenda_evenement")
-     */
-    public function ShowAgendaEvenementAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-        $listAgendas = $em->getRepository('BackBundle:Agenda_evenement')->findAll();
-        return $this->render('FrontBundle:Default:agenda_evenement.html.twig', array(
-            'listAgendas' => $listAgendas
-
         ));
     }
 
@@ -143,18 +100,5 @@ class DefaultController extends Controller
         return $this->render('FrontBundle:Default:laureats.html.twig', array(
             'listCandidat' => $listCandidat
         ));
-    }
-
-    /**
-     * @Route("/revuedepresse", name="revuedepresse")
-     */
-    public function ShowRpresseAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-        $listRpresse = $em->getRepository('BackBundle:Rpresse')->findAll();
-        return $this->render('FrontBundle:Default:revuedepresse.html.twig', array(
-            'listRpresse' => $listRpresse
-        ));
-
     }
 }
