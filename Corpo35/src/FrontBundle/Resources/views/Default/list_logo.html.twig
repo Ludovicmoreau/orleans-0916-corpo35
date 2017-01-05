@@ -10,7 +10,7 @@
         <div class="row">
         {% for partenaire in listPartenaires %}
 
-                    <a href="#">
+                   <a href="{{ path('list_partenaire') }}"/>
                         <img class="list_logo" src="{{ asset('upload/' ~  partenaire.logo )}}">
                     </a>
 

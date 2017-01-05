@@ -44,6 +44,20 @@ class ArticleController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $photo = $article->getPhoto();
+
+            // Generate a unique name for the file before saving it
+            $photoName = md5(uniqid()).'.'.$photo->guessExtension();
+
+            // Move the file to the directory where brochures are stored
+            $photo->move(
+                $this->getParameter('upload_directory'),
+                $photoName
+            );
+            // Update the 'brochure' property to store the PDF file name
+            // instead of its contents
+            $article->setPhoto($photoName);
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($article);
             $em->flush($article);
@@ -81,11 +95,38 @@ class ArticleController extends Controller
      */
     public function editAction(Request $request, Article $article)
     {
+        if (is_file ($article->getPhoto())) {
+            $old_photo = new Photo($this->getParameter('upload_directory') . '/' . $article->getLogo());
+        } else {
+            $article->setPhoto('');
+        }
+
         $deleteForm = $this->createDeleteForm($article);
         $editForm = $this->createForm('BackBundle\Form\ArticleType', $article);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+
+            // Update the 'brochure' property to store the PDF file name
+            // instead of its contents
+            if (!$article->getPhoto())
+            {
+                $article->setLogo($old_photo);
+            } else
+            {
+                $photo = $article->getPhoto();
+
+                // Generate a unique name for the file before saving it
+                $photoName = md5(uniqid()).'.'.$photo->guessExtension();
+
+                // Move the file to the directory where brochures are stored
+                $photo->move(
+                    $this->getParameter('upload_directory'),
+                    $photoName
+                );
+                $article->setPhoto($photoName);
+
+            }
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('article_edit', array('id' => $article->getId()));
