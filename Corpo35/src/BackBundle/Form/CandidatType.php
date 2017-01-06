@@ -58,10 +58,16 @@ class CandidatType extends AbstractType
             ))
             ->add('photo', FileType::class, array(
                 'data_class'=>null,
+                'attr'=>array(
+                    'class'=>'center-block'
+                )
             ))
             ->add('cv', FileType::class, array(
                 'label'=>'CV* (au format pdf)',
                 'data_class'=>null,
+                'attr'=>array(
+                    'class'=>'center-block'
+                )
             ))
             ->add('numrue', TextType::class, array(
                 'label'=>'Numéro de rue*',
