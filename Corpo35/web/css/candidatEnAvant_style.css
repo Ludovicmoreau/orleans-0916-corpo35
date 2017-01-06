@@ -2,4 +2,16 @@
     border:1px solid black;
     border-radius: 6px;
 }
-#photo
+#photo{
+    max-width: 300px;
+    max-height: 300px;
+}
+.titre{
+    padding-top: 15px;
+    text-decoration: underline;
+    font-weight: 600;
+    font-size: 20px;
+}
+.text{
+    text-align: justify;
+}

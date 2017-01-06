@@ -11,10 +11,8 @@
 
             <div class="presentation">
                 <h1 class="text-center "> Candidat mis avant</h1>
-                <p class="text-center">
-                    <div class="row">
-                        <div class="col-md-offset-2 col-md-3">
-                            <img id="photo" src="{{ asset('upload/' ~ candidat.photo) }}" alt="photo profil">
+                <div class="row ">
+                        <div class="col-md-offset-1 col-md-3">
                             <div class="prenom">
                                 Prénom :
                                 {{ candidat.prenom }}
@@ -22,14 +20,7 @@
                             <div>
                                 Nom :
                                 {{ candidat.nom }}
-                            </div>
-                            <div>
-                                Ville :
-                                {{ candidat.ville }}
-                            </div>
-                            <div>
-                                Code Postal :
-                                {{ candidat.cp }}
+                                <img id="photo" src="{{ asset('upload/' ~ candidat.photo) }}" alt="photo profil">
                             </div>
                             <div>
                                 {% for document in candidat.documents %} {% if document.type == "image" %} <img
@@ -46,14 +37,15 @@
             </div>
         </div>
 
-        <div class="col-md-3">
-            Présentation du candidat :
-            {{ candidat.presentation }}
+        <div class="col-md-offset-1 col-md-3">
+           <p class="titre"> Présentation du candidat :</p> <br/>
+           <p class="text"> {{ candidat.presentation }} </p>
         </div>
-        <div class="col-md-4">
-            Motivation du candidat :
-            {{ candidat.motivation }}
+        <div class=" col-md-3">
+           <p class="titre"> Motivation du candidat :</p> <br/>
+          <p class="text"> {{ candidat.motivation }}</p>
         </div>
-       
+
+
     </section>
 {% endblock %}
