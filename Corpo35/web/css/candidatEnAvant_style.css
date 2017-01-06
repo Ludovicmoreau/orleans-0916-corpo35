@@ -5,6 +5,7 @@
 #photo{
     max-width: 300px;
     max-height: 300px;
+    padding:15px;
 }
 .titre{
     padding-top: 15px;
@@ -14,4 +15,17 @@
 }
 .text{
     text-align: justify;
+}
+
+.video{
+    padding-top: 15px;
+}
+.audio{
+    padding:15px;
+}
+.soustitre{
+    padding-top: 15px;
+    text-decoration: underline;
+    font-weight: 500;
+    font-size: 15px;
 }
