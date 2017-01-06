@@ -1,16 +1,33 @@
 {% extends 'FrontBundle:Default:layout.html.twig' %}
 
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/revuedepresse.css') }}">
+    {% endblock %}
+
 {% block header %}
     {% include 'FrontBundle:Default:header.html.twig' %}
 {% endblock %}
 
 {% block content %}
+    <div class="container revuedepresse">
+        <div class="wrapper">
+            <div class="column">
+                <div class="row revuedepresse">
+                    <div class="inner">
+                        <div class="views-field">
+                            <div class="field-content">
+                                <img src="{{ asset('images/parfum-2.jpg') }}" class="image-show">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    {% for Rpresse in listRpresse %}
-        {{ Rpresse.description }}
-        {{ Rpresse.source }}
-        {{ Rpresse.date|date('Y') }}
-        <img src="{{ asset('upload/'~Rpresse.document|e) }}" class="img-responsive profil" alt="">
-    {% endfor %}
+{% endblock %}
 
+{% block footer %}
+    {% include 'FrontBundle:Default:footer.html.twig' %}
 {% endblock %}
