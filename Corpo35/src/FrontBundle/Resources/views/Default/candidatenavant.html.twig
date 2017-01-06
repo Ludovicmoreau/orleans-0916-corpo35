@@ -39,11 +39,11 @@
 
         <div class="col-md-offset-1 col-md-3">
            <p class="titre"> Présentation du candidat :</p> <br/>
-           <p class="text"> {{ candidat.presentation }} </p>
+           <p class="text"> {{ candidat.presentation | truncate(200, true,"...") }} </p>
         </div>
         <div class=" col-md-3">
            <p class="titre"> Motivation du candidat :</p> <br/>
-          <p class="text"> {{ candidat.motivation }}</p>
+          <p class="text"> {{ candidat.motivation | truncate(200, true,"...") }}</p>
         </div>
 
 

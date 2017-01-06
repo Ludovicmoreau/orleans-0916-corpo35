@@ -79,3 +79,8 @@ fos_user:
                         address:        admin@gmail.com
                         sender_name:    Administrateur du site
 
+services:
+    twig.extension.text:
+        class: Twig_Extensions_Extension_Text
+        tags:
+            - { name: twig.extension }
