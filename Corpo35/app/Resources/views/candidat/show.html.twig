@@ -1,4 +1,4 @@
-{% extends 'FrontBundle:Default:layout.html.twig' %}
+{% extends 'FrontBundle:Default:index.html.twig' %}
 
 {% block stylesheet %}
     {{ parent() }}
@@ -7,6 +7,21 @@
 
 {% block content %}
     <div class="container">
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <p>
+                    Merci pour votre inscrition, votre candidature sera étudié attentivement.<br/>
+                    Nous vous ferrons part de notre décision par mail
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <p>
+                    Voici les informations qui seront visible par les jurés
+                </p>
+            </div>
+        </div>
         <div class="well">
             <div class="row">
                 <div class="col-xs-12">
@@ -94,13 +109,17 @@
                 <div class="col-xs-12">
                     {% for document in candidat.documents %}
                         {% if document.type == "image" %}
-                            <img src="{{ asset('upload/' ~ document.contenu) }}" class="img-responsive"><br/>
+                            <h4>Image</h4>
+                            <img src="{{ asset('upload/' ~ document.contenu) }}" class="img-responsive center-block"><br/>
                             {% elseif document.type == "vidéo" %}
-                                <video controls src="{{ asset('upload/' ~ document.contenu) }}" class="img-responsive "></video><br/>
+                                <h4>Vidéo</h4>
+                                <video controls src="{{ asset('upload/' ~ document.contenu) }}" class="img-responsive center-block"></video><br/>
                             {% elseif document.type == "musique" %}
-                                <audio controls src="{{ asset('upload/' ~ document.contenu) }}"></audio><br/>
+                                <h4>Audio</h4>
+                                <audio controls src="{{ asset('upload/' ~ document.contenu) }}" class="center-block"></audio><br/>
                             {% elseif document.type == "pdf" %}
-                                <a href="{{ asset('upload/' ~ document.contenu) }}" target="_blank">Voir le document</a>
+                                <h4>Pdf</h4>
+                                <a href="{{ asset('upload/' ~ document.contenu) }}" target="_blank" class="text-center">Voir le document</a>
                             {% else %}
                                 <p>Le candidat n'a pas téléchargé de document ou le format n'est pas supporté</p>
                         {% endif %}
@@ -109,6 +128,11 @@
                                 <a href="{{ document.lien }}" target="_blank">{{ document.lien }}</a><br/>
                         {% endif %}
                     {% endfor %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <a href="{{ path('index') }}"><input type="button" class="btn-primary btn-lg center-block" value="Retour à la page d'accueil"></a>
                 </div>
             </div>
             {% if is_granted ('ROLE_JURY') %}
