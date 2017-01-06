@@ -29,6 +29,9 @@ class DocumentType extends AbstractType
                     'image' => 'image',
                     'pdf' => 'pdf',
                 ),
+                'attr'=>array(
+                    'class'=>'center-block'
+                )
                 ))
 
             ->add('contenu', FileType::class, array(
@@ -36,6 +39,9 @@ class DocumentType extends AbstractType
                 'data_class'=>null,
                 'label'=>'Contenu',
                 'required'=>false,
+                'attr'=>array(
+                    'class'=>'center-block'
+                ),
                 ))
 
             ->add('lien', TextType::class, array(
