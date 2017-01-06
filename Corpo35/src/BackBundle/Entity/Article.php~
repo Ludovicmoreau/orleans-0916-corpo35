@@ -55,6 +55,13 @@ class Article
      */
     private $date;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="logo", type="text")
+     */
+    private $photo;
+
 
     /**
      * Get id
@@ -196,5 +203,21 @@ class Article
     public function getCommentaires()
     {
         return $this->commentaires;
+    }
+
+    /**
+     * @param string $photo
+     */
+    public function setPhoto($photo)
+    {
+        $this->photo = $photo;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
     }
 }

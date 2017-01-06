@@ -3,7 +3,6 @@ a:hover,
 a:focus,
 a:active,
 a.active {
-    color: #18BC9C;
     outline: none;
 }
 
@@ -41,7 +40,7 @@ section.success {
 #portfolio .portfolio-item .portfolio-link .caption{
     background: rgba(34, 34, 34, 0.9);
     position: absolute;
-    width: 100%;
+    width: 70%;
     height: 100%;
     opacity: 0;
     transition: all ease 0.5s;

@@ -113,7 +113,7 @@ class Candidat
     /**
      * @var string
      *
-     * @ORM\Column(name="formation", type="text")
+     * @ORM\Column(name="formation", type="text", nullable=true)
      */
     private $formation;
 
