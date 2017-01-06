@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Commentaire
 {
     /**
+     * @var string
      * @ORM\ManyToOne(targetEntity="Article", inversedBy="commentaires")
      */
     private $article;

@@ -14,6 +14,7 @@ class Article
 {
 
     /**
+     * @var string
      * @ORM\OneToMany(targetEntity="Commentaire", mappedBy="article")
      */
     private $commentaires;
@@ -54,6 +55,13 @@ class Article
      * @ORM\Column(name="date", type="date")
      */
     private $date;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="logo", type="text")
+     */
+    private $photo;
 
 
     /**
@@ -196,5 +204,29 @@ class Article
     public function getCommentaires()
     {
         return $this->commentaires;
+    }
+
+    /**
+     * @param string $commentaires
+     */
+    public function setCommentaires($commentaires)
+    {
+        $this->commentaires = $commentaires;
+    }
+
+    /**
+     * @param string $photo
+     */
+    public function setPhoto($photo)
+    {
+        $this->photo = $photo;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
     }
 }

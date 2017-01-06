@@ -16,9 +16,8 @@
                     <h2 class="blog-title">{{ article.titre }}</h2>
                     <h3 class="date">{% if article.date %}{{ article.date|date('Y-m-d') }}{% endif %}</h3>
                     <p class="blog-content"><blockquote>{{ article.contenu }}</blockquote></p>
-                    <a href="#sidebar" class="post-link">Lire Plus...</a>
+                    <a href="{{  path ('list_article') }}" class="post-link">Lire Plus...</a>
                     {# SIDEBAR #}
-
                 </div>
                 {% endfor %}
             </div>
@@ -46,7 +45,7 @@
                     <img class="img-responsive" src="{{ asset('images/blog7.jpg') }}" alt="image parfum"/>
                     <p class="side-content">Ultricies lacus et, non orci gravida purus augue integer, sed turpis. Erat dapibus.	Eleifend massa scelerisque, aenean penatibus laoreet ut.</p>
                 </div>
-                <a href="#" class="button">Anciens Posts</a>
+                <a href="{{ path('list_article') }}" class="button">Anciens Posts</a>
             </div>
         </div>
 
