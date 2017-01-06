@@ -1,9 +1,6 @@
 <?php
-
 namespace BackBundle\Entity;
-
 use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Commentaire
  *
@@ -12,12 +9,10 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Commentaire
 {
-
     /**
      * @ORM\ManyToOne(targetEntity="Article", inversedBy="commentaires")
      */
     private $article;
-
     /**
      * @var int
      *
@@ -26,32 +21,27 @@ class Commentaire
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
     /**
      * @var string
      *
      * @ORM\Column(name="auteur", type="string", length=255)
      */
     private $auteur;
-
     /**
      * @var string
      *
      * @ORM\Column(name="commentaire", type="text")
      */
     private $commentaire;
-
-
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
         return $this->id;
     }
-
     /**
      * Set auteur
      *
@@ -61,20 +51,17 @@ class Commentaire
     public function setAuteur($auteur)
     {
         $this->auteur = $auteur;
-
         return $this;
     }
-
     /**
      * Get auteur
      *
-     * @return string 
+     * @return string
      */
     public function getAuteur()
     {
         return $this->auteur;
     }
-
     /**
      * Set commentaire
      *
@@ -84,20 +71,17 @@ class Commentaire
     public function setCommentaire($commentaire)
     {
         $this->commentaire = $commentaire;
-
         return $this;
     }
-
     /**
      * Get commentaire
      *
-     * @return string 
+     * @return string
      */
     public function getCommentaire()
     {
         return $this->commentaire;
     }
-
     /**
      * Set article
      *
@@ -107,14 +91,12 @@ class Commentaire
     public function setArticle(\BackBundle\Entity\Article $article = null)
     {
         $this->article = $article;
-
         return $this;
     }
-
     /**
      * Get article
      *
-     * @return \BackBundle\Entity\Article 
+     * @return \BackBundle\Entity\Article
      */
     public function getArticle()
     {
