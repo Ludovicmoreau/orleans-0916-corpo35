@@ -9,33 +9,55 @@
     <div class="container-fluid">
         <div class="col-xs-12 text-center">
             <h2>Bienvenue sur la page d'inscription au concours Corpo35</h2>
-            <p> le <a href="{{ path('reglement') }}" target="_blank">règlement du concours</a> est à télécharger, signer et à nous renvoyer</p>
+            <p> le <a href="{{ path('reglement') }}" target="_blank">règlement du concours</a> est à télécharger, signer et à nous renvoyer.</p>
+            <p>L'inscription au concours peut prendre 10 à 15 minutes et nécessite de télécharger quelques documents comme une photo, un cv etc...
+                <br/>Vérifiez bien que vous avez ces documents avec vous avant de commencer l'inscription.</p>
             <p class="hidden-lg hidden-md">L'inscription au concours nécessite le téléchargement de documents.<br/> Veuillez passez sur la version PC du site.</p>
         </div>
     </div>
     <div class="container hidden-xs hidden-sm">
-            <div class="well">
                 {{ form_start(form) }}
+                <div class="form-group">
                     <h3 class="text-center titreForm">Informations générales</h3>
+                    <hr class="separe">
                     <div class="form">{{ form_row(form.nom) }}</div>
+                    <hr class="separe">
                     <div class="form">{{ form_row(form.prenom) }}</div>
+                    <hr class="separe">
                     <div class="form">{{ form_row(form.date_naissance) }}</div>
+                    <hr class="separe">
                     <div class="form">{{ form_row(form.photo) }}</div>
+                    <hr class="separe">
                     <div class="form">{{ form_row(form.cv) }}</div>
+                    <hr class="separe">
                     <div class="form">{{ form_row(form.numrue) }}</div>
+                    <hr class="separe">
                     <div class="form">{{ form_row(form.adresse) }}</div>
+                    <hr class="separe">
                     <div class="form">{{ form_row(form.ville) }}</div>
+                    <hr class="separe">
                     <div class="form">{{ form_row(form.cp) }}</div>
+                    <hr class="separe">
                     <div class="form">{{ form_row(form.tel) }}</div>
+                    <hr class="separe">
                     <div class="form">{{ form_row(form.mail) }}</div>
+                    <hr class="separe">
                     <div class="form">{{ form_row(form.presentation) }}</div>
+                    <hr class="separe">
                     <div class="form">{{ form_row(form.blog) }}</div>
+                    <hr class="separe">
                     <h3 class="text-center titreForm">Information concernant le concours</h3>
+                    <hr class="separe">
                     <div class="form">{{ form_row(form.motivation) }}</div>
+                    <hr class="separe">
                     <div class="form">{{ form_row(form.profession) }}</div>
+                    <hr class="separe">
                     <div class="form">{{ form_row(form.formation) }}</div>
+                    <hr class="separe">
                     <div class="form">{{ form_row(form.competence) }}</div>
+                    <hr class="separe">
                     <div class="form">{{ form_row(form.promotion) }}</div>
+                    <hr class="separe">
                     <div class="form">{{ form_row(form.decision) }}</div>
                     {% for document in form.documents %}
                         <h3 class="text-center titreForm">Documents</h3>
@@ -44,16 +66,22 @@
                             Les types de documents supportés sont "image", "vidéo", "musique" ou "pdf".<br/>
                             Vous pouvez également ajouter un lien vers un site externe
                         </p>
+                        <hr class="separe">
                         <ul class="documents" data-prototype="{{ form_widget(form.documents.vars.prototype)|e('html_attr') }}">
                             <div class="form"><li>{{ form_row(document.type) }}</li></div>
+                            <hr class="separe">
                             <div class="form"><li>{{ form_row(document.contenu) }}</li></div>
+                            <hr class="separe">
                             <div class="form"><li>Et/ou</li></div>
+                            <hr class="separe">
                             <div class="form"><li>{{ form_row(document.lien) }}</li></div>
+                            <hr class="separe">
                         </ul>
                     {% endfor %}
+                    </div>
                     <div class="row">
                         <div class="col-xs-6">
-                            <input type="submit" value="Créer" class="btn-primary btn-lg center-block"/>
+                            <input type="submit" value="Créer" class="btn-success btn-lg center-block"/>
                         </div>
                         <div class="col-xs-6">
                             <a href="{{ path('index') }}">
@@ -62,7 +90,6 @@
                         </div>
                     </div>
                 {{ form_end(form) }}
-            </div>
         <script>
             var $collectionHolder;
 

@@ -3,9 +3,18 @@
 }
 
 .form {
-    margin-bottom: 1%;
+    width: 40%;
+    margin: auto;
+    text-align: center;
+    padding: 1%;
 }
 
 li {
     list-style: none;
+}
+
+.separe {
+    height: 1px;
+    width: 50%;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
 }

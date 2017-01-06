@@ -62,8 +62,6 @@ class VoteController extends Controller
         ));
     }
 
-
-
     /**
      * Finds and displays a vote entity.
      *
