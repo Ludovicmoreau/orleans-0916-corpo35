@@ -12,6 +12,7 @@
 {% block content %}
     {% for Rpresse in listRpresse %}
     <div class="wrap">
+
         <div class="tile">
             <img src="{{ asset('upload/'~Rpresse.document|e) }}" class="img-responsive profil" alt="">
             <div class="text">
@@ -54,14 +55,9 @@
                 </div>
             </div>
         </div>
-    </div>
-
 
     </div>
-
-
-
-{% endfor %}
+    {% endfor %}
 {% endblock %}
 {% block footer %}
     {% include 'FrontBundle:Default:footer.html.twig' %}
