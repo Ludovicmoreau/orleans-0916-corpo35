@@ -30,7 +30,7 @@
                                     <p>{{ candidat.nom }} {{ candidat.prenom }}</p>
                                 </div>
                             </div>
-                            <img src="{{ asset('upload/'~candidat.photo|e) }}" class="img-responsive profil" alt="" style="height: 300px">
+                            <img src="{{ asset('upload/'~candidat.photo|e) }}" class="img-responsive profil" id="profil" alt="">
                         </a>
                     </div>
                 {% endfor %}
