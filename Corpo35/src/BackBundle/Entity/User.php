@@ -90,4 +90,52 @@ class User extends BaseUser
     }
 
 
+
+    /**
+     * Add validation
+     *
+     * @param \BackBundle\Entity\Validation $validation
+     *
+     * @return User
+     */
+    public function addValidation(\BackBundle\Entity\Validation $validation)
+    {
+        $this->validations[] = $validation;
+
+        return $this;
+    }
+
+    /**
+     * Remove validation
+     *
+     * @param \BackBundle\Entity\Validation $validation
+     */
+    public function removeValidation(\BackBundle\Entity\Validation $validation)
+    {
+        $this->validations->removeElement($validation);
+    }
+
+    /**
+     * Add vote
+     *
+     * @param \BackBundle\Entity\Vote $vote
+     *
+     * @return User
+     */
+    public function addVote(\BackBundle\Entity\Vote $vote)
+    {
+        $this->votes[] = $vote;
+
+        return $this;
+    }
+
+    /**
+     * Remove vote
+     *
+     * @param \BackBundle\Entity\Vote $vote
+     */
+    public function removeVote(\BackBundle\Entity\Vote $vote)
+    {
+        $this->votes->removeElement($vote);
+    }
 }

@@ -1,16 +1,15 @@
 {% block stylesheet %}
-    <link rel="stylesheet" href="{{ asset('css/agenda_evenement_style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/agenda_labo_style.css') }}">
 {% endblock %}
 
 
 {% block content %}
 
-    <div class="container agenda_evenement">
-        <h2 class="title_agenda_evenement"><span>Agenda EVENEMENT</span></h2>
+    <div class="container agenda_labo">
+        <h2 class="title_agenda_labo"><span>Agenda EVENEMENT</span></h2>
         <div class="row">
-            <div class="col-md-4 events">
-                <div class="events">
+            <div class="col-md-4 laboratory">
+                <div class="laboratory">
                     <h3 class="">CORPO 35 - 35 Rue Damiette</h3>
                     <p>35 Rue Damiette</p>
                     <p>76 000 Rouen</p>
@@ -18,24 +17,99 @@
                     <p><i class="fa fa-phone" aria-hidden="true"></i> 02 35 71 16 54</p>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-4 col-lg-offset-3 col-lg-4">
-                    <img class="img-responsive img_agenda_evenement" src="{{ asset('images/logocorpo.png') }}" alt="image Isipca bâtiments"/>
-                </div>
+            <div class="col-md-offset-4 col-md-4">
+                    <img class="img-responsive img_agenda_labo" src="{{ asset('images/logocorpo.png') }}" alt="image Isipca bâtiments" style="width: 40%"/>
             </div>
-            {% for agenda_evenement in listAgendas %}
-            <div class="row">
-                <div class="col-xs-18 col-sm-6 col-md-3 col-lg-3">
-                    <h4>{{ agenda_evenement.titre }}</h4>
-                    <p> {{ agenda_evenement.date|date('d/m/Y') }}</p> <br />
-                    <p>{{ agenda_evenement.date|date('H:i') }}</p> <br />
-                    <p>{{ agenda_evenement.lieu }}</p> <br />
-                    <p>{{ agenda_evenement.description }}</p> <br />
-            {% endfor %}
+            <div class="col-md-12">
+                <div id="agenda_labo">
+                    <div class="table-responsive-vertical shadow-z-1">
+                        <table id="table" class="table table-hover table-mc-light-blue">
+                            <thead>
+                            <tr>
+                                <th>DATE</th>
+                                <th>HORAIRE</th>
+                                <th>TITRE</th>
+                                <th>LIEU</th>
+                                <th>DESCRIPTION</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                {% for agenda_evenement in listAgendas %}
+                                    <tr>
+                                        <td>{{ agenda_evenement.date|date('d/m/Y') }}</td>
+                                        <td>{{ agenda_evenement.date|date('H:i') }}</td>
+                                        <td>{{ agenda_evenement.titre }}</td>
+                                        <td>{{ agenda_evenement.lieu }}</td>
+                                        <td>{{ agenda_evenement.description }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+{% endblock %}
 
+{% block JS %}
+
+    <script>
+
+        $(document).ready(function() {
+
+            var table = $('#table');
+
+            // Table bordered
+            $('#table-bordered').change(function() {
+                var value = $( this ).val();
+                table.removeClass('table-bordered').addClass(value);
+            });
+
+            // Table striped
+            $('#table-striped').change(function() {
+                var value = $( this ).val();
+                table.removeClass('table-striped').addClass(value);
+            });
+
+            // Table hover
+            $('#table-hover').change(function() {
+                var value = $( this ).val();
+                table.removeClass('table-hover').addClass(value);
+            });
+
+            // Table color
+            $('#table-color').change(function() {
+                var value = $(this).val();
+                table.removeClass(/^table-mc-/).addClass(value);
+            });
+        });
+
+        (function(removeClass) {
+
+            jQuery.fn.removeClass = function( value ) {
+                if ( value && typeof value.test === "function" ) {
+                    for ( var i = 0, l = this.length; i < l; i++ ) {
+                        var elem = this[i];
+                        if ( elem.nodeType === 1 && elem.className ) {
+                            var classNames = elem.className.split( /\s+/ );
+
+                            for ( var n = classNames.length; n--; ) {
+                                if ( value.test(classNames[n]) ) {
+                                    classNames.splice(n, 1);
+                                }
+                            }
+                            elem.className = jQuery.trim( classNames.join(" ") );
+                        }
+                    }
+                } else {
+                    removeClass.call(this, value);
+                }
+                return this;
+            }
+
+        })(jQuery.fn.removeClass);
+
+    </script>
 
 {% endblock %}
