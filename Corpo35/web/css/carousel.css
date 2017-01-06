@@ -1,6 +1,4 @@
-body{
-    font-family: 'Lato', sans-serif;
-}
+
 .carousel-fade .carousel-inner .item {
     opacity: 0;
     transition-property: opacity;
