@@ -96,6 +96,12 @@ class CandidatController extends Controller
             $em->persist($candidat);
             $em->flush();
 
+            $this->get('session')
+                ->getFlashBag()
+                ->add('success', 'Merci pour votre inscrition, votre candidature sera étudié attentivement.
+                    Nous vous ferrons part de notre décision par mail');
+
+
             return $this->redirectToRoute('candidat_show', array(
                 'id' => $candidat->getId(),
             ));

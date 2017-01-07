@@ -6,23 +6,24 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 text-center">
-                <p>
-                    Merci pour votre inscrition, votre candidature sera étudié attentivement.<br/>
-                    Nous vous ferrons part de notre décision par mail
-                </p>
-            </div>
+    {% if app.session.flashBag.has('success') %}
+        <div class="alert alert-success message_flash alert-dismissible" role="alert">
+            {% for msg in app.session.flashBag.get('success') %}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <span>{{ msg | raw }}</span>
+            {% endfor %}
         </div>
-        <div class="row">
-            <div class="col-xs-12 text-center">
-                <p>
-                    Voici les informations qui seront visible par les jurés
-                </p>
+    {% endif %}
+        {% if is_granted ('ROLE_JURY')%}
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <h2>
+                        Profile du candidat
+                    </h2>
+                </div>
             </div>
-        </div>
-        <div class="well">
+        {% endif %}
             <div class="row">
                 <div class="col-xs-12">
                     <img src="{{ asset('upload/' ~ candidat.photo) }}" class="img-responsive profilePicShow center-block">
@@ -40,9 +41,9 @@
             </div>
             <div class="row">
                 <div class="col-xs-12">
-                    <p>{{ candidat.numrue }} {{ candidat.adresse }} {{ candidat.cp }} {{ candidat.ville }}</p>
-                    <p>{{ candidat.mail }}</p>
-                    <p>{{ candidat.tel }}</p>
+                    <p><i class="fa fa-map-marker" aria-hidden="true"></i> {{ candidat.numrue }} {{ candidat.adresse }} {{ candidat.cp }} {{ candidat.ville }}</p>
+                    <p><i class="fa fa-envelope-o" aria-hidden="true"></i> {{ candidat.mail }}</p>
+                    <p><i class="fa fa-phone" aria-hidden="true"></i> {{ candidat.tel }}</p>
                 </div>
             </div>
             <div class="row">
@@ -52,12 +53,11 @@
             </div>
             <div class="row">
                 <div class="col-xs-12">
-                    <h4>Motivations</h4>
                         <p>{{ candidat.presentation }}</p>
                     <h4>CV</h4>
-                        <p><a href="{{ asset('upload/' ~ candidat.cv) }}" target="_blank">Telecharger le cv au format pdf</a></p>
+                        <p><i class="fa fa-id-card-o" aria-hidden="true"></i><a href="{{ asset('upload/' ~ candidat.cv) }}" target="_blank"> Telecharger le cv au format pdf</a></p>
                     <h4>Blog/site perso</h4>
-                    <p><a href="{{ candidat.blog }}" target="_blank">{{ candidat.blog }}</a></p>
+                    <i class="fa fa-globe" aria-hidden="true"></i><a href="{{ candidat.blog }}" target="_blank"> {{ candidat.blog }}</a>
                 </div>
             </div>
             <div class="row">
@@ -67,7 +67,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-12">
-                    <p>{{ candidat.profession }}</p>
+                    <p><i class="fa fa-briefcase" aria-hidden="true"></i> {{ candidat.profession }}</p>
                 </div>
             </div>
             <div class="row">
@@ -77,7 +77,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-12">
-                    <p>{{ candidat.formation }}</p>
+                    <p><i class="fa fa-graduation-cap" aria-hidden="true"></i> {{ candidat.formation }}</p>
                 </div>
             </div>
             <div class="row">
@@ -87,7 +87,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-12">
-                    <p>{{ candidat.competence }}</p>
+                    <p><i class="fa fa-graduation-cap" aria-hidden="true"></i> {{ candidat.competence }}</p>
                 </div>
             </div>
             <div class="row">
