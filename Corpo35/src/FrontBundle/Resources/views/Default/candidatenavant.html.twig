@@ -25,7 +25,7 @@
                                 <img id="photo" src="{{ asset('upload/' ~ candidat.photo) }}" alt="photo profil">
                             </div>
                             <div>
-                                <p class="titre">Inspirations pour le parfum</p>
+                                <p class="titre">Inspirations pour le parfum :</p>
 
                                 {% for document in candidat.documents %}
                                     {% if document.type == "image" %}
@@ -40,12 +40,12 @@
 
                                     {% elseif document.type == "musique" %}
 
-                                        <p class="soustitre"> Inspirations audio</p>
+                                        <p class="soustitre"> Inspirations audio : </p>
                                         <audio class="audio" controls src="{{ asset('upload/' ~ document.contenu) }}"></audio> <br/>
 
                                     {% elseif document.type == "pdf" %}
 
-                                        <p class="soustitre">Inspiration par un document</p>
+                                        <p class="soustitre">Inspiration par un document : </p>
                                         <a href="{{ asset('upload/' ~ document.contenu) }}" target="_blank">Voir le document</a>
 
                                     {% else %}
