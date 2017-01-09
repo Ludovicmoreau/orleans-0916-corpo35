@@ -160,21 +160,17 @@ class VoteController extends Controller
         }
 
         $vote->setNote($note);
+        $vote->setUser($this->getUser());
 
-        $user = $em->getRepository('BackBundle:User')->find($this->getUser());
-        $vote->setUser($user->getJury());
-
-       $candidats = $em->getRepository('BackBundle:Candidat')->find($id);
-
-       //$toto = $em->getRepository('BackBundle:Vote')->findAll();
+        $candidats = $em->getRepository('BackBundle:Candidat')->findById($candidat);
+        $vote->setCandidat($candidat);
         $candidat -> addVote($vote);
-
 
         $em->persist($vote);
         $em->flush();
 
         return $this->render('candidat/index.html.twig', array(
-            'candidat' => $candidat,
+            'candidats' => $candidats,
             'vote' => $vote,
             'note' => $note,
         ));
