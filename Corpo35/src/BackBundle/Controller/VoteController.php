@@ -3,12 +3,13 @@
 namespace BackBundle\Controller;
 
 use BackBundle\Entity\Vote;
+use BackBundle\Entity\Candidat;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\DependencyInjection\Tests\Compiler\C;
 use Symfony\Component\HttpFoundation\Request;
-use BackBundle\Entity\Candidat;
+
 
 /**
  * Vote controller.
@@ -160,21 +161,21 @@ class VoteController extends Controller
         }
 
         $vote->setNote($note);
+        $vote->setUser($this->getUser());
 
-        $user = $em->getRepository('BackBundle:User')->find($this->getUser());
-        $vote->setUser($user->getJury());
+        //$user = $em->getRepository('BackBundle:User')->find($this->getUser());
+        $vote->setUser($this->getUser());
 
-       $candidats = $em->getRepository('BackBundle:Candidat')->find($id);
 
-       //$toto = $em->getRepository('BackBundle:Vote')->findAll();
+        $candidats = $em->getRepository('BackBundle:Candidat')->findById($candidat);
+        $vote->setCandidat($candidat);
         $candidat -> addVote($vote);
-
 
         $em->persist($vote);
         $em->flush();
 
         return $this->render('candidat/index.html.twig', array(
-            'candidat' => $candidat,
+            'candidats' => $candidats,
             'vote' => $vote,
             'note' => $note,
         ));

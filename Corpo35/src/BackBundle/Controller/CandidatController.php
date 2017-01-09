@@ -4,6 +4,8 @@ namespace BackBundle\Controller;
 
 use BackBundle\Entity\Candidat;
 use BackBundle\Entity\Document;
+use BackBundle\Entity\User;
+use BackBundle\Entity\Vote;
 use BackBundle\Entity\Validation;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -96,11 +98,12 @@ class CandidatController extends Controller
             $em->persist($candidat);
             $em->flush();
 
+//          Ajout FlashBag message après l'envoi du formulaire
             $this->get('session')
                 ->getFlashBag()
-                ->add('success', 'Merci pour votre inscrition, votre candidature sera étudié attentivement.
-                    Nous vous ferrons part de notre décision par mail');
-
+                ->add('success', 'Merci pour votre inscrition, votre candidature sera étudiée attentivement.
+                    Nous vous ferons part de notre décision par mail.<br/> Voici les informations qui seront visible
+                    par les jurés.');
 
             return $this->redirectToRoute('candidat_show', array(
                 'id' => $candidat->getId(),
@@ -121,8 +124,14 @@ class CandidatController extends Controller
      */
     public function showAction(Candidat $candidat)
     {
+        $em = $this->getDoctrine()->getManager();
+        $users = $em->getRepository('BackBundle:User')->findAll();
+        $votes = $em->getRepository('BackBundle:Vote')->findAll();
+
         $deleteForm = $this->createDeleteForm($candidat);
         return $this->render('candidat/show.html.twig', array(
+            'votes'=>$votes,
+            'users'=>$users,
             'candidat' => $candidat,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -189,4 +198,5 @@ class CandidatController extends Controller
             ->getForm()
         ;
     }
+  
 }

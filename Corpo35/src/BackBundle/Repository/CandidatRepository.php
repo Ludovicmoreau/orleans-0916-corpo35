@@ -10,4 +10,5 @@ namespace BackBundle\Repository;
  */
 class CandidatRepository extends \Doctrine\ORM\EntityRepository
 {
+
 }
