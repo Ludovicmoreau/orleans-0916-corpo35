@@ -71,3 +71,13 @@
 .vote:hover {
     box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.8);
 }
+
+.decision {
+    margin: 2%;
+    padding: 2%;
+    box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.3);
+}
+
+.decision:hover {
+    box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.8);
+}

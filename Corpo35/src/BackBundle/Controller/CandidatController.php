@@ -4,6 +4,7 @@ namespace BackBundle\Controller;
 
 use BackBundle\Entity\Candidat;
 use BackBundle\Entity\Document;
+use BackBundle\Entity\User;
 use BackBundle\Entity\Validation;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -122,8 +123,12 @@ class CandidatController extends Controller
      */
     public function showAction(Candidat $candidat)
     {
+        $em = $this->getDoctrine()->getManager();
+        $users = $em->getRepository('BackBundle:User')->findAll();
+
         $deleteForm = $this->createDeleteForm($candidat);
         return $this->render('candidat/show.html.twig', array(
+            'users'=>$users,
             'candidat' => $candidat,
             'delete_form' => $deleteForm->createView(),
         ));
