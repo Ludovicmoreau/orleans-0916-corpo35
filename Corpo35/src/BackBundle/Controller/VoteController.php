@@ -161,7 +161,7 @@ class VoteController extends Controller
         }
 
         $vote->setNote($note);
-
+        $vote->setUser($this->getUser());
 
         //$user = $em->getRepository('BackBundle:User')->find($this->getUser());
         $vote->setUser($this->getUser());
@@ -169,10 +169,7 @@ class VoteController extends Controller
 
         $candidats = $em->getRepository('BackBundle:Candidat')->findById($candidat);
         $vote->setCandidat($candidat);
-
-
         $candidat -> addVote($vote);
-
 
         $em->persist($vote);
         $em->flush();

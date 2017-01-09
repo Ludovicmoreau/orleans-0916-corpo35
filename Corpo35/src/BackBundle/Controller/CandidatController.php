@@ -96,11 +96,12 @@ class CandidatController extends Controller
             $em->persist($candidat);
             $em->flush();
 
+//          Ajout FlashBag message après l'envoi du formulaire
             $this->get('session')
                 ->getFlashBag()
-                ->add('success', 'Merci pour votre inscription, votre candidature sera étudiée attentivement.
-                    Nous vous ferons part de notre décision par mail');
-
+                ->add('success', 'Merci pour votre inscrition, votre candidature sera étudiée attentivement.
+                    Nous vous ferons part de notre décision par mail.<br/> Voici les informations qui seront visible
+                    par les jurés.');
 
             return $this->redirectToRoute('candidat_show', array(
                 'id' => $candidat->getId(),
