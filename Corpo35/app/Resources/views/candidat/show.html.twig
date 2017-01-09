@@ -6,171 +6,220 @@
 {% endblock %}
 
 {% block content %}
+
+    {#          Flashbag message            #}
     {% if app.session.flashBag.has('success') %}
         <div class="alert alert-success message_flash alert-dismissible" role="alert">
             {% for msg in app.session.flashBag.get('success') %}
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <span>{{ msg | raw }}</span>
+                <span class="text-center">{{ msg | raw }}</span>
             {% endfor %}
         </div>
     {% endif %}
+
         {% if is_granted ('ROLE_JURY')%}
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 text-center">
                     <h2>
-                        Profile du candidat
+                        Profil du candidat
                     </h2>
                 </div>
             </div>
         {% endif %}
-            <div class="row">
-                <div class="col-xs-12">
-                    <img src="{{ asset('upload/' ~ candidat.photo) }}" class="img-responsive profilePicShow center-block">
+            <div class="profile">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <img src="{{ asset('upload/' ~ candidat.photo) }}" class="img-responsive profilePicShow center-block">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h2 class="text-center">{{ candidat.nom }} {{ candidat.prenom }}</h2>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xs-12">
-                    <h2 class="text-center">{{ candidat.nom }} {{ candidat.prenom }}</h2>
+            <div class="contact">
+                <div class="row">
+                    <div class="col-xs-12 text-center">
+                        <h3>Contact</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 text-center">
+                        <p><i class="fa fa-map-marker" aria-hidden="true"></i> {{ candidat.numrue }} {{ candidat.adresse }} {{ candidat.cp }} {{ candidat.ville }}</p>
+                        <p><i class="fa fa-envelope-o" aria-hidden="true"></i> {{ candidat.mail }}</p>
+                        <p><i class="fa fa-phone" aria-hidden="true"></i> {{ candidat.tel }}</p>
+                    </div>
+                    <div class="col-xs-6 text-center">
+                            <p><i class="fa fa-id-card-o" aria-hidden="true"></i><a href="{{ asset('upload/' ~ candidat.cv) }}" target="_blank"> Telecharger le cv au format pdf</a></p>
+                            <i class="fa fa-globe" aria-hidden="true"></i><a href="{{ candidat.blog }}" target="_blank"> {{ candidat.blog }}</a>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xs-12">
-                    <h3>Contact</h3>
+            <div class="presentation">
+                <div class="row">
+                    <div class="col-xs-12 text-center">
+                        <h3>Présentation</h3>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12">
-                    <p><i class="fa fa-map-marker" aria-hidden="true"></i> {{ candidat.numrue }} {{ candidat.adresse }} {{ candidat.cp }} {{ candidat.ville }}</p>
-                    <p><i class="fa fa-envelope-o" aria-hidden="true"></i> {{ candidat.mail }}</p>
-                    <p><i class="fa fa-phone" aria-hidden="true"></i> {{ candidat.tel }}</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12">
-                    <h3>Présentation</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12">
+                <div class="row">
+                    <div class="col-xs-12 text-center">
                         <p>{{ candidat.presentation }}</p>
-                    <h4>CV</h4>
-                        <p><i class="fa fa-id-card-o" aria-hidden="true"></i><a href="{{ asset('upload/' ~ candidat.cv) }}" target="_blank"> Telecharger le cv au format pdf</a></p>
-                    <h4>Blog/site perso</h4>
-                    <i class="fa fa-globe" aria-hidden="true"></i><a href="{{ candidat.blog }}" target="_blank"> {{ candidat.blog }}</a>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xs-12">
-                    <h3>Profession</h3>
+            <div class="competence">
+                <div class="row text-center">
+                    <div class="col-xs-4">
+                        <h3>Profession</h3>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <p><i class="fa fa-briefcase" aria-hidden="true"></i> {{ candidat.profession }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <h3>Formation</h3>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <i class="fa fa-graduation-cap" aria-hidden="true"></i> {{ candidat.formation }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <h3>Autres compétences/formations</h3>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <p><i class="fa fa-graduation-cap" aria-hidden="true"></i> {{ candidat.competence }}</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xs-12">
-                    <p><i class="fa fa-briefcase" aria-hidden="true"></i> {{ candidat.profession }}</p>
+            <div class="motivation">
+                <div class="row text-center">
+                    <div class="col-xs-12">
+                        <h3>Motivations</h3>
+                    </div>
+                </div>
+                <div class="row text-center">
+                    <div class="col-xs-12">
+                        <p>{{ candidat.motivation }}</p>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xs-12">
-                    <h3>Formation</h3>
+            <div class="inspiration">
+                <div class="row text-center">
+                    <div class="col-xs-12">
+                        <h3>Inspirations</h3>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12">
-                    <p><i class="fa fa-graduation-cap" aria-hidden="true"></i> {{ candidat.formation }}</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12">
-                    <h3>Autres compétences/formations</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12">
-                    <p><i class="fa fa-graduation-cap" aria-hidden="true"></i> {{ candidat.competence }}</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12">
-                    <h3>Motivations</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12">
-                    <p>{{ candidat.motivation }}</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12">
-                    <h3>Inspirations</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12">
-                    {% for document in candidat.documents %}
-                        {% if document.type == "image" %}
-                            <h4>Image</h4>
-                            <img src="{{ asset('upload/' ~ document.contenu) }}" class="img-responsive center-block"><br/>
-                            {% elseif document.type == "vidéo" %}
-                                <h4>Vidéo</h4>
-                                <video controls src="{{ asset('upload/' ~ document.contenu) }}" class="img-responsive center-block"></video><br/>
-                            {% elseif document.type == "musique" %}
-                                <h4>Audio</h4>
-                                <audio controls src="{{ asset('upload/' ~ document.contenu) }}" class="center-block"></audio><br/>
-                            {% elseif document.type == "pdf" %}
-                                <h4>Pdf</h4>
-                                <a href="{{ asset('upload/' ~ document.contenu) }}" target="_blank" class="text-center">Voir le document</a>
-                            {% else %}
-                                <p>Le candidat n'a pas téléchargé de document ou le format n'est pas supporté</p>
-                        {% endif %}
-                        {% if document.lien != "" %}
-                            <h4>Lien</h4>
-                                <a href="{{ document.lien }}" target="_blank">{{ document.lien }}</a><br/>
-                        {% endif %}
-                    {% endfor %}
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 text-center">
-                    <a href="{{ path('index') }}"><input type="button" class="btn-primary btn-lg center-block" value="Retour à la page d'accueil"></a>
+                <div class="row">
+                    <div class="col-xs-12">
+                        {% for document in candidat.documents %}
+                            {% if document.type == "image" %}
+                                <h4>Image</h4>
+                                <img src="{{ asset('upload/' ~ document.contenu) }}" class="img-responsive center-block"><br/>
+                                {% elseif document.type == "vidéo" %}
+                                    <h4>Vidéo</h4>
+                                    <video controls src="{{ asset('upload/' ~ document.contenu) }}" class="img-responsive center-block"></video><br/>
+                                {% elseif document.type == "musique" %}
+                                    <h4>Audio</h4>
+                                    <audio controls src="{{ asset('upload/' ~ document.contenu) }}" class="center-block"></audio><br/>
+                                {% elseif document.type == "pdf" %}
+                                    <h4>Pdf</h4>
+                                    <a href="{{ asset('upload/' ~ document.contenu) }}" target="_blank" class="text-center">Voir le document</a>
+                                {% else %}
+                                    <p>Le candidat n'a pas téléchargé de document ou le format n'est pas supporté</p>
+                            {% endif %}
+                            {% if document.lien != "" %}
+                                <h4>Lien</h4>
+                                    <a href="{{ document.lien }}" target="_blank">{{ document.lien }}</a><br/>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
             {% if is_granted ('ROLE_JURY') %}
-                <div class="row text-center">
-                    <div class="col-xs-4">
-                        <a href="{{ path('vote' , { 'id': candidat.id ,  'typeVote': 'positif' }) }}"><i class="fa fa-star fa-5x" style="color: yellow" aria-hidden="true"></i>
-                        <p style="color: black">Voter pour le candidat</p></a>
-                    </div>
-                    <div class="col-xs-4">
-                        <a href="{{ path('vote' , { 'id': candidat.id  ,  'typeVote': 'negatif' }) }}"><i class="fa fa-times fa-5x" style="color: red" aria-hidden="true"></i>
-                        <p style="color: black">Ne pas voter pour le candidat</p></a>
-                    </div>
-                    <div class="col-xs-4">
-                        <a href="{{ path('vote' , { 'id': candidat.id  , 'typeVote': 'neutre' }) }}"><i class="fa fa-commenting-o fa-5x" style="color: black" aria-hidden="true"></i>
-                        <p style="color: black">Ne sais pas</p></a>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <h3>Laisser un commentaire (obligatoire si indécis)</h3>
+                <div class="vote">
+                    <div class="row text-center">
+                        <div class="col-xs-4">
+                            <a href="{{ path('vote' , { 'id': candidat.id ,  'typeVote': 'positif' }) }}"><i class="fa fa-star fa-5x" style="color: yellow" aria-hidden="true"></i>
+                            <p style="color: black">Voter pour le candidat</p></a>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <textarea cols="100" rows="10"></textarea>
+                        <div class="col-xs-4">
+                            <a href="{{ path('vote' , { 'id': candidat.id  ,  'typeVote': 'negatif' }) }}"><i class="fa fa-times fa-5x" style="color: red" aria-hidden="true"></i>
+                            <p style="color: black">Ne pas voter pour le candidat</p></a>
+                        </div>
+                        <div class="col-xs-4">
+                            <a href="{{ path('vote' , { 'id': candidat.id  , 'typeVote': 'neutre' }) }}"><i class="fa fa-commenting-o fa-5x" style="color: black" aria-hidden="true"></i>
+                            <p style="color: black">Ne sais pas</p></a>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <h3>Laisser un commentaire (obligatoire si indécis)</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <textarea cols="100" rows="10"></textarea>
+                            </div>
                         </div>
                     </div>
                 </div>
             {% endif %}
 
             {% if is_granted ('ROLE_ADMIN') %}
-                <div class="row">
-                    <div class="col-xs-12">
-                        <h3>Décision</h3>
+                <div class="decision">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h3>Décision</h3>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12">
-                        <p>{% if candidat.decision %}Validé{% else %}Non-validé{% endif %}</p>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <p>{% if candidat.decision %}Validé{% else %}Non-validé{% endif %}</p>
+                            {% if is_granted ('ROLE_ADMIN')%}
+                                <div class="row">
+                                    <div class="col-xs-6 text-center">
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <h4>Notes</h4>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                {% for vote in candidat.votes %}
+                                                    <h4>Votant: {{ vote.user }}<br/></h4>
+                                                {% endfor %}
+                                            </div>
+                                            <div class="col-xs-6">
+                                                {% for vote in candidat.votes %}
+                                                    <h4>{{ vote.note }}<br/></h4>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 text-center">
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <h4>Total des notes</h4>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                {% set totalNote = 0  %}
+                                                {% for vote in candidat.votes %}
+                                                    {% set totalNote = totalNote + vote.note %}
+                                                {% endfor %}
+                                                <h4>{{ totalNote }}</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
                 <div class="row text-center">
@@ -189,6 +238,11 @@
                     </div>
                 </div>
             {% endif %}
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <a href="{{ path('index') }}"><input type="button" class="btn-primary btn-lg center-block" value="Retour à la page d'accueil"></a>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}

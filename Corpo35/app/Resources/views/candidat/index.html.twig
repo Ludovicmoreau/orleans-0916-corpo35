@@ -20,18 +20,19 @@
                 </div>
         {% endif %}
     </div>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             {% for candidat in candidats %}
-                <div class="col-xs-4 well blockCandidat">
+            <a href="{{ path('candidat_show', { 'id': candidat.id }) }}" class="linkCandidat">
+                <div class="col-xs-offset-1 col-xs-3 blockCandidat">
                     <h3 class="text-center">{{ candidat.nom }} {{ candidat.prenom }}</h3>
                     <p><img src="{{ asset('upload/' ~ candidat.photo) }}" class="img-responsive photoCandidat center-block"></p>
                     <p>{{ candidat.numrue }} {{ candidat.adresse }} {{ candidat.ville }} {{ candidat.cp }}</p>
                     <p>{{ candidat.mail }}</p>
                     <p>{{ candidat.tel }}</p>
                     <p>{{ candidat.blog }}</p>
-                    <p>{{ candidat.presentation }}</p>
-                    <p>{{ candidat.motivation }}</p>
+                    <p>{{ candidat.presentation |truncate(50, true,'...')}}</p>
+                    <p>{{ candidat.motivation |truncate(50, true,'...')}}</p>
                     <p>{{ candidat.formation }}</p>
                     <p>{{ candidat.competence }}</p>
                     <p>{{ candidat.profession }}</p>
@@ -40,16 +41,11 @@
                     {% endif %}
                     <p>Candidat validé: {% if candidat.decision %}Yes{% else %}No{% endif %}</p>
                     <p>
-
                         {% if is_granted ('ROLE_ADMIN') %}
                             <a href="{{ path('recandidatenavant' , { 'id': candidat.id }) }}"> Mettre en avant le candidat</a>
                         {% endif %}
                     </p>
-
                     <div class="row">
-                        <div class="col-xs-6">
-                            <p><a href="{{ path('candidat_show', { 'id': candidat.id }) }}">voir en détail</a></p>
-                        </div>
                         <div class="col-xs-6">
                             {% if is_granted ('ROLE_ADMIN')%}
                             <p><a href="{{ path('candidat_edit', { 'id': candidat.id }) }}">éditer</a></p>
@@ -84,6 +80,7 @@
                         </div>
                     {% endif %}
                 </div>
+                </a>
             {% endfor %}
         </div>
     </div>
