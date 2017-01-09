@@ -10,8 +10,9 @@
         <div class="col-xs-12 text-center">
             <h2>Bienvenue sur la page d'inscription au concours Corpo35</h2>
             <p> le <a href="{{ path('reglement') }}" target="_blank">règlement du concours</a> est à télécharger, signer et à nous renvoyer.</p>
-            <p>L'inscription au concours peut prendre 10 à 15 minutes et nécessite de télécharger quelques documents comme une photo, un cv etc...
-                <br/>Vérifiez bien que vous avez ces documents avec vous avant de commencer l'inscription.</p>
+            <p>L'inscription au concours peut prendre 10 à 15 minutes et nécessite de télécharger quelques documents comme une photo, un cv etc...<br/>
+                Vérifiez bien que vous avez ces documents avec vous avant de commencer l'inscription.</p>
+            <p>Les champs avec un * sont obligatoires</p>
             <p class="hidden-lg hidden-md">L'inscription au concours nécessite le téléchargement de documents.<br/> Veuillez passez sur la version PC du site.</p>
         </div>
     </div>
@@ -62,7 +63,7 @@
                     {% for document in form.documents %}
                         <h3 class="text-center titreForm">Documents</h3>
                         <p class="text-center">
-                            Vous pouvez telecharger jusqu'à 3 documents qui vous ont inspiré pour votre création<br/>
+                            Vous pouvez telecharger des documents qui vous ont inspiré pour votre création<br/>
                             Les types de documents supportés sont "image", "vidéo", "musique" ou "pdf".<br/>
                             Vous pouvez également ajouter un lien vers un site externe
                         </p>
