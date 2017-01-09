@@ -36,6 +36,11 @@ class Promotion
      */
     private $archivage;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Candidat")
+     */
+    private $candidats;
+
 
     /**
      * Get id
@@ -92,5 +97,21 @@ class Promotion
     {
         return $this->annee->format('Y');
 
+    }
+
+    /**
+     * @param mixed $candidats
+     */
+    public function setCandidats($candidats)
+    {
+        $this->candidats = $candidats;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCandidats()
+    {
+        return $this->candidats;
     }
 }

@@ -78,4 +78,3 @@ fos_user:
                     from_email:
                         address:        admin@gmail.com
                         sender_name:    Administrateur du site
-
