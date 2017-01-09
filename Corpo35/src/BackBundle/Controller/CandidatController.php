@@ -98,8 +98,8 @@ class CandidatController extends Controller
 
             $this->get('session')
                 ->getFlashBag()
-                ->add('success', 'Merci pour votre inscrition, votre candidature sera étudié attentivement.
-                    Nous vous ferrons part de notre décision par mail');
+                ->add('success', 'Merci pour votre inscription, votre candidature sera étudiée attentivement.
+                    Nous vous ferons part de notre décision par mail');
 
 
             return $this->redirectToRoute('candidat_show', array(
