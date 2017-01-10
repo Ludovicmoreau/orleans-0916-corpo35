@@ -34,39 +34,6 @@ class CommentaireController extends Controller
     /**
      * Creates a new commentaire entity.
      *
-     * @Route("/new-emb/{id}", name="commentaire_newembed")
-     */
-    public function newEmbedAction(Article $article, Request $request)
-    {
-        $commentaire = new Commentaire();
-        $commentaire->setArticle($article);
-
-        $form = $this->createForm('BackBundle\Form\CommentaireType', $commentaire);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            if (!$commentaire->getUtilisateur()) {
-                $commentaire->setUtilisateur('Anonyme');
-            }
-
-            // $commentaire->setDate($hashtag->setWrite());
-            $commentaire->setDate(date('Y-m-d'));
-            $em->persist($commentaire);
-            $em->flush($commentaire);
-
-            return $this->redirectToRoute('commentaire_show', array('id' => $article->getId()));
-        }
-        return $this->render('commentaire/newEmbed.html.twig', array(
-            'commentaire' => $commentaire,
-            'article' => $article,
-            'form' => $form->createView(),
-        ));
-    }
-
-    /**
-     * Creates a new commentaire entity.
-     *
      * @Route("/new", name="commentaire_new")
      * @Method({"GET", "POST"})
      */

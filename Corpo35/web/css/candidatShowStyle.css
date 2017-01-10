@@ -1,3 +1,83 @@
 .profilePicShow {
     width: 20%;
 }
+
+.profile {
+    margin: 2%;
+    padding: 2%;
+    box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.3);
+}
+
+.profile:hover {
+    box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.8);
+}
+
+.contact {
+    margin: 2%;
+    padding: 2%;
+    box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.3);
+}
+
+.contact:hover {
+    box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.8);
+}
+
+.presentation {
+    margin: 2%;
+    padding: 2%;
+    box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.3);
+}
+
+.presentation:hover {
+    box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.8);
+}
+
+.competence {
+    margin: 2%;
+    padding: 2%;
+    box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.3);
+}
+
+.competence:hover {
+    box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.8);
+}
+
+.motivation {
+    margin: 2%;
+    padding: 2%;
+    box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.3);
+}
+
+.motivation:hover {
+    box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.8);
+}
+
+.inspiration {
+    margin: 2%;
+    padding: 2%;
+    box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.3);
+}
+
+.inspiration:hover {
+    box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.8);
+}
+
+.vote {
+    margin: 2%;
+    padding: 2%;
+    box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.3);
+}
+
+.vote:hover {
+    box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.8);
+}
+
+.decision {
+    margin: 2%;
+    padding: 2%;
+    box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.3);
+}
+
+.decision:hover {
+    box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.8);
+}

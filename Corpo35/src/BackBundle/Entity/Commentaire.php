@@ -28,6 +28,14 @@ class Commentaire
      * @ORM\Column(name="auteur", type="string", length=255)
      */
     private $auteur;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="date")
+     */
+    private $date;
+
     /**
      * @var string
      *
@@ -63,6 +71,15 @@ class Commentaire
     {
         return $this->auteur;
     }
+
+
+    public function __construct()
+    {
+        $this->commentaire = new ArrayCollection();
+    }
+
+
+
     /**
      * Set commentaire
      *
@@ -102,5 +119,21 @@ class Commentaire
     public function getArticle()
     {
         return $this->article;
+    }
+
+    /**
+     * @param \DateTime $date
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
     }
 }

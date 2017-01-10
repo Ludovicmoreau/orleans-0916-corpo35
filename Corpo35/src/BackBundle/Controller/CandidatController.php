@@ -4,6 +4,8 @@ namespace BackBundle\Controller;
 
 use BackBundle\Entity\Candidat;
 use BackBundle\Entity\Document;
+use BackBundle\Entity\User;
+use BackBundle\Entity\Vote;
 use BackBundle\Entity\Validation;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -96,6 +98,13 @@ class CandidatController extends Controller
             $em->persist($candidat);
             $em->flush();
 
+//          Ajout FlashBag message après l'envoi du formulaire
+            $this->get('session')
+                ->getFlashBag()
+                ->add('success', 'Merci pour votre inscrition, votre candidature sera étudiée attentivement.
+                    Nous vous ferons part de notre décision par mail.<br/> Voici les informations qui seront visible
+                    par les jurés.');
+
             return $this->redirectToRoute('candidat_show', array(
                 'id' => $candidat->getId(),
             ));
@@ -111,13 +120,44 @@ class CandidatController extends Controller
      * Finds and displays a candidat entity.
      *
      * @Route("/{id}", name="candidat_show")
-     * @Method("GET")
      */
-    public function showAction(Candidat $candidat)
+    public function showAction(Request $request,Candidat $candidat)
     {
+        $em = $this->getDoctrine()->getManager();
+        $users = $em->getRepository('BackBundle:User')->findAll();
+        $votes = $em->getRepository('BackBundle:Vote')->findAll();
+
+
+        $form = $this->createForm('BackBundle\Form\DecisionType', $candidat);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('candidat_show', array('id' => $candidat->getId()));
+        }
+
+        $vote = new Vote();
+
+        $formCommentaire = $this->createForm('BackBundle\Form\VoteType', $vote);
+        $formCommentaire->handleRequest($request);
+
+        if ($formCommentaire->isSubmitted() && $formCommentaire->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $vote->setUser($this->getUser());
+            $vote->setCandidat($candidat);
+            $em->persist($vote);
+            $em->flush();
+            return $this->redirectToRoute('candidat_show', array('id' => $candidat->getId()));
+        }
+
         $deleteForm = $this->createDeleteForm($candidat);
         return $this->render('candidat/show.html.twig', array(
+            'votes'=>$votes,
+            'users'=>$users,
             'candidat' => $candidat,
+            'form' => $form->createView(),
+            'formCommentaire' => $formCommentaire->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -183,4 +223,5 @@ class CandidatController extends Controller
             ->getForm()
         ;
     }
+  
 }

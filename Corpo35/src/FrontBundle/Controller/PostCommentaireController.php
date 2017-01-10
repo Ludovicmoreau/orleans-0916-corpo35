@@ -5,17 +5,30 @@ namespace FrontBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
-class ArticleController extends Controller
+class PostCommentaireController extends Controller
 {
+    /**
+     * @Route("/post-commentaire", name="list_commentaire")
+     */
+    public function ShowCommentaireAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $listCommentaires = $em->getRepository('BackBundle:Commentaire')->findAll();
+        return $this->render('FrontBundle:Default:post-commentaire.html.twig', array(
+            'listCommentaires'=>$listCommentaires
+        ));
+
+    }
+
     /**
      * Creates a new commentaire entity.
      *
-     * @Route("/post-commentaire/{id}", name="post-commentaire")
+     * @Route("/post-commentaire/{id}", name="commentaire_newembed")
      */
-    public function newPostCommentaireAction(Article $article, Request $request)
+    public function newCommentaireAction(Article $article, Request $request)
     {
         $commentaire = new Commentaire();
-        $commentaire->setArticle($article);
+        $commentaire->setAlbum($article);
 
         $form = $this->createForm('BackBundle\Form\CommentaireType', $commentaire);
         $form->handleRequest($request);
@@ -31,14 +44,16 @@ class ArticleController extends Controller
             $em->persist($commentaire);
             $em->flush($commentaire);
 
-            return $this->redirectToRoute('commentaire_show', array('id' => $article->getId()));
+            return $this->redirectToRoute('article_show', array('id' => $article->getId()));
         }
-        return $this->render('FrontBundle:Default:listArticle.html.twig', array(
+        return $this->render('FrontBundle:Default:post-commentaire.html.twig', array(
             'commentaire' => $commentaire,
             'article' => $article,
             'form' => $form->createView(),
         ));
     }
+
+
 }
 
 

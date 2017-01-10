@@ -3,8 +3,10 @@
 namespace BackBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class VoteType extends AbstractType
 {
@@ -14,9 +16,26 @@ class VoteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('note')
-            ->add('candidat')
-            ->add('jury')        ;
+            ->add('note', ChoiceType::class, array(
+                'expanded' => true,
+                'multiple' => false,
+                'choices' => array(
+                    1 => 'voter pour',
+                    0 => 'indécis',
+                    -1 => 'voter contre',
+                ),
+            ))
+//            ->add('candidat')
+//            ->add('jury')
+            ->add('commentaire', TextareaType::class, array(
+                'label'=>'Commentaire (obligatoire si indécis)*',
+                'data_class'=>null,
+                'attr'=>array(
+                    'class'=>'form-control',
+                    'aria-label'=>'Commentaire'
+                )
+            ))
+        ;
     }
     
     /**

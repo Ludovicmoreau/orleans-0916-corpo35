@@ -1,0 +1,25 @@
+{% extends 'FrontBundle:Default:index.html.twig' %}
+
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/inscriptionStyle.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="container hidden-xs hidden-sm">
+        {{ form_start(form, {'action': {{ path('candidat_show', { 'id': candidat.id }) }}, 'method': 'GET'}) }}
+        <div class="form-group">
+            {% if is_granted ('ROLE_ADMIN') %}
+                <div class="form">{{ form_row(form.decision) }}</div>
+            {% endif %}
+
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                <input type="submit" value="Créer" class="btn-success btn-lg center-block"/>
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}
