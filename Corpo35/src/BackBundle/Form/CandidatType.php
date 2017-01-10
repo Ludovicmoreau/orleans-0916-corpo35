@@ -178,14 +178,6 @@ class CandidatType extends AbstractType
                 'class'=>'BackBundle\Entity\Promotion',
                 'choice_label'=>'year',
             ))
-
-//            ->add('validations', EntityType::class, array(
-//              'label'=>'Validez-vous la candidature de ce candidat ?',
-//              'required'=>false,
-//              'class'=>'BackBundle\Entity\Validation',
-//              'attr'=>array(
-//                  'class'=>'form-control')
-//                 ))
             ->add('documents', CollectionType::class, array(
                 'data_class'=>null,
                 'entry_type'=>DocumentType::class,
@@ -194,8 +186,6 @@ class CandidatType extends AbstractType
                 'by_reference'=>false,
                 'required'=>false,
             ))
-
-
         ;
     }
 
@@ -207,9 +197,7 @@ class CandidatType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => 'BackBundle\Entity\Candidat',
         ));
-
     }
-
     /**
      * {@inheritdoc}
      */
@@ -217,6 +205,4 @@ class CandidatType extends AbstractType
     {
         return 'backbundle_candidat';
     }
-
-
 }
