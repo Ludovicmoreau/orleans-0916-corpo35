@@ -59,9 +59,7 @@
                     <hr class="separe">
                     <div class="form">{{ form_row(form.promotion) }}</div>
                     <hr class="separe">
-                    {% if is_granted ('ROLE_ADMIN') %}
-                        <div class="form">{{ form_row(form.decision) }}</div>
-                    {% endif %}
+
                     {% for document in form.documents %}
                         <h3 class="text-center titreForm">Documents</h3>
                         <p class="text-center">
