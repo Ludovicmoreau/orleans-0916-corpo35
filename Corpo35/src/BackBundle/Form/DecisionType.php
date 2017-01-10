@@ -23,7 +23,6 @@ class DecisionType extends AbstractType
                 0 => 'Non',
                 )
             ))
-            ->setMethod('GET');
             ;
     }
 
