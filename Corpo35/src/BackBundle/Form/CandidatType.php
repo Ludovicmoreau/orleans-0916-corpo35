@@ -195,11 +195,15 @@ class CandidatType extends AbstractType
                 'required'=>false,
             ))
 
-            ->add('decision', HiddenType::class, array(
+            ->add('decision', ChoiceType::class, array(
                 'label'=>'Cocher pour valider le candidat',
                 'data_class'=>null,
-                'required' => false
-            ))
+                'required' => false,
+                'choices' => array(
+                    0 => 'Oui',
+                    1 => 'Non',
+
+            )))
         ;
     }
 

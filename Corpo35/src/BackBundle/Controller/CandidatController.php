@@ -122,17 +122,28 @@ class CandidatController extends Controller
      * @Route("/{id}", name="candidat_show")
      * @Method("GET")
      */
-    public function showAction(Candidat $candidat)
+    public function showAction(Request $request,Candidat $candidat)
     {
         $em = $this->getDoctrine()->getManager();
         $users = $em->getRepository('BackBundle:User')->findAll();
         $votes = $em->getRepository('BackBundle:Vote')->findAll();
+
+
+        $form = $this->createForm('BackBundle\Form\DecisionType', $candidat);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('candidat_show', array('id' => $candidat->getId()));
+        }
 
         $deleteForm = $this->createDeleteForm($candidat);
         return $this->render('candidat/show.html.twig', array(
             'votes'=>$votes,
             'users'=>$users,
             'candidat' => $candidat,
+            'form' => $form->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
