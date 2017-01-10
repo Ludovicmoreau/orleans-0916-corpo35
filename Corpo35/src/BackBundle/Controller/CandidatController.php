@@ -120,7 +120,6 @@ class CandidatController extends Controller
      * Finds and displays a candidat entity.
      *
      * @Route("/{id}", name="candidat_show")
-     * @Method("GET")
      */
     public function showAction(Request $request,Candidat $candidat)
     {
@@ -144,8 +143,11 @@ class CandidatController extends Controller
         $formCommentaire->handleRequest($request);
 
         if ($formCommentaire->isSubmitted() && $formCommentaire->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
+            $em = $this->getDoctrine()->getManager();
+            $vote->setUser($this->getUser());
+            $vote->setCandidat($candidat);
+            $em->persist($vote);
+            $em->flush();
             return $this->redirectToRoute('candidat_show', array('id' => $candidat->getId()));
         }
 
