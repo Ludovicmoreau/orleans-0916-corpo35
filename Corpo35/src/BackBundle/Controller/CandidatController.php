@@ -138,12 +138,24 @@ class CandidatController extends Controller
             return $this->redirectToRoute('candidat_show', array('id' => $candidat->getId()));
         }
 
+        $vote = new Vote();
+
+        $formCommentaire = $this->createForm('BackBundle\Form\VoteType', $vote);
+        $formCommentaire->handleRequest($request);
+
+        if ($formCommentaire->isSubmitted() && $formCommentaire->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('candidat_show', array('id' => $candidat->getId()));
+        }
+
         $deleteForm = $this->createDeleteForm($candidat);
         return $this->render('candidat/show.html.twig', array(
             'votes'=>$votes,
             'users'=>$users,
             'candidat' => $candidat,
             'form' => $form->createView(),
+            'formCommentaire' => $formCommentaire->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
