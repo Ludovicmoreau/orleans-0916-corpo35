@@ -35,6 +35,7 @@ class CandidatType extends AbstractType
         $builder
 
             ->add('nom', TextType::class, array(
+                'data_class'=>null,
                 'label'=>'Nom*',
                 'attr'=>array(
                     'placeholder'=>'Votre Nom',
@@ -43,6 +44,7 @@ class CandidatType extends AbstractType
                 )
             ))
             ->add('prenom', TextType::class, array(
+                'data_class'=>null,
                 'label'=>'Prénom*',
                 'attr'=>array(
                     'placeholder'=>'Votre Prénom',
@@ -51,6 +53,7 @@ class CandidatType extends AbstractType
                 )
             ))
             ->add('date_naissance', BirthdayType::class, array(
+                'data_class'=>null,
                 'label'=>'Date de Naissance*',
                 'attr'=>array(
                     'aria-label'=> 'Votre date de naissance'
@@ -175,6 +178,7 @@ class CandidatType extends AbstractType
                 )
             ))
             ->add('promotion', EntityType::class, array(
+                'data_class'=>null,
                 'class'=>'BackBundle\Entity\Promotion',
                 'choice_label'=>'year',
             ))

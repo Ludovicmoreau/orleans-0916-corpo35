@@ -157,14 +157,9 @@
                             <p style="color: black">Ne sais pas</p></a>
                         </div>
                         <div class="row">
-                            <div class="col-xs-12">
-                                <h3>Laisser un commentaire (obligatoire si indécis)</h3>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <textarea cols="100" rows="10"></textarea>
-                            </div>
+                            {{ form_start(formCommentaire) }}
+                                <input type="submit" value="Créer" class="btn-success btn center-block"/>
+                            {{ form_end(formCommentaire) }}
                         </div>
                     </div>
                 </div>
