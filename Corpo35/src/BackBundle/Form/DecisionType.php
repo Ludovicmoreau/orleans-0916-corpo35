@@ -21,8 +21,8 @@ class DecisionType extends AbstractType
             'choices' => array(
                 1 => 'Oui',
                 0 => 'Non',
-
-            )))
+                )
+            ))
             ->setMethod('GET');
             ;
     }
