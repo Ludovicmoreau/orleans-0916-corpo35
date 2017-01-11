@@ -45,6 +45,7 @@
                         <a href="{{ document.lien }}" target="_blank">{{ document.lien }}</a>
                 {% endfor %}
         </div>
+        </div>
         <div class="col-md-offset-1 col-md-3">
            <p class="titre"> Présentation du candidat :</p> <br/>
            <p class="text"> {{ candidat.presentation | truncate(200, true,"...") }} </p>
