@@ -182,14 +182,6 @@ class CandidatType extends AbstractType
                 'class'=>'BackBundle\Entity\Promotion',
                 'choice_label'=>'year',
             ))
-
-//            ->add('validations', EntityType::class, array(
-//              'label'=>'Validez-vous la candidature de ce candidat ?',
-//              'required'=>false,
-//              'class'=>'BackBundle\Entity\Validation',
-//              'attr'=>array(
-//                  'class'=>'form-control')
-//                 ))
             ->add('documents', CollectionType::class, array(
                 'data_class'=>null,
                 'entry_type'=>DocumentType::class,
@@ -198,16 +190,7 @@ class CandidatType extends AbstractType
                 'by_reference'=>false,
                 'required'=>false,
             ))
-
-            ->add('decision', ChoiceType::class, array(
-                'label'=>'Cocher pour valider le candidat',
-                'data_class'=>null,
-                'required' => false,
-                'choices' => array(
-                    0 => 'Oui',
-                    1 => 'Non',
-
-            )))
+            ->add('decision', HiddenType::class)
         ;
     }
 
