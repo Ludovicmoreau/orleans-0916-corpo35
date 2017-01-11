@@ -190,7 +190,6 @@ class CandidatType extends AbstractType
                 'by_reference'=>false,
                 'required'=>false,
             ))
-            ->add('decision', HiddenType::class)
         ;
     }
 
