@@ -21,26 +21,16 @@ class CandidatsChoisisController extends Controller
     }
 
     /**
-     * @Route("/candidatschoisisinfos/{id}", name="candidatschoisisinfos")
+     * @Route("/pagevitrinecandidat/{id}", name="page_vitrine_candidat")
      */
-    public function ShowCandidatsChoisisInfosAction(Candidat $id)
+    public function ShowPageVitrineCandidatAction(Candidat $candidat)
     {
-        $em = $this->getDoctrine()->getManager();
-//        $oldCandidatsChoisis = $em ->getRepository('BackBundle:Candidat')->findByDecision(1);
-//        $oldCandidatsChoisis ->setShowCandidatsChoisis(0);
-//        $em->persist($oldCandidatsChoisis);
-
-        $candidat = $em ->getRepository('BackBundle:Candidat')->find($id);
-//        $candidatsChoisisInfos ->setShowCandidatsChoisis(1);
-//        $em ->persist($candidatsChoisisInfos);
-//        $em ->flush();
         if ($candidat->getDecision()==0) {
-            //erreur
-            // flashBag
-            // return redirectToRoute('accueil')
-        }
-        return $this->render('FrontBundle:Default:candidatschoisis.html.twig', array(
+            return $this->redirectToRoute('index');
+        } else {
+        return $this->render('FrontBundle:Default:page_vitrine_candidat.html.twig', array(
             'candidat' => $candidat,
         ));
+        }
     }
 }
