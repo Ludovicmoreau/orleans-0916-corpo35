@@ -92,3 +92,4 @@ newisipca:
     resource: "@BackBundle/Controller/Agenda_LaboController.php"
     type:     annotation
     prefix:   /isipcanew
+
