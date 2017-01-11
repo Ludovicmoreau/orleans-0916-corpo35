@@ -2,6 +2,8 @@
 
 namespace FrontBundle\Controller;
 
+
+use BackBundle\Entity\Candidat;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
