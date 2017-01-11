@@ -60,5 +60,4 @@ class DefaultController extends Controller
             'listCandidat' => $listCandidat
         ));
     }
-
 }

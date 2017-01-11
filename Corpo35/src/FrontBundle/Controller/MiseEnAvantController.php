@@ -2,10 +2,11 @@
 
 namespace FrontBundle\Controller;
 
+use BackBundle\Entity\Candidat;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
-class CandidatEnAvantController extends Controller
+class MiseEnAvantController extends Controller
 {
     /**
      * @Route("/candidatenavant", name="candidatenavant")
