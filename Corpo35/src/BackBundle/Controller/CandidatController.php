@@ -162,27 +162,6 @@ class CandidatController extends Controller
         ));
     }
 
-    public function voteOnlyOne(Vote $vote)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $users = $em->getRepository('BackBundle:User')->findBy($this->getUser());
-
-        if (empty($vote)  )
-        {
-            return "candidat_show";
-        }
-        else
-        {
-         $this->add('success', 'Vous avez déjà voté pour ce candidat');
-        }
-        return $this->render('candidat/show.html.twig', array(
-            'vote'=>$vote,
-            'users'=>$users,
-
-        ));
-    }
-
-
 
     /**
      * Displays a form to edit an existing candidat entity.
