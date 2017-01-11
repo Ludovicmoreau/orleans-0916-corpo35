@@ -34,15 +34,6 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/laureats", name="laureats")
-     */
-    public function laureatsAction()
-    {
-        return $this->render('FrontBundle:Default:laureats.html.twig');
-
-    }
-
-    /**
      * @Route("/archives", name="archives")
      */
     public function archivesAction()
@@ -56,17 +47,5 @@ class DefaultController extends Controller
     public function contactAction()
     {
         return $this->render('FrontBundle:Default:contact.html.twig');
-    }
-
-    /**
-     * @Route("/laureats", name="laureats")
-     */
-    public function ShowCandidatAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-        $listCandidat = $em->getRepository('BackBundle:Candidat')->findAll();
-        return $this->render('FrontBundle:Default:laureats.html.twig', array(
-            'listCandidat' => $listCandidat
-        ));
     }
 }
