@@ -144,18 +144,6 @@
             {% if is_granted ('ROLE_JURY') %}
                 <div class="vote">
                     <div class="row text-center">
-                        {#<div class="col-xs-4">#}
-                            {#<a href="{{ path('vote' , { 'id': candidat.id ,  'typeVote': 'positif' }) }}"><i class="fa fa-star fa-5x" style="color: yellow" aria-hidden="true"></i>#}
-                            {#<p style="color: black">Voter pour le candidat</p></a>#}
-                        {#</div>#}
-                        {#<div class="col-xs-4">#}
-                            {#<a href="{{ path('vote' , { 'id': candidat.id  ,  'typeVote': 'negatif' }) }}"><i class="fa fa-times fa-5x" style="color: red" aria-hidden="true"></i>#}
-                            {#<p style="color: black">Ne pas voter pour le candidat</p></a>#}
-                        {#</div>#}
-                        {#<div class="col-xs-4">#}
-                            {#<a href="{{ path('vote' , { 'id': candidat.id  , 'typeVote': 'neutre' }) }}"><i class="fa fa-commenting-o fa-5x" style="color: black" aria-hidden="true"></i>#}
-                            {#<p style="color: black">Ne sais pas</p></a>#}
-                        {#</div>#}
                         <div class="row">
                             {{ form_start(formCommentaire) }}
                                 {{ form_widget(formCommentaire) }}
