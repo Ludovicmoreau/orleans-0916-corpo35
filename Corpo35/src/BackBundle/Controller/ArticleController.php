@@ -5,7 +5,8 @@ namespace BackBundle\Controller;
 use BackBundle\Entity\Article;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Article controller.
@@ -96,7 +97,7 @@ class ArticleController extends Controller
     public function editAction(Request $request, Article $article)
     {
         if (is_file ($article->getPhoto())) {
-            $old_photo = new Photo($this->getParameter('upload_directory') . '/' . $article->getLogo());
+            $old_photo = new Photo($this->getParameter('upload_directory') . '/' . $article->getPhoto());
         } else {
             $article->setPhoto('');
         }
@@ -111,7 +112,7 @@ class ArticleController extends Controller
             // instead of its contents
             if (!$article->getPhoto())
             {
-                $article->setLogo($old_photo);
+                $article->setPhoto($old_photo);
             } else
             {
                 $photo = $article->getPhoto();

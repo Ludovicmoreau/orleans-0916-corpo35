@@ -28,11 +28,13 @@ class VoteType extends AbstractType
 //            ->add('candidat')
 //            ->add('jury')
             ->add('commentaire', TextareaType::class, array(
-                'label'=>'Commentaire (obligatoire si indécis)*',
+                'label'=>'Commentaire*',
                 'data_class'=>null,
                 'attr'=>array(
                     'class'=>'form-control',
-                    'aria-label'=>'Commentaire'
+                    'aria-label'=>'Commentaire',
+                    'placeholder'=>'Expliqué votre choix'
+
                 )
             ))
         ;

@@ -134,7 +134,7 @@ class CandidatController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('candidat_show', array('id' => $candidat->getId()));
+            return $this->redirectToRoute('candidat_index');
         }
 
         $vote = new Vote();
@@ -148,7 +148,7 @@ class CandidatController extends Controller
             $vote->setCandidat($candidat);
             $em->persist($vote);
             $em->flush();
-            return $this->redirectToRoute('candidat_show', array('id' => $candidat->getId()));
+            return $this->redirectToRoute('candidat_index');
         }
 
         $deleteForm = $this->createDeleteForm($candidat);

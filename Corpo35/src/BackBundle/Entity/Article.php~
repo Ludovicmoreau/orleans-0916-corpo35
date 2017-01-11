@@ -14,6 +14,7 @@ class Article
 {
 
     /**
+     * @var string
      * @ORM\OneToMany(targetEntity="Commentaire", mappedBy="article")
      */
     private $commentaires;
@@ -206,6 +207,17 @@ class Article
     }
 
     /**
+<<<<<<< HEAD
+     * @param string $commentaires
+     */
+    public function setCommentaires($commentaires)
+    {
+        $this->commentaires = $commentaires;
+    }
+
+    /**
+=======
+>>>>>>> d4f155e4f58e68d69ac16d473361b0199892b366
      * @param string $photo
      */
     public function setPhoto($photo)

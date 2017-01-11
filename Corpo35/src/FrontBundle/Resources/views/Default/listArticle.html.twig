@@ -1,0 +1,50 @@
+{% extends 'FrontBundle:Default:index.html.twig' %}
+{% block stylesheet %}
+   {# <link rel="stylesheet" href="{{ asset('css/listArticles_style.css') }}">#}
+{% endblock %}
+
+{% block content %}
+    <div class="container list-articles">
+        <div class="container-fluid blog">
+            <div class="row">
+                <div class="col-md-12 col-sm-6 col-xs-12">
+                    <div class="row">
+
+                    <h1 class="text-left"><i class="fa fa-pagelines pagelines_title" aria-hidden="true"></i> Notre actu</h1>
+
+                    {% for article in listArticles %}
+                    <div class="row">
+                        <div class="blog-post">
+                            <div class="col-md-4">
+                                <h2 class="blog-title">{{ article.titre }}</h2>
+                                <img class="img-responsive" src="{{ asset('upload/' ~  article.photo )}}">
+                                <h5 class="date">{% if article.date %}{{ article.date|date('Y-m-d') }}{% endif %}</h5>
+                            </div>
+                            <div class="col-md-8">
+                                <p class="blog-content"><blockquote>{{ article.contenu }}</blockquote></p>
+                            </div>
+                        </div>
+                    </div>
+                        {{ render(controller('FrontBundle:PostCommentaire:ShowCommentaire')) }}
+
+
+                    {% endfor %}
+                </div>
+            </div>
+            <a href="{{ path('blog') }}" class="button"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> Retour</a>
+        </div>
+    </div>
+
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+{% endblock %}
+
+    {% block JS %}
+
+        <script>
+
+
+        </script>
+    {% endblock %}

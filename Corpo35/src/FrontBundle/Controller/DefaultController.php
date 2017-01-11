@@ -34,15 +34,6 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/laureats", name="laureats")
-     */
-    public function laureatsAction()
-    {
-        return $this->render('FrontBundle:Default:laureats.html.twig');
-
-    }
-
-    /**
      * @Route("/archives", name="archives")
      */
     public function archivesAction()

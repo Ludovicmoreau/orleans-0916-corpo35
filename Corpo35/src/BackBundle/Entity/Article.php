@@ -14,6 +14,7 @@ class Article
 {
 
     /**
+     * @var string
      * @ORM\OneToMany(targetEntity="Commentaire", mappedBy="article")
      */
     private $commentaires;
@@ -198,11 +199,19 @@ class Article
     /**
      * Get commentaires
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getCommentaires()
     {
         return $this->commentaires;
+    }
+
+    /**
+     * @param string $commentaires
+     */
+    public function setCommentaires($commentaires)
+    {
+        $this->commentaires = $commentaires;
     }
 
     /**
