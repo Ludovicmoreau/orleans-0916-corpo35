@@ -19,35 +19,35 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li><a href="{{ path('contact') }}" class="linkNavbar"><i class="fa fa-envelope-o fa-1x linkNavbar" aria-hidden="true"></i> Contact</a></li>
-                    <li><a href="{{ path('list_partenaire') }}" class="linkNavbar"><i class="fa fa-handshake-o fa-1x linkNavbar" aria-hidden="true"></i> Partenaires</a></li>
-                    <li><a href="{{ path('revuedepresse') }}" class="linkNavbar"><i class="fa fa-newspaper-o fa-1x linkNavbar" aria-hidden="true"></i> La revue de presse</a></li>
-                    <li><a href="{{ path('list_agenda_labo') }}" class="linkNavbar"><i class="fa fa-calendar fa-1x linkNavbar" aria-hidden="true"></i> Agenda</a></li>
+                    <li><a href="{{ path('list_partenaire') }}" class="linkNavbar"><i class="fa fa-handshake-o fa-1x linkNavbar" aria-hidden="true"></i> {{ 'Partenaires'| trans }}</a></li>
+                    <li><a href="{{ path('revuedepresse') }}" class="linkNavbar"><i class="fa fa-newspaper-o fa-1x linkNavbar" aria-hidden="true"></i> {{ 'La revue de presse'| trans }}</a></li>
+                    <li><a href="{{ path('list_agenda_labo') }}" class="linkNavbar"><i class="fa fa-calendar fa-1x linkNavbar" aria-hidden="true"></i>  {{ 'Agenda'| trans }}</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
 
                         {% if is_granted ('ROLE_ADMIN') %}
                             <li><a href="{{ path('backIndex') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Administration</a></li>
                             <li><a href="{{ path('backJury') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Jury</a></li>
-                            <li><a href="{{ path('backPartenaire') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Partenaires</a></li>
+                            <li><a href="{{ path('backPartenaire') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> {{ 'Partenaires'| trans }}</a></li>
                             <li><a href="{{ path('backIsipca') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Isipca</a></li>
                         {% elseif is_granted ('ROLE_JURY') %}
                             <li><a href="{{ path('backJury') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Jury</a></li>
                         {% elseif is_granted ('ROLE_PARTENAIRE') %}
-                            <li><a href="{{ path('backPartenaire') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Partenaires</a></li>
+                            <li><a href="{{ path('backPartenaire') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> {{ 'Partenaires'| trans }}</a></li>
                          {% elseif is_granted ('ROLE_ISIPCA') %}
                              <li><a href="{{ path('backIsipca') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Isipca</a></li>
                          {% endif %}
 
                         {% if is_granted ('ROLE_ADMIN') %}
-                            <li><a href="{{ path('fos_user_security_logout') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Se déconnecter</a></li>
+                            <li><a href="{{ path('fos_user_security_logout') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> {{ 'Se déconnecter'| trans }}</a></li>
                         {% elseif is_granted ('ROLE_JURY') %}
-                            <li><a href="{{ path('fos_user_security_logout') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Se déconnecter</a></li>
+                            <li><a href="{{ path('fos_user_security_logout') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i>  {{ 'Se déconnecter'| trans }}</a></li>
                         {% elseif is_granted ('ROLE_PARTENAIRE') %}
-                            <li><a href="{{ path('fos_user_security_logout') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Se déconnecter</a></li>
+                            <li><a href="{{ path('fos_user_security_logout') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i>  {{ 'Se déconnecter'| trans }}</a></li>
                         {% elseif is_granted ('ROLE_ISIPCA') %}
-                            <li><a href="{{ path('fos_user_security_logout') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Se déconnecter</a></li>
+                            <li><a href="{{ path('fos_user_security_logout') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i>  {{ 'Se déconnecter'| trans }}</a></li>
                         {% else %}
-                            <li><a href="{{ path('fos_user_security_login') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Se connecter</a></li>
+                            <li><a href="{{ path('fos_user_security_login') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i>  {{ 'Se connecter'| trans }}</a></li>
                         {% endif %}
                 </ul>
             </div>
@@ -79,9 +79,9 @@
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <div class="row nav navbar">
-                        <div class="col-xs-offset-1 col-xs-2 text-center Navbar2 borderNavbar2"><a class="linkNavbar2" href="{{ path('index') }}">Accueil</a></div>
-                        <div class="col-xs-2 text-center Navbar2 borderNavbar2"><a class="linkNavbar2" href="{{ path('candidat_new') }}">S'inscrire</a></div>
-                        <div class="col-xs-2 text-center Navbar2 borderNavbar2"><a class="linkNavbar2" href="{{ path('candidats_choisis') }}">Candidats</a></div>
+                        <div class="col-xs-offset-1 col-xs-2 text-center Navbar2 borderNavbar2"><a class="linkNavbar2" href="{{ path('index') }}"> {{ 'Accueil'| trans }}</a></div>
+                        <div class="col-xs-2 text-center Navbar2 borderNavbar2"><a class="linkNavbar2" href="{{ path('candidat_new') }}"> {{ 'S\'inscrire'| trans }}</a></div>
+                        <div class="col-xs-2 text-center Navbar2 borderNavbar2"><a class="linkNavbar2" href="{{ path('candidats_choisis') }}"> {{ 'Candidats'| trans }}</a></div>
                         <div class="col-xs-2 text-center Navbar2 borderNavbar2"><a class="linkNavbar2" href="{{ path('blog') }}">Blog</a></div>
                         <div class="col-xs-2 dropdown text-center Navbar2">
                             <a href="#" class="dropdown-toggle linkNavbar2" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Promotions<span class="caret"></span></a>

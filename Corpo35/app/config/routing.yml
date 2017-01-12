@@ -93,3 +93,7 @@ newisipca:
     type:     annotation
     prefix:   /isipcanew
 
+translation:
+    path:     /traduction
+    defaults: { _controller: FrontBundle:Default:translation }
+
