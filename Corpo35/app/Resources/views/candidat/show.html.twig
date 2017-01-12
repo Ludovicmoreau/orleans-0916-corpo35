@@ -27,7 +27,7 @@
                 </div>
             </div>
         {% endif %}
-            <div class="profile">
+            <div class="ombre">
                 <div class="row">
                     <div class="col-xs-12">
                         <img src="{{ asset('upload/' ~ candidat.photo) }}" class="img-responsive profilePicShow center-block img-circle">
@@ -39,7 +39,7 @@
                     </div>
                 </div>
             </div>
-            <div class="contact">
+            <div class="ombre">
                 <div class="row">
                     <div class="col-xs-12 text-center">
                         <h3>Contact</h3>
@@ -57,7 +57,7 @@
                     </div>
                 </div>
             </div>
-            <div class="presentation">
+            <div class="ombre">
                 <div class="row">
                     <div class="col-xs-12 text-center">
                         <h3>Présentation</h3>
@@ -69,7 +69,7 @@
                     </div>
                 </div>
             </div>
-            <div class="competence">
+            <div class="ombre">
                 <div class="row text-center">
                     <div class="col-xs-4">
                         <h3>Profession</h3>
@@ -97,7 +97,7 @@
                     </div>
                 </div>
             </div>
-            <div class="motivation">
+            <div class="ombre">
                 <div class="row text-center">
                     <div class="col-xs-12">
                         <h3>Motivations pour le concours</h3>
@@ -109,7 +109,7 @@
                     </div>
                 </div>
             </div>
-            <div class="inspiration">
+            <div class="ombre">
                 <div class="row text-center">
                     <div class="col-xs-12">
                         <h3>Inspirations</h3>
@@ -143,7 +143,7 @@
             </div>
             {{ render(controller('BackBundle:Candidat:oneVote', {'id':candidat.id})) }}
             {% if is_granted ('ROLE_ADMIN') %}
-                <div class="decision">
+                <div class="ombre">
                     <div class="row">
                         <div class="col-xs-12">
                             <h3 class="text-center">Décision</h3>
@@ -204,28 +204,24 @@
                                 {{ form_row(form.decision) }}
                                 <input type="submit" value="Valider" class="btn-success btn center-block"/>
                             {{ form_end(form) }}
-                </div>
-                <div class="row text-center">
-                    <div class="col-xs-6">
-                        <a href="{{ path('candidat_index') }}">Voir la liste des inscrits</a>
-                    </div>
-                    <div class="col-xs-6">
-                        <a href="{{ path('candidat_edit', { 'id': candidat.id }) }}">Editer</a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12">
+                        </div>
+            </div>
+                <div class="row buttonAdmin">
+                    <div class="col-xs-3">
                         {{ form_start(delete_form) }}
-                            <input type="submit" value="Supprimer le candidat" class="btn-lg btn-danger center-block">
+                            <input type="submit" value="Supprimer le candidat" class="btn btn-danger center-block">
                         {{ form_end(delete_form) }}
+                    </div>
+                    <div class="col-xs-3">
+                        <a href="{{ path('candidat_edit', { 'id': candidat.id }) }}"><input type="button" class="btn-primary btn center-block" value="Editer le candidat"></a>
+                    </div>
+                    <div class="col-xs-3 text-center">
+                        <a href="{{ path('index') }}"><input type="button" class="btn-primary btn center-block" value="Retour à la page d'accueil"></a>
+                    </div>
+                    <div class="col-xs-3">
+                        <a href="{{ path('candidat_index') }}"><input type="button" class="btn-primary btn center-block" value="Voir la liste des inscrits"></a>
                     </div>
                 </div>
             {% endif %}
-            <div class="row">
-                <div class="col-xs-12 text-center">
-                    <a href="{{ path('index') }}"><input type="button" class="btn-primary btn-lg center-block" value="Retour à la page d'accueil"></a>
-                </div>
-            </div>
-        </div>
     </div>
 {% endblock %}
