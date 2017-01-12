@@ -141,7 +141,9 @@
                     </div>
                 </div>
             </div>
-            {{ render(controller('BackBundle:Candidat:oneVote', {'id':candidat.id})) }}
+            <div class="ombre text-center">
+                {{ render(controller('BackBundle:Candidat:oneVote', {'id':candidat.id})) }}
+            </div>
             {% if is_granted ('ROLE_ADMIN') %}
                 <div class="ombre">
                     <div class="row">
@@ -216,10 +218,10 @@
                         <a href="{{ path('candidat_edit', { 'id': candidat.id }) }}"><input type="button" class="btn-primary btn center-block" value="Editer le candidat"></a>
                     </div>
                     <div class="col-xs-3 text-center">
-                        <a href="{{ path('index') }}"><input type="button" class="btn-primary btn center-block" value="Retour à la page d'accueil"></a>
+                        <a href="{{ path('candidat_index') }}"><input type="button" class="btn-primary btn center-block" value="Voir la liste des inscrits"></a>
                     </div>
                     <div class="col-xs-3">
-                        <a href="{{ path('candidat_index') }}"><input type="button" class="btn-primary btn center-block" value="Voir la liste des inscrits"></a>
+                        <a href="{{ path('index') }}"><input type="button" class="btn-primary btn center-block" value="Retour à la page d'accueil"></a>
                     </div>
                 </div>
             {% endif %}

@@ -1,4 +1,4 @@
-{% extends 'BackBundle:Default:backLayout.html.twig' %}
+{% extends 'FrontBundle:Default:index.html.twig' %}
 
 {% block stylesheet %}
     {{ parent() }}
@@ -11,13 +11,11 @@
             <h2 class="text-center">Liste des candidats</h2>
         </div>
         {% if is_granted ('ROLE_ADMIN') %}
-        <div class="row linkBackListcandidat">
-            <a href="{{ path('backIndex') }}">Retour à l'accueil</a>
-        </div>
+        <div class="row">
+            <a href="{{ path('backIndex') }}" class="linkBackListcandidat">Retour à l'accueil</a>
             {% else %}
-                <div class="row linkBackListcandidat">
-                    <a href="{{ path('backJury') }}">Retour à l'accueil</a>
-                </div>
+                <p><a href="{{ path('backJury') }}">Retour à l'accueil</a></p>
+         </div>
         {% endif %}
     </div>
     <div class="container-fluid">

@@ -1,14 +1,9 @@
-
 {% if is_granted ('ROLE_JURY') %}
-    <div class="vote">
-        <div class="row text-center">
-            <div class="row">
-                {{ form_start(formCommentaire, {'action': path('jure_vote', {id:candidat.id})}) }}
-                {{ form_row(formCommentaire.note) }}
-                {{ form_row(formCommentaire.commentaire) }}
-                <input type="submit" value="Envoyer" class="btn-success btn center-block"/>
-                {{ form_end(formCommentaire) }}
-            </div>
-        </div>
+    <div class="row">
+        {{ form_start(formCommentaire, {'action': path('jure_vote', {id:candidat.id})}) }}
+        {{ form_row(formCommentaire.note) }}
+        {{ form_row(formCommentaire.commentaire) }}
+        <input type="submit" value="Envoyer" class="btn-success btn center-block"/>
+        {{ form_end(formCommentaire) }}
     </div>
 {% endif %}
