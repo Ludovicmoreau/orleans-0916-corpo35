@@ -1,8 +1,9 @@
 file-source: en
 
+#concours
 Présentation du concours: Presentation of the course
 
-
+#header
 Partenaires: Partners
 La revue de presse: Newspaper
 Boutique maison de parfum Berry: Shop
@@ -10,7 +11,14 @@ Se déconnecter: Logout
 Se connecter: Login
 Agenda: Events
 
-
+#navbar2
 Accueil: Home
 S'inscrire: Registration
 Candidats: Candidates
+
+#footer
+Nous contacter: Contact
+Mentions légales: Legal notice
+Galerie d'images: Pictures gallery
+Règlements du concours: Contest rules
+Plan du site: Sitemap
