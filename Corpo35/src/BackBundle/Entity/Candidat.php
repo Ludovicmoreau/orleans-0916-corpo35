@@ -14,6 +14,28 @@ class Candidat
 {
 
     /**
+     * @ORM\OneToOne(targetEntity="User")
+     */
+    private $fos_user;
+
+    /**
+     * @return mixed
+     */
+    public function getFosUser()
+    {
+        return $this->fos_user;
+    }
+
+    /**
+     * @param mixed $fos_user
+     */
+    public function setFosUser($fos_user)
+    {
+        $this->fos_user = $fos_user;
+    }
+
+
+    /**
      * @ORM\OneToMany(targetEntity="Vote", mappedBy="candidat")
      */
     private $votes;

@@ -2,6 +2,7 @@
 
 namespace BackBundle\Controller;
 
+use BackBundle\BackBundle;
 use BackBundle\Entity\Candidat;
 use BackBundle\Entity\Document;
 use BackBundle\Entity\User;
@@ -123,6 +124,9 @@ class CandidatController extends Controller
      */
     public function showAction(Request $request,Candidat $candidat)
     {
+
+        //$this->oneVote();
+
         $em = $this->getDoctrine()->getManager();
         $users = $em->getRepository('BackBundle:User')->findAll();
         $votes = $em->getRepository('BackBundle:Vote')->findAll();
@@ -137,30 +141,52 @@ class CandidatController extends Controller
             return $this->redirectToRoute('candidat_index');
         }
 
-        $vote = new Vote();
 
-        $formCommentaire = $this->createForm('BackBundle\Form\VoteType', $vote);
-        $formCommentaire->handleRequest($request);
-
-        if ($formCommentaire->isSubmitted() && $formCommentaire->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $vote->setUser($this->getUser());
-            $vote->setCandidat($candidat);
-            $em->persist($vote);
-            $em->flush();
-            return $this->redirectToRoute('candidat_index');
-        }
 
         $deleteForm = $this->createDeleteForm($candidat);
         return $this->render('candidat/show.html.twig', array(
-            'votes'=>$votes,
             'users'=>$users,
             'candidat' => $candidat,
             'form' => $form->createView(),
-            'formCommentaire' => $formCommentaire->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
+
+    /**
+     *
+     * @Route("/vote/{id}", name="jure_vote")
+     */
+    public function oneVoteAction(Candidat $candidat, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $voteExist = $em->getRepository('BackBundle:Vote')->findBy(['user' => $this->getUser(), 'candidat' => $candidat]);
+        if (!$voteExist) {
+
+            $vote = new Vote();
+
+            $formCommentaire = $this->createForm('BackBundle\Form\VoteType', $vote);
+            $formCommentaire->handleRequest($request);
+
+            if ($formCommentaire->isSubmitted() && $formCommentaire->isValid()) {
+                $vote->setUser($this->getUser());
+                $vote->setCandidat($candidat);
+                $em->persist($vote);
+                $em->flush();
+                return $this->redirectToRoute('candidat_index');
+            }
+            return $this->render('BackBundle:Default:BackVote.html.twig', array(
+                'formCommentaire' => $formCommentaire->CreateView(),
+                'candidat'=>$candidat,
+            ));
+        } else {
+
+            return $this->render('BackBundle:Default:DejaVote.html.twig', array());
+        }
+
+
+    }
+
 
     /**
      * Displays a form to edit an existing candidat entity.
@@ -204,9 +230,9 @@ class CandidatController extends Controller
             $em->remove($candidat);
             $em->flush($candidat);
         }
-
-        return $this->redirectToRoute('candidat_index');
     }
+
+
 
     /**
      * Creates a form to delete a candidat entity.
@@ -223,5 +249,4 @@ class CandidatController extends Controller
             ->getForm()
         ;
     }
-  
 }

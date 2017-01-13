@@ -5,8 +5,6 @@ namespace FrontBundle\Controller;
 use BackBundle\Entity\Candidat;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use mikehaertl\wkhtmlto\Pdf;
-use Knp\Bundle\SnappyBundle\KnpSnappyBundle;
 
 class DefaultController extends Controller
 {
@@ -49,5 +47,17 @@ class DefaultController extends Controller
     public function contactAction()
     {
         return $this->render('FrontBundle:Default:contact.html.twig');
+    }
+
+    /**
+     * @Route("/laureats", name="laureats")
+     */
+    public function ShowCandidatAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $listCandidat = $em->getRepository('BackBundle:Candidat')->findAll();
+        return $this->render('FrontBundle:Default:laureats.html.twig', array(
+            'listCandidat' => $listCandidat
+        ));
     }
 }

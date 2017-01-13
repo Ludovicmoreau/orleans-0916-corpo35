@@ -92,3 +92,8 @@ newisipca:
     resource: "@BackBundle/Controller/Agenda_LaboController.php"
     type:     annotation
     prefix:   /isipcanew
+
+translation:
+    path:     /traduction
+    defaults: { _controller: FrontBundle:Default:translation }
+

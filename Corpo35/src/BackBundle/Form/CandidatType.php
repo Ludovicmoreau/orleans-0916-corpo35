@@ -2,6 +2,7 @@
 
 namespace BackBundle\Form;
 
+use FOS\UserBundle\Form\Type\RegistrationFormType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -24,6 +25,7 @@ use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Validator\Constraints\Choice;
+use FOS\UserBundle\Entity\User;
 
 class CandidatType extends AbstractType
 {
@@ -36,25 +38,20 @@ class CandidatType extends AbstractType
 
             ->add('nom', TextType::class, array(
                 'data_class'=>null,
-                'label'=>'Nom*',
                 'attr'=>array(
-                    'placeholder'=>'Votre Nom',
                     'class'=>'form-control',
                     'aria-label'=> 'Votre Nom'
                 )
             ))
             ->add('prenom', TextType::class, array(
                 'data_class'=>null,
-                'label'=>'Prénom*',
                 'attr'=>array(
-                    'placeholder'=>'Votre Prénom',
                     'class'=>'form-control',
                     'aria-label'=> 'Votre Prénom'
                 )
             ))
             ->add('date_naissance', BirthdayType::class, array(
                 'data_class'=>null,
-                'label'=>'Date de Naissance*',
                 'attr'=>array(
                     'aria-label'=> 'Votre date de naissance'
                 )
@@ -66,40 +63,33 @@ class CandidatType extends AbstractType
                 )
             ))
             ->add('cv', FileType::class, array(
-                'label'=>'CV* (au format pdf)',
                 'data_class'=>null,
                 'attr'=>array(
                     'class'=>'center-block'
                 )
             ))
             ->add('numrue', TextType::class, array(
-                'label'=>'Numéro de rue*',
                 'data_class'=>null,
                 'attr'=>array(
                     'class'=>'form-control',
-                    'placeholder'=>'Votre n° de rue'
+
                 )
             ))
             ->add('adresse', TextType::class, array(
-                'label'=>'Adresse*',
                 'data_class'=>null,
                 'attr'=>array(
-                    'placeholder'=>'Votre adresse',
                     'class'=>'form-control',
                     'aria-label'=> 'Votre adresse'
                 )
             ))
             ->add('ville', TextType::class, array(
-                'label'=>'Ville*',
                 'data_class'=>null,
                 'attr'=>array(
-                    'placeholder'=>'Votre ville',
                     'class'=>'form-control',
                     'aria-label'=> 'Votre ville'
                 )
             ))
             ->add('cp', TextType::class, array(
-                'label'=>'Code Postal*',
                 'data_class'=>null,
                 'attr'=>array(
                     'class'=>'form-control',
@@ -107,7 +97,7 @@ class CandidatType extends AbstractType
                 )
             ))
             ->add('tel', TextType::class, array(
-                'label'=>'Telephone*',
+
                 'data_class'=>null,
                 'attr'=>array(
                     'class'=>'form-control',
@@ -124,11 +114,9 @@ class CandidatType extends AbstractType
                 )
             ))
             ->add('formation', TextareaType::class, array(
-                'label'=>'Parcours de formation dans le secteur de la parfumerie le cas échéant',
                 'required'=>false,
                 'data_class'=>null,
                 'attr'=>array(
-                    'placeholder'=>'Votre formation',
                     'class'=>'form-control',
                     'aria-label'=> 'Votre formation'
                 )
@@ -152,7 +140,6 @@ class CandidatType extends AbstractType
                 )
             ))
             ->add('blog', TextType::class, array(
-                'label'=>'Blog/site perso ou autre',
                 'required'=>false,
                 'data_class'=>null,
                 'attr'=>array(
@@ -162,7 +149,6 @@ class CandidatType extends AbstractType
                 )
             ))
             ->add('presentation', TextareaType::class, array(
-                'label'=>'Présentation générale*',
                 'data_class'=>null,
                 'attr'=>array(
                     'class'=>'form-control',
@@ -182,14 +168,6 @@ class CandidatType extends AbstractType
                 'class'=>'BackBundle\Entity\Promotion',
                 'choice_label'=>'year',
             ))
-
-//            ->add('validations', EntityType::class, array(
-//              'label'=>'Validez-vous la candidature de ce candidat ?',
-//              'required'=>false,
-//              'class'=>'BackBundle\Entity\Validation',
-//              'attr'=>array(
-//                  'class'=>'form-control')
-//                 ))
             ->add('documents', CollectionType::class, array(
                 'data_class'=>null,
                 'entry_type'=>DocumentType::class,
@@ -198,16 +176,9 @@ class CandidatType extends AbstractType
                 'by_reference'=>false,
                 'required'=>false,
             ))
-
-            ->add('decision', ChoiceType::class, array(
-                'label'=>'Cocher pour valider le candidat',
-                'data_class'=>null,
-                'required' => false,
-                'choices' => array(
-                    0 => 'Oui',
-                    1 => 'Non',
-
-            )))
+//            ->add('fos_user', CollectionType::class, array(
+//                'entry_type'=>RegistrationFormType::class,
+//            ))
         ;
     }
 
@@ -219,9 +190,7 @@ class CandidatType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => 'BackBundle\Entity\Candidat',
         ));
-
     }
-
     /**
      * {@inheritdoc}
      */
@@ -229,6 +198,4 @@ class CandidatType extends AbstractType
     {
         return 'backbundle_candidat';
     }
-
-
 }

@@ -3,12 +3,21 @@
     box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.3);
 }
 
+.linkBackListcandidat {
+    color: black;
+}
+
+.linkBackListcandidat:hover {
+    color: black;
+}
+
 .blockCandidat:hover {
     box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.8);
 }
 
 .linkBackListcandidat {
     text-align: right;
+    color: black;
 }
 
 .photoCandidat {

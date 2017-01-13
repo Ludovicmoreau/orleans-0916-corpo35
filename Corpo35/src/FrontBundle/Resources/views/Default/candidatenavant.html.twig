@@ -9,48 +9,49 @@
     <section>
         <div class="container-fluid">
             <div class="presentation">
-                <h1 class="text-center "> Candidat mis en avant</h1>
+                <h1 class="text-center "> {{ 'Candidat mis en avant'| trans }}</h1>
                 <div class="row ">
                     <div class="col-md-offset-1 col-md-3">
                         <div class="prenom">
-                        <p class="titre">  Prénom :</p>
+                        <p class="titre">   {{ 'Prénom'| trans }}:</p>
                             {{ candidat.prenom }}
                         </div>
                     <div>
-                   <p class="titre"> Nom :</p>
+                   <p class="titre">  {{ 'Nom'| trans }}:</p>
                         {{ candidat.nom }}
                 </div>
             <div>
             <img id="photo" src="{{ asset('upload/' ~ candidat.photo) }}" alt="photo profil">
         </div>
         <div>
-            <p class="titre">Inspirations pour le parfum :</p>
+            <p class="titre">{{ 'Inspirations pour le parfum'| trans }} :</p>
                 {% for document in candidat.documents %}
                     {% if document.type == "image" %}
-                        <p class="soustitre">Inspiration par une image : </p>
+                        <p class="soustitre">{{ 'Inspirations par une image'| trans }} : </p>
                         <img src="{{ asset('upload/' ~ document.contenu) }}" class="img-responsive"><br/>
                     {% elseif document.type == "vidéo" %}
-                        <p class="soustitre">Inspiration vidéo :</p>
+                        <p class="soustitre">{{ 'Inspirations par une vidéo'| trans }} :</p>
                         <video  controls src="{{ asset('upload/' ~ document.contenu) }}" class="img-responsive video "></video><br/>
                     {% elseif document.type == "musique" %}
-                        <p class="soustitre"> Inspirations audio : </p>
+                        <p class="soustitre"> {{ 'Inspirations par un document audio'| trans }} : </p>
                         <audio class="audio" controls src="{{ asset('upload/' ~ document.contenu) }}"></audio> <br/>
                     {% elseif document.type == "pdf" %}
-                        <p class="soustitre">Inspiration par un document : </p>
+                        <p class="soustitre">{{ 'Inspirations par un document'| trans }} </p>
                         <a href="{{ asset('upload/' ~ document.contenu) }}" target="_blank">Voir le document</a>
                     {% else %}
                         <p>Le format du document n'est pas supporté</p>
                     {% endif %}
-                        <p class="soustitre">Inspiration par une page internet</p>
+                        <p class="soustitre">{{ 'Inspirations par une page internet'| trans }}</p>
                         <a href="{{ document.lien }}" target="_blank">{{ document.lien }}</a>
                 {% endfor %}
         </div>
+        </div>
         <div class="col-md-offset-1 col-md-3">
-           <p class="titre"> Présentation du candidat :</p> <br/>
+           <p class="titre"> {{ 'Présentation du candidat ( En français )'| trans }} :</p> <br/>
            <p class="text"> {{ candidat.presentation | truncate(200, true,"...") }} </p>
         </div>
         <div class=" col-md-3">
-            <p class="titre"> Motivation du candidat :</p> <br/>
+            <p class="titre"> {{ 'Motivation du candidat ( En français )'| trans }} :</p> <br/>
             <p class="text"> {{ candidat.motivation | truncate(200, true,"...") }}</p>
         </div>
     </section>

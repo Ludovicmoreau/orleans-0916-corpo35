@@ -8,46 +8,46 @@
 {% block content %}
     <div class="container-fluid">
         <div class="col-xs-12 text-center">
-            <h2>Bienvenue sur la page d'inscription au concours Corpo35</h2>
-            <p> le <a href="{{ path('reglement') }}" target="_blank">règlement du concours</a> est à télécharger, signer et à nous renvoyer.</p>
-            <p>L'inscription au concours peut prendre 10 à 15 minutes et nécessite de télécharger quelques documents comme une photo, un cv etc...<br/>
-                Vérifiez bien que vous avez ces documents avec vous avant de commencer l'inscription.</p>
-            <p>Les champs avec un * sont obligatoires</p>
-            <p class="hidden-lg hidden-md">L'inscription au concours nécessite le téléchargement de documents.<br/> Veuillez passez sur la version PC du site.</p>
+            <h2> {{ 'Bienvenue sur la page d\'inscription au concours Corpo35'| trans }}</h2>
+            <p>  <a href="{{ path('reglement') }}" target="_blank">{{ 'Le règlement du concours'| trans }}</a> {{ 'est à télécharger, signer et à nous renvoyer'| trans }}.</p>
+            <p> {{ 'L\'inscription au concours peut prendre 10 à 15 minutes et nécessite de télécharger quelques documents comme une photo, un cv etc...'| trans }}<br/>
+                 {{ 'Vérifiez bien que vous avez ces documents avec vous avant de commencer l\'inscription'| trans }}.</p>
+            <p> {{ 'Les champs avec un * sont obligatoires'| trans }}</p>
+            <p class="hidden-lg hidden-md">{{ 'L\'inscription au concours nécessite le téléchargement de documents'| trans }}.<br/> {{ 'Veuillez passez sur la version PC du site'| trans }}.</p>
         </div>
     </div>
     <div class="container hidden-xs hidden-sm">
                 {{ form_start(form) }}
                 <div class="form-group">
-                    <h3 class="text-center titreForm">Informations générales</h3>
+                    <h3 class="text-center titreForm"> {{ 'Informations générales'| trans }}</h3>
                     <hr class="separe">
-                    <div class="form">{{ form_row(form.nom) }}</div>
+                    <div class="form">{{ form_row(form.nom , { 'attr': {'label': 'Nom*'| trans,   'placeholder': 'Votre nom ici'|trans} }) }} </div>
                     <hr class="separe">
-                    <div class="form">{{ form_row(form.prenom) }}</div>
+                    <div class="form">{{ form_row(form.prenom , { 'attr': {'label': 'Prénom'| trans,   'placeholder': 'Votre prénom ici'|trans} }) }}</div>
                     <hr class="separe">
-                    <div class="form">{{ form_row(form.date_naissance) }}</div>
+                    <div class="form">{{ form_row(form.date_naissance , { 'attr': {'label': 'Date de naissance'| trans } } ) }}</div>
                     <hr class="separe">
                     <div class="form">{{ form_row(form.photo) }}</div>
                     <hr class="separe">
-                    <div class="form">{{ form_row(form.cv) }}</div>
+                    <div class="form">{{ form_row(form.cv, { 'attr': {'label': 'CV (au format PDF)'| trans } } )   }}</div>
                     <hr class="separe">
-                    <div class="form">{{ form_row(form.numrue) }}</div>
+                    <div class="form">{{ form_row(form.numrue , { 'attr': {'label': 'Numéro de rue'| trans ,   'placeholder': 'Votre numéro de rue ici'|trans  } }) }}</div>
                     <hr class="separe">
-                    <div class="form">{{ form_row(form.adresse) }}</div>
+                    <div class="form">{{ form_row(form.adresse  , { 'attr': {'label': 'Adresse'| trans ,   'placeholder': 'Votre adresse ici'|trans  } }) }}</div>
                     <hr class="separe">
-                    <div class="form">{{ form_row(form.ville) }}</div>
+                    <div class="form">{{ form_row(form.ville , { 'attr': {'label': 'Ville'| trans ,   'placeholder': 'Votre ville ici'|trans  } }) }}</div>
                     <hr class="separe">
-                    <div class="form">{{ form_row(form.cp) }}</div>
+                    <div class="form">{{ form_row(form.cp , { 'attr': {'label': 'Code postal'| trans ,   'placeholder': 'Votre code postal'|trans  } }) }}</div>
                     <hr class="separe">
-                    <div class="form">{{ form_row(form.tel) }}</div>
+                    <div class="form">{{ form_row(form.tel , { 'attr': {'label': 'Téléphone'| trans ,   'placeholder': 'Votre numéro de téléphone ici'|trans  } }) }}</div>
                     <hr class="separe">
                     <div class="form">{{ form_row(form.mail) }}</div>
                     <hr class="separe">
-                    <div class="form">{{ form_row(form.presentation) }}</div>
+                    <div class="form">{{ form_row(form.presentation , { 'attr': {'label': 'Présentation générale'| trans  } }) }}</div>
                     <hr class="separe">
-                    <div class="form">{{ form_row(form.blog) }}</div>
+                    <div class="form">{{ form_row(form.blog , { 'attr': {'label': 'Blog/site personnel ou autres'| trans  } }) }}</div>
                     <hr class="separe">
-                    <h3 class="text-center titreForm">Information concernant le concours</h3>
+                    <h3 class="text-center titreForm"> {{ 'Informations concernant le concours'| trans }}</h3>
                     <hr class="separe">
                     <div class="form">{{ form_row(form.motivation) }}</div>
                     <hr class="separe">
@@ -58,10 +58,13 @@
                     <div class="form">{{ form_row(form.competence) }}</div>
                     <hr class="separe">
                     <div class="form">{{ form_row(form.promotion) }}</div>
+                    {#<hr class="separe">#}
+                    {#{% for registration in form.fos_user %}#}
+                        {#{{ form_start(formRegistration) }}#}
+                        {#{{ form_row(form.fos_user) }}#}
+                        {#{{ form_end }}#}
+                    {#{% endfor %}#}
                     <hr class="separe">
-                    {% if is_granted ('ROLE_ADMIN') %}
-                        <div class="form">{{ form_row(form.decision) }}</div>
-                    {% endif %}
                     {% for document in form.documents %}
                         <h3 class="text-center titreForm">Documents</h3>
                         <p class="text-center">
