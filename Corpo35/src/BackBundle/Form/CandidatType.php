@@ -36,25 +36,20 @@ class CandidatType extends AbstractType
 
             ->add('nom', TextType::class, array(
                 'data_class'=>null,
-                'label'=>'Nom*',
                 'attr'=>array(
-                    'placeholder'=>'Votre Nom',
                     'class'=>'form-control',
                     'aria-label'=> 'Votre Nom'
                 )
             ))
             ->add('prenom', TextType::class, array(
                 'data_class'=>null,
-                'label'=>'Prénom*',
                 'attr'=>array(
-                    'placeholder'=>'Votre Prénom',
                     'class'=>'form-control',
                     'aria-label'=> 'Votre Prénom'
                 )
             ))
             ->add('date_naissance', BirthdayType::class, array(
                 'data_class'=>null,
-                'label'=>'Date de Naissance*',
                 'attr'=>array(
                     'aria-label'=> 'Votre date de naissance'
                 )
@@ -66,7 +61,6 @@ class CandidatType extends AbstractType
                 )
             ))
             ->add('cv', FileType::class, array(
-                'label'=>'CV* (au format pdf)',
                 'data_class'=>null,
                 'attr'=>array(
                     'class'=>'center-block'
