@@ -2,6 +2,7 @@
 
 namespace BackBundle\Form;
 
+use FOS\UserBundle\Form\Type\RegistrationFormType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -24,6 +25,7 @@ use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Validator\Constraints\Choice;
+use FOS\UserBundle\Entity\User;
 
 class CandidatType extends AbstractType
 {
@@ -174,6 +176,9 @@ class CandidatType extends AbstractType
                 'by_reference'=>false,
                 'required'=>false,
             ))
+//            ->add('fos_user', CollectionType::class, array(
+//                'entry_type'=>RegistrationFormType::class,
+//            ))
         ;
     }
 
