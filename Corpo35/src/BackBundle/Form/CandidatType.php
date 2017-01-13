@@ -67,33 +67,27 @@ class CandidatType extends AbstractType
                 )
             ))
             ->add('numrue', TextType::class, array(
-                'label'=>'Numéro de rue*',
                 'data_class'=>null,
                 'attr'=>array(
                     'class'=>'form-control',
-                    'placeholder'=>'Votre n° de rue'
+
                 )
             ))
             ->add('adresse', TextType::class, array(
-                'label'=>'Adresse*',
                 'data_class'=>null,
                 'attr'=>array(
-                    'placeholder'=>'Votre adresse',
                     'class'=>'form-control',
                     'aria-label'=> 'Votre adresse'
                 )
             ))
             ->add('ville', TextType::class, array(
-                'label'=>'Ville*',
                 'data_class'=>null,
                 'attr'=>array(
-                    'placeholder'=>'Votre ville',
                     'class'=>'form-control',
                     'aria-label'=> 'Votre ville'
                 )
             ))
             ->add('cp', TextType::class, array(
-                'label'=>'Code Postal*',
                 'data_class'=>null,
                 'attr'=>array(
                     'class'=>'form-control',
