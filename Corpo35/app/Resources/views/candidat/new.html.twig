@@ -58,6 +58,12 @@
                     <div class="form">{{ form_row(form.competence) }}</div>
                     <hr class="separe">
                     <div class="form">{{ form_row(form.promotion) }}</div>
+                    {#<hr class="separe">#}
+                    {#{% for registration in form.fos_user %}#}
+                        {#{{ form_start(formRegistration) }}#}
+                        {#{{ form_row(form.fos_user) }}#}
+                        {#{{ form_end }}#}
+                    {#{% endfor %}#}
                     <hr class="separe">
                     {% for document in form.documents %}
                         <h3 class="text-center titreForm">Documents</h3>
