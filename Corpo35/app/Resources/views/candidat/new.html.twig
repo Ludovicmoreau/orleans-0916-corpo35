@@ -8,18 +8,18 @@
 {% block content %}
     <div class="container-fluid">
         <div class="col-xs-12 text-center">
-            <h2>Bienvenue sur la page d'inscription au concours Corpo35</h2>
-            <p> le <a href="{{ path('reglement') }}" target="_blank">règlement du concours</a> est à télécharger, signer et à nous renvoyer.</p>
-            <p>L'inscription au concours peut prendre 10 à 15 minutes et nécessite de télécharger quelques documents comme une photo, un cv etc...<br/>
-                Vérifiez bien que vous avez ces documents avec vous avant de commencer l'inscription.</p>
-            <p>Les champs avec un * sont obligatoires</p>
-            <p class="hidden-lg hidden-md">L'inscription au concours nécessite le téléchargement de documents.<br/> Veuillez passez sur la version PC du site.</p>
+            <h2> {{ 'Bienvenue sur la page d\'inscription au concours Corpo35'| trans }}</h2>
+            <p>  <a href="{{ path('reglement') }}" target="_blank">{{ 'Le règlement du concours'| trans }}</a> {{ 'est à télécharger, signer et à nous renvoyer'| trans }}.</p>
+            <p> {{ 'L\'inscription au concours peut prendre 10 à 15 minutes et nécessite de télécharger quelques documents comme une photo, un cv etc...'| trans }}<br/>
+                 {{ 'Vérifiez bien que vous avez ces documents avec vous avant de commencer l\'inscription'| trans }}.</p>
+            <p> {{ 'Les champs avec un * sont obligatoires'| trans }}</p>
+            <p class="hidden-lg hidden-md">{{ 'L\'inscription au concours nécessite le téléchargement de documents'| trans }}.<br/> {{ 'Veuillez passez sur la version PC du site'| trans }}.</p>
         </div>
     </div>
     <div class="container hidden-xs hidden-sm">
                 {{ form_start(form) }}
                 <div class="form-group">
-                    <h3 class="text-center titreForm">Informations générales</h3>
+                    <h3 class="text-center titreForm"> {{ 'Informations générales'| trans }}</h3>
                     <hr class="separe">
                     <div class="form">{{ form_row(form.nom) }}</div>
                     <hr class="separe">

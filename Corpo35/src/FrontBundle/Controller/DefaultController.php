@@ -61,11 +61,4 @@ class DefaultController extends Controller
         ));
     }
 
-    public function translationAction()
-    {
-        return $this->render('FrontBundle:Default:index.html.twig', array(
-
-        ));
-    }
-
 }
