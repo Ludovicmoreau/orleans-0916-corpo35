@@ -95,7 +95,7 @@ class CandidatType extends AbstractType
                 )
             ))
             ->add('tel', TextType::class, array(
-                'label'=>'Telephone*',
+
                 'data_class'=>null,
                 'attr'=>array(
                     'class'=>'form-control',
@@ -112,11 +112,9 @@ class CandidatType extends AbstractType
                 )
             ))
             ->add('formation', TextareaType::class, array(
-                'label'=>'Parcours de formation dans le secteur de la parfumerie le cas échéant',
                 'required'=>false,
                 'data_class'=>null,
                 'attr'=>array(
-                    'placeholder'=>'Votre formation',
                     'class'=>'form-control',
                     'aria-label'=> 'Votre formation'
                 )
@@ -140,7 +138,6 @@ class CandidatType extends AbstractType
                 )
             ))
             ->add('blog', TextType::class, array(
-                'label'=>'Blog/site perso ou autre',
                 'required'=>false,
                 'data_class'=>null,
                 'attr'=>array(
@@ -150,7 +147,6 @@ class CandidatType extends AbstractType
                 )
             ))
             ->add('presentation', TextareaType::class, array(
-                'label'=>'Présentation générale*',
                 'data_class'=>null,
                 'attr'=>array(
                     'class'=>'form-control',
