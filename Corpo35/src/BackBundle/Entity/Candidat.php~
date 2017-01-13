@@ -190,6 +190,13 @@ class Candidat
     private $cv;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="etat", type="integer")
+     */
+    private $etat;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="photo", type="string", length=255)
@@ -714,4 +721,19 @@ class Candidat
         return $this->miseEnAvant;
     }
 
+    /**
+     * @param int $etat
+     */
+    public function setEtat($etat)
+    {
+        $this->etat = $etat;
+    }
+
+    /**
+     * @return int
+     */
+    public function getEtat()
+    {
+        return $this->etat;
+    }
 }

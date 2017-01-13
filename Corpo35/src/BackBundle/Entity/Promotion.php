@@ -41,6 +41,11 @@ class Promotion
      */
     private $candidats;
 
+    /**
+     * @var datetime
+     * @ORM\Column(name="enddate", type="datetime")
+     */
+    private $enddate;
 
     /**
      * Get id
@@ -113,5 +118,21 @@ class Promotion
     public function getCandidats()
     {
         return $this->candidats;
+    }
+
+    /**
+     * @param DateTime $enddate
+     */
+    public function setEnddate($enddate)
+    {
+        $this->enddate = $enddate;
+    }
+
+    /**
+     * @return DateTime
+     */
+    public function getEnddate()
+    {
+        return $this->enddate;
     }
 }

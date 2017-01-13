@@ -5,11 +5,9 @@
 {% endblock %}
 
 {% block content %}
-        {{ candidat.nom }}
-        {{ candidat.prenom }}
+    {{ candidat.prenom }} {{ candidat.nom }}{{ candidat.profession }}
         {{ candidat.formation }}
-        {{ candidat.profession }}
-        {{ candidat.adresse }}
+        {{ candidat.adresse}}
 {% endblock %}
 
 {% block footer %}
