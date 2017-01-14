@@ -1,0 +1,45 @@
+.photoProfil{
+    /*width: 50vw;*/
+}
+
+.nomPrenom {
+    position: absolute;
+    margin: auto;
+    left: 45%;
+    z-index: 1;
+    /*font-family: 'Montserrat', sans-serif;*/
+    font-family: 'Playfair Display', serif;
+    font-size: 400%;
+    font-weight: 900;
+    color: black;
+}
+
+.profession {
+    margin-top: 20%;
+    margin-left: 5%
+;
+}
+
+.presentation {
+    margin-top: 10%;
+    margin-left: 5%;
+}
+
+.motivation {
+    margin-top: 5%;
+}
+
+.motivationTitre {
+    font-weight: bold;
+}
+
+.logoPageVitrine {
+    width: 80%;
+}
+
+.separeLogo {
+    margin-top: 40%;
+    height: 1px;
+    width: 50%;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
+}
