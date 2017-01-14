@@ -1,6 +1,8 @@
 <?php
 namespace BackBundle\Entity;
+
 use Doctrine\ORM\Mapping as ORM;
+use BackBundle\Entity\Artiste;
 /**
  * Commentaire
  *
@@ -39,7 +41,7 @@ class Commentaire
     /**
      * @var string
      *
-     * @ORM\Column(name="commentaire", type="text")
+     * @ORM\Column(name="commentaire", type="text", nullable=true)
      */
     private $commentaire;
     /**
@@ -72,11 +74,6 @@ class Commentaire
         return $this->auteur;
     }
 
-
-    public function __construct()
-    {
-        $this->commentaire = new ArrayCollection();
-    }
 
 
 

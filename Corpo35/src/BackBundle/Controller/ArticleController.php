@@ -78,13 +78,14 @@ class ArticleController extends Controller
      * @Route("/{id}", name="article_show")
      * @Method("GET")
      */
-    public function showAction(Article $article)
+    public function showAction(Request $request, Article $article)
     {
         $deleteForm = $this->createDeleteForm($article);
 
         return $this->render('article/show.html.twig', array(
             'article' => $article,
             'delete_form' => $deleteForm->createView(),
+
         ));
     }
 

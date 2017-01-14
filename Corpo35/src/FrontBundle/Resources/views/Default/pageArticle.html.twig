@@ -1,0 +1,52 @@
+{% extends 'FrontBundle:Default:index.html.twig' %}
+    {% block stylesheet %}
+        <link rel="stylesheet" href="{{ asset('css/pageArticle_style.css') }}">
+    {% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <main>
+
+        <article>
+            <div class="wrap-div wrap-div-right">
+            <img class="img-responsive text-left" src="{{ asset('upload/' ~  article.photo )}}">
+                </div>
+            <h2>{{ article.titre }}</h2>
+            <p>{{ article.contenu }}</p>
+            <p class="post-end clearfix">{% if article.date %}{{ article.date|date('d-m-Y') }}{% endif %}<span>{{ article.auteur }}</span></p>
+
+
+
+        </article>
+
+        <comment>
+            {{ render(controller('FrontBundle:PostCommentaire:ShowComment')) }}
+        </comment>
+    </main>
+    <div class="row">
+        <div class="col-md-6">
+            <a href="{{ path('blog') }}" class="text-left button"><i class="fa fa-long-arrow-left" aria-hidden="true"> page précédente</i></a>
+        </div>
+        <div class="col-md-6 hidden-xs">
+            <a href="{{ path('blog') }}" class="text-right button">Retour <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+    {% endblock %}
+
+{% block JS %}
+    {{ parent() }}
+
+{% endblock %}

@@ -15,11 +15,11 @@ class ArticleController extends Controller
         $em = $this->getDoctrine()->getManager();
         $articles = $em->getRepository('BackBundle:Article')->findBy(array(), null, $limit, $offset);
         return $this->render('FrontBundle:Default:article.html.twig', array(
-            'articles'=>$articles
+            'articles'=>$articles,
         ));
 
     }
 
+
+
 }
-
-

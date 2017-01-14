@@ -4,7 +4,9 @@
     <h1>Commentaire creation</h1>
 
     {{ form_start(form) }}
-        {{ form_widget(form) }}
+        <p>{{ form_row(form.date) }}</p>
+        <p>{{ form_row(form.auteur) }}</p>
+        <p>{{ form_row(form.commentaire) }}</p>
         <input type="submit" value="Create" />
     {{ form_end(form) }}
 
@@ -14,3 +16,6 @@
         </li>
     </ul>
 {% endblock %}
+
+
+

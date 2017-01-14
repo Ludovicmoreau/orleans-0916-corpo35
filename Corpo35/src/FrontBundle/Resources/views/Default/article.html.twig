@@ -4,62 +4,40 @@
     {% endblock %}
 
 {% block content %}
-<div class="container-fluid blog">
 
-    <div class="row">
-        <div class="col-md-8 col-sm-6 col-xs-12">
-            <h1><i class="fa fa-pagelines pagelines_title" aria-hidden="true"></i> Notre actu</h1>
-            <div class="row">
-                {% for article in articles %}
-                <div class="blog-post">
-                    <img class="img-responsive" src="{{ asset('upload/' ~  article.photo )}}">
-                    <h2 class="blog-title">{{ article.titre }}</h2>
-                    <h3 class="date">{% if article.date %}{{ article.date|date('Y-m-d') }}{% endif %}</h3>
-                    <p class="blog-content"><blockquote>{{ article.contenu }}</blockquote></p>
-                    <a href="{{  path ('list_article') }}" class="post-link">Lire Plus...</a>
-                    {# SIDEBAR #}
+    <div class='container'>
+        <h1><i class="fa fa-pagelines pagelines_title" aria-hidden="true"></i> Notre actu</h1>
+        {% for article in articles %}
+            <div class='blog-posts'>
+                <div class='row post featured'>
+                    <a href="{{ path('page_article', {'id':article.id}) }}">
+                        <div class='image'><img class="img-responsive img-article" src="{{ asset('upload/' ~  article.photo )}}">
+                            <div class='date'>{% if article.date %}{{ article.date|date('d F') }}{% endif %}</div>
+                        </div>
+                        <div class='content'>
+                            <h2>{{ article.titre }}</h2>
+                            <p>{{ article.contenu | truncate(150, true, "...")}}</p>
+                            <div class='meta'>
+                                <div class='icon-comment'><i class="fa fa-comment-o" aria-hidden="true"></i> 22 Comments</div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-                {% endfor %}
             </div>
-        </div>
-
-        <div class="col-md-4 col-sm-6 col-xs-12">
-            <div class="side-post">
-                <h2>À propos de nous</h2>
-                <img class="img-responsive" src="{{ asset('images/blog4.jpg') }}" alt="image parfum"/>
-                <p class="side-content">Ut noster tractavissent, summis hic eiusmod te quem. Doctrina velit litteris eu eu fore ingeniis philosophari ne quid o ingeniis ne anim, illum ea iudicem. Pariatur duis dolor hic dolor ad vidisse amet elit ita summis, quo duis te malis.</p>
-                <a href="#" class="post-link">En savoir plus...</a>
-            </div>
-
-            <div class="side-post">
-                <h4><i class="fa fa-clock-o" aria-hidden="true"></i> Posts récents</h4>
-                <div class="in-post">
-                    <img class="img-responsive" src="{{ asset('images/blog5.jpg') }}" alt="image parfum"/>
-                    <p class="side-content">Ultricies lacus et, non orci gravida purus augue integer, sed turpis. Erat dapibus. Eleifend massa scelerisque, aenean penatibus laoreet ut.</p>
-                </div>
-                <div class="in-post">
-                    <img class="img-responsive" src="{{ asset('images/blog6.jpg') }}" alt="image parfum"/>
-                    <p class="side-content">Ultricies lacus et, non orci gravida purus augue integer, sed turpis. Erat dapibus.	Eleifend massa scelerisque, aenean penatibus laoreet ut.</p>
-                </div>
-                <div class="in-post">
-                    <img class="img-responsive" src="{{ asset('images/blog7.jpg') }}" alt="image parfum"/>
-                    <p class="side-content">Ultricies lacus et, non orci gravida purus augue integer, sed turpis. Erat dapibus.	Eleifend massa scelerisque, aenean penatibus laoreet ut.</p>
-                </div>
-                <a href="{{ path('list_article') }}" class="button">Anciens Posts</a>
-            </div>
-        </div>
-
+        {% endfor %}
+        <p class="text-right"><a href="{{ path('list_article') }}" class="button">Anciens Posts <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+        </p>
     </div>
-    {# SIDE BAR #}
-
-</div>
-
 
 {% endblock %}
 
 {% block JS %}
     {{ parent() }}
-   
+    <script>
+
+
+
+    </script>
 {% endblock %}
 
 

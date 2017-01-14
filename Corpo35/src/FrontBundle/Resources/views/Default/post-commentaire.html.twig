@@ -1,31 +1,14 @@
+{% for commentaire in listCommentaires %}
+<div class="row">
 
-
-<div class="panel-group">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h4 class="panel-title">
-                <a data-toggle="collapse" href="#collapse1">Commentaire <span class="badge">42</span></a>
-            </h4>
-        </div>
-
-        {% for commentaire in listCommentaires %}
-        <div id="collapse1" class="panel-collapse collapse">
-            <div class="row">
-                <div class="panel-body">
-                    <div class="col-md-4">
-                        <p>{% if commentaire.date %}{{ commentaire.date|date('Y-m-d') }}{% endif %} par {{ commentaire.auteur }}</p>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="panel-footer">
-                            <p>{{ commentaire.commentaire }}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
+    <div class="col-md-4">
+        <p>{% if commentaire.date %}{{ commentaire.date|date('Y-m-d') }}{% endif %} par {{ commentaire.auteur }}</p>
     </div>
+    <div class="col-md-8">
+        <p>{{ commentaire.commentaire }}</p>
+      </div>
+
 </div>
 
-
+{% endfor %}
 
