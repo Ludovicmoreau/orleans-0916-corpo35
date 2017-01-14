@@ -6,53 +6,96 @@
 {% endblock %}
 
 {% block content %}
-    <section>
-        <div class="container-fluid">
-            <div class="presentation">
-                <h1 class="text-center "> {{ 'Candidat mis en avant'| trans }}</h1>
-                <div class="row ">
-                    <div class="col-md-offset-1 col-md-3">
-                        <div class="prenom">
-                        <p class="titre">   {{ 'Prénom'| trans }}:</p>
-                            {{ candidat.prenom }}
-                        </div>
-                    <div>
-                   <p class="titre">  {{ 'Nom'| trans }}:</p>
-                        {{ candidat.nom }}
+    <div class="container candidat">
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <h2>Candidat du jour</h2>
+                <p>
+                    Retrouvez ici un de nos candidats au concours Corpo 35.<br/>
+                    <a href="{{ path('candidat_show', { 'id': candidat.id }) }}">Cliquez ici pour en savoir plus sur ce candidat.</a><br/>
+                    <a href="{{ path('candidats_choisis') }}">Cliquez ici pour voir tous les candidats séléctionés</a>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="nomPrenom">{{ candidat.prenom }}<br/>{{ candidat.nom }}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                <img src="{{ asset('upload/' ~ candidat.photo) }}" class="center-block photoProfil img-responsive">
+            </div>
+            <div class="col-xs-6">
+                <div class="row profession">
+                    <div class="col-xs-12">
+                        <p>{{ candidat.profession }}</p>
+                    </div>
                 </div>
-            <div>
-            <img id="photo" src="{{ asset('upload/' ~ candidat.photo) }}" alt="photo profil">
+                <div class="presentation">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <p>{{ candidat.presentation | truncate(50, true, '...')}}<a href="{{ path('candidat_show', { 'id': candidat.id }) }}">en lire plus</a></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <p>mail: <a href="mailto:{{ candidat.mail }} ">{{ candidat.mail }}</a></p>
+                        </div>
+                        <div class="col-xs-6">
+                            <p>blog: <a href="{{ candidat.blog }}" target="_blank"> {{ candidat.blog }}</a></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 motivation">
+                            <p class="motivationTitre">Motivations pour le concours</p>
+                            <p>{{ candidat.motivation | truncate(50, true, '...')}}<a href="{{ path('candidat_show', { 'id': candidat.id }) }}">en lire plus</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="Logo">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <img src="{{ asset('images/CORPO35_testeur.png') }}" class="logoPageVitrine">
+                        </div>
+                        <div class="col-xs-3">
+                            <hr class="separeLogo">
+                        </div>
+                        <div class="col-xs-6">
+                            <p>
+                                A labore modi nostrum. Optio incidunt porro voluptas quis...<a href="{{ path('candidat_show', { 'id': candidat.id }) }}">En lire plus</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <img src="{{ asset('images/CORPO35_flacon.png') }}" class="logoPageVitrine">
+                        </div>
+                        <div class="col-xs-3">
+                            <hr class="separeLogo">
+                        </div>
+                        <div class="col-xs-6">
+                            <p>
+                                A labore modi nostrum. Optio incidunt porro voluptas quis voluptas laudantium at voluptate.
+                                Distinctio quae repellat eos nostrum voluptas dignissimos...<a href="{{ path('candidat_show', { 'id': candidat.id }) }}">En lire plus</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <img src="{{ asset('images/CORPO35_nez.png') }}" class="logoPageVitrine">
+                        </div>
+                        <div class="col-xs-3">
+                            <hr class="separeLogo">
+                        </div>
+                        <div class="col-xs-6">
+                            <p>
+                                A labore modi nostrum. Optio incidunt porro...<a href="{{ path('candidat_show', { 'id': candidat.id }) }}">En lire plus</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-            <p class="titre">{{ 'Inspirations pour le parfum'| trans }} :</p>
-                {% for document in candidat.documents %}
-                    {% if document.type == "image" %}
-                        <p class="soustitre">{{ 'Inspirations par une image'| trans }} : </p>
-                        <img src="{{ asset('upload/' ~ document.contenu) }}" class="img-responsive"><br/>
-                    {% elseif document.type == "vidéo" %}
-                        <p class="soustitre">{{ 'Inspirations par une vidéo'| trans }} :</p>
-                        <video  controls src="{{ asset('upload/' ~ document.contenu) }}" class="img-responsive video "></video><br/>
-                    {% elseif document.type == "musique" %}
-                        <p class="soustitre"> {{ 'Inspirations par un document audio'| trans }} : </p>
-                        <audio class="audio" controls src="{{ asset('upload/' ~ document.contenu) }}"></audio> <br/>
-                    {% elseif document.type == "pdf" %}
-                        <p class="soustitre">{{ 'Inspirations par un document'| trans }} </p>
-                        <a href="{{ asset('upload/' ~ document.contenu) }}" target="_blank">Voir le document</a>
-                    {% else %}
-                        <p>Le format du document n'est pas supporté</p>
-                    {% endif %}
-                        <p class="soustitre">{{ 'Inspirations par une page internet'| trans }}</p>
-                        <a href="{{ document.lien }}" target="_blank">{{ document.lien }}</a>
-                {% endfor %}
-        </div>
-        </div>
-        <div class="col-md-offset-1 col-md-3">
-           <p class="titre"> {{ 'Présentation du candidat ( En français )'| trans }} :</p> <br/>
-           <p class="text"> {{ candidat.presentation | truncate(200, true,"...") }} </p>
-        </div>
-        <div class=" col-md-3">
-            <p class="titre"> {{ 'Motivation du candidat ( En français )'| trans }} :</p> <br/>
-            <p class="text"> {{ candidat.motivation | truncate(200, true,"...") }}</p>
-        </div>
-    </section>
+    </div>
 {% endblock %}
