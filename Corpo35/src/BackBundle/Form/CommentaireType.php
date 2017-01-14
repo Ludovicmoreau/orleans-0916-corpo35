@@ -18,7 +18,7 @@ class CommentaireType extends AbstractType
     {
         $builder->add('auteur')
                 ->add('commentaire', TextType::class, array('required'=>false,
-                    'empty_data'=>null,
+                    'data_class'=>null,
 
                 ))
                 ->add('date', DateType::class)
@@ -30,9 +30,7 @@ class CommentaireType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'BackBundle\Entity\Commentaire'
-        ));
+
     }
 
     /**

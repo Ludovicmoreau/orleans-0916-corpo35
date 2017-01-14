@@ -1,50 +1,50 @@
 {% extends 'FrontBundle:Default:index.html.twig' %}
 {% block stylesheet %}
-   {# <link rel="stylesheet" href="{{ asset('css/listArticles_style.css') }}">#}
+    <link rel="stylesheet" href="{{ asset('css/blog_style.css') }}">
 {% endblock %}
 
 {% block content %}
-    <div class="container list-articles">
-        <div class="container-fluid blog">
-            <div class="row">
-                <div class="col-md-12 col-sm-6 col-xs-12">
-                    <div class="row">
 
-                    <h1 class="text-left"><i class="fa fa-pagelines pagelines_title" aria-hidden="true"></i> Notre actu</h1>
 
-                    {% for article in listArticles %}
-                    <div class="row">
-                        <div class="blog-post">
-                            <div class="col-md-4">
-                                <h2 class="blog-title">{{ article.titre }}</h2>
-                                <img class="img-responsive" src="{{ asset('upload/' ~  article.photo )}}">
-                                <h5 class="date">{% if article.date %}{{ article.date|date('Y-m-d') }}{% endif %}</h5>
-                            </div>
-                            <div class="col-md-8">
-                                <p class="blog-content"><blockquote>{{ article.contenu }}</blockquote></p>
+
+    <div class='container'>
+        <h1><i class="fa fa-pagelines pagelines_title" aria-hidden="true"></i> Notre actu</h1>
+        {% for article in listArticles %}
+            <div class='blog-posts'>
+                <div class='post featured'>
+                    <a href="{{ path('page_article', {'id':article.id}) }}">
+                        <div class='image'><img class="img-responsive img-article" src="{{ asset('upload/' ~  article.photo )}}">
+                            <div class="hidden-xs hidden-sm hidden-md hidden-lg">
+                            <p class='date'>{% if article.date %}{{ article.date|date('d-m-Y') }}{% endif %}</p>
                             </div>
                         </div>
-                    </div>
-                        {{ render(controller('FrontBundle:PostCommentaire:ShowCommentaire')) }}
 
+                        <div class='content'>
+                            <h2>{{ article.titre }}</h2>
+                            <p>{{ article.contenu | truncate(100, true, "...")}}</p>
+                            <div class='meta'>
+                                <div class='icon-comment'><i class="fa fa-comment-o" aria-hidden="true"></i> 22 Comments</div>
+                            </div>
+                        </div>
 
-                    {% endfor %}
+                    </a>
                 </div>
             </div>
-            <a href="{{ path('blog') }}" class="button"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> Retour</a>
-        </div>
-    </div>
+        {% endfor %}
+        <p class="text-right"><a href="{{ path('blog') }}" class="button"> <i class="fa fa-long-arrow-left" aria-hidden="true"></i> Récents Posts</a></p>
 
+    </div>
 
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 {% endblock %}
 
-    {% block JS %}
+{% block JS %}
 
-        <script>
+    <script>
 
 
-        </script>
-    {% endblock %}
+    </script>
+
+{% endblock %}

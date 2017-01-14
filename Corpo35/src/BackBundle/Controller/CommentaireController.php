@@ -5,7 +5,8 @@ namespace BackBundle\Controller;
 use BackBundle\Entity\Commentaire;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Commentaire controller.
@@ -45,6 +46,9 @@ class CommentaireController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            if (!$commentaire->getAuteur()) {
+                $commentaire->setAuteur('Anonyme');
+            }
             $em->persist($commentaire);
             $em->flush($commentaire);
 
@@ -133,4 +137,6 @@ class CommentaireController extends Controller
             ->getForm()
         ;
     }
+
+
 }
