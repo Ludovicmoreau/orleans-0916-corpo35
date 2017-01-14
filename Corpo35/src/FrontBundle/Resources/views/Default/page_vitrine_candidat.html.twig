@@ -1,15 +1,129 @@
 {% extends 'FrontBundle:Default:layout.html.twig' %}
 
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/page_vitrine_candidat_style.css') }}">
+{% endblock %}
+
 {% block header %}
     {% include 'FrontBundle:Default:header.html.twig' %}
 {% endblock %}
 
 {% block content %}
-        {{ candidat.nom }}
-        {{ candidat.prenom }}
-        {{ candidat.formation }}
-        {{ candidat.profession }}
-        {{ candidat.adresse }}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="nomPrenom">{{ candidat.prenom }}<br/>{{ candidat.nom }}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                <img src="{{ asset('upload/' ~ candidat.photo) }}" class="center-block photoProfil img-responsive">
+            </div>
+            <div class="col-xs-6">
+                <div class="row profession">
+                    <div class="col-xs-12">
+                        <p>{{ candidat.profession }}</p>
+                    </div>
+                </div>
+                <div class="presentation">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <p>{{ candidat.presentation }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <p>mail: <a href="mailto:{{ candidat.mail }} ">{{ candidat.mail }}</a></p>
+                        </div>
+                        <div class="col-xs-6">
+                            <p>blog: <a href="{{ candidat.blog }}" target="_blank"> {{ candidat.blog }}</a></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 motivation">
+                            <p class="motivationTitre">Motivations pour le concours</p>
+                            <p>{{ candidat.motivation }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="Logo">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <img src="{{ asset('images/CORPO35_testeur.png') }}" class="logoPageVitrine">
+                        </div>
+                        <div class="col-xs-3">
+                            <hr class="separeLogo">
+                        </div>
+                        <div class="col-xs-6">
+                            <p>
+                                A labore modi nostrum. Optio incidunt porro voluptas quis voluptas laudantium at voluptate.
+                                Distinctio quae repellat eos nostrum voluptas dignissimos. Possimus expedita blanditiis
+                                nulla quam veritatis non asperiores dolores. Officiis ut sit similique doloribus
+                                aspernatur eum
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <img src="{{ asset('images/CORPO35_flacon.png') }}" class="logoPageVitrine">
+                        </div>
+                        <div class="col-xs-3">
+                            <hr class="separeLogo">
+                        </div>
+                        <div class="col-xs-6">
+                            <p>
+                                A labore modi nostrum. Optio incidunt porro voluptas quis voluptas laudantium at voluptate.
+                                Distinctio quae repellat eos nostrum voluptas dignissimos. Possimus expedita blanditiis
+                                nulla quam veritatis non asperiores dolores. Officiis ut sit similique doloribus
+                                aspernatur eum
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <img src="{{ asset('images/CORPO35_nez.png') }}" class="logoPageVitrine">
+                        </div>
+                        <div class="col-xs-3">
+                            <hr class="separeLogo">
+                        </div>
+                        <div class="col-xs-6">
+                            <p>
+                                A labore modi nostrum. Optio incidunt porro voluptas quis voluptas laudantium at voluptate.
+                                Distinctio quae repellat eos nostrum voluptas dignissimos. Possimus expedita blanditiis
+                                nulla quam veritatis non asperiores dolores. Officiis ut sit similique doloribus
+                                aspernatur eum
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+                {% for document in candidat.documents %}
+                    {% if document.type == "image" %}
+                        <div class="col-xs-4">
+                            <img src="{{ asset('upload/' ~ document.contenu) }}" class="img-responsive center-block">
+                        </div>
+                    {% elseif document.type == "vidéo" %}
+                        <div class="col-xs-4">
+                            <video controls src="{{ asset('upload/' ~ document.contenu) }}" class="img-responsive center-block"></video>
+                        </div>
+                    {% elseif document.type == "musique" %}
+                        <div class="col-xs-4">
+                            <audio controls src="{{ asset('upload/' ~ document.contenu) }}" class="center-block"></audio>
+                        </div>
+                    {% elseif document.type == "pdf" %}
+                        <div class="col-xs-4">
+                            <a href="{{ asset('upload/' ~ document.contenu) }}" target="_blank" class="text-center">Voir le document</a>
+                        </div>
+                    {% endif %}
+                    {% if document.lien != "" %}
+                        <a href="{{ document.lien }}" target="_blank">{{ document.lien }}</a><br/>
+                    {% endif %}
+                {% endfor %}
+        </div>
+    </div>
 {% endblock %}
 
 {% block footer %}
