@@ -14,10 +14,6 @@
                 <td>{{ article.titre }}</td>
             </tr>
             <tr>
-                <th>Date</th>
-                <td>{% if article.date %}{{ article.date|date('Y-m-d') }}{% endif %}</td>
-            </tr>
-            <tr>
                 <th>Contenu</th>
                 <td>{{ article.contenu }}</td>
             </tr>
@@ -25,7 +21,14 @@
                 <th>Auteur</th>
                 <td>{{ article.auteur }}</td>
             </tr>
-
+            <tr>
+                <th>Date</th>
+                <td>{% if article.date %}{{ article.date|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Photo</th>
+                <td>{{ article.photo }}</td>
+            </tr>
         </tbody>
     </table>
 
@@ -43,7 +46,6 @@
         </li>
     </ul>
 
-
     {% for  commentaire in article.commentaires %}
         <div class="panel panel-primary">
             <div class="panel-heading">
@@ -54,4 +56,7 @@
             </div>
         </div>
     {% endfor %}
+
+
+
 {% endblock %}

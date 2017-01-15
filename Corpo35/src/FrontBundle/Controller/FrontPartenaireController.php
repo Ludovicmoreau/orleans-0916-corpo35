@@ -4,11 +4,12 @@ namespace FrontBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use BackBundle\Entity\Partenaire;
 
-class ListPartenaireController extends Controller
+class FrontPartenaireController extends Controller
 {
     /**
-     * @Route("/listPartenaires", name="list_partenaire")
+     * @Route("/partenaires", name="list_partenaire")
      */
     public function ShowPartenaireAction()
     {
@@ -31,6 +32,26 @@ class ListPartenaireController extends Controller
         ));
 
     }
+
+
+    /**
+     * @Route("/partenaires/{id}", name="page_partenaire")
+     */
+    public function PartenaireAction(Partenaire $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $partenaires = $em ->getRepository('BackBundle:Partenaire')
+            ->find($id);
+
+        $em ->persist($partenaires);
+        $em ->flush();
+        return $this->render('FrontBundle:Default:partenaire.html.twig', array(
+            'partenaire'=>$partenaires
+        ));
+    }
+
+
 }
 
 
