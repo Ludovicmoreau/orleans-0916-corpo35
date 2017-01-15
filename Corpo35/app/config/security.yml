@@ -8,6 +8,7 @@ security:
         ROLE_PARTENAIRE: ROLE_USER
         ROLE_JURY:        ROLE_USER
         ROLE_ISIPCA:        ROLE_USER
+        ROLE_CANDIDAT:        ROLE_USER
         ROLE_ADMIN:       ROLE_JURY, ROLE_PARTENAIRE, ROLE_ISIPCA
 
 
@@ -31,7 +32,7 @@ security:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/candidat/new, role: IS_AUTHENTICATED_ANONYMOUSLY }
+#        - { path: ^/candidat/new, role: ROLE_CANDIDAT }
         - { path: ^/partenaire/, role: ROLE_PARTENAIRE  }
         - { path: ^/isipca/, role: ROLE_ISIPCA  }
         - { path: ^/jury/, role: ROLE_JURY  }

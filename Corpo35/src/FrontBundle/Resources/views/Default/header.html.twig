@@ -46,6 +46,8 @@
                             <li><a href="{{ path('fos_user_security_logout') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i>  {{ 'Se déconnecter'| trans }}</a></li>
                         {% elseif is_granted ('ROLE_ISIPCA') %}
                             <li><a href="{{ path('fos_user_security_logout') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i>  {{ 'Se déconnecter'| trans }}</a></li>
+                        {% elseif is_granted ('ROLE_CANDIDAT') %}
+                            <li><a href="{{ path('fos_user_security_logout') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i>  {{ 'Se déconnecter'| trans }}</a></li>
                         {% else %}
                             <li><a href="{{ path('fos_user_security_login') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i>  {{ 'Se connecter'| trans }}</a></li>
                         {% endif %}
@@ -59,7 +61,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-offset-4 col-xs-4">
-                        <img src="{{ asset('images/CORPO35_LOGOTYPE.png') }}" class="img-responsive center-block logoHeader" alt="Logo Corpo35">
+                        <a href="{{ path('index') }}"><img src="{{ asset('images/CORPO35_LOGOTYPE.png') }}" class="img-responsive center-block logoHeader" alt="Logo Corpo35"></a>
                     </div>
                 </div>
             </div>

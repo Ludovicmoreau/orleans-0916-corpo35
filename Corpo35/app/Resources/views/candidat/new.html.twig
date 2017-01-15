@@ -16,6 +16,7 @@
             <p class="hidden-lg hidden-md">{{ 'L\'inscription au concours nécessite le téléchargement de documents'| trans }}.<br/> {{ 'Veuillez passez sur la version PC du site'| trans }}.</p>
         </div>
     </div>
+    {% if is_granted ('ROLE_CANDIDAT') %}
     <div class="container hidden-xs hidden-sm">
                 {{ form_start(form) }}
                 <div class="form-group">
@@ -170,8 +171,10 @@
                     $documentFormLi.remove();
                 });
             }
-            
         </script>
-        </div>
+    </div>
+    {% else %}
+        <p>Merci de vous créer un compte avant de vous inscrire au concours</p>
+    {% endif %}
 
 {% endblock %}
