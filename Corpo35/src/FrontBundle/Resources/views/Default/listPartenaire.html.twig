@@ -6,26 +6,40 @@
 
 
 {% block content %}
-    <div class="container list-partners">
-        {% for partenaire in listPartenaires %}
-        <div class="row partner">
-            <div class="col-md-3">
-                <img class="img-responsive" src="{{ asset('upload/' ~  partenaire.logo )}}">
-            </div>
-            <div class="col-md-9">
-                <p class="partner-resume">{{ partenaire.resume }}</p>
-                <p>{{ partenaire.contenu }}</p>
-                <div class="row i-fa-partner">
-                    <div class="col-md-4"><p><i class="fa fa-globe" aria-hidden="true"> {{ partenaire.website }}</i></p></div>
-                    <div class="col-md-4"><p><i class="fa fa-paper-plane-o" aria-hidden="true"> {{ partenaire.email }}</i></p></div>
-                    <div class="col-md-4"><p><i class="fa fa-phone" aria-hidden="true"> {{ partenaire.phone }}</i></p></div>
-                </div>
-            </div>
 
+    <div class="container">
+        <div class="at-section">
+            <div class="at-section__title">Partenaires</div>
+            <p class="content-partner">Metuentes igitur idem latrones Lycaoniam magna parte campestrem cum se inpares nostris fore congressione stataria documentis frequentibus scirent, tramitibus deviis petivere Pamphyliam diu quidem intactam sed timore populationum et caedium, milite per omnia diffuso propinqua, magnis undique praesidiis conmunitam.</p>
 
         </div>
-        {% endfor %}
+        <div class="at-grid" data-column="3">
+            {% for partenaire in listPartenaires %}
+
+            <div class="at-column">
+
+                <div class="at-partner">
+                    <a href="{{ path('page_partenaire', {'id':partenaire.id}) }}">
+                    <div class="at-partner__logo"><img class="img-responsive" src="{{ asset('upload/' ~  partenaire.logo )}}"></div>
+                    </a>
+                </div>
+
+            </div>
+
+            {% endfor %}
+        </div>
+
+
+
+
+
     </div>
+
+
+
+
+
+
 
 
 

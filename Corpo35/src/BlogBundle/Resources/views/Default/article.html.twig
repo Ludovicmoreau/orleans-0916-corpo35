@@ -10,7 +10,7 @@
         {% for article in articles %}
             <div class='blog-posts'>
                 <div class='row post featured'>
-                    <a href="{{ path('page_article', {'id':article.id}) }}">
+                    <a href="{{ path('new-comment', {'id':article.id}) }}">
                         <div class='image'><img class="img-responsive img-article" src="{{ asset('upload/' ~  article.photo )}}">
                             <div class='date'>{% if article.date %}{{ article.date|date('d F') }}{% endif %}</div>
                         </div>

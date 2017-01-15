@@ -1,4 +1,7 @@
-
+blog:
+    resource: "@BlogBundle/Controller/"
+    type:     annotation
+    prefix:   /blog
 
 back:
     resource: "@BackBundle/Controller/"
@@ -53,10 +56,11 @@ jurylist:
     type:     annotation
     prefix:   /jurylist
 
+
 article:
-    resource: "@BackBundle/Controller/ArticleController.php"
+    resource: "@BlogBundle/Controller/ArticleController.php"
     type:     annotation
-    prefix:   /admin
+    prefix:   /blog
 
 rpresse:
     resource: "@BackBundle/Controller/RpresseController.php"

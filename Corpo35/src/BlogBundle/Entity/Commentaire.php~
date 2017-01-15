@@ -1,5 +1,5 @@
 <?php
-namespace BackBundle\Entity;
+namespace BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use BackBundle\Entity\Artiste;

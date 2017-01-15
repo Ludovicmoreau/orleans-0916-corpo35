@@ -1,8 +1,8 @@
 <?php
 
-namespace BackBundle\Controller;
+namespace BlogBundle\Controller;
 
-use BackBundle\Entity\Article;
+use BlogBundle\Entity\Article;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -25,7 +25,7 @@ class ArticleController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $articles = $em->getRepository('BackBundle:Article')->findAll();
+        $articles = $em->getRepository('BlogBundle:Article')->findAll();
 
         return $this->render('article/index.html.twig', array(
             'articles' => $articles,
@@ -41,7 +41,7 @@ class ArticleController extends Controller
     public function newAction(Request $request)
     {
         $article = new Article();
-        $form = $this->createForm('BackBundle\Form\ArticleType', $article);
+        $form = $this->createForm('BlogBundle\Form\ArticleType', $article);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -78,7 +78,7 @@ class ArticleController extends Controller
      * @Route("/{id}", name="article_show")
      * @Method("GET")
      */
-    public function showAction(Request $request, Article $article)
+    public function showAction(Article $article)
     {
         $deleteForm = $this->createDeleteForm($article);
 
@@ -104,7 +104,7 @@ class ArticleController extends Controller
         }
 
         $deleteForm = $this->createDeleteForm($article);
-        $editForm = $this->createForm('BackBundle\Form\ArticleType', $article);
+        $editForm = $this->createForm('BlogBundle\Form\ArticleType', $article);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
@@ -174,6 +174,6 @@ class ArticleController extends Controller
             ->setAction($this->generateUrl('article_delete', array('id' => $article->getId())))
             ->setMethod('DELETE')
             ->getForm()
-        ;
+            ;
     }
 }
