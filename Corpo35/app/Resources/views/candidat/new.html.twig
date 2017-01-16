@@ -22,49 +22,73 @@
                 <div class="form-group">
                     <h3 class="text-center titreForm"> {{ 'Informations générales'| trans }}</h3>
                     <hr class="separe">
-                    <div class="form">{{ form_row(form.nom , { 'attr': {'label': 'Nom'| trans,   'placeholder': 'Votre nom ici'|trans} }) }} </div>
+                    <div class="form">
+                        {{ form_label(form.nom, 'Nom'| trans) }}
+                        {{ form_widget(form.nom , { 'attr': {   'placeholder': 'Votre nom ici'|trans} }) }} </div>
                     <hr class="separe">
-                    <div class="form">{{ form_row(form.prenom , { 'attr': {'label': 'Prénom'| trans,   'placeholder': 'Votre prénom ici'|trans} }) }}</div>
+                    <div class="form">
+                        {{ form_label(form.prenom, 'Prénom'| trans) }}
+                        {{ form_widget(form.prenom , { 'attr': { 'placeholder': 'Votre prénom ici'|trans} }) }}</div>
                     <hr class="separe">
-                    <div class="form">{{ form_row(form.date_naissance , { 'attr': {'label': 'Date de naissance'| trans } } ) }}</div>
+                    <div class="form">
+                        {{ form_label(form.date_naissance, 'Date de naissance'| trans) }}
+                        {{ form_widget(form.date_naissance) }}</div>
                     <hr class="separe">
-                    <div class="form">{{ form_row(form.photo) }}</div>
+                    <div class="form">
+                        {{ form_row(form.photo) }}</div>
                     <hr class="separe">
-                    <div class="form">{{ form_row(form.cv, { 'attr': {'label': 'CV (au format PDF)'| trans } } )   }}</div>
+                    <div class="form">
+                        {{ form_label(form.cv, 'CV (au format PDF)'| trans) }}
+                        {{ form_widget(form.cv )   }}</div>
                     <hr class="separe">
-                    <div class="form">{{ form_row(form.numrue , { 'attr': {'label': 'Numéro de rue'| trans ,   'placeholder': 'Votre numéro de rue ici'|trans  } }) }}</div>
+                    <div class="form">
+                        {{ form_label(form.numrue, 'Numéro de rue'| trans) }}
+                        {{ form_widget(form.numrue , { 'attr': {   'placeholder': 'Votre numéro de rue ici'|trans} } ) }}</div>
                     <hr class="separe">
-                    <div class="form">{{ form_row(form.adresse  , { 'attr': {'label': 'Adresse'| trans ,   'placeholder': 'Votre adresse ici'|trans  } }) }}</div>
+                    <div class="form">
+                        {{ form_label(form.adresse, 'Adresse'| trans) }}
+                        {{ form_widget(form.adresse  , { 'attr': { 'placeholder': 'Votre adresse ici'|trans  } }) }}</div>
                     <hr class="separe">
-                    <div class="form">{{ form_row(form.ville , { 'attr': {'label': 'Ville'| trans ,   'placeholder': 'Votre ville ici'|trans  } }) }}</div>
+                    <div class="form">
+                        {{ form_label(form.ville, 'Ville'| trans) }}
+                        {{ form_widget(form.ville , { 'attr': {'placeholder': 'Votre ville ici'|trans  } }) }}</div>
                     <hr class="separe">
-                    <div class="form">{{ form_row(form.cp , { 'attr': {'label': 'Code postal'| trans ,   'placeholder': 'Votre code postal'|trans  } }) }}</div>
+                    <div class="form">
+                        {{ form_label(form.cp, 'Code postal'| trans) }}
+                        {{ form_widget(form.cp , { 'attr': {'placeholder': 'Votre code postal'|trans  } }) }}</div>
                     <hr class="separe">
-                    <div class="form">{{ form_row(form.tel , { 'attr': {'label': 'Téléphone'| trans ,   'placeholder': 'Votre numéro de téléphone ici'|trans  } }) }}</div>
+                    <div class="form">
+                        {{ form_label(form.tel, 'Téléphone'| trans) }}
+                        {{ form_widget(form.tel , { 'attr': {'placeholder': 'Votre numéro de téléphone ici'|trans  } }) }}</div>
                     <hr class="separe">
-                    <div class="form">{{ form_row(form.mail) }}</div>
+                    <div class="form">
+                        {{ form_row(form.mail) }}</div>
                     <hr class="separe">
-                    <div class="form">{{ form_row(form.presentation , { 'attr': {'label': 'Présentation générale'| trans  } }) }}</div>
+                    <div class="form">
+                        {{ form_label(form.presentation, 'Présentation générale'| trans) }}
+                        {{ form_widget(form.presentation) }}</div>
                     <hr class="separe">
-                    <div class="form">{{ form_row(form.blog , { 'attr': {'label': 'Blog/site personnel ou autres'| trans  } }) }}</div>
+                    <div class="form">
+                        {{ form_label(form.blog, 'Blog/site personnel ou autres'| trans) }}
+                        {{ form_widget(form.blog) }}</div>
                     <hr class="separe">
                     <h3 class="text-center titreForm"> {{ 'Informations concernant le concours'| trans }}</h3>
                     <hr class="separe">
-                    <div class="form">{{ form_row(form.motivation, { 'attr': {'label': 'Vos motivations pour le concours'| trans  } }) }}</div>
+                    <div class="form">
+                        {{ form_label(form.motivation, 'Vos motivations pour le concours'| trans) }}
+                        {{ form_widget(form.motivation) }}</div>
                     <hr class="separe">
-                    <div class="form">{{ form_row(form.profession,  { 'attr': {'label': 'Profession* (ou étudiant le cas échéant)'| trans ,   'placeholder': 'Votre profession'|trans  } }) }}</div>
+                    <div class="form">
+                        {{ form_label(form.profession, 'Profession* (ou étudiant le cas échéant)'| trans) }}
+                        {{ form_widget(form.profession) }}</div>
                     <hr class="separe">
                     <div class="form">{{ form_row(form.formation) }}</div>
                     <hr class="separe">
-                    <div class="form">{{ form_row(form.competence,  { 'attr': {'label': 'Autres formations et compétences'| trans ,   'placeholder': 'Autres formations'|trans  } }) }}</div>
+                    <div class="form">
+                        {{ form_label(form.competence, 'Autres formations et compétences'| trans) }}
+                        {{ form_widget(form.competence,  { 'attr': {'placeholder': 'Autres formations'|trans  } }) }}</div>
                     <hr class="separe">
                     <div class="form">{{ form_row(form.promotion) }}</div>
-                    {#<hr class="separe">#}
-                    {#{% for registration in form.fos_user %}#}
-                        {#{{ form_start(formRegistration) }}#}
-                        {#{{ form_row(form.fos_user) }}#}
-                        {#{{ form_end }}#}
-                    {#{% endfor %}#}
                     <hr class="separe">
                     {% for document in form.documents %}
                         <h3 class="text-center titreForm">Documents</h3>
@@ -76,13 +100,19 @@
                         </p>
                         <hr class="separe">
                         <ul class="documents" data-prototype="{{ form_widget(form.documents.vars.prototype)|e('html_attr') }}">
-                            <div class="form"><li>{{ form_row(document.type,  { 'attr': {'label': 'Type de documents'| trans  } }) }}</li></div>
+                            <div class="form"><li>
+                                    {{ form_label(document.type, 'Type de documents'| trans) }}
+                                    {{ form_widget(document.type) }}</li></div>
                             <hr class="separe">
-                            <div class="form"><li>{{ form_row(document.contenu, { 'attr': {'label': 'Contenu'| trans  } }) }}</li></div>
+                            <div class="form"><li>
+                                    {{ form_label(document.contenu, 'Contenu'| trans) }}
+                                    {{ form_widget(document.contenu) }}</li></div>
                             <hr class="separe">
                             <div class="form"><li> {{ 'Et/ou'| trans }}</li></div>
                             <hr class="separe">
-                            <div class="form"><li>{{ form_row(document.lien, { 'attr': {'label': 'Lien externe'| trans } }) }}</li></div>
+                            <div class="form"><li>
+                                    {{ form_label(document.lien, 'Lien externe'| trans) }}
+                                    {{ form_widget(document.lien, { 'attr': {'label': ''| trans } }) }}</li></div>
                             <hr class="separe">
                         </ul>
                     {% endfor %}
@@ -102,7 +132,7 @@
             var $collectionHolder;
 
             // setup an "add a tag" link
-            var $addDocumentLink = $('<div class="form"><a href="#" class="add_document_link">Ajouter un document  </a></div>');
+            var $addDocumentLink = $('<div class="form"><a href="#" class="add_document_link">{{ 'Ajouter un document'| trans }}</a></div>');
             var $newDocumentLi = $('<li></li>').append($addDocumentLink);
 
 
