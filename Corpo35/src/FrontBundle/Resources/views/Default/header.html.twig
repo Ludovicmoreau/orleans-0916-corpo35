@@ -37,10 +37,8 @@
                         {% elseif is_granted ('ROLE_ISIPCA') %}
                              <li><a href="{{ path('backIsipca') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Isipca</a></li>
                         {% elseif is_granted ('ROLE_CANDIDAT') %}
-                            {#<li><a href="{{ path('candidat_edit', { 'id': candidat.id }) }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Editer mon profil</a></li>#}
-                            <li><a href="{{ path('index') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Editer mon profil</a></li>
+                            <li><a href="{{ path('candidat_edit', { 'id': app.user.candidat.id }) }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Editer mon profil</a></li>
                         {% endif %}
-
                         {% if is_granted ('ROLE_ADMIN') %}
                             <li><a href="{{ path('fos_user_security_logout') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> {{ 'Se déconnecter'| trans }}</a></li>
                         {% elseif is_granted ('ROLE_JURY') %}

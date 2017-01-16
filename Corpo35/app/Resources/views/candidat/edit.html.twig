@@ -1,37 +1,176 @@
-{% extends 'base.html.twig' %}
+{% extends 'FrontBundle:Default:index.html.twig' %}
 
-    {% block body %}
-        <h1>Candidat edit</h1>
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/inscriptionStyle.css') }}">
+{% endblock %}
 
-        {{ form_start(edit_form) }}
-            {{ form_widget(edit_form) }}
+{% block content %}
+<h1 class="text-center">Edition de mon profil</h1>
+<p class="attention text-center">Attention pour éditer votre profil vous devez telecherger à nouveau votre CV, votre photo ainsi que vos documents.</p>
 
-
-        {%  if is_granted ('ROLE_ADMIN') %}
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox"> Mettre le candidat en valeur sur la page d'accueil
-                </label>
+{{ form_start(form) }}
+<div class="form-group">
+    <h3 class="text-center titreForm"> {{ 'Informations générales'| trans }}</h3>
+    <hr class="separe">
+    <div class="form">{{ form_row(form.nom , { 'attr': {'label': 'Nom*'| trans,   'placeholder': 'Votre nom ici'|trans} }) }} </div>
+    <hr class="separe">
+    <div class="form">{{ form_row(form.prenom , { 'attr': {'label': 'Prénom'| trans,   'placeholder': 'Votre prénom ici'|trans} }) }}</div>
+    <hr class="separe">
+    <div class="form">{{ form_row(form.date_naissance , { 'attr': {'label': 'Date de naissance'| trans } } ) }}</div>
+    <hr class="separe">
+    <div class="form">{{ form_row(form.photo) }}</div>
+    <hr class="separe">
+    <div class="form">{{ form_row(form.cv, { 'attr': {'label': 'CV (au format PDF)'| trans } } ) }}</div>
+    <hr class="separe">
+    <div class="form">{{ form_row(form.numrue , { 'attr': {'label': 'Numéro de rue'| trans ,   'placeholder': 'Votre numéro de rue ici'|trans  } }) }}</div>
+    <hr class="separe">
+    <div class="form">{{ form_row(form.adresse  , { 'attr': {'label': 'Adresse'| trans ,   'placeholder': 'Votre adresse ici'|trans  } }) }}</div>
+    <hr class="separe">
+    <div class="form">{{ form_row(form.ville , { 'attr': {'label': 'Ville'| trans ,   'placeholder': 'Votre ville ici'|trans  } }) }}</div>
+    <hr class="separe">
+    <div class="form">{{ form_row(form.cp , { 'attr': {'label': 'Code postal'| trans ,   'placeholder': 'Votre code postal'|trans  } }) }}</div>
+    <hr class="separe">
+    <div class="form">{{ form_row(form.tel , { 'attr': {'label': 'Téléphone'| trans ,   'placeholder': 'Votre numéro de téléphone ici'|trans  } }) }}</div>
+    <hr class="separe">
+    <div class="form">{{ form_row(form.mail) }}</div>
+    <hr class="separe">
+    <div class="form">{{ form_row(form.presentation , { 'attr': {'label': 'Présentation générale'| trans  } }) }}</div>
+    <hr class="separe">
+    <div class="form">{{ form_row(form.blog , { 'attr': {'label': 'Blog/site personnel ou autres'| trans  } }) }}</div>
+    <hr class="separe">
+    <h3 class="text-center titreForm"> {{ 'Informations concernant le concours'| trans }}</h3>
+    <hr class="separe">
+    <div class="form">{{ form_row(form.motivation) }}</div>
+    <hr class="separe">
+    <div class="form">{{ form_row(form.profession) }}</div>
+    <hr class="separe">
+    <div class="form">{{ form_row(form.formation) }}</div>
+    <hr class="separe">
+    <div class="form">{{ form_row(form.competence) }}</div>
+    <hr class="separe">
+    <div class="form">{{ form_row(form.promotion) }}</div>
+    <hr class="separe">
+    {% for document in form.documents %}
+        <h3 class="text-center titreForm">Documents</h3>
+        <p class="text-center">
+            Vous pouvez telecharger des documents qui vous ont inspiré pour votre création.<br/>
+            Les types de documents supportés sont "image", "vidéo", "musique" ou "pdf".<br/>
+            <span class="attention">Attention les documents ne peuvent pas dépasser 2MB</span>.<br/>
+            Vous pouvez également ajouter un lien vers un site externe.
+        </p>
+        <hr class="separe">
+        <ul class="documents" data-prototype="{{ form_widget(form.documents.vars.prototype)|e('html_attr') }}">
+            <div class="form">
+                <li>{{ form_row(document.type) }}</li>
             </div>
-        {%  endif %}
-
-        <input type="submit" value="Edit" />
-
-
-        {{ form_end(edit_form) }}
-
-
-
-        <ul>
-            <li>
-                <a href="{{ path('candidat_index') }}">Back to the list</a>
-            </li>
-            <li>
-                {{ form_start(delete_form) }}
-
-                    <input type="submit" value="Delete">
-                {{ form_end(delete_form) }}
-                
-            </li>
+            <hr class="separe">
+            <div class="form">
+                <li>{{ form_row(document.contenu) }}</li>
+            </div>
+            <hr class="separe">
+            <div class="form">
+                <li>Et/ou</li>
+            </div>
+            <hr class="separe">
+            <div class="form">
+                <li>{{ form_row(document.lien) }}</li>
+            </div>
+            <hr class="separe">
         </ul>
+    {% endfor %}
+
+
+    {% if is_granted ('ROLE_ADMIN') %}
+        <div class="checkbox">
+            <label>
+                <input type="checkbox"> Mettre le candidat en valeur sur la page d'accueil
+            </label>
+        </div>
+    {% endif %}
+    <div class="row">
+        <div class="col-xs-6">
+            <input type="submit" value="Editer" class="btn-success btn center-block"/>
+        </div>
+        <div class="col-xs-6">
+            <a href="{{ path('index') }}"><input type="button" value="Retourner à l'accueil"
+                                                 class="btn-primary btn center-block"></a>
+        </div>
+    </div>
+    {{ form_end(form) }}
+
+    <script>
+        var $collectionHolder;
+
+        // setup an "add a tag" link
+        var $addDocumentLink = $('<div class="form"><a href="#" class="add_document_link">Ajouter un document</a></div>');
+        var $newDocumentLi = $('<li></li>').append($addDocumentLink);
+
+
+        jQuery(document).ready(function () {
+            // Get the ul that holds the collection of tags
+            $collectionHolder = $('ul.documents');
+
+            // add the "add a tag" anchor and li to the tags ul
+            $collectionHolder.append($newDocumentLi);
+
+            // count the current form inputs we have (e.g. 2), use that as the new
+            // index when inserting a new item (e.g. 2)
+            $collectionHolder.data('index', $collectionHolder.find(':input').length);
+
+            $addDocumentLink.on('click', function (e) {
+                // prevent the link from creating a "#" on the URL
+                e.preventDefault();
+
+                // add a new tag form (see next code block)
+                addDocumentForm($collectionHolder, $newDocumentLi);
+            });
+        });
+
+        function addDocumentForm($collectionHolder, $newLinkLi) {
+            // Get the data-prototype explained earlier
+            var prototype = $collectionHolder.data('prototype');
+
+            // get the new index
+            var index = $collectionHolder.data('index');
+
+            // Replace '__name__' in the prototype's HTML to
+            // instead be a number based on how many items we have
+            var newForm = prototype.replace(/__name__/g, index);
+
+            // increase the index with one for the next item
+            $collectionHolder.data('index', index + 1);
+
+            // Display the form in the page in an li, before the "Add a tag" link li
+            var $newFormLi = $('<li></li>').append(newForm);
+            $newLinkLi.before($newFormLi);
+
+            addDocumentFormDeleteLink($newFormLi);
+        }
+
+        jQuery(document).ready(function () {
+            // Get the ul that holds the collection of tags
+            $collectionHolder = $('ul.documents');
+
+            // add a delete link to all of the existing tag form li elements
+            $collectionHolder.find('li').each(function () {
+                adddocumentFormDeleteLink($(this));
+            });
+
+            // ... the rest of the block from above
+        });
+
+        function addDocumentFormDeleteLink($documentFormLi) {
+            var $removeFormA = $('<div class="form"><a href="#">Supprimer un document</a></div>');
+            $documentFormLi.append($removeFormA);
+
+            $removeFormA.on('click', function (e) {
+                // prevent the link from creating a "#" on the URL
+                e.preventDefault();
+
+                // remove the li for the tag form
+                $documentFormLi.remove();
+            });
+        }
+    </script>
     {% endblock %}
