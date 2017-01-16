@@ -14,7 +14,7 @@ class Candidat
 {
 
     /**
-     * @ORM\OneToOne(targetEntity="User")
+     * @ORM\OneToOne(targetEntity="User", inversedBy="candidat")
      */
     private $fos_user;
 
@@ -70,6 +70,31 @@ class Candidat
      * @ORM\Column(name="nom", type="string", length=255)
      */
     private $nom;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="classement", type="integer", nullable=true)
+     */
+    private $classement;
+
+    /**
+     * @return int
+     */
+    public function getClassement()
+    {
+        return $this->classement;
+    }
+
+    /**
+     * @param int $classement
+     */
+    public function setClassement($classement)
+    {
+        $this->classement = $classement;
+    }
+
+
 
     /**
      * @var string
@@ -210,13 +235,6 @@ class Candidat
      * @ORM\Column(name="cv", type="string", length=255)
      */
     private $cv;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="etat", type="integer")
-     */
-    private $etat;
 
     /**
      * @var string
@@ -605,6 +623,7 @@ class Candidat
     public function __construct()
     {
         $this->documents = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->dateinscription = (new \DateTime());
     }
 
     /**
@@ -748,22 +767,6 @@ class Candidat
     public function getMiseEnAvant()
     {
         return $this->miseEnAvant;
-    }
-
-    /**
-     * @param int $etat
-     */
-    public function setEtat($etat)
-    {
-        $this->etat = $etat;
-    }
-
-    /**
-     * @return int
-     */
-    public function getEtat()
-    {
-        return $this->etat;
     }
 
     /**

@@ -48,6 +48,12 @@ class Promotion
     private $datelimite;
 
     /**
+     * @var bool
+     * @ORM\Column(name="encours", type="boolean")
+     */
+    private $encours;
+
+    /**
      * Get id
      *
      * @return int
@@ -148,5 +154,21 @@ class Promotion
         $this->datelimite = $datelimite;
 
         return $this;
+    }
+
+    /**
+     * @param boolean
+     */
+    public function setEncours($encours)
+    {
+        $this->encours = $encours;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getEncours()
+    {
+        return $this->encours;
     }
 }
