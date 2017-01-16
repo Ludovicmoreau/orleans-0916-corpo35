@@ -124,7 +124,7 @@ class CandidatType extends AbstractType
             ->add('competence', TextType::class, array(
                 'required'=>false,
                 'data_class'=>null,
-                'attr'=>array('placeholder'=>'Vos compétences',
+                'attr'=>array(
                     'class'=>'form-control',
                     'aria-label'=> 'Votre formation'
                 )
@@ -133,7 +133,6 @@ class CandidatType extends AbstractType
 
                 'data_class'=>null,
                 'attr'=>array(
-                    'placeholder'=>'Votre profession',
                     'class'=>'form-control',
                     'aria-label'=> 'Votre profession'
                 )
