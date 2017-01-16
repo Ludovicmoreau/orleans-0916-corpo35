@@ -1,6 +1,17 @@
 {% extends 'BackBundle:Default:backLayout.html.twig' %}
 
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/backJuryStyle.css') }}">
+{% endblock %}
+
 {% block content %}
-    <a class="linkNavAdmin" href="{{ path('partenaire_new') }}">Créer son profil de partenaire</a>
-    <a class="pull-right" href="{{ path('index') }}">Retour au site</a>
+    <div class="row">
+        <div class="col-md-6 text-center lienjury">
+            <a  href="{{ path('partenaire_new') }}">Voir la liste des candidats</a>
+        </div>
+        <div class="col-md-6 text-center lienjury">
+            <a  href="{{ path('index') }}">Retour au site</a>
+        </div>
+    </div>
 {% endblock %}
