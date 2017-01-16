@@ -144,6 +144,18 @@
             <div class="ombre text-center">
                 {{ render(controller('BackBundle:Candidat:oneVote', {'id':candidat.id})) }}
             </div>
+            <div class="ombre text-center">
+                <h3>Classement du candidat</h3>
+                {% if candidat.classement != null %}
+                    {% if candidat.classement == 1 %}
+                        <p>{{ candidat.classement }}er</p>
+                    {% else %}
+                        <p>{{ candidat.classement }}ème</p>
+                    {% endif %}
+                {% else %}
+                    <p>pas encore de classement pour ce candidat</p>
+                {% endif %}
+            </div>
             {% if is_granted ('ROLE_ADMIN') %}
                 <div class="ombre">
                     <div class="row">
@@ -204,6 +216,7 @@
                         <div class="text-center">
                             {{ form_start(form) }}
                                 {{ form_row(form.decision) }}
+                                {{ form_row(form.classement) }}
                                 <input type="submit" value="Valider" class="btn-success btn center-block"/>
                             {{ form_end(form) }}
                         </div>
