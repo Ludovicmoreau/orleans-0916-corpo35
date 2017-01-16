@@ -85,3 +85,7 @@ services:
         class: Twig_Extensions_Extension_Text
         tags:
             - { name: twig.extension }
+    twig.extension.sortbyfield:
+            class: Snilius\Twig\SortByFieldExtension
+            tags:
+                - { name: twig.extension }

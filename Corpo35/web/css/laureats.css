@@ -6,6 +6,11 @@ a.active {
     outline: none;
 }
 
+.nomCandidat {
+    font-family: 'Playfair Display', serif;
+    font-size: 200%;
+}
+
 section {
     padding: 0;
 }

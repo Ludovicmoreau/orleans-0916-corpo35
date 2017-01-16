@@ -23,10 +23,28 @@
             </div>
             <div class="row">
                 <div class="col-xs-12">
-                        {% for candidat in candidatsChoisis %}
-                            {% if candidat.classement != null %}
-                                <p>{{ candidat.nom }}: {{ candidat.classement }}</p>
-                            {% endif %}
+                        {% for candidat in candidatsChoisis | sortbyfield('classement') if candidat.classement != null%}
+                                <div class="col-xs-12 col-sm-6 col-lg-4 portfolio-item">
+                                    <a href="{{ path('page_vitrine_candidat', {'id':candidat.id}) }}" class="portfolio-link">
+                                        <div class="caption">
+                                            <div class="caption-content">
+                                                <p class="nomCandidat">
+                                                    {{ candidat.nom }} {{ candidat.prenom }}<br/>
+                                                    {% if candidat.classement != null %}
+                                                        {% if candidat.classement == 1 %}
+                                                            <p>{{ candidat.classement }}er</p>
+                                                        {% else %}
+                                                            <p>{{ candidat.classement }}ème</p>
+                                                        {% endif %}
+                                                    {% endif %}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <img src="{{ asset('upload/'~candidat.photo|e) }}" class="img-responsive profil" id="profil" alt="">
+                                    </a>
+                                </div>
+                         {% else %}
+                            <p class="text-center">Le concours, n'est pas finit pour le moment, les résultats seront affichés prochainement.</p>
                         {% endfor %}
                 </div>
             </div>
@@ -37,12 +55,12 @@
                 </div>
             </div>
             <div class="row">
-                {% for candidat in candidatsChoisis %}
+                {% for candidat in candidatsChoisis  %}
                     <div class="col-xs-12 col-sm-6 col-lg-4 portfolio-item">
                         <a href="{{ path('page_vitrine_candidat', {'id':candidat.id}) }}" class="portfolio-link">
                             <div class="caption">
                                 <div class="caption-content">
-                                    <p>
+                                    <p class="nomCandidat">
                                         {{ candidat.nom }} {{ candidat.prenom }}<br/>
                                         {% if candidat.classement != null %}
                                             {% if candidat.classement == 1 %}
