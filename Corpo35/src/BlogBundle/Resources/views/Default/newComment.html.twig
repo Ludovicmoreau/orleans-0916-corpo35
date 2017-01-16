@@ -13,7 +13,7 @@
                         <div class="wrap-div wrap-div-right">
                                 <img class="img-responsive text-left" src="{{ asset('upload/' ~  article.photo )}}">
                         </div>
-                        <h2>{{ article.titre }}</h2>
+                        <h1 class="titre_page_article">{{ article.titre }}</h1>
                         <p>{{ article.contenu }}</p>
                         <p class="post-end clearfix">{% if article.date %}{{ article.date|date('d-m-Y') }}{% endif %}<span>{{ article.auteur }}</span></p>
 

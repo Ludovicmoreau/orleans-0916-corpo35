@@ -57,19 +57,47 @@ Nom*: Last Name*
 Prénom*: Name*
 Votre nom ici: Your Last name here
 Votre prénom ici: Your name here
-Date de naissance: Date of birth
-CV (au format PDF): CV (in PDF format)
-Numéro de rue : Street number
+Date de naissance*: Date of birth*
+CV (au format PDF)*: CV (in PDF format)*
+Numéro de rue* : Street number*
 Votre numéro de rue ici : Your street number here
-Adresse: Adress
+Adresse*: Adress*
 Votre adresse ici: Your adress here
-Ville: City
+Ville*: City*
 Votre ville ici: Your city here
-Code postal: Zipcode
-Vore code postal ici: Your zipcode here
-Téléphone : Phone number
+Code postal*: Zipcode*
+Votre code postal: Your zipcode here
+Téléphone* : Phone number*
 Votre numéro de téléphone ici : Your phone number here
 Parcours de formation dans le secteur de la parfumerie le cas échéant: Training course in the perfumery sector where appropriate
 Blog/site personnel ou autres: Blog website
 Informations concernant le concours: Informations about the contest
-Présentation générale : General Presentation
+Présentation générale* : General Presentation*
+Vos motivations pour le concours*: Your motivation about the contest*
+Profession* (ou étudiant le cas échéant): Profession (or student if applicable)*
+Autres formations et compétences: Other training and skills
+Autres formations: Other training
+Vous pouvez telecharger des documents qui vous ont inspiré pour votre création.: You can download documents that inspired you for your creation.
+Les types de documents supportés sont "image", "vidéo", "musique" ou "pdf": The supported document types are "image", "video", "music" or "pdf"
+Attention les documents ne peuvent pas dépasser 2MB: Attention documents can not exceed 2MB
+Vous pouvez également ajouter un lien vers un site externe: You can also add a link to an external site
+Type de documents: Document's type
+Contenu: Content
+Et/ou: And/or
+Lien externe: External link
+Créer: Create
+Retour: Back
+Ajouter un document: Add a document
+
+#candidat
+Classement: Ranking
+Le concours, n'est pas fini pour le moment, les résultats seront affichés prochainement: The contest is not finished yet, the results will be posted soon
+
+#partenaires et agenda new
+Retour à la liste: Back to the list
+Retour au site: Back to the site
+Création des partenaires: Partner's Creation
+
+# Back Partenaires, Jury et Isipca
+Créer son profil partenaire: Create your partner's profile
+Voir la liste des candidats: See list of candidates

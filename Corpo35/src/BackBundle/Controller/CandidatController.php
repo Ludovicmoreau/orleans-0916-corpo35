@@ -49,6 +49,7 @@ class CandidatController extends Controller
         $candidat = new Candidat();
         $document = new Document();
         $candidat->addDocument($document);
+
         $idUser = $this->container->get('security.context')->getToken()->getUser();
         $candidat->setFosUser($idUser);
 
@@ -92,9 +93,8 @@ class CandidatController extends Controller
                     $candidat->addDocument($document);
                 }
             }
-
-
 //            Fin de l'ajout des documents
+
             $candidat->setMiseEnAvant(0);
             $candidat->setDecision(false);
             $em = $this->getDoctrine()->getManager();
@@ -127,7 +127,6 @@ class CandidatController extends Controller
     public function showAction(Request $request,Candidat $candidat)
     {
 
-
         $em = $this->getDoctrine()->getManager();
         $users = $em->getRepository('BackBundle:User')->findAll();
         $votes = $em->getRepository('BackBundle:Vote')->findAll();
@@ -141,8 +140,6 @@ class CandidatController extends Controller
 
             return $this->redirectToRoute('candidat_index');
         }
-
-
 
         $deleteForm = $this->createDeleteForm($candidat);
         return $this->render('candidat/show.html.twig', array(
@@ -184,8 +181,6 @@ class CandidatController extends Controller
 
             return $this->render('BackBundle:Default:DejaVote.html.twig', array());
         }
-
-
     }
 
 
@@ -197,19 +192,72 @@ class CandidatController extends Controller
      */
     public function editAction(Request $request, Candidat $candidat)
     {
-        $deleteForm = $this->createDeleteForm($candidat);
-        $editForm = $this->createForm('BackBundle\Form\CandidatType', $candidat);
-        $editForm->handleRequest($request);
+        if ($this->getUser()->getCandidat() !== $candidat) {
 
-        if ($editForm->isSubmitted() && $editForm->isValid()) {
+            $this->get('session')
+                ->getFlashBag()
+                ->add('alert', 'Vous n\'avez pas accès à cette page! ');
+            return $this->redirectToRoute('index');
+
+        }
+
+        $deleteForm = $this->createDeleteForm($candidat);
+        $form = $this->createForm('BackBundle\Form\CandidatType', $candidat);
+        $form->handleRequest($request);
+
+        $document = new Document();
+        $candidat->addDocument($document);
+
+        if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('candidat_edit', array('id' => $candidat->getId()));
+            //            Ajout du cv
+            $cv = $candidat->getCv();
+
+            $cvName = md5(uniqid()).'.'.$cv->guessExtension();
+            $cv->move(
+                $this->getParameter('upload_directory'),
+                $cvName
+            );
+            $candidat->setCv($cvName);
+//            Fin de l'ajout du cv
+
+//            Ajout de la photo
+            $photo = $candidat->getPhoto();
+            $photoName = md5(uniqid()).'.'.$photo->guessExtension();
+            $photo->move(
+                $this->getParameter('upload_directory'),
+                $photoName
+            );
+            $candidat->setPhoto($photoName);
+//            Fin de l'ajout de la photo
+
+//            Ajout des documents
+            $documents = $candidat->getDocuments();
+            foreach ($documents as $document) {
+                $file = $document->getContenu();
+                if  ($file) {
+                    $fileName = md5(uniqid()) . '.' . $file->guessExtension();
+                    $file->move(
+                        $this->getParameter('upload_directory'),
+                        $fileName
+                    );
+                    $document->setContenu($fileName);
+                    $candidat->addDocument($document);
+                }
+            }
+//            Fin de l'ajout des documents
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($candidat);
+            $em->flush();
+
+            return $this->redirectToRoute('index', array('id' => $candidat->getId()));
         }
 
         return $this->render('candidat/edit.html.twig', array(
             'candidat' => $candidat,
-            'edit_form' => $editForm->createView(),
+            'form' => $form->createView(),
             'delete_form' => $deleteForm->createView(),
 
         ));

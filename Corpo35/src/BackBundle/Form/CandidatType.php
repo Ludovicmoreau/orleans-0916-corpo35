@@ -57,6 +57,7 @@ class CandidatType extends AbstractType
                 )
             ))
             ->add('photo', FileType::class, array(
+                'label'=> 'Photo*',
                 'data_class'=>null,
                 'attr'=>array(
                     'class'=>'center-block'
@@ -122,19 +123,17 @@ class CandidatType extends AbstractType
                 )
             ))
             ->add('competence', TextType::class, array(
-                'label'=>'Autres formations ou compétences',
                 'required'=>false,
                 'data_class'=>null,
-                'attr'=>array('placeholder'=>'Vos compétences',
+                'attr'=>array(
                     'class'=>'form-control',
                     'aria-label'=> 'Votre formation'
                 )
             ))
             ->add('profession', TextType::class, array(
-                'label'=>'Profession* (ou étudiant le cas échéant)',
+
                 'data_class'=>null,
                 'attr'=>array(
-                    'placeholder'=>'Votre profession',
                     'class'=>'form-control',
                     'aria-label'=> 'Votre profession'
                 )
@@ -156,7 +155,6 @@ class CandidatType extends AbstractType
                 )
             ))
             ->add('motivation', TextareaType::class, array(
-                'label'=>'Vos motivations pour le concours*',
                 'data_class'=>null,
                 'attr'=>array(
                     'class'=>'form-control',

@@ -85,9 +85,7 @@ services:
         class: Twig_Extensions_Extension_Text
         tags:
             - { name: twig.extension }
-
-# app/config/config.yml
-twig:
-    form:
-        resources: ['bootstrap_3_layout.html.twig']
-        # resources: ['bootstrap_3_horizontal_layout.html.twig']
+    twig.extension.sortbyfield:
+            class: Snilius\Twig\SortByFieldExtension
+            tags:
+                - { name: twig.extension }

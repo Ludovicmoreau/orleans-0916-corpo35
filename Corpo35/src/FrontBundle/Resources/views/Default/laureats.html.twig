@@ -17,17 +17,59 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Candidats</h2>
+                    <h2>{{ 'Classement'| trans }}</h2>
                     <hr class="line" style="padding: 0; border: none; border-top: solid 5px; text-align: center; max-width: 250px; margin: 25px auto 30px; color: rgb(51, 51, 51)">
                 </div>
             </div>
             <div class="row">
-                {% for candidat in candidatsChoisis %}
-                    <div class="col-sm-4 portfolio-item">
-                        <a href="{{ path('page_vitrine_candidat', {'id':candidat.id}) }}" class="portfolio-link" target="_blank">
+                <div class="col-xs-12">
+                        {% for candidat in candidatsChoisis | sortbyfield('classement') if candidat.classement != null%}
+                                <div class="col-xs-12 col-sm-6 col-lg-4 portfolio-item">
+                                    <a href="{{ path('page_vitrine_candidat', {'id':candidat.id}) }}" class="portfolio-link">
+                                        <div class="caption">
+                                            <div class="caption-content">
+                                                <p class="nomCandidat">
+                                                    {{ candidat.nom }} {{ candidat.prenom }}<br/>
+                                                    {% if candidat.classement != null %}
+                                                        {% if candidat.classement == 1 %}
+                                                            <p>{{ candidat.classement }}er</p>
+                                                        {% else %}
+                                                            <p>{{ candidat.classement }}ème</p>
+                                                        {% endif %}
+                                                    {% endif %}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <img src="{{ asset('upload/'~candidat.photo|e) }}" class="img-responsive profil" id="profil" alt="">
+                                    </a>
+                                </div>
+                         {% else %}
+                            <p class="text-center"> {{ 'Le concours, n\'est pas fini pour le moment, les résultats seront affichés prochainement'| trans }}.</p>
+                        {% endfor %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>{{ 'Candidats'| trans }}</h2>
+                    <hr class="line" style="padding: 0; border: none; border-top: solid 5px; text-align: center; max-width: 250px; margin: 25px auto 30px; color: rgb(51, 51, 51)">
+                </div>
+            </div>
+            <div class="row">
+                {% for candidat in candidatsChoisis  %}
+                    <div class="col-xs-12 col-sm-6 col-lg-4 portfolio-item">
+                        <a href="{{ path('page_vitrine_candidat', {'id':candidat.id}) }}" class="portfolio-link">
                             <div class="caption">
                                 <div class="caption-content">
-                                    <p>{{ candidat.nom }} {{ candidat.prenom }}</p>
+                                    <p class="nomCandidat">
+                                        {{ candidat.nom }} {{ candidat.prenom }}<br/>
+                                        {% if candidat.classement != null %}
+                                            {% if candidat.classement == 1 %}
+                                                <p>{{ candidat.classement }}er</p>
+                                            {% else %}
+                                                <p>{{ candidat.classement }}ème</p>
+                                            {% endif %}
+                                        {% endif %}
+                                    </p>
                                 </div>
                             </div>
                             <img src="{{ asset('upload/'~candidat.photo|e) }}" class="img-responsive profil" id="profil" alt="">

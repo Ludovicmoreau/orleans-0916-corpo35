@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0968292712f44a41916ad97342f0d088",
-    "content-hash": "d9a6e96e451d4091dfe001cfdc8c9dc6",
+    "hash": "db69422a623e29cf4ce1ceb9f009420a",
+    "content-hash": "590864d37a57ccd318e92b5c51e51945",
     "packages": [
         {
             "name": "components/jquery",
@@ -1409,6 +1409,45 @@
             ],
             "description": "A security checker for your composer.lock",
             "time": "2016-09-23 18:09:57"
+        },
+        {
+            "name": "snilius/twig-sort-by-field",
+            "version": "v0.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/victorhaggqvist/Twig-sort-by-field.git",
+                "reference": "6d02c6d49f93d78526e24ecf8999d322f291aa44"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/victorhaggqvist/Twig-sort-by-field/zipball/6d02c6d49f93d78526e24ecf8999d322f291aa44",
+                "reference": "6d02c6d49f93d78526e24ecf8999d322f291aa44",
+                "shasum": ""
+            },
+            "require-dev": {
+                "doctrine/collections": "^1.3",
+                "php": ">=5.5.9",
+                "phpunit/phpunit": "~4.5",
+                "twig/extensions": "~1.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Snilius\\Twig\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Victor Häggqvist",
+                    "email": "victor@snilius.com"
+                }
+            ],
+            "description": "A Twig Extension filter to sort an array of entries (objects or arrays) by the specified field",
+            "time": "2016-01-27 00:29:51"
         },
         {
             "name": "swiftmailer/swiftmailer",

@@ -34,10 +34,11 @@
                             <li><a href="{{ path('backJury') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Jury</a></li>
                         {% elseif is_granted ('ROLE_PARTENAIRE') %}
                             <li><a href="{{ path('backPartenaire') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> {{ 'Partenaires'| trans }}</a></li>
-                         {% elseif is_granted ('ROLE_ISIPCA') %}
+                        {% elseif is_granted ('ROLE_ISIPCA') %}
                              <li><a href="{{ path('backIsipca') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Isipca</a></li>
-                         {% endif %}
-
+                        {% elseif is_granted ('ROLE_CANDIDAT') %}
+                            <li><a href="{{ path('candidat_edit', { 'id': app.user.candidat.id }) }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Editer mon profil</a></li>
+                        {% endif %}
                         {% if is_granted ('ROLE_ADMIN') %}
                             <li><a href="{{ path('fos_user_security_logout') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> {{ 'Se déconnecter'| trans }}</a></li>
                         {% elseif is_granted ('ROLE_JURY') %}

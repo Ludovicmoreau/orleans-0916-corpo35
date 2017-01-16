@@ -1,55 +1,33 @@
 {% extends 'FrontBundle:Default:index.html.twig' %}
+
 {% block stylesheet %}
     <link rel="stylesheet" href="{{ asset('css/listPartenaires_style.css') }}">
 {% endblock %}
 
-
-
 {% block content %}
 
-    <div class="container">
+    <div class="container partenaire">
         <div class="at-section">
             <div class="at-section__title">Partenaires</div>
-            <p class="content-partner">Metuentes igitur idem latrones Lycaoniam magna parte campestrem cum se inpares nostris fore congressione stataria documentis frequentibus scirent, tramitibus deviis petivere Pamphyliam diu quidem intactam sed timore populationum et caedium, milite per omnia diffuso propinqua, magnis undique praesidiis conmunitam.</p>
-
+            <p class="lead content-partner">Metuentes igitur idem latrones Lycaoniam magna parte campestrem cum se inpares nostris fore congressione stataria documentis frequentibus scirent, tramitibus deviis petivere Pamphyliam diu quidem intactam sed timore populationum et caedium.</p>
         </div>
         <div class="at-grid" data-column="3">
             {% for partenaire in listPartenaires %}
-
-            <div class="at-column">
-
-                <div class="at-partner">
-                    <a href="{{ path('page_partenaire', {'id':partenaire.id}) }}">
-                    <div class="at-partner__logo"><img class="img-responsive" src="{{ asset('upload/' ~  partenaire.logo )}}"></div>
-                    </a>
+                <div class="at-column">
+                    <div class="at-partner">
+                        <a href="{{ path('page_partenaire', {'id':partenaire.id}) }}">
+                        <div class="at-partner__logo"><img class="img-responsive" src="{{ asset('upload/' ~  partenaire.logo )}}"></div>
+                        </a>
+                    </div>
                 </div>
-
-            </div>
-
             {% endfor %}
         </div>
-
-
-
-
-
     </div>
-
-
-
-
-
-
-
-
-
-
 
 {% endblock %}
 
-    {% block JS %}
-<script>
+{% block JS %}
+    <script>
 
-
-</script>
-    {% endblock %}
+    </script>
+{% endblock %}
