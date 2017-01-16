@@ -138,34 +138,6 @@ class CandidatController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            //            Ajout de la photo
-            $photo = $candidat->getPhoto();
-            $photoName = md5(uniqid()).'.'.$photo->guessExtension();
-            $photo->move(
-                $this->getParameter('upload_directory'),
-                $photoName
-            );
-            $candidat->setPhoto($photoName);
-//            Fin de l'ajout de la photo
-
-//            Ajout des documents
-            $documents = $candidat->getDocuments();
-            foreach ($documents as $document) {
-                $file = $document->getContenu();
-                if  ($file) {
-                    $fileName = md5(uniqid()) . '.' . $file->guessExtension();
-                    $file->move(
-                        $this->getParameter('upload_directory'),
-                        $fileName
-                    );
-                    $document->setContenu($fileName);
-                    $candidat->addDocument($document);
-                }
-            }
-//            Fin de l'ajout des documents
-
-            $candidat->setPhoto($photoName);
-
             return $this->redirectToRoute('candidat_index');
         }
 
@@ -220,12 +192,65 @@ class CandidatController extends Controller
      */
     public function editAction(Request $request, Candidat $candidat)
     {
+        if ($this->getUser()->getCandidat() !== $candidat) {
+
+            $this->get('session')
+                ->getFlashBag()
+                ->add('alert', 'Vous n\'avez pas accès à cette page! ');
+            return $this->redirectToRoute('index');
+
+        }
+
         $deleteForm = $this->createDeleteForm($candidat);
         $form = $this->createForm('BackBundle\Form\CandidatType', $candidat);
         $form->handleRequest($request);
 
+        $document = new Document();
+        $candidat->addDocument($document);
+
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+
+            //            Ajout du cv
+            $cv = $candidat->getCv();
+
+            $cvName = md5(uniqid()).'.'.$cv->guessExtension();
+            $cv->move(
+                $this->getParameter('upload_directory'),
+                $cvName
+            );
+            $candidat->setCv($cvName);
+//            Fin de l'ajout du cv
+
+//            Ajout de la photo
+            $photo = $candidat->getPhoto();
+            $photoName = md5(uniqid()).'.'.$photo->guessExtension();
+            $photo->move(
+                $this->getParameter('upload_directory'),
+                $photoName
+            );
+            $candidat->setPhoto($photoName);
+//            Fin de l'ajout de la photo
+
+//            Ajout des documents
+            $documents = $candidat->getDocuments();
+            foreach ($documents as $document) {
+                $file = $document->getContenu();
+                if  ($file) {
+                    $fileName = md5(uniqid()) . '.' . $file->guessExtension();
+                    $file->move(
+                        $this->getParameter('upload_directory'),
+                        $fileName
+                    );
+                    $document->setContenu($fileName);
+                    $candidat->addDocument($document);
+                }
+            }
+//            Fin de l'ajout des documents
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($candidat);
+            $em->flush();
 
             return $this->redirectToRoute('index', array('id' => $candidat->getId()));
         }
