@@ -5,8 +5,8 @@
 
 {% block content %}
 
-    <div class='container'>
-        <h1><i class="fa fa-pagelines pagelines_title" aria-hidden="true"></i> Notre actu</h1>
+    <div class='container article'>
+        <h1 class="title_actu"><i class="fa fa-pagelines pagelines_title" aria-hidden="true"></i> Notre actu</h1>
         {% for article in articles %}
             <div class='blog-posts'>
                 <div class='row post featured'>
@@ -15,7 +15,7 @@
                             <div class='date'>{% if article.date %}{{ article.date|date('d F') }}{% endif %}</div>
                         </div>
                         <div class='content'>
-                            <h2>{{ article.titre }}</h2>
+                            <h3>{{ article.titre }}</h3>
                             <p>{{ article.contenu | truncate(150, true, "...")}}</p>
                             <div class='meta'>
                                 <div class='icon-comment'><i class="fa fa-comment-o" aria-hidden="true"></i> 22 Comments</div>

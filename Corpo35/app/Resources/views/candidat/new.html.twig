@@ -174,7 +174,7 @@
         </script>
     </div>
     {% else %}
-        <p>Merci de vous créer un compte avant de vous inscrire au concours</p>
+        <a href="{{ path('fos_user_registration_register') }}" class="text-center">Merci de vous créer un compte avant de vous inscrire au concours</a>
     {% endif %}
 
 {% endblock %}
