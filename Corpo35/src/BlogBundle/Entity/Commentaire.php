@@ -134,5 +134,12 @@ class Commentaire
         return $this->date;
     }
 
+    /**
+     * @return \DateTime
+     */
+    public function __construct()
+    {
+        $this->date= new \DateTime();
+    }
 
 }

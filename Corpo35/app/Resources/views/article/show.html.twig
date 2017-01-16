@@ -47,13 +47,15 @@
     </ul>
 
     {% for  commentaire in article.commentaires %}
+        <div class="container">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <h3 class="panel-title">#{{ loop.index }} - by {{ commentaire.utilisateur}} <span class="text-right">{{ commentaire.date }}</span></h3>
+                <h3 class="panel-title">#{{ loop.index }} - par {{ commentaire.auteur}} <span class="text-right">{{ commentaire.date|date('d-m-Y') }}</span></h3>
             </div>
             <div class="panel-body">
                 {{ commentaire.commentaire}}
             </div>
+        </div>
         </div>
     {% endfor %}
 
