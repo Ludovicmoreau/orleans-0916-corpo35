@@ -8,6 +8,15 @@
 {% endblock %}
 
 {% block content %}
+    {#          Flashbag message            #}
+    {% if app.session.flashBag.has('alert') %}
+        <div class="alert alert-danger message_flash alert-dismissible text-center text-uppercase" role="alert">
+            {% for msg in app.session.flashBag.get('alert') %}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <span class="text-center">{{ msg | raw }}</span>
+            {% endfor %}
+        </div>
+    {% endif %}
 <section>
     <div class="container concours">
         <h1 class="text-center"> {{ 'Présentation du concours'| trans }}</h1>
