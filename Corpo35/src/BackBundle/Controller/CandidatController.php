@@ -93,9 +93,8 @@ class CandidatController extends Controller
                     $candidat->addDocument($document);
                 }
             }
-
-
 //            Fin de l'ajout des documents
+
             $candidat->setMiseEnAvant(0);
             $candidat->setDecision(false);
             $em = $this->getDoctrine()->getManager();
@@ -128,7 +127,6 @@ class CandidatController extends Controller
     public function showAction(Request $request,Candidat $candidat)
     {
 
-
         $em = $this->getDoctrine()->getManager();
         $users = $em->getRepository('BackBundle:User')->findAll();
         $votes = $em->getRepository('BackBundle:Vote')->findAll();
@@ -139,6 +137,34 @@ class CandidatController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+
+            //            Ajout de la photo
+            $photo = $candidat->getPhoto();
+            $photoName = md5(uniqid()).'.'.$photo->guessExtension();
+            $photo->move(
+                $this->getParameter('upload_directory'),
+                $photoName
+            );
+            $candidat->setPhoto($photoName);
+//            Fin de l'ajout de la photo
+
+//            Ajout des documents
+            $documents = $candidat->getDocuments();
+            foreach ($documents as $document) {
+                $file = $document->getContenu();
+                if  ($file) {
+                    $fileName = md5(uniqid()) . '.' . $file->guessExtension();
+                    $file->move(
+                        $this->getParameter('upload_directory'),
+                        $fileName
+                    );
+                    $document->setContenu($fileName);
+                    $candidat->addDocument($document);
+                }
+            }
+//            Fin de l'ajout des documents
+
+            $candidat->setPhoto($photoName);
 
             return $this->redirectToRoute('candidat_index');
         }
@@ -195,18 +221,18 @@ class CandidatController extends Controller
     public function editAction(Request $request, Candidat $candidat)
     {
         $deleteForm = $this->createDeleteForm($candidat);
-        $editForm = $this->createForm('BackBundle\Form\CandidatType', $candidat);
-        $editForm->handleRequest($request);
+        $form = $this->createForm('BackBundle\Form\CandidatType', $candidat);
+        $form->handleRequest($request);
 
-        if ($editForm->isSubmitted() && $editForm->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('candidat_edit', array('id' => $candidat->getId()));
+            return $this->redirectToRoute('index', array('id' => $candidat->getId()));
         }
 
         return $this->render('candidat/edit.html.twig', array(
             'candidat' => $candidat,
-            'edit_form' => $editForm->createView(),
+            'form' => $form->createView(),
             'delete_form' => $deleteForm->createView(),
 
         ));

@@ -19,7 +19,7 @@ class User extends BaseUser
 {
 
     /**
-     * @ORM\OneToOne(targetEntity="Candidat")
+     * @ORM\OneToOne(targetEntity="Candidat", mappedBy="fos_user")
      */
     private $candidat;
 

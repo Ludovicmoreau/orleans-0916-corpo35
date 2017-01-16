@@ -14,7 +14,7 @@ class Candidat
 {
 
     /**
-     * @ORM\OneToOne(targetEntity="User")
+     * @ORM\OneToOne(targetEntity="User", inversedBy="candidat")
      */
     private $fos_user;
 
