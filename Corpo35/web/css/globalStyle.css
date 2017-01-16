@@ -1,11 +1,24 @@
 p {
     font-family: 'Montserrat', sans-serif;
+    color: black;
 }
 
 h1, h2, h3, h4, h5, h6, li, a {
     font-family: 'Playfair Display', serif;
+    color: black;
 }
 
 li {
+    font-family: 'Playfair Display', serif;
+    color: black;
+}
 
+a {
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+    font-style: italic;
+}
+
+a:hover {
+    color: black;
 }
