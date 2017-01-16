@@ -3,6 +3,7 @@
 namespace BlogBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -14,17 +15,20 @@ class CommentaireType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('auteur')
+        $builder->add('auteur', TextType::class, array('attr'=>array('placeholder'=>'Utilisateur')))
                 ->add('commentaire', TextAreaType::class, array('required'=>false,
-                    'data_class'=>null,))
+                    'data_class'=>null,
+                    'attr'=>array(
+                        'class'=>'form-control',
+                        'aria-label'=>'Commentaire',
+                        'placeholder'=>'Votre commentaire *'
+
+                    )))
 
             ;
     }
 
-    public function getName()
-    {
-        return 'commentaire';
-    }
+
     
     /**
      * {@inheritdoc}

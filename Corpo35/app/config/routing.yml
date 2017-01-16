@@ -56,11 +56,15 @@ jurylist:
     type:     annotation
     prefix:   /jurylist
 
+commentaire:
+    resource: "@BlogBundle/Controller/CommentaireController.php"
+    type:     annotation
+    prefix:   /admin
 
 article:
     resource: "@BlogBundle/Controller/ArticleController.php"
     type:     annotation
-    prefix:   /blog
+    prefix:   /admin
 
 rpresse:
     resource: "@BackBundle/Controller/RpresseController.php"
