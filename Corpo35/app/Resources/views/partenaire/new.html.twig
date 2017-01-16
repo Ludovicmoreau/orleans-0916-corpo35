@@ -2,12 +2,12 @@
 
 {% form_theme form 'bootstrap_3_layout.html.twig' %}
 {% block body %}
-    <h1>Partenaire creation</h1>
+    <h1>{{ 'Création des partenaires'| trans }}</h1>
 
     {{ form_start(form) }}
         {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+        <input type="submit" value="{{ 'Créer'| trans }}" />
     {{ form_end(form) }}
 
-    <a  href="{{ path('index') }}">Retour au site</a>
+    <a  href="{{ path('index') }}">{{ 'Retour au site'| trans }}</a>
 {% endblock %}
