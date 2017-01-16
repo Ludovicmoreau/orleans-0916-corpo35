@@ -22,7 +22,7 @@
                 <div class="form-group">
                     <h3 class="text-center titreForm"> {{ 'Informations générales'| trans }}</h3>
                     <hr class="separe">
-                    <div class="form">{{ form_row(form.nom , { 'attr': {'label': 'Nom*'| trans,   'placeholder': 'Votre nom ici'|trans} }) }} </div>
+                    <div class="form">{{ form_row(form.nom , { 'attr': {'label': 'Nom'| trans,   'placeholder': 'Votre nom ici'|trans} }) }} </div>
                     <hr class="separe">
                     <div class="form">{{ form_row(form.prenom , { 'attr': {'label': 'Prénom'| trans,   'placeholder': 'Votre prénom ici'|trans} }) }}</div>
                     <hr class="separe">
@@ -82,7 +82,7 @@
                             <hr class="separe">
                             <div class="form"><li> {{ 'Et/ou'| trans }}</li></div>
                             <hr class="separe">
-                            <div class="form"><li>{{ form_row(document.lien, { 'attr': {'label': 'Lien externe'| trans  } }) }}</li></div>
+                            <div class="form"><li>{{ form_row(document.lien, { 'attr': {'label': 'Lien externe'| trans } }) }}</li></div>
                             <hr class="separe">
                         </ul>
                     {% endfor %}
