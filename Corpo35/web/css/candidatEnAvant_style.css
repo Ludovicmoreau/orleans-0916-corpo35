@@ -1,5 +1,11 @@
 .candidat {
-    margin-top: 2%;
+    margin: 2%;
+    padding: 2%;
+    box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.6);
+}
+
+.candidat:hover {
+    box-shadow: 5px 5px 15px -1px rgba(0,0,0,1);
 }
 
 .photoProfil{
