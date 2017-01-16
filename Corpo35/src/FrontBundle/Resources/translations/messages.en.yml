@@ -53,29 +53,28 @@ Les champs avec un * sont obligatoires: Fields with a * are required
 L'inscription au concours nécessite le téléchargement de documents: Contest registration requires the downloading of documents
 Veuillez passez sur la version PC du site: Please switch to the PC version of the site
 Informations générales: General informations
-Nom: Last Name
-Prénom: Name
+Nom*: Last Name*
+Prénom*: Name*
 Votre nom ici: Your Last name here
 Votre prénom ici: Your name here
-Date de naissance: Date of birth
-CV (au format PDF): CV (in PDF format)
-Numéro de rue : Street number
+Date de naissance*: Date of birth*
+CV (au format PDF)*: CV (in PDF format)*
+Numéro de rue* : Street number*
 Votre numéro de rue ici : Your street number here
-Adresse: Adress
+Adresse*: Adress*
 Votre adresse ici: Your adress here
-Ville: City
+Ville*: City*
 Votre ville ici: Your city here
-Code postal: Zipcode
+Code postal*: Zipcode*
 Votre code postal: Your zipcode here
-Téléphone : Phone number
+Téléphone* : Phone number*
 Votre numéro de téléphone ici : Your phone number here
 Parcours de formation dans le secteur de la parfumerie le cas échéant: Training course in the perfumery sector where appropriate
 Blog/site personnel ou autres: Blog website
 Informations concernant le concours: Informations about the contest
-Présentation générale : General Presentation
-Vos motivations pour le concours: Your motivation about the contest
-Profession* (ou étudiant le cas échéant): Profession (or student if applicable)
-Votre profession: Your profession
+Présentation générale* : General Presentation*
+Vos motivations pour le concours*: Your motivation about the contest*
+Profession* (ou étudiant le cas échéant): Profession (or student if applicable)*
 Autres formations et compétences: Other training and skills
 Autres formations: Other training
 Vous pouvez telecharger des documents qui vous ont inspiré pour votre création.: You can download documents that inspired you for your creation.

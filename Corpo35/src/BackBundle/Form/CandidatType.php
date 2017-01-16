@@ -57,6 +57,7 @@ class CandidatType extends AbstractType
                 )
             ))
             ->add('photo', FileType::class, array(
+                'label'=> 'Photo*',
                 'data_class'=>null,
                 'attr'=>array(
                     'class'=>'center-block'

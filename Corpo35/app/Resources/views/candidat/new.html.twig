@@ -23,49 +23,49 @@
                     <h3 class="text-center titreForm"> {{ 'Informations générales'| trans }}</h3>
                     <hr class="separe">
                     <div class="form">
-                        {{ form_label(form.nom, 'Nom'| trans) }}
+                        {{ form_label(form.nom, 'Nom*'| trans) }}
                         {{ form_widget(form.nom , { 'attr': {   'placeholder': 'Votre nom ici'|trans} }) }} </div>
                     <hr class="separe">
                     <div class="form">
-                        {{ form_label(form.prenom, 'Prénom'| trans) }}
+                        {{ form_label(form.prenom, 'Prénom*'| trans) }}
                         {{ form_widget(form.prenom , { 'attr': { 'placeholder': 'Votre prénom ici'|trans} }) }}</div>
                     <hr class="separe">
                     <div class="form">
-                        {{ form_label(form.date_naissance, 'Date de naissance'| trans) }}
+                        {{ form_label(form.date_naissance, 'Date de naissance*'| trans) }}
                         {{ form_widget(form.date_naissance) }}</div>
                     <hr class="separe">
                     <div class="form">
                         {{ form_row(form.photo) }}</div>
                     <hr class="separe">
                     <div class="form">
-                        {{ form_label(form.cv, 'CV (au format PDF)'| trans) }}
+                        {{ form_label(form.cv, 'CV (au format PDF)*'| trans) }}
                         {{ form_widget(form.cv )   }}</div>
                     <hr class="separe">
                     <div class="form">
-                        {{ form_label(form.numrue, 'Numéro de rue'| trans) }}
+                        {{ form_label(form.numrue, 'Numéro de rue*'| trans) }}
                         {{ form_widget(form.numrue , { 'attr': {   'placeholder': 'Votre numéro de rue ici'|trans} } ) }}</div>
                     <hr class="separe">
                     <div class="form">
-                        {{ form_label(form.adresse, 'Adresse'| trans) }}
+                        {{ form_label(form.adresse, 'Adresse*'| trans) }}
                         {{ form_widget(form.adresse  , { 'attr': { 'placeholder': 'Votre adresse ici'|trans  } }) }}</div>
                     <hr class="separe">
                     <div class="form">
-                        {{ form_label(form.ville, 'Ville'| trans) }}
+                        {{ form_label(form.ville, 'Ville*'| trans) }}
                         {{ form_widget(form.ville , { 'attr': {'placeholder': 'Votre ville ici'|trans  } }) }}</div>
                     <hr class="separe">
                     <div class="form">
-                        {{ form_label(form.cp, 'Code postal'| trans) }}
+                        {{ form_label(form.cp, 'Code postal*'| trans) }}
                         {{ form_widget(form.cp , { 'attr': {'placeholder': 'Votre code postal'|trans  } }) }}</div>
                     <hr class="separe">
                     <div class="form">
-                        {{ form_label(form.tel, 'Téléphone'| trans) }}
+                        {{ form_label(form.tel, 'Téléphone*'| trans) }}
                         {{ form_widget(form.tel , { 'attr': {'placeholder': 'Votre numéro de téléphone ici'|trans  } }) }}</div>
                     <hr class="separe">
                     <div class="form">
                         {{ form_row(form.mail) }}</div>
                     <hr class="separe">
                     <div class="form">
-                        {{ form_label(form.presentation, 'Présentation générale'| trans) }}
+                        {{ form_label(form.presentation, 'Présentation générale*'| trans) }}
                         {{ form_widget(form.presentation) }}</div>
                     <hr class="separe">
                     <div class="form">
@@ -75,7 +75,7 @@
                     <h3 class="text-center titreForm"> {{ 'Informations concernant le concours'| trans }}</h3>
                     <hr class="separe">
                     <div class="form">
-                        {{ form_label(form.motivation, 'Vos motivations pour le concours'| trans) }}
+                        {{ form_label(form.motivation, 'Vos motivations pour le concours*'| trans) }}
                         {{ form_widget(form.motivation) }}</div>
                     <hr class="separe">
                     <div class="form">
