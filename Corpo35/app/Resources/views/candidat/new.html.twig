@@ -50,13 +50,13 @@
                     <hr class="separe">
                     <h3 class="text-center titreForm"> {{ 'Informations concernant le concours'| trans }}</h3>
                     <hr class="separe">
-                    <div class="form">{{ form_row(form.motivation) }}</div>
+                    <div class="form">{{ form_row(form.motivation, { 'attr': {'label': 'Vos motivations pour le concours'| trans  } }) }}</div>
                     <hr class="separe">
-                    <div class="form">{{ form_row(form.profession) }}</div>
+                    <div class="form">{{ form_row(form.profession,  { 'attr': {'label': 'Profession* (ou étudiant le cas échéant)'| trans ,   'placeholder': 'Votre profession'|trans  } }) }}</div>
                     <hr class="separe">
                     <div class="form">{{ form_row(form.formation) }}</div>
                     <hr class="separe">
-                    <div class="form">{{ form_row(form.competence) }}</div>
+                    <div class="form">{{ form_row(form.competence,  { 'attr': {'label': 'Autres formations et compétences'| trans ,   'placeholder': 'Autres formations'|trans  } }) }}</div>
                     <hr class="separe">
                     <div class="form">{{ form_row(form.promotion) }}</div>
                     {#<hr class="separe">#}
@@ -69,31 +69,31 @@
                     {% for document in form.documents %}
                         <h3 class="text-center titreForm">Documents</h3>
                         <p class="text-center">
-                            Vous pouvez telecharger des documents qui vous ont inspiré pour votre création.<br/>
-                            Les types de documents supportés sont "image", "vidéo", "musique" ou "pdf".<br/>
-                            <span class="attention">Attention les documents ne peuvent pas dépasser 2MB</span>.<br/>
-                            Vous pouvez également ajouter un lien vers un site externe.
+                            {{ 'Vous pouvez telecharger des documents qui vous ont inspiré pour votre création.'| trans }}<br/>
+                            {{ 'Les types de documents supportés sont "image", "vidéo", "musique" ou "pdf"'| trans }}.<br/>
+                            <span class="attention"> {{ 'Attention les documents ne peuvent pas dépasser 2MB'| trans }}</span>.<br/>
+                             {{ 'Vous pouvez également ajouter un lien vers un site externe'| trans }}.
                         </p>
                         <hr class="separe">
                         <ul class="documents" data-prototype="{{ form_widget(form.documents.vars.prototype)|e('html_attr') }}">
-                            <div class="form"><li>{{ form_row(document.type) }}</li></div>
+                            <div class="form"><li>{{ form_row(document.type,  { 'attr': {'label': 'Type de documents'| trans  } }) }}</li></div>
                             <hr class="separe">
-                            <div class="form"><li>{{ form_row(document.contenu) }}</li></div>
+                            <div class="form"><li>{{ form_row(document.contenu, { 'attr': {'label': 'Contenu'| trans  } }) }}</li></div>
                             <hr class="separe">
-                            <div class="form"><li>Et/ou</li></div>
+                            <div class="form"><li> {{ 'Et/ou'| trans }}</li></div>
                             <hr class="separe">
-                            <div class="form"><li>{{ form_row(document.lien) }}</li></div>
+                            <div class="form"><li>{{ form_row(document.lien, { 'attr': {'label': 'Lien externe'| trans  } }) }}</li></div>
                             <hr class="separe">
                         </ul>
                     {% endfor %}
                     </div>
                     <div class="row">
                         <div class="col-xs-6">
-                            <input type="submit" value="Créer" class="btn-success btn-lg center-block"/>
+                            <input type="submit" value=" {{ 'Créer'| trans }}" class="btn-success btn-lg center-block"/>
                         </div>
                         <div class="col-xs-6">
                             <a href="{{ path('index') }}">
-                            <input type="button" class="btn-danger btn-lg center-block" value="Retour">
+                            <input type="button" class="btn-danger btn-lg center-block" value="{{ 'Retour'| trans }}">
                             </a>
                         </div>
                     </div>
@@ -102,7 +102,7 @@
             var $collectionHolder;
 
             // setup an "add a tag" link
-            var $addDocumentLink = $('<div class="form"><a href="#" class="add_document_link">Ajouter un document</a></div>');
+            var $addDocumentLink = $('<div class="form"><a href="#" class="add_document_link">Ajouter un document </a></div>');
             var $newDocumentLi = $('<li></li>').append($addDocumentLink);
 
 

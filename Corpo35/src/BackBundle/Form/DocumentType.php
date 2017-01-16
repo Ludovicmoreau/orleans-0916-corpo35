@@ -20,7 +20,6 @@ class DocumentType extends AbstractType
     {
         $builder
             ->add('type', ChoiceType::class, array(
-                'label'=>'Type de document',
 //                'data_class'=>null,
                 'required'=>false,
                 'choices' => array(
@@ -45,7 +44,7 @@ class DocumentType extends AbstractType
                 ))
 
             ->add('lien', TextType::class, array(
-                'label'=>'Lien externe',
+
 //                'data_class'=>null,
                 'required'=>false,
                 'attr'=>array(

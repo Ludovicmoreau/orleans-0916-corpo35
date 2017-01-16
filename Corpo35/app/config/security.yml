@@ -9,7 +9,7 @@ security:
         ROLE_JURY:        ROLE_USER
         ROLE_ISIPCA:        ROLE_USER
         ROLE_CANDIDAT:        ROLE_USER
-        ROLE_ADMIN:       ROLE_JURY, ROLE_PARTENAIRE, ROLE_ISIPCA
+        ROLE_ADMIN:       ROLE_JURY, ROLE_PARTENAIRE, ROLE_ISIPCA, ROLE_CANDIDAT
 
 
     providers:
