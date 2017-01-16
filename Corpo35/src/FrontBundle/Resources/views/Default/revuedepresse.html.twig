@@ -12,15 +12,15 @@
 {% block content %}
     {% for Rpresse in listRpresse %}
     <div class="wrap">
-
+        <div class="col-md-4">
         <div class="tile">
             <img src="{{ asset('upload/'~Rpresse.document|e) }}" class="img-responsive profil" alt="">
             <div class="text">
                 <h1 class="animate-text">{{ Rpresse.date|date('Y') }}</h1>
                 <h2 class="animate-text">{{ Rpresse.source }}</h2>
                 <p class="animate-text">{{ Rpresse.description }}</p>
-
             </div>
+        </div>
         </div>
 
         <div class="tile">
