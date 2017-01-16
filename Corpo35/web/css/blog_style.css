@@ -1,6 +1,5 @@
 
 /* clearfix */
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,800|Merriweather:300);
 @import url(http://markmurray.co/codepen/customstyle.css);
 *, *:before, *:after {
     -moz-box-sizing: border-box;
@@ -8,11 +7,17 @@
     box-sizing: border-box;
 }
 
+.title_actu{
+    font-family: 'Playfair Display', serif;
+    color: black;
+}
+
 a, a:visited {
     display: block;
     text-decoration: none;
     color: inherit;
 }
+
 .container {
     padding: 0.5em 1em 1em;
     max-width: calc(1400px + 1em);
@@ -120,6 +125,7 @@ a, a:visited {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-family: 'Monserrat Bold', serif;
 }
 .container .blog-posts .post .content p {
     font-weight: 300;
