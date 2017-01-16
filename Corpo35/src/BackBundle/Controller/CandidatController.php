@@ -8,6 +8,7 @@ use BackBundle\Entity\Document;
 use BackBundle\Entity\User;
 use BackBundle\Entity\Vote;
 use BackBundle\Entity\Validation;
+use FOS\UserBundle\FOSUserBundle;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -48,7 +49,8 @@ class CandidatController extends Controller
         $candidat = new Candidat();
         $document = new Document();
         $candidat->addDocument($document);
-
+        $idUser = $this->container->get('security.context')->getToken()->getUser();
+        $candidat->setFosUser($idUser);
 
         $form = $this->createForm('BackBundle\Form\CandidatType', $candidat);
         $form->handleRequest($request);
@@ -102,8 +104,8 @@ class CandidatController extends Controller
 //          Ajout FlashBag message après l'envoi du formulaire
             $this->get('session')
                 ->getFlashBag()
-                ->add('success', 'Merci pour votre inscrition, votre candidature sera étudiée attentivement.
-                    Nous vous ferons part de notre décision par mail.<br/> Voici les informations qui seront visible
+                ->add('success', 'Merci pour votre inscription, votre candidature sera étudiée attentivement.
+                    Nous vous ferons part de notre décision par mail.<br/> Voici les informations qui seront visibles
                     par les jurés.');
 
             return $this->redirectToRoute('candidat_show', array(
@@ -125,7 +127,6 @@ class CandidatController extends Controller
     public function showAction(Request $request,Candidat $candidat)
     {
 
-        //$this->oneVote();
 
         $em = $this->getDoctrine()->getManager();
         $users = $em->getRepository('BackBundle:User')->findAll();

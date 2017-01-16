@@ -19,6 +19,29 @@ class User extends BaseUser
 {
 
     /**
+     * @ORM\OneToOne(targetEntity="Candidat")
+     */
+    private $candidat;
+
+    /**
+     * @return mixed
+     */
+    public function getCandidat()
+    {
+        return $this->candidat;
+    }
+
+    /**
+     * @param mixed $candidat
+     */
+    public function setCandidat($candidat)
+    {
+        $this->candidat = $candidat;
+    }
+
+
+
+    /**
      * @ORM\OneToMany(targetEntity="Validation", mappedBy="user")
      */
     private $validations;

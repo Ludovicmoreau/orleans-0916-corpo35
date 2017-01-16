@@ -7,11 +7,11 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Photo</th>
                 <th>Titre</th>
                 <th>Contenu</th>
                 <th>Auteur</th>
                 <th>Date</th>
+                <th>Photo</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -19,11 +19,11 @@
         {% for article in articles %}
             <tr>
                 <td><a href="{{ path('article_show', { 'id': article.id }) }}">{{ article.id }}</a></td>
-                <td><img src="{{ asset('upload/' ~  article.photo )}}"></td>
                 <td>{{ article.titre }}</td>
                 <td>{{ article.contenu }}</td>
                 <td>{{ article.auteur }}</td>
                 <td>{% if article.date %}{{ article.date|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ article.photo }}</td>
                 <td>
                     <ul>
                         <li>

@@ -1,31 +1,49 @@
-.presentation{
-    border:1px solid black;
-    border-radius: 6px;
-}
-#photo{
-    max-width: 300px;
-    max-height: 300px;
-    padding:15px;
-}
-.titre{
-    padding-top: 15px;
-    text-decoration: underline;
-    font-weight: 600;
-    font-size: 20px;
-}
-.text{
-    text-align: justify;
+.candidat {
+    margin-top: 2%;
 }
 
-.video{
-    padding-top: 15px;
+.photoProfil{
+    width: 50%;
 }
-.audio{
-    padding:15px;
+
+.nomPrenom {
+    position: absolute;
+    margin: auto;
+    left: 45%;
+    z-index: 1;
+    /*font-family: 'Montserrat', sans-serif;*/
+    font-family: 'Playfair Display', serif;
+    font-size: 400%;
+    font-weight: 900;
+    color: black;
 }
-.soustitre{
-    padding-top: 15px;
-    text-decoration: underline;
-    font-weight: 500;
-    font-size: 15px;
+
+.profession {
+    margin-top: 20%;
+    margin-left: 5%
+;
+}
+
+.presentation {
+    margin-top: 10%;
+    margin-left: 5%;
+}
+
+.motivation {
+    margin-top: 5%;
+}
+
+.motivationTitre {
+    font-weight: bold;
+}
+
+.logoPageVitrine {
+    width: 80%;
+}
+
+.separeLogo {
+    margin-top: 40%;
+    height: 1px;
+    width: 50%;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
 }

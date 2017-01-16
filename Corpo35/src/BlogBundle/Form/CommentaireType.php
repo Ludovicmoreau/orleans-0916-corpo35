@@ -1,26 +1,29 @@
 <?php
 
-namespace BackBundle\Form;
+namespace BlogBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
-class ArticleType extends AbstractType
+class CommentaireType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('titre')
-                ->add('contenu')
-                ->add('auteur')
-                ->add('date', DateType::class)
-                ->add('photo', FileType::class)
+        $builder->add('auteur')
+                ->add('commentaire', TextAreaType::class, array('required'=>false,
+                    'data_class'=>null,))
+
             ;
+    }
+
+    public function getName()
+    {
+        return 'commentaire';
     }
     
     /**
@@ -29,7 +32,7 @@ class ArticleType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'BackBundle\Entity\Article'
+            'data_class' => 'BlogBundle\Entity\Commentaire'
         ));
     }
 
@@ -38,7 +41,7 @@ class ArticleType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'backbundle_article';
+        return 'blogbundle_commentaire';
     }
 
 

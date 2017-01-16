@@ -212,18 +212,18 @@ class Candidat
     private $cv;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="etat", type="integer")
-     */
-    private $etat;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="photo", type="string", length=255)
      */
     private $photo;
+
+    /**
+     * @var datetime
+     *
+     * @ORM\Column(name="dateinscription", type="datetime")
+     */
+    private $dateinscription;
 
     /**
      * @return string
@@ -598,6 +598,7 @@ class Candidat
     public function __construct()
     {
         $this->documents = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->dateinscription = (new \DateTime());
     }
 
     /**
@@ -744,18 +745,18 @@ class Candidat
     }
 
     /**
-     * @param int $etat
+     * @param datetime $dateinscription
      */
-    public function setEtat($etat)
+    public function setDateinscription($dateinscription)
     {
-        $this->etat = $etat;
+        $this->dateinscription = $dateinscription;
     }
 
     /**
-     * @return int
+     * @return datetime
      */
-    public function getEtat()
+    public function getDateinscription()
     {
-        return $this->etat;
+        return $this->dateinscription;
     }
 }

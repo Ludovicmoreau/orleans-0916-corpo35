@@ -43,9 +43,9 @@ class Promotion
 
     /**
      * @var datetime
-     * @ORM\Column(name="enddate", type="datetime")
+     * @ORM\Column(name="datelimite", type="datetime")
      */
-    private $enddate;
+    private $datelimite;
 
     /**
      * Get id
@@ -121,18 +121,32 @@ class Promotion
     }
 
     /**
-     * @param DateTime $enddate
+     * @param DateTime $datelimite
      */
-    public function setEnddate($enddate)
+    public function setEnddate($datelimite)
     {
-        $this->enddate = $enddate;
+        $this->datelimite = $datelimite;
     }
 
     /**
      * @return DateTime
      */
-    public function getEnddate()
+    public function getDatelimite()
     {
-        return $this->enddate;
+        return $this->datelimite;
+    }
+
+    /**
+     * Set datelimite
+     *
+     * @param \DateTime $datelimite
+     *
+     * @return Promotion
+     */
+    public function setDatelimite($datelimite)
+    {
+        $this->datelimite = $datelimite;
+
+        return $this;
     }
 }

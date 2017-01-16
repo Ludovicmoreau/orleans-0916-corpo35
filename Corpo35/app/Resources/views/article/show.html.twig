@@ -25,6 +25,10 @@
                 <th>Date</th>
                 <td>{% if article.date %}{{ article.date|date('Y-m-d') }}{% endif %}</td>
             </tr>
+            <tr>
+                <th>Photo</th>
+                <td>{{ article.photo }}</td>
+            </tr>
         </tbody>
     </table>
 
@@ -41,5 +45,18 @@
             {{ form_end(delete_form) }}
         </li>
     </ul>
+
+    {% for  commentaire in article.commentaires %}
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">#{{ loop.index }} - by {{ commentaire.utilisateur}} <span class="text-right">{{ commentaire.date }}</span></h3>
+            </div>
+            <div class="panel-body">
+                {{ commentaire.commentaire}}
+            </div>
+        </div>
+    {% endfor %}
+
+
 
 {% endblock %}

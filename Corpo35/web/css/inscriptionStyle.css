@@ -9,6 +9,10 @@
     padding: 1%;
 }
 
+.attention {
+    color: red;
+}
+
 li {
     list-style: none;
 }

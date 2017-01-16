@@ -16,6 +16,7 @@
             <p class="hidden-lg hidden-md">{{ 'L\'inscription au concours nécessite le téléchargement de documents'| trans }}.<br/> {{ 'Veuillez passez sur la version PC du site'| trans }}.</p>
         </div>
     </div>
+    {% if is_granted ('ROLE_CANDIDAT') %}
     <div class="container hidden-xs hidden-sm">
                 {{ form_start(form) }}
                 <div class="form-group">
@@ -57,7 +58,7 @@
                     <hr class="separe">
                     <div class="form">{{ form_row(form.competence) }}</div>
                     <hr class="separe">
-                    <div class="form">{{ form_row(form.promotion) }}</div>
+                    <div class="form">{{ form_row(form.promotion, { 'attr' : { 'style':'display:none'}}) }}</div>
                     {#<hr class="separe">#}
                     {#{% for registration in form.fos_user %}#}
                         {#{{ form_start(formRegistration) }}#}
@@ -68,9 +69,10 @@
                     {% for document in form.documents %}
                         <h3 class="text-center titreForm">Documents</h3>
                         <p class="text-center">
-                            Vous pouvez telecharger des documents qui vous ont inspiré pour votre création<br/>
+                            Vous pouvez telecharger des documents qui vous ont inspiré pour votre création.<br/>
                             Les types de documents supportés sont "image", "vidéo", "musique" ou "pdf".<br/>
-                            Vous pouvez également ajouter un lien vers un site externe
+                            <span class="attention">Attention les documents ne peuvent pas dépasser 2MB</span>.<br/>
+                            Vous pouvez également ajouter un lien vers un site externe.
                         </p>
                         <hr class="separe">
                         <ul class="documents" data-prototype="{{ form_widget(form.documents.vars.prototype)|e('html_attr') }}">
@@ -169,8 +171,10 @@
                     $documentFormLi.remove();
                 });
             }
-            
         </script>
-        </div>
+    </div>
+    {% else %}
+        <p>Merci de vous créer un compte avant de vous inscrire au concours</p>
+    {% endif %}
 
 {% endblock %}

@@ -48,16 +48,4 @@ class DefaultController extends Controller
     {
         return $this->render('FrontBundle:Default:contact.html.twig');
     }
-
-    /**
-     * @Route("/laureats", name="laureats")
-     */
-    public function ShowCandidatAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-        $listCandidat = $em->getRepository('BackBundle:Candidat')->findAll();
-        return $this->render('FrontBundle:Default:laureats.html.twig', array(
-            'listCandidat' => $listCandidat
-        ));
-    }
 }

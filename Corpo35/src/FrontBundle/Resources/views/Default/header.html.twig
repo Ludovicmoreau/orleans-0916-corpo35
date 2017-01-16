@@ -46,6 +46,8 @@
                             <li><a href="{{ path('fos_user_security_logout') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i>  {{ 'Se déconnecter'| trans }}</a></li>
                         {% elseif is_granted ('ROLE_ISIPCA') %}
                             <li><a href="{{ path('fos_user_security_logout') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i>  {{ 'Se déconnecter'| trans }}</a></li>
+                        {% elseif is_granted ('ROLE_CANDIDAT') %}
+                            <li><a href="{{ path('fos_user_security_logout') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i>  {{ 'Se déconnecter'| trans }}</a></li>
                         {% else %}
                             <li><a href="{{ path('fos_user_security_login') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i>  {{ 'Se connecter'| trans }}</a></li>
                         {% endif %}
@@ -59,7 +61,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-offset-4 col-xs-4">
-                        <img src="{{ asset('images/CORPO35_LOGOTYPE.png') }}" class="img-responsive center-block logoHeader" alt="Logo Corpo35">
+                        <a href="{{ path('index') }}"><img src="{{ asset('images/CORPO35_LOGOTYPE.png') }}" class="img-responsive center-block logoHeader" alt="Logo Corpo35"></a>
                     </div>
                 </div>
             </div>
@@ -83,14 +85,15 @@
                         <div class="col-xs-2 text-center Navbar2 borderNavbar2"><a class="linkNavbar2" href="{{ path('candidat_new') }}"> {{ 'S\'inscrire'| trans }}</a></div>
                         <div class="col-xs-2 text-center Navbar2 borderNavbar2"><a class="linkNavbar2" href="{{ path('candidats_choisis') }}"> {{ 'Candidats'| trans }}</a></div>
                         <div class="col-xs-2 text-center Navbar2 borderNavbar2"><a class="linkNavbar2" href="{{ path('blog') }}">Blog</a></div>
-                        <div class="col-xs-2 dropdown text-center Navbar2">
-                            <a href="#" class="dropdown-toggle linkNavbar2" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Promotions<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">2016</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="{{ path('archives') }}">Archives</a></li>
-                            </ul>
-                        </div>
+                        <div class="col-xs-2 text-center Navbar2 borderNavbar2"><a class="linkNavbar2" href="{{ path('promotion') }}">Promotion</a></div>
+                        {#<div class="col-xs-2 dropdown text-center Navbar2">#}
+                            {#<a href="#" class="dropdown-toggle linkNavbar2" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Promotion<span class="caret"></span></a>#}
+                            {#<ul class="dropdown-menu">#}
+                                {#<li><a href="#">2016</a></li>#}
+                                {#<li role="separator" class="divider"></li>#}
+                                {#<li><a href="{{ path('archives') }}">Archives</a></li>#}
+                            {#</ul>#}
+                        {#</div>#}
                     </div>
                 </div>
             </div>

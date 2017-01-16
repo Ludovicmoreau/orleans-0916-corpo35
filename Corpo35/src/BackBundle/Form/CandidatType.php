@@ -176,6 +176,8 @@ class CandidatType extends AbstractType
                 'by_reference'=>false,
                 'required'=>false,
             ))
+
+//            ->add('dateinscription', 'hidden');
 //            ->add('fos_user', CollectionType::class, array(
 //                'entry_type'=>RegistrationFormType::class,
 //            ))

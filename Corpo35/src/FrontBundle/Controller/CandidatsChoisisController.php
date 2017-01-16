@@ -3,6 +3,7 @@
 namespace FrontBundle\Controller;
 
 use BackBundle\Entity\Candidat;
+use BackBundle\Entity\Promotion;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
