@@ -49,6 +49,7 @@ class CandidatController extends Controller
         $candidat = new Candidat();
         $document = new Document();
         $candidat->addDocument($document);
+
         $idUser = $this->container->get('security.context')->getToken()->getUser();
         $candidat->setFosUser($idUser);
 
@@ -142,8 +143,6 @@ class CandidatController extends Controller
             return $this->redirectToRoute('candidat_index');
         }
 
-
-
         $deleteForm = $this->createDeleteForm($candidat);
         return $this->render('candidat/show.html.twig', array(
             'users'=>$users,
@@ -184,8 +183,6 @@ class CandidatController extends Controller
 
             return $this->render('BackBundle:Default:DejaVote.html.twig', array());
         }
-
-
     }
 
 

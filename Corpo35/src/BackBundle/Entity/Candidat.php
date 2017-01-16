@@ -72,6 +72,31 @@ class Candidat
     private $nom;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="classement", type="integer", nullable=true)
+     */
+    private $classement;
+
+    /**
+     * @return int
+     */
+    public function getClassement()
+    {
+        return $this->classement;
+    }
+
+    /**
+     * @param int $classement
+     */
+    public function setClassement($classement)
+    {
+        $this->classement = $classement;
+    }
+
+
+
+    /**
      * @var string
      *
      * @ORM\Column(name="prenom", type="string", length=255)

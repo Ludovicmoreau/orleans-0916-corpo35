@@ -33,6 +33,15 @@
                                 {% set totalNote = totalNote + vote.note %}
                             {% endfor %}
                             <p class="text-center">Total des notes: {{ totalNote }}</p>
+                            {% if candidat.classement != null %}
+                                {% if candidat.classement == 1 %}
+                                    <p class="text-center">Classement du candidat: <br/>{{ candidat.classement }}er</p>
+                                {% else %}
+                                    <p class="text-center">Classement du candidat: <br/>{{ candidat.classement }}ème</p>
+                                {% endif %}
+                            {% else %}
+                                <p class="text-center">Classement du candidat: <br/>Pas encore de classement pour ce candidat</p>
+                            {% endif %}
                         {% endif %}
                     </div>
                     <p>{{ candidat.numrue }} {{ candidat.adresse }} {{ candidat.ville }} {{ candidat.cp }}</p>
