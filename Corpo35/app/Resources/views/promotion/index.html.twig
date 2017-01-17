@@ -23,8 +23,11 @@
                         <li>
                             <a href="{{ path('promotion_show', { 'id': promotion.id }) }}">show</a>
                         </li>
-
-                            <input type="checkbox" name="statut" id="statut" /> <label for="statut"><a href="#" target="_blank">Promotion en cours</a></label>
+                            {% if promotion.encours %}
+                                Promo en cours
+                            {% else  %}
+                                <a href="{{ path('passer_promotion_encours', {'id': promotion.id}) }}" >Passer la promotion en cours</a>
+                            {% endif %}
                     </ul>
                 </td>
             </tr>

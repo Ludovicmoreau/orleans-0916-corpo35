@@ -134,15 +134,26 @@ class PromotionController extends Controller
             ->getForm()
         ;
     }
-//
-//    /**
-//     * @Route"/{id} name="promotion_index"
-//     */
-//    public function promotionEnCours()
-//    {
-//        $promotionEnCours = $em->getRepository()->findByEnCours(true);
-//        return $this->rendirectToRoute('promotion_index');
-//
-//    }
+
+    /**
+     * @Route("/promo-en-cours/{id}", name="passer_promotion_encours")
+     */
+    public function promotionEnCoursAction(Promotion $promotion)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $promotionEnCoursActual = $em->getRepository('BackBundle:Promotion')->findOneByEncours(1);
+        if ($promotionEnCoursActual) {
+            $promotionEnCoursActual->setEncours(0);
+            $em->persist($promotionEnCoursActual);
+        }
+
+        $promotion->setEncours(1);
+        $em->persist($promotion);
+
+        $em->flush();
+        return $this->redirectToRoute('promotion_index', array(
+
+        ));
+    }
 }
 

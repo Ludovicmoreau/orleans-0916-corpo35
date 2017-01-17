@@ -102,6 +102,15 @@ class CandidatController extends Controller
             $em->persist($candidat);
             $em->flush();
 
+//            // Set de la promotion
+//            $promotion_id ="";
+//                if ($dateinscription > $datelimite) {
+//                    $promotion_id = $promotionEnCours;
+//                }elseif {
+//                    ($dateinscription < $datelimite )
+//                        $promotion_id = $promotion;
+//                }
+
 //          Ajout FlashBag message après l'envoi du formulaire
             $this->get('session')
                 ->getFlashBag()
