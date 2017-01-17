@@ -134,15 +134,15 @@ class PromotionController extends Controller
             ->getForm()
         ;
     }
-
-    /**
-     * @Route"/{id} name="promotion_index"
-     */
-    public function promotionEnCours()
-    {
-        $promotionEnCours = $em->getRepository()->findByEnCours(true);
-        return $this->rendirectToRoute('promotion_index');
-
-    }
+//
+//    /**
+//     * @Route"/{id} name="promotion_index"
+//     */
+//    public function promotionEnCours()
+//    {
+//        $promotionEnCours = $em->getRepository()->findByEnCours(true);
+//        return $this->rendirectToRoute('promotion_index');
+//
+//    }
 }
 
