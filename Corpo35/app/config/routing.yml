@@ -1,3 +1,7 @@
+back_user:
+    resource: "@BackBundle/Controller/UserController.php"
+    type:     annotation
+
 blog:
     resource: "@BlogBundle/Controller/"
     type:     annotation
@@ -37,6 +41,11 @@ fos_user_change_password:
     prefix: /profile
 
 agenda:
+    resource: "@BackBundle/Controller/AgendaController.php"
+    type:     annotation
+    prefix:   /admin
+
+user:
     resource: "@BackBundle/Controller/AgendaController.php"
     type:     annotation
     prefix:   /admin

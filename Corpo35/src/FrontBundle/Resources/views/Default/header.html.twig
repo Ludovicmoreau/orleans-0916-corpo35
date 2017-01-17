@@ -27,28 +27,21 @@
                 <ul class="nav navbar-nav navbar-right">
                         {% if is_granted ('ROLE_ADMIN') %}
                             <li><a href="{{ path('backIndex') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Administration</a></li>
+                        {% endif %}
+                        {% if is_granted ('ROLE_JURY') %}
                             <li><a href="{{ path('backJury') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Jury</a></li>
+                        {% endif %}
+                        {% if is_granted ('ROLE_PARTENAIRE') %}
                             <li><a href="{{ path('backPartenaire') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> {{ 'Partenaires'| trans }}</a></li>
-                            <li><a href="{{ path('backIsipca') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Isipca</a></li>
-                        {% elseif is_granted ('ROLE_JURY') %}
-                            <li><a href="{{ path('backJury') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Jury</a></li>
-                        {% elseif is_granted ('ROLE_PARTENAIRE') %}
-                            <li><a href="{{ path('backPartenaire') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> {{ 'Partenaires'| trans }}</a></li>
-                        {% elseif is_granted ('ROLE_ISIPCA') %}
+                        {% endif %}
+                        {% if is_granted ('ROLE_ISIPCA') %}
                              <li><a href="{{ path('backIsipca') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Isipca</a></li>
-                        {% elseif is_granted ('ROLE_CANDIDAT') %}
+                        {% endif %}
+                        {% if is_granted ('ROLE_CANDIDAT') %}
                             <li><a href="{{ path('candidat_edit', { 'id': app.user.candidat.id }) }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Editer mon profil</a></li>
                         {% endif %}
-                        {% if is_granted ('ROLE_ADMIN') %}
+                        {% if is_granted ('ROLE_USER') %}
                             <li><a href="{{ path('fos_user_security_logout') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> {{ 'Se déconnecter'| trans }}</a></li>
-                        {% elseif is_granted ('ROLE_JURY') %}
-                            <li><a href="{{ path('fos_user_security_logout') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i>  {{ 'Se déconnecter'| trans }}</a></li>
-                        {% elseif is_granted ('ROLE_PARTENAIRE') %}
-                            <li><a href="{{ path('fos_user_security_logout') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i>  {{ 'Se déconnecter'| trans }}</a></li>
-                        {% elseif is_granted ('ROLE_ISIPCA') %}
-                            <li><a href="{{ path('fos_user_security_logout') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i>  {{ 'Se déconnecter'| trans }}</a></li>
-                        {% elseif is_granted ('ROLE_CANDIDAT') %}
-                            <li><a href="{{ path('fos_user_security_logout') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i>  {{ 'Se déconnecter'| trans }}</a></li>
                         {% else %}
                             <li><a href="{{ path('fos_user_security_login') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i>  {{ 'Se connecter'| trans }}</a></li>
                         {% endif %}
