@@ -136,6 +136,9 @@ class PromotionController extends Controller
     }
 
     /**
+     *
+     * Activer une promotion
+     *
      * @Route("/promo-en-cours/{id}", name="passer_promotion_encours")
      */
     public function promotionEnCoursAction(Promotion $promotion)
