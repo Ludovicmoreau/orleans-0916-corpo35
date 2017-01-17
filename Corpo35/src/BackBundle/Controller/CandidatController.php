@@ -27,15 +27,20 @@ class CandidatController extends Controller
      * Lists all candidat entities.
      *
      * @Route("/list", name="candidat_index")
-     * @Method("GET")
+     *
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
+        $form = $this->createForm(\BackBundle\Form\RechercheType::class);
+        $form->handleRequest($request);
         $em = $this->getDoctrine()->getManager();
-
         $candidats = $em->getRepository('BackBundle:Candidat')->findAll();
-
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+            $candidats  = $em->getRepository('BackBundle:Candidat')->findByMySearch($data);
+        }
         return $this->render('candidat/index.html.twig', array(
+            'form'=>$form->createView(),
             'candidats' => $candidats,
         ));
     }

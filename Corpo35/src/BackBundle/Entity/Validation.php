@@ -14,7 +14,7 @@ class Validation
 {
     /**
      *
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="votes")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="validations")
      *
      */
     private $user;
