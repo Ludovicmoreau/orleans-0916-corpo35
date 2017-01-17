@@ -174,6 +174,10 @@ class CandidatType extends AbstractType
                 'by_reference'=>false,
                 'required'=>false,
             ))
+
+//            ->add('fos_user', CollectionType::class, array(
+//                'entry_type'=>RegistrationFormType::class,
+//            ))
         ;
     }
 

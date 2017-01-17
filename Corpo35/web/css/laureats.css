@@ -51,7 +51,7 @@ section.success {
 #portfolio .portfolio-item .portfolio-link .caption{
     background: rgba(34, 34, 34, 0.9);
     position: absolute;
-    width: 100%;
+    width: 85%;
     height: 100%;
     opacity: 0;
     transition: all ease 0.5s;

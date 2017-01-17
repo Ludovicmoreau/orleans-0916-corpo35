@@ -199,7 +199,7 @@ class Article
     /**
      * Get commentaires
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getCommentaires()
     {
@@ -207,7 +207,6 @@ class Article
     }
 
     /**
-<<<<<<< HEAD
      * @param string $commentaires
      */
     public function setCommentaires($commentaires)
@@ -216,8 +215,6 @@ class Article
     }
 
     /**
-=======
->>>>>>> d4f155e4f58e68d69ac16d473361b0199892b366
      * @param string $photo
      */
     public function setPhoto($photo)

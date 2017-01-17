@@ -88,6 +88,13 @@
                         {{ form_label(form.competence, 'Autres formations et compétences'| trans) }}
                         {{ form_widget(form.competence,  { 'attr': {'placeholder': 'Autres formations'|trans  } }) }}</div>
                     <hr class="separe">
+                    <div class="form">{{ form_row(form.promotion, { 'attr' : { 'style':'display:none'}}) }}</div>
+                    {#<hr class="separe">#}
+                    {#{% for registration in form.fos_user %}#}
+                        {#{{ form_start(formRegistration) }}#}
+                        {#{{ form_row(form.fos_user) }}#}
+                        {#{{ form_end }}#}
+                    {#{% endfor %}#}
                     <div class="form">{{ form_row(form.promotion) }}</div>
                     <hr class="separe">
                     {% for document in form.documents %}

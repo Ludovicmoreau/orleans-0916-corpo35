@@ -102,11 +102,20 @@ class CandidatController extends Controller
             $em->persist($candidat);
             $em->flush();
 
+//            // Set de la promotion
+//            $promotion_id ="";
+//                if ($dateinscription > $datelimite) {
+//                    $promotion_id = $promotionEnCours;
+//                }elseif {
+//                    ($dateinscription < $datelimite )
+//                        $promotion_id = $promotion;
+//                }
+
 //          Ajout FlashBag message après l'envoi du formulaire
             $this->get('session')
                 ->getFlashBag()
-                ->add('success', 'Merci pour votre inscrition, votre candidature sera étudiée attentivement.
-                    Nous vous ferons part de notre décision par mail.<br/> Voici les informations qui seront visible
+                ->add('success', 'Merci pour votre inscription, votre candidature sera étudiée attentivement.
+                    Nous vous ferons part de notre décision par mail.<br/> Voici les informations qui seront visibles
                     par les jurés.');
 
             return $this->redirectToRoute('candidat_show', array(

@@ -1,0 +1,36 @@
+{% extends 'FrontBundle:Default:layout.html.twig' %}
+
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/concours_style.css') }}">
+{% endblock %}
+
+{% block content %}
+    <section>
+        <div class="container concours">
+            <h1 class="text-center">Présentation de la Maison Parfums Berry</h1>
+            <div class="row">
+                <aside>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <article>
+                            <h2 class="titre-concours"></h2>
+                            <p class="text-concours">
+                                Charles et Cécile Berry, ont ouvert leur Maison de parfums Berry en 2010, rue Damiette à Rouen
+                                en Normandie. Le couple, autodidacte, a un goût prononcé pour les patrimoines olfactifs et culturels,
+                                et souhaite mettre en valeur la belle et traditionnelle parfumerie française. <br />
+                                Les parfums de la Maison Berry sont produits avec des matières premières d'exception, ce qui leur
+                                apportent prestige et élégance. Ils sont produits exclusivement et intégralement en France. <br />
+                                Créer un parfum c'est avant toutune façon intime d'écrire des émotions, mettre en forme des images,
+                                des souvenirs, qui dévoilent peu à peu.
+                                Les parfums de la Maison Berry invitent les "voyageurs" à suivre leurs auteurs à travers les belles
+                                matières, une sensibilité originale, un univers unique.
+                            </p>
+                        </article>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+

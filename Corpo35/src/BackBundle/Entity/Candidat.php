@@ -244,6 +244,13 @@ class Candidat
     private $photo;
 
     /**
+     * @var datetime
+     *
+     * @ORM\Column(name="dateinscription", type="datetime")
+     */
+    private $dateinscription;
+
+    /**
      * @return string
      */
     public function getPhoto()
@@ -616,6 +623,7 @@ class Candidat
     public function __construct()
     {
         $this->documents = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->dateinscription = (new \DateTime());
     }
 
     /**
@@ -761,4 +769,19 @@ class Candidat
         return $this->miseEnAvant;
     }
 
+    /**
+     * @param datetime $dateinscription
+     */
+    public function setDateinscription($dateinscription)
+    {
+        $this->dateinscription = $dateinscription;
+    }
+
+    /**
+     * @return datetime
+     */
+    public function getDateinscription()
+    {
+        return $this->dateinscription;
+    }
 }
