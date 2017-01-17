@@ -11,7 +11,7 @@ back:
 front:
     resource: "@FrontBundle/Controller/"
     type:     annotation
-    prefix:   /
+    prefix:   /{_locale}
 
 app:
     resource: "@AppBundle/Controller/"
@@ -49,7 +49,7 @@ document:
 candidat:
     resource: "@BackBundle/Controller/CandidatController.php"
     type:     annotation
-    prefix:   /candidat
+    prefix:   /{_locale}/candidat
 
 jurylist:
     resource: "@BackBundle/Controller/JuryController.php"
@@ -97,7 +97,4 @@ newisipca:
     type:     annotation
     prefix:   /isipcanew
 
-translation:
-    path:     /traduction
-    defaults: { _controller: FrontBundle:Default:translation }
 

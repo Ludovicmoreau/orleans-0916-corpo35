@@ -96,6 +96,11 @@
                         </div>
                     </div>
                 </div>
+                <ul class="lang">
+                    <li><a href="{{ path('index', {'_locale':'fr'}) }}">Français</a></li>
+                    <li><a href="{{ path('index', {'_locale':'en'}) }}">English</a></li>
+                    {#<li><a href="{{  path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'}))}}">English</a></li>#}
+                </ul>
             </div>
         </nav>
     </div>
