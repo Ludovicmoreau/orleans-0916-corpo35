@@ -48,8 +48,12 @@ class DefaultController extends Controller
     {
         return $this->render('FrontBundle:Default:contact.html.twig');
     }
-    
+
+    /**
      * @Route("/promotion", name="promotion_encours")
+     */
     public function promotionAction()
+    {
         return $this->render('FrontBundle:Default:promotion.html.twig');
+    }
 }
