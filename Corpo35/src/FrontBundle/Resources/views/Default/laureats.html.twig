@@ -12,7 +12,6 @@
 {% endblock %}
 
 {% block content %}
-
     <section id="portfolio">
         <div class="container">
             <div class="row">
@@ -32,9 +31,9 @@
                                                     {{ candidat.nom }} {{ candidat.prenom }}<br/>
                                                     {% if candidat.classement != null %}
                                                         {% if candidat.classement == 1 %}
-                                                            <p>{{ candidat.classement }}er</p>
+                                                            <p class="nomCandidat">{{ candidat.classement }}er</p>
                                                         {% else %}
-                                                            <p>{{ candidat.classement }}ème</p>
+                                                            <p class="nomCandidat">{{ candidat.classement }}ème</p>
                                                         {% endif %}
                                                     {% endif %}
                                                 </p>
@@ -64,9 +63,9 @@
                                         {{ candidat.nom }} {{ candidat.prenom }}<br/>
                                         {% if candidat.classement != null %}
                                             {% if candidat.classement == 1 %}
-                                                <p>{{ candidat.classement }}er</p>
+                                                <p class="nomCandidat">{{ candidat.classement }}er</p>
                                             {% else %}
-                                                <p>{{ candidat.classement }}ème</p>
+                                                <p class="nomCandidat">{{ candidat.classement }}ème</p>
                                             {% endif %}
                                         {% endif %}
                                     </p>

@@ -32,8 +32,8 @@ security:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-#        - { path: ^/candidat/new, role: ROLE_CANDIDAT }
         - { path: ^/partenaire/, role: ROLE_PARTENAIRE  }
+        - { path: ^/partenairenew/, role: ROLE_PARTENAIRE  }
         - { path: ^/isipca/, role: ROLE_ISIPCA  }
         - { path: ^/jury/, role: ROLE_JURY  }
         - { path: ^/admin, role: ROLE_ADMIN   }
