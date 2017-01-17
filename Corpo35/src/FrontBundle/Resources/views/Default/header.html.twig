@@ -23,6 +23,16 @@
                     <li><a href="{{ path('revuedepresse') }}" class="linkNavbar"><i class="fa fa-newspaper-o fa-1x linkNavbar" aria-hidden="true"></i> {{ 'La revue de presse'| trans }}</a></li>
                     <li><a href="{{ path('list_agenda_labo') }}" class="linkNavbar"><i class="fa fa-calendar fa-1x linkNavbar" aria-hidden="true"></i>  {{ 'Agenda'| trans }}</a></li>
                     <li><a href="http://www.maisondeparfumberry.com/" target="_blank" class="linkNavbar"><i class="fa fa-shopping-basket fa-1x linkNavbar" aria-hidden="true"></i>  {{ 'Maison de parfum Berry'| trans }}</a></li>
+                    <li class="dropdown">
+                        <li class="btn btn-lg linkNavbar dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            {{ 'Langues'| trans }}
+                            <span class="caret"></span>
+                        </li>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="{{ path('index', {'_locale':'fr'}) }}">Français</a></li>
+                            <li><a href="{{ path('index', {'_locale':'en'}) }}">English</a></li>
+                        </ul>
+                    </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                         {% if is_granted ('ROLE_ADMIN') %}
@@ -89,11 +99,6 @@
                         </div>
                     </div>
                 </div>
-                <ul class="lang">
-                    <li><a href="{{ path('index', {'_locale':'fr'}) }}">Français</a></li>
-                    <li><a href="{{ path('index', {'_locale':'en'}) }}">English</a></li>
-                    {#<li><a href="{{  path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'}))}}">English</a></li>#}
-                </ul>
             </div>
         </nav>
     </div>
