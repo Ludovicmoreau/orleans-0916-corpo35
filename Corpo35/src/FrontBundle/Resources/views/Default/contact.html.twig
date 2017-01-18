@@ -4,6 +4,7 @@
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/contact.css') }}">
 {% endblock %}
+{% form_theme formContact 'bootstrap_3_layout.html.twig' %}
 
 {% block content %}
 
@@ -22,33 +23,6 @@
         <div class="row form">
         <h2>{{ 'Vous pouvez nous contacter via ce formulaire'| trans }}</h2>
         </div>
-        {#<form method="post" role="form" enctype="text/plain">#}
-            {#<div class="controls">#}
-                {#<div class="form-group">#}
-                    {#<p>{{ 'Nom'| trans }}</p>#}
-                    {#<input type="text" name="nom" class="form-input-text form-control"  required="required">#}
-                {#</div>#}
-
-                {#<div class="form-group">#}
-                    {#<p>{{ 'Prénom'| trans }}</p>#}
-                    {#<input type="text" name="prenom" class="form-input-text form-control"  required="required">#}
-                {#</div>#}
-
-                {#<div class="form-group">#}
-                    {#<p >Email</p>#}
-                    {#<input type="email" name="email" class="form-input-text form-control"  required="required">#}
-                {#</div>#}
-
-                {#<div class="form-group">#}
-                    {#<p>Message</p>#}
-                    {#<textarea name="message" class="form-input-text form-control" rows="4" required="required"></textarea>#}
-                {#</div>#}
-                {#<div class="send-button bottom-margin">#}
-                    {#<button type="submit" class="btn btn-send send-msg">{{ 'Envoyer'| trans }}</button>#}
-                {#</div>#}
-            {#</div>#}
-        {#</form>#}
-
         {{ form_start(formContact) }}
         {{ form_widget(formContact) }}
         <input type="submit" value=" {{ 'Envoyer'| trans }}" />
