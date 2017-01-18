@@ -9,6 +9,31 @@
 
 
 {% block footer %}
+
+    <div class="navbar">
+        <footer id="footer">
+            <div class="container-fluid well text-center ">
+               <div class="row">
+                   <div class=" borderfooterleft contactfooter footertext col-md-offset-1 col-md-2  col-xs-offset-4 col-xs-4">
+                       <a class="lienfooter"  href="{{ path('contact') }}"> {{ 'Nous contacter'| trans }} </a>
+                    </div>
+                    <div class=" mentionlegalesfooter footertext col-md-2 col-xs-12">
+                        <a class="lienfooter"  href="#"> {{ 'Mentions légales'| trans }} </a>
+                    </div>
+                     <div class="paddingfooter  footertext col-md-2 col-xs-4">
+                         <a class="lienfooter" href="#"> {{ 'Galerie d\'images'| trans }} </a>
+                     </div>
+                      <div class="paddingfooter footertext col-md-2 col-xs-4">
+                          <a class="lienfooter"  href="{{ path('reglement') }}"> {{ 'Règlements du concours'| trans }} </a>
+                      </div>
+                      <div class="paddingfooter footertext col-md-2 col-xs-4">
+                          <a class="lienfooter"  href="#"> {{ 'Plan du site'| trans }} </a>
+                      </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
 <footer id="footer">
 
     <div class="container-fluid well text-center ">

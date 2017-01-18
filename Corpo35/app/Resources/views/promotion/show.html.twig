@@ -1,6 +1,6 @@
-{% extends 'base.html.twig' %}
+{% extends 'BackBundle:Default:backLayout.html.twig' %}
 
-{% block body %}
+{% block content %}
     <h1>Promotion</h1>
 
     <table>
@@ -18,8 +18,11 @@
                 <td>{{ promotion.year }}</td>
             </tr>
             <tr>
-                <th>Promotion en cours</th>
-                <td>{{ promotion.encours }}</td>
+                {% if promotion.encours == 1 %}
+                    <h4>Cette promotion est en cours.</h4>
+                {% else  %}
+                    <h4>Cette promotion n'est pas en cours.</h4>
+                {% endif %}
             </tr>
         </tbody>
     </table>

@@ -69,7 +69,6 @@ h1 {
     text-transform: uppercase;
     text-align: center;
     opacity: 0.95;
-    font-family: 'Playfair Display', serif;
     font-style: normal;
     font-size: 4.2rem;
     line-height: 4.6rem;
@@ -99,7 +98,7 @@ article {
     article {
         margin: 0;
         border-radius: 0;
-        border-bottom: 1px solid #222;
+
     } }
 
 @media only screen and (max-width: 900px) {
@@ -195,7 +194,6 @@ article {
 
 .feedback-input {
     color:#000;
-    font-family: Montserrat, Arial, sans-serif;
     font-weight:300;
     font-size: 14px;
     border-radius: 0;
@@ -238,8 +236,6 @@ input:focus, textarea:focus {
 }
 
 #button-blue{
-    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
-
     width: 100%;
     border: 0px solid transparent;
     cursor:pointer;
@@ -292,6 +288,50 @@ input:focus, textarea:focus {
     }
 }
 
+i{
+    color:black;
+}
+i:hover{
+    background-color: black;
+    border-radius: 100%;
+    padding: 5px;
+    color: white;
+    cursor: pointer;
+    -webkit-transform: translate(1px, 1px);
+    transform: translate(1px, 1px);
+}
+
+.expand-button {
+    cursor: pointer;
+    display: block;
+
+    margin-top: 1rem;
+    text-align: center;
+    padding: 0.5rem;
+}
+
+
+.special-text {
+    position: relative;
+    max-height: 250px;
+    overflow: hidden;
+    -webkit-transition: max-height 1s ease;
+    transition: max-height 1s ease;
+}
+.special-text.-expanded {
+    max-height: 1000vh;
+}
+
+.special-text:not(.-expanded)::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: -webkit-linear-gradient(rgba(255, 255, 255, 0), white);
+    background: linear-gradient(rgba(255, 255, 255, 0), white);
+}
 
 
 

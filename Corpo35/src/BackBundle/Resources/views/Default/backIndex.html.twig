@@ -5,33 +5,40 @@
     <link rel="stylesheet" href="{{ asset('css/backIndexStyle.css') }}">
 {% endblock %}
 
-{% block content %}
+{% block header %}
+    <header>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-offset-4 col-xs-4">
+                    <img src="{{ asset('images/CORPO35_LOGOTYPE.png') }}" class="img-responsive center-block logoHeader" alt="Logo Corpo35">
+                </div>
+            </div>
+        </div>
+    </header>
 
    <h2 class="titreAdminIndex text-center">Bienvenue sur votre page d'administration</h2>
 
 
     <div class="tabbable"> <!-- Only required for left/right tabs -->
         <ul class="nav nav-tabs">
-            <li class="active"><a class="linkNavAdmin fa fa-user-plus fa-1x" href="#candidat" data-toggle="tab">Candidats</a></li>
-            <li><a class="linkNavAdmin fa fa-user-plus fa-1x" href="#jury" data-toggle="tab">Jury</a></li>
-            <li><a class="linkNavAdmin fa fa-users fa-1x" href="#promotion" data-toggle="tab">Promotion</a></li>
+            <li><a class="linkNavAdmin fa fa-user-plus fa-1x" href="{{ path('candidat_index') }}">Candidats</a></li>
+            <li><a class="linkNavAdmin fa fa-user-plus fa-1x" href="{{ path('jury_index') }}">Jury</a></li>
+            <li><a class="linkNavAdmin fa fa-users fa-1x" href="{{ path('promotion_index') }}">Promotion</a></li>
             <li><a class="linkNavAdmin fa fa-calendar fa-1x" href="#agenda" data-toggle="tab">Agenda</a></li>
+<<<<<<< HEAD
             <li><a class="linkNavAdmin fa fa-rss fa-1x" href="#blog" data-toggle="tab">Blog</a></li>
             <li><a class="linkNavAdmin fa fa-newspaper-o fa-1x" href="#rpresse" data-toggle="tab">Revue de Presse</a></li>
             <li><a class="linkNavAdmin fa fa-truck fa-1x" href="#partenaire" data-toggle="tab">Partenaire</a></li>
             <li><a class="linkNavAdmin fa fa-users fa-1x" href="#user" data-toggle="tab">Utilisateurs</a></li>
+=======
+            <li><a class="linkNavAdmin fa fa-rss fa-1x" href="{{ path('article_index') }}" >Blog</a></li>
+            <li><a class="linkNavAdmin fa fa-newspaper-o fa-1x" href="{{ path('rpresse_index') }}">Revue de Presse</a></li>
+            <li><a class="linkNavAdmin fa fa-truck fa-1x" href="{{ path('partenaire_index') }}">Partenaire</a></li>
+>>>>>>> messant
             <li><a class="linkNavAdmin fa fa-sign-out fa-1x" href="{{ path('index') }}">Retour au site</a></li>
         </ul>
         <div class="tab-content">
-            <div class="tab-pane active" id="candidat">
-                <div class="container">
-                    <div class="row text-center marginBack">
-                        <div class="col-xs-6">
-                            <a class="linkNavAdmin" href="{{ path('candidat_index') }}">Voir la liste des candidats</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
             <div class="tab-pane" id="jury">
                 <div class="container">
                     <div class="row text-center marginBack">
@@ -80,18 +87,7 @@
                     </div>
                 </div>
             </div>
-            <div class="tab-pane" id="blog">
-                <div class="container">
-                    <div class="row text-center marginBack">
-                        <div class="col-xs-6">
-                            <a class="linkNavAdmin" href="{{ path('article_index') }}">Voir la liste des articles</a>
-                        </div>
-                        <div class="col-xs-6">
-                            <a class="linkNavAdmin" href="{{ path('article_new') }}">Créer un nouvel article</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
             <div class="tab-pane" id="rpresse">
                 <div class="container">
                     <div class="row text-center marginBack">

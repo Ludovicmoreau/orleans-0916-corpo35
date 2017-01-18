@@ -1,47 +1,45 @@
-{% extends 'base.html.twig' %}
+{% extends 'BackBundle:Default:backLayout.html.twig' %}
 
-{% block body %}
-    <h1>Articles list</h1>
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ asset('css/backArticle.css') }}">
+{% endblock %}
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Titre</th>
-                <th>Contenu</th>
-                <th>Auteur</th>
-                <th>Date</th>
-                <th>Photo</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for article in articles %}
-            <tr>
-                <td><a href="{{ path('article_show', { 'id': article.id }) }}">{{ article.id }}</a></td>
-                <td>{{ article.titre }}</td>
-                <td>{{ article.contenu }}</td>
-                <td>{{ article.auteur }}</td>
-                <td>{% if article.date %}{{ article.date|date('Y-m-d') }}{% endif %}</td>
-                <td>{{ article.photo }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('article_show', { 'id': article.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('article_edit', { 'id': article.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('article_new') }}">Create a new article</a>
-        </li>
-    </ul>
+{% block content %}
+    <div class="container article">
+
+        <h2>Articles  / <a class="text-right" href="{{ path('article_new') }}">Créer un article </a></h2>
+
+        <div class="table-responsive-vertical shadow-z-1">
+            <!-- Table starts here -->
+            <table id="table" class="table table-hover table-mc-light-grey">
+                <thead>
+                    <tr>
+                        <th>Titre</th>
+                        <th>Contenu</th>
+                        <th>Auteur</th>
+                        <th>Date</th>
+                        <th>Photo</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for article in articles %}
+                    <tr>
+                        <td data-title="Titre">{{ article.titre }}</td>
+                        <td data-title="Contenu">{{ article.contenu | truncate(150, true, "...") }}</td>
+                        <td data-title="Auteur">{{ article.auteur }}</td>
+                        <td data-title="Date">{% if article.date %}{{ article.date|date('Y-m-d') }}{% endif %}</td>
+                        <td data-title="Photo">{{ article.photo }}</td>
+                        <td data-title="Actions">
+                            <a href="{{ path('article_show', { 'id': article.id }) }}"><i class="fa fa-eye fa-2x" aria-hidden="true"></i></a>
+                            <a href="{{ path('article_edit', { 'id': article.id }) }}"><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
 {% endblock %}

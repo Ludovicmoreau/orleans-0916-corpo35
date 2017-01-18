@@ -67,6 +67,10 @@ jurylist:
     type:     annotation
     prefix:   /{_locale}/jurylist
 
+commentaire:
+    resource: "@BlogBundle/Controller/CommentaireController.php"
+    type:     annotation
+    prefix:   /admin
 
 article:
     resource: "@BlogBundle/Controller/ArticleController.php"

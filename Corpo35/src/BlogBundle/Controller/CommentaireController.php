@@ -62,10 +62,11 @@ class CommentaireController extends Controller
         ));
     }
 
+
     /**
      * Finds and displays a commentaire entity.
      *
-     * @Route("/admin/{id}", name="commentaire_show")
+     * @Route("/{id}", name="commentaire_show")
      * @Method("GET")
      */
     public function showAction(Commentaire $commentaire)
@@ -124,6 +125,23 @@ class CommentaireController extends Controller
     }
 
     /**
+     * Deletes a commentaire entity.
+     *
+     * @Route("delete/{id}", name="commentaire_link_delete")
+     * @Method("GET")
+     */
+    public function deleteCommentaireAction(Commentaire $commentaire)
+    {
+            $id = $commentaire->getArticle()->getId();
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($commentaire);
+            $em->flush($commentaire);
+
+
+        return $this->redirectToRoute('article_show', ['id'=>$id]);
+    }
+
+    /**
      * Creates a form to delete a commentaire entity.
      *
      * @param Commentaire $commentaire The commentaire entity
@@ -139,38 +157,6 @@ class CommentaireController extends Controller
         ;
     }
 
-    /**
-     * Creates a new commentaire entity.
-     *
-     * @Route("/new-comment/{id}", name="new-comment")
-     */
-    public function NewCommentAction(Article $article, Request $request)
-    {
-        $commentaire = new Commentaire();
-        $commentaire->setArticle($article);
 
-        $form = $this->createForm('BlogBundle\Form\CommentaireType', $commentaire);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            if (!$commentaire->getAuteur()) {
-                $commentaire->setAuteur('Anonyme');
-            }
-
-            //  $hashtag = $this->get('media.hashtag');
-            // $commentaire->setDate($hashtag->setWrite());
-            $commentaire->setDate(date('d-m-Y'));
-            $em->persist($commentaire);
-            $em->flush($commentaire);
-
-            return $this->redirectToRoute('BlogBundle:Default:post-commentaire.html.twig', array('id' => $article->getId()));
-        }
-        return $this->render('BlogBundle:Default:newComment.html.twig', array(
-            'commentaire' => $commentaire,
-            'article' => $article,
-            'form' => $form->createView(),
-        ));
-    }
 
 }

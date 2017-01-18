@@ -1,54 +1,57 @@
-{% extends 'base.html.twig' %}
+{% extends 'BackBundle:Default:backLayout.html.twig' %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ asset('css/backArticle.css') }}">
+{% endblock %}
+{% block content %}
+<div class="container article">
 
-{% block body %}
-    <h1>Partenaires list</h1>
+    <h2>Partenaires  / <a class="text-right" href="{{ path('partenaire_new') }}">Créer un partenaire </a></h2>
 
-    <table>
-        <thead>
+    <div class="table-responsive-vertical shadow-z-1">
+
+        <table id="table" class="table table-hover">
+
+            <thead>
             <tr>
-                <th>Id</th>
                 <th>Nom</th>
+                <th>Résumé</th>
                 <th>Logo</th>
-                <th>Resume</th>
-                <th>Contenu1</th>
-                <th>Contenu2</th>
-                <th>Contenu3</th>
-                <th>Contenu4</th>
+                <th>Contenu</th>
                 <th>Website</th>
                 <th>Email</th>
-                <th>Phone</th>
+                <th>Téléphone</th>
                 <th>Actions</th>
             </tr>
-        </thead>
-        <tbody>
-        {% for partenaire in partenaires %}
+            </thead>
+            {% for partenaire in partenaires %}
+            <tbody>
             <tr>
-                <td>{{ partenaire.nom}}</td>
-                <td><a href="{{ path('partenaire_show', { 'id': partenaire.id }) }}"></a></td>
-                <td><img src="{{ asset('upload/' ~  partenaire.logo )}}"></td>
-                <td>{{ partenaire.resume }}</td>
-                <td>{{ partenaire.contenu }}</td>
-                <td>{{ partenaire.website }}</td>
-                <td>{{ partenaire.email }}</td>
-                <td>{{ partenaire.phone }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('partenaire_show', { 'id': partenaire.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('partenaire_edit', { 'id': partenaire.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('partenaire_new') }}">Create a new partenaire</a>
-        </li>
-    </ul>
+                <td data-title="Nom">{{ partenaire.nom }}</td>
+                <td data-title="Résumé">{{ partenaire.resume | truncate(100, true, "...") }}</td>
+                <td data-title="Logo">{{ partenaire.logo }}</td>
+                <td data-title="Logo">{{ partenaire.contenu | truncate(100, true, "...") }}</td>
+                <td data-title="Website">{{ partenaire.website }}</td>
+                <td data-title="Email">{{ partenaire.email }}</td>
+                <td data-title="Téléphone">{{ partenaire.phone }}</td>
+                <td data-title="Action">
+
+                            <a href="{{ path('partenaire_show', { 'id': partenaire.id }) }}) }}"><i class="fa fa-eye fa-2x" aria-hidden="true"></i></a>
+
+                            <a href="{{ path('partenaire_edit', { 'id': partenaire.id }) }}"><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a>
+
+
+
+                </td>
+
+            </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+
+    </div>
+</div>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 {% endblock %}
