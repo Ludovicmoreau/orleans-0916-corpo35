@@ -1,64 +1,56 @@
-{% extends 'base.html.twig' %}
+{% extends 'BackBundle:Default:backLayout.html.twig' %}
 
-{% block body %}
-    <h1>Article</h1>
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ asset('css/backArticle.css') }}">
+{% endblock %}
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ article.id }}</td>
-            </tr>
-            <tr>
-                <th>Titre</th>
-                <td>{{ article.titre }}</td>
-            </tr>
-            <tr>
-                <th>Contenu</th>
-                <td>{{ article.contenu }}</td>
-            </tr>
-            <tr>
-                <th>Auteur</th>
-                <td>{{ article.auteur }}</td>
-            </tr>
-            <tr>
-                <th>Date</th>
-                <td>{% if article.date %}{{ article.date|date('Y-m-d') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Photo</th>
-                <td>{{ article.photo }}</td>
-            </tr>
-        </tbody>
-    </table>
+{% block content %}
 
-    <ul>
-        <li>
-            <a href="{{ path('article_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('article_edit', { 'id': article.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
-
-    {% for  commentaire in article.commentaires %}
-        <div class="container">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">#{{ loop.index }} - par {{ commentaire.auteur}} <span class="text-right">{{ commentaire.date|date('d-m-Y') }}</span></h3>
+        <div class="container article">
+            <div class="table-responsive-vertical shadow-z-1">
+                <table id="table" class="table table-hover table-mc-light-grey">
+                    <h2>Article / <a href="{{ path('article_index') }}">Retour à la liste </a> /  <a href="{{ path('article_edit', { 'id': article.id }) }}">Éditer</a></h2>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Titre</th>
+                                <th>Contenu</th>
+                                <th>Auteur</th>
+                                <th>Photo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-title="Date">{% if article.date %}{{ article.date|date('Y-m-d') }}{% endif %}</td>
+                                <td data-title="Titre">{{ article.titre }}</td>
+                                <td data-title="Auteur">{{ article.auteur }}</td>
+                                <td data-title="Contenu">{{ article.contenu }}</td>
+                                <td data-title="Photo">{{ article.photo }}</td>
+                            </tr>
+                        </tbody>
+                    <tfoot>
+                </table>
             </div>
-            <div class="panel-body">
-                {{ commentaire.commentaire}}
-            </div>
-        </div>
-        </div>
-    {% endfor %}
+            <h2>Commentaires</h2>
+            {% for  commentaire in article.commentaires %}
+                <div class="col-md-10">
+                    <blockquote class="blockquote">
+                        <p>{{ commentaire.commentaire}}</p>
+                        <footer class="blockquote-footer">Posté par <cite title="Source Title">{{ commentaire.auteur}}</cite><span class="text-right"> le {{ commentaire.date|date('d/m/Y') }}</span></footer>
+                    </blockquote>
+                </div>
+                <div class="col-md-2">
+                   <a href = "{{ path('commentaire_link_delete', {'id':commentaire.id}) }}"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a>
+                </div>
+            {% endfor %}
+    </div>
+
+<script>
 
 
+</script>
 
 {% endblock %}
+
+
+

@@ -56,7 +56,8 @@ class PageController extends Controller
     public function PostCommentAction(Article $article)
     {
         $em = $this->getDoctrine()->getManager();
-        $commentaires = $em->getRepository('BlogBundle:Commentaire')->findByArticle($article);
+        $commentaires = $em->getRepository('BlogBundle:Commentaire');
+
         return $this->render('BlogBundle:Default:newComment.html.twig', array(
             'commentaires' => $commentaires,
 
@@ -84,7 +85,7 @@ class PageController extends Controller
                 $commentaire->setAuteur('Anonyme');
             }
 
-            //  $hashtag = $this->get('media.hashtag');
+            //  $hashtag = $this->get('blog.hashtag');
             // $commentaire->setDate($hashtag->setWrite());
 
             $em->persist($commentaire);

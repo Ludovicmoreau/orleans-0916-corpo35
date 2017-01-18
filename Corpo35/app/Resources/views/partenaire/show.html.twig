@@ -1,52 +1,49 @@
-{% extends 'base.html.twig' %}
+{% extends 'BackBundle:Default:backLayout.html.twig' %}
 
-{% block body %}
-    <h1>Partenaire</h1>
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ asset('css/backArticle.css') }}">
+{% endblock %}
 
-    <table>
-        <tbody>
+{% block content %}
+<div class="container article">
+
+    <div class="table-responsive-vertical shadow-z-1">
+        <!-- Table starts here -->
+        <table id="table" class="table table-hover table-mc-light-grey">
+            <h2>Partenaire / <a href="{{ path('partenaire_index') }}">Retour à la liste </a> /  <a href="{{ path('partenaire_edit', { 'id': partenaire.id }) }}">Éditer</a></h2>
+
+            <thead>
             <tr>
-                <th>Id</th>
-                <td>{{ partenaire.id }}</td>
-            </tr>
-            <tr>
-                <th>Logo</th>
-                <td>{{ partenaire.logo }}</td>
-            </tr>
-            <tr>
-                <th>Resume</th>
-                <td>{{ partenaire.resume }}</td>
-            </tr>
-            <tr>
+                <th>Titre</th>
                 <th>Contenu</th>
-                <td>{{ partenaire.contenu }}</td>
-            </tr>
-            <tr>
-                <th>Website</th>
-                <td>{{ partenaire.website }}</td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>{{ partenaire.email }}</td>
-            </tr>
-            <tr>
-                <th>Phone</th>
-                <td>{{ partenaire.phone }}</td>
-            </tr>
-        </tbody>
-    </table>
+                <th>Auteur</th>
+                <th>Date</th>
+                <th>Photo</th>
+                <th>Téléphone</th>
+                <th>Action</th>
 
-    <ul>
-        <li>
-            <a href="{{ path('partenaire_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('partenaire_edit', { 'id': partenaire.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{ partenaire.nom }}</td>
+                <td>{{ partenaire.logo }}</td>
+                <td>{{ partenaire.resume }}</td>
+                <td>{{ partenaire.website }}</td>
+                <td>{{ partenaire.email }}</td>
+                <td>{{ partenaire.phone }}</td>
+                <td>
+
+                            {{ form_start(delete_form) }}
+                            <button class="btn btn-danger">Supprimer</button>
+                            {{ form_end(delete_form) }}
+
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+        </div>
+    </div>
+    </div>
 {% endblock %}
