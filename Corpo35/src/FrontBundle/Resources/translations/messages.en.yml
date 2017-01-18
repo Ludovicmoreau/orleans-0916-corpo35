@@ -11,6 +11,7 @@ Se déconnecter: Logout
 Se connecter: Login
 Agenda: Events
 Langues: Languages
+http://www.maisondeparfumberry.com/fr/: http://www.maisondeparfumberry.com/en/
 
 #navbar2
 Accueil: Home
@@ -100,3 +101,6 @@ Voir la liste des candidats: See list of candidates
 
 #login
 Mot de passe oublié ?: Forgot your password ?
+
+#FOS
+Cliquer ici pour revenir à l'acceuil: Click here to return to the homepage
