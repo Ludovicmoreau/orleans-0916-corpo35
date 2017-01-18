@@ -47,7 +47,7 @@
                         {% if is_granted ('ROLE_ISIPCA') %}
                              <li><a href="{{ path('backIsipca') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Isipca</a></li>
                         {% endif %}
-                        {% if is_granted ('ROLE_CANDIDAT') %}
+                        {% if is_granted ('ROLE_USER') and app.user.candidat.id is defined %}
                             <li><a href="{{ path('candidat_edit', { 'id': app.user.candidat.id }) }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Editer mon profil</a></li>
                         {% endif %}
                         {% if is_granted ('ROLE_USER') %}

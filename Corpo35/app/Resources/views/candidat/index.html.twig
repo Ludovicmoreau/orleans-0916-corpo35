@@ -11,13 +11,24 @@
             <h2 class="text-center">Liste des candidats</h2>
         </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 text-center">
+    <div class="container recherche">
+        <div class="row well">
+            <h3 class="text-center">Recherche</h3>
+            <div class="col-xs-5 text-center">
                 {{ form_start(form) }}
-                {{ form_widget(form) }}
-                <input class="btn btn-primary" type="submit">
-                {{ form_end(form) }}
+                {{ form_row(form.maRecherche) }}
+            </div>
+            <div class="col-xs-2">
+                <p class="text-center">Ou</p>
+            </div>
+            <div class="col-xs-5">
+                {{ form_row(form.classement) }}
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <input class="btn btn-primary center-block" type="submit">
+                    {{ form_end(form) }}
+                </div>
             </div>
         </div>
     </div>
