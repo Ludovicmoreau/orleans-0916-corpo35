@@ -1,6 +1,7 @@
 {% extends 'BackBundle:Default:backHeader.html.twig' %}
 
 {% block stylesheet %}
+    {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/back.css') }}">
 {% endblock %}
 
@@ -49,5 +50,4 @@
             {% endfor %}
             </tbody>
         </table>
-    <a href="{{ path('backHeader') }}"><input type="button" class="btn btn-primary center-block" value="Retour à l'espace d'administration" ></a>
 {% endblock %}
