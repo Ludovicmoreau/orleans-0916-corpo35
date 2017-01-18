@@ -1,49 +1,38 @@
-{% extends 'FrontBundle:Default:index.html.twig' %}
+{% extends 'BackBundle:Default:backLayout.html.twig' %}
 
 {% block stylesheet %}
     {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('css/listCandidatStyle.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/back.css') }}">
 {% endblock %}
 
 {% block content %}
-    <h1>Jury</h1>
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ jury.id }}</td>
-            </tr>
-            <tr>
-                <th>Nom</th>
-                <td>{{ jury.nom }}</td>
-            </tr>
-            <tr>
-                <th>Prenom</th>
-                <td>{{ jury.prenom }}</td>
-            </tr>
-            <tr>
-                <th>Entreprise</th>
-                <td>{{ jury.entreprise }}</td>
-            </tr>
-            <tr>
-                <th>Mail</th>
-                <td>{{ jury.mail }}</td>
-            </tr>
-        </tbody>
-    </table>
+<div class="container admin">
 
-    <ul>
-        <li>
-            <a href="{{ path('jury_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('jury_edit', { 'id': jury.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <h2>Jury / <a href="{{ path('jury_index') }}">retour à la liste </a> /  <a href="{{ path('jury_edit', { 'id': jury.id }) }}">éditer</a></h2>
+
+    <div class="table-responsive-vertical shadow-z-1">
+        <table id="table" class="table table-hover">
+            <tbody>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>Entreprise</th>
+                    <th>Mail</th>
+                    <th>Action</th>
+                </tr>
+              <tr>
+                  <td>{{ jury.nom }}</td>
+                    <td>{{ jury.prenom }}</td>
+                    <td>{{ jury.entreprise }}</td>
+                    <td>{{ jury.mail }}</td>
+                    <td>{{ form_start(delete_form) }}
+                        <button class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                        {{ form_end(delete_form) }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
 {% endblock %}

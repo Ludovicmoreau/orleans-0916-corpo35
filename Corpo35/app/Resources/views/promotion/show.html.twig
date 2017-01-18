@@ -1,43 +1,43 @@
 {% extends 'BackBundle:Default:backLayout.html.twig' %}
 
-{% block content %}
-    <h1>Promotion</h1>
-
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ promotion.id }}</td>
-            </tr>
-            <tr>
-                <th>Archivage</th>
-                <td>{% if promotion.archivage %}Yes{% else %}No{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Année</th>
-                <td>{{ promotion.year }}</td>
-            </tr>
-            <tr>
-                {% if promotion.encours == 1 %}
-                    <h4>Cette promotion est en cours.</h4>
-                {% else  %}
-                    <h4>Cette promotion n'est pas en cours.</h4>
-                {% endif %}
-            </tr>
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('promotion_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('promotion_edit', { 'id': promotion.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/back.css') }}">
 {% endblock %}
+
+{% block content %}
+<div class="container admin">
+    <div class="table-responsive-vertical shadow-z-1">
+        <table id="table" class="table table-hover">
+            <h2>Promotion / <a href="{{ path('promotion_index') }}">retour à la liste </a> /  <a href="{{ path('promotion_edit', { 'id': promotion.id }) }}">éditer</a></h2>
+            <thead>
+                <tbody>
+                    <tr>
+                        <th>Archivage</th>
+                        <th>Année</th>
+                        <th>Action</th>
+
+                    </tr>
+                    <tr>
+                        <td>{% if promotion.archivage %}Yes{% else %}No{% endif %}</td>
+                        <td>{{ promotion.year }}</td>
+                        <td>  {{ form_start(delete_form) }}
+                            <button class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                            {{ form_end(delete_form) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        {% if promotion.encours == 1 %}
+                            <h4>Cette promotion est en cours.</h4>
+                        {% else  %}
+                            <h4>Cette promotion n'est pas en cours.</h4>
+                        {% endif %}
+                    </tr>
+                </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+
+
+

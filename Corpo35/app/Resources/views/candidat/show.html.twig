@@ -1,4 +1,4 @@
-{% extends 'FrontBundle:Default:index.html.twig' %}
+{% extends 'BackBundle:Default:backHeader.html.twig' %}
 
 {% block stylesheet %}
     {{ parent() }}
@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block content %}
-
+<div class="container">
     {#          Flashbag message            #}
     {% if app.session.flashBag.has('success') %}
         <div class="alert alert-success message_flash alert-dismissible" role="alert">
@@ -244,4 +244,5 @@
                 </div>
             {% endif %}
     </div>
+</div>
 {% endblock %}

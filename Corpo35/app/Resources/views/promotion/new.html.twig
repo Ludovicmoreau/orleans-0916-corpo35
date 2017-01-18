@@ -1,16 +1,21 @@
-{% extends 'BackBundle:Default:backLayout.html.twig' %}
+{% extends 'BackBundle:Default:backHeader.html.twig' %}
+
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/back.css') }}">
+{% endblock %}
 
 {% block content %}
-    <h1>Promotion creation</h1>
 
-    {{ form_start(form) }}
+    <div class="container admin">
+
+        <h2>Promotion /  <a href="{{ path('promotion_index') }}">retour à la liste</a></h2>
+
+        {{ form_start(form) }}
         {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+        <input type="submit" value="{{ 'Créer'| trans }}" />
+        {{ form_end(form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('promotion_index') }}">Back to the list</a>
-        </li>
-    </ul>
+    </div>
+
 {% endblock %}
