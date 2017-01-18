@@ -162,17 +162,21 @@ class PromotionController extends Controller
 //    public function promotionCandidatAction(Candidat, $candidat)
 //    {
 //        $em = $this->getDoctrine()->getManager();
-//        $promotionCandidat = $em->getRepository('BackBundle:Candidat')->findOneByDateinscription();
-//        $em = $this->getDoctrine->getManager();
-//        $datelimiteinscription = $this->getRepository('BackBundle:Promotion')->findOneBy
-//        if ($dateinscription >= $enddate) {
-//            $promotionCandidat = $promotion;
-//            $em->persist($promotionCandidat);
-//        } else {
-//            $promotionCandidat = $em->getRepository('BackBundle:Promotion')->findOneByPromotion(ASC);
-//        }
+//        $promotionCandidat = $em->getRepository('BackBundle:Candidat')->findByDateinscription();
 //
-//        $promotion->set
+//        $em = $this->getDoctrine->getManager();
+//        $datelimiteinscription = $this->getRepository('BackBundle:Promotion')->findByDatelimite();
+//
+//        $em = $this->getDoctrine()->getManager();
+//        $promotionSuivante = $this->getRepository()('BackBundle:Promotion')->findByAnnee(ASC);
+//
+//        if ($dateinscription >= $datelimite) {
+//            $promotionCandidat = $promotion(1);
+//        } else {
+//            $promotionCandidat = $promotionSuivante;
+//        }
+//        $em->persist($promotion);
+//        $em->flush();
 //    }
 }
 

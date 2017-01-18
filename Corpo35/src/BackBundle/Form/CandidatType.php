@@ -122,7 +122,7 @@ class CandidatType extends AbstractType
                     'aria-label'=> 'Votre formation'
                 )
             ))
-            ->add('competence', TextType::class, array(
+            ->add('competence', TextareaType::class, array(
                 'required'=>false,
                 'data_class'=>null,
                 'attr'=>array(
