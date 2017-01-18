@@ -41,6 +41,17 @@ class Promotion
      */
     private $candidats;
 
+    /**
+     * @var datetime
+     * @ORM\Column(name="datelimite", type="datetime")
+     */
+    private $datelimite;
+
+    /**
+     * @var bool
+     * @ORM\Column(name="encours", type="boolean")
+     */
+    private $encours;
 
     /**
      * Get id
@@ -113,5 +124,51 @@ class Promotion
     public function getCandidats()
     {
         return $this->candidats;
+    }
+
+    /**
+     * @param DateTime $datelimite
+     */
+    public function setEnddate($datelimite)
+    {
+        $this->datelimite = $datelimite;
+    }
+
+    /**
+     * @return DateTime
+     */
+    public function getDatelimite()
+    {
+        return $this->datelimite;
+    }
+
+    /**
+     * Set datelimite
+     *
+     * @param \DateTime $datelimite
+     *
+     * @return Promotion
+     */
+    public function setDatelimite($datelimite)
+    {
+        $this->datelimite = $datelimite;
+
+        return $this;
+    }
+
+    /**
+     * @param boolean
+     */
+    public function setEncours($encours)
+    {
+        $this->encours = $encours;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getEncours()
+    {
+        return $this->encours;
     }
 }

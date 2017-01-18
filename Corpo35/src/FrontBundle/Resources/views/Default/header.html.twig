@@ -27,30 +27,21 @@
                 <ul class="nav navbar-nav navbar-right">
                         {% if is_granted ('ROLE_ADMIN') %}
                             <li><a href="{{ path('backIndex') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Administration</a></li>
-                            <li><a href="{{ path('backJury') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Jury</a></li>
-                            <li><a href="{{ path('backPartenaire') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> {{ 'Partenaires'| trans }}</a></li>
-                            <li><a href="{{ path('backIsipca') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Isipca</a></li>
-                        {% elseif is_granted ('ROLE_JURY') %}
-                            <li><a href="{{ path('backJury') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Jury</a></li>
-                        {% elseif is_granted ('ROLE_PARTENAIRE') %}
-                            <li><a href="{{ path('backPartenaire') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> {{ 'Partenaires'| trans }}</a></li>
-                        {% elseif is_granted ('ROLE_ISIPCA') %}
-                             <li><a href="{{ path('backIsipca') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Isipca</a></li>
-                        {% elseif is_granted ('ROLE_CANDIDAT') %}
-                            {#<li><a href="{{ path('candidat_edit', { 'id': candidat.id }) }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Editer mon profil</a></li>#}
-                            <li><a href="{{ path('index') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Editer mon profil</a></li>
                         {% endif %}
-
-                        {% if is_granted ('ROLE_ADMIN') %}
+                        {% if is_granted ('ROLE_JURY') %}
+                            <li><a href="{{ path('backJury') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Jury</a></li>
+                        {% endif %}
+                        {% if is_granted ('ROLE_PARTENAIRE') %}
+                            <li><a href="{{ path('backPartenaire') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> {{ 'Partenaires'| trans }}</a></li>
+                        {% endif %}
+                        {% if is_granted ('ROLE_ISIPCA') %}
+                             <li><a href="{{ path('backIsipca') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Isipca</a></li>
+                        {% endif %}
+                        {% if is_granted ('ROLE_CANDIDAT') %}
+                            <li><a href="{{ path('candidat_edit', { 'id': app.user.candidat.id }) }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Editer mon profil</a></li>
+                        {% endif %}
+                        {% if is_granted ('ROLE_USER') %}
                             <li><a href="{{ path('fos_user_security_logout') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> {{ 'Se déconnecter'| trans }}</a></li>
-                        {% elseif is_granted ('ROLE_JURY') %}
-                            <li><a href="{{ path('fos_user_security_logout') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i>  {{ 'Se déconnecter'| trans }}</a></li>
-                        {% elseif is_granted ('ROLE_PARTENAIRE') %}
-                            <li><a href="{{ path('fos_user_security_logout') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i>  {{ 'Se déconnecter'| trans }}</a></li>
-                        {% elseif is_granted ('ROLE_ISIPCA') %}
-                            <li><a href="{{ path('fos_user_security_logout') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i>  {{ 'Se déconnecter'| trans }}</a></li>
-                        {% elseif is_granted ('ROLE_CANDIDAT') %}
-                            <li><a href="{{ path('fos_user_security_logout') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i>  {{ 'Se déconnecter'| trans }}</a></li>
                         {% else %}
                             <li><a href="{{ path('fos_user_security_login') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i>  {{ 'Se connecter'| trans }}</a></li>
                         {% endif %}
@@ -88,16 +79,22 @@
                         <div class="col-xs-2 text-center Navbar2 borderNavbar2"><a class="linkNavbar2" href="{{ path('candidat_new') }}"> {{ 'S\'inscrire'| trans }}</a></div>
                         <div class="col-xs-2 text-center Navbar2 borderNavbar2"><a class="linkNavbar2" href="{{ path('candidats_choisis') }}"> {{ 'Candidats'| trans }}</a></div>
                         <div class="col-xs-2 text-center Navbar2 borderNavbar2"><a class="linkNavbar2" href="{{ path('blog') }}">Blog</a></div>
-                        <div class="col-xs-2 dropdown text-center Navbar2">
-                            <a href="#" class="dropdown-toggle linkNavbar2" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Promotions<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">2016</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="{{ path('archives') }}">Archives</a></li>
-                            </ul>
-                        </div>
+                        <div class="col-xs-2 text-center Navbar2 borderNavbar2"><a class="linkNavbar2" href="{{ path('promotion_encours') }}">Promotion</a></div>
+                        {#<div class="col-xs-2 dropdown text-center Navbar2">#}
+                            {#<a href="#" class="dropdown-toggle linkNavbar2" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Promotion<span class="caret"></span></a>#}
+                            {#<ul class="dropdown-menu">#}
+                                {#<li><a href="#">2016</a></li>#}
+                                {#<li role="separator" class="divider"></li>#}
+                                {#<li><a href="{{ path('archives') }}">Archives</a></li>#}
+                            {#</ul>#}
+                        {#</div>#}
                     </div>
                 </div>
+                <ul class="lang">
+                    <li><a href="{{ path('index', {'_locale':'fr'}) }}">Français</a></li>
+                    <li><a href="{{ path('index', {'_locale':'en'}) }}">English</a></li>
+                    {#<li><a href="{{  path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'}))}}">English</a></li>#}
+                </ul>
             </div>
         </nav>
     </div>

@@ -9,6 +9,10 @@
     padding: 1%;
 }
 
+.linkRegister {
+    font-size: 150%;
+}
+
 .attention {
     color: red;
 }

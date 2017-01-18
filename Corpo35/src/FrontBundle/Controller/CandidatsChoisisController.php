@@ -3,6 +3,7 @@
 namespace FrontBundle\Controller;
 
 use BackBundle\Entity\Candidat;
+use BackBundle\Entity\Promotion;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
@@ -25,12 +26,12 @@ class CandidatsChoisisController extends Controller
      */
     public function ShowPageVitrineCandidatAction(Candidat $candidat)
     {
-        if ($candidat->getDecision()==0) {
-            return $this->redirectToRoute('index');
-        } else {
+//        if ($candidat->getDecision()==0) {
+//            return $this->redirectToRoute('index');
+//        } else {
         return $this->render('FrontBundle:Default:page_vitrine_candidat.html.twig', array(
             'candidat' => $candidat,
         ));
-        }
     }
+//    }
 }

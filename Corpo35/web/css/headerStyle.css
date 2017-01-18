@@ -4,6 +4,7 @@
 
 .linkNavbar {
     color: white!important;
+    font-size: 90%;
 }
 
 .linkNavbar:hover {

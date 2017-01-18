@@ -1,0 +1,49 @@
+{% extends 'BackBundle:Default:backIndex.html.twig' %}
+
+{% block content %}
+    <h1 class="text-center">Liste des utilisateurs</h1>
+    <div class="row text-center">
+        <div class="col-xs-12">
+            <p>ROLE_USER: Inscrits au site, dont les candidats</p>
+        </div>
+        <div class="col-xs-12">
+            <p>ROLE_ADMIN: Administrateur du site, qui a les droits pour voter, valider un candidat, établir le classement
+                Peut egalement administrer le blog, la revue de presse etc...
+            </p>
+        </div>
+        <div class="col-xs-12">
+            <p>ROLE_JURY: jury du concours, qui ont les droits pour voter</p>
+        </div>
+        <div class="col-xs-12">
+            <p>ROLE_PARTENAIRE: A les droits pour créer sa page partenaire</p>
+        </div>
+        <div class="col-xs-12">
+            <p>ROLE_ISIPCA: A les droits pour modifier l'agenda du Labo</p>
+        </div>
+    </div>
+    <table class="table table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th>Nom d'utilisateur</th>
+                    <th>Role</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for user in users |sortbyfield('id') %}
+                <tr>
+                    <td>{{ user.username }}</td>
+                    <td>
+                        {% for role in user.roles %}
+                            {{ role }}
+                        {% endfor %}
+                    </td>
+                    <td>
+                        <a href="{{ path('user_edit', { 'id': user.id }) }}">Changer le rôle</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    <a href="{{ path('backIndex') }}"><input type="button" class="btn btn-primary center-block" value="Retour à l'espace d'administration" ></a>
+{% endblock %}

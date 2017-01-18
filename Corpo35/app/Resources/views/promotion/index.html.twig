@@ -23,9 +23,11 @@
                         <li>
                             <a href="{{ path('promotion_show', { 'id': promotion.id }) }}">show</a>
                         </li>
-                        <li>
-                            <a href="{{ path('promotion_edit', { 'id': promotion.id }) }}">edit</a>
-                        </li>
+                            {% if promotion.encours %}
+                                Promo en cours
+                            {% else  %}
+                                <a href="{{ path('passer_promotion_encours', {'id': promotion.id}) }}" >Passer la promotion en cours</a>
+                            {% endif %}
                     </ul>
                 </td>
             </tr>

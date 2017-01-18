@@ -10,13 +10,16 @@
         <div class="row">
             <h2 class="text-center">Liste des candidats</h2>
         </div>
-        {% if is_granted ('ROLE_ADMIN') %}
+    </div>
+    <div class="container">
         <div class="row">
-            <a href="{{ path('backIndex') }}" class="linkBackListcandidat">Retour à l'accueil</a>
-            {% else %}
-                <p><a href="{{ path('backJury') }}">Retour à l'accueil</a></p>
-         </div>
-        {% endif %}
+            <div class="col-xs-12 text-center">
+                {{ form_start(form) }}
+                {{ form_widget(form) }}
+                <input class="btn btn-primary" type="submit">
+                {{ form_end(form) }}
+            </div>
+        </div>
     </div>
     <div class="container-fluid">
         <div class="row">
@@ -61,72 +64,16 @@
                             <a href="{{ path('recandidatenavant' , { 'id': candidat.id }) }}"> Mettre en avant le candidat</a>
                         {% endif %}
                     </p>
-                    <div class="row">
-                        <div class="col-xs-6">
-                            {% if is_granted ('ROLE_ADMIN')%}
-                            <p><a href="{{ path('candidat_edit', { 'id': candidat.id }) }}">éditer</a></p>
-
-                            {% endif %}
-                        </div>
-                    </div>
                 </div>
                 </a>
             {% endfor %}
         </div>
+        {% if is_granted ('ROLE_ADMIN') %}
+            <div class="row">
+            <a href="{{ path('backIndex') }}" class="linkBackListcandidat">Retour à l'accueil</a>
+        {% else %}
+            <p><a href="{{ path('backJury') }}">Retour à l'accueil</a></p>
+            </div>
+        {% endif %}
     </div>
-    {#<h1>Candidats list</h1>#}
-
-    {#<table>#}
-        {#<thead>#}
-            {#<tr>#}
-                {#<th>Id</th>#}
-                {#<th>Nom</th>#}
-                {#<th>Prenom</th>#}
-                {#<th>Numrue</th>#}
-                {#<th>Adresse</th>#}
-                {#<th>Ville</th>#}
-                {#<th>Cp</th>#}
-                {#<th>Formation</th>#}
-                {#<th>Profession</th>#}
-                {#<th>Presentation</th>#}
-                {#<th>Mail</th>#}
-                {#<th>Decision</th>#}
-                {#<th>Actions</th>#}
-            {#</tr>#}
-        {#</thead>#}
-        {#<tbody>#}
-        {#{% for candidat in candidats %}#}
-            {#<tr>#}
-                {#<td><a href="{{ path('candidat_show', { 'id': candidat.id }) }}">{{ candidat.id }}</a></td>#}
-                {#<td>{{ candidat.nom }}</td>#}
-                {#<td>{{ candidat.prenom }}</td>#}
-                {#<td>{{ candidat.numrue }}</td>#}
-                {#<td>{{ candidat.adresse }}</td>#}
-                {#<td>{{ candidat.ville }}</td>#}
-                {#<td>{{ candidat.cp }}</td>#}
-                {#<td>{{ candidat.formation }}</td>#}
-                {#<td>{{ candidat.profession }}</td>#}
-                {#<td>{{ candidat.presentation }}</td>#}
-                {#<td>{{ candidat.mail }}</td>#}
-                {#<td>{% if candidat.decision %}Yes{% else %}No{% endif %}</td>#}
-                {#<td>#}
-                    {#<ul>#}
-                        {#<li>#}
-                            {#<a href="{{ path('candidat_show', { 'id': candidat.id }) }}">show</a>#}
-                        {#</li>#}
-                        {#<li>#}
-                            {#<a href="{{ path('candidat_edit', { 'id': candidat.id }) }}">edit</a>#}
-                        {#</li>#}
-                    {#</ul>#}
-                {#</td>#}
-            {#</tr>#}
-        {#{% endfor %}#}
-        {#</tbody>#}
-    {#</table>#}
-
-    {#<ul>#}
-        {#<li>#}
-            {#<a href="{{ path('candidat_new') }}">Create a new candidat</a>#}
-        {#</li>#}
-    {#</ul>#}
 {% endblock %}

@@ -157,6 +157,11 @@
                 {% endif %}
             </div>
             {% if is_granted ('ROLE_ADMIN') %}
+            <div class="ombre text-center">
+                    <a href="{{ path('recandidatenavant' , { 'id': candidat.id }) }}" class="linkMisEnAvant"> Mettre en avant le candidat</a>
+            </div>
+            {% endif %}
+            {% if is_granted ('ROLE_ADMIN') %}
                 <div class="ombre">
                     <div class="row">
                         <div class="col-xs-12">

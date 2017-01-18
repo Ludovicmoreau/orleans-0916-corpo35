@@ -14,7 +14,7 @@ class Candidat
 {
 
     /**
-     * @ORM\OneToOne(targetEntity="User")
+     * @ORM\OneToOne(targetEntity="User", inversedBy="candidat")
      */
     private $fos_user;
 
@@ -242,6 +242,13 @@ class Candidat
      * @ORM\Column(name="photo", type="string", length=255)
      */
     private $photo;
+
+    /**
+     * @var datetime
+     *
+     * @ORM\Column(name="dateinscription", type="datetime")
+     */
+    private $dateinscription;
 
     /**
      * @return string
@@ -616,6 +623,7 @@ class Candidat
     public function __construct()
     {
         $this->documents = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->dateinscription = (new \DateTime());
     }
 
     /**
@@ -761,4 +769,19 @@ class Candidat
         return $this->miseEnAvant;
     }
 
+    /**
+     * @param datetime $dateinscription
+     */
+    public function setDateinscription($dateinscription)
+    {
+        $this->dateinscription = $dateinscription;
+    }
+
+    /**
+     * @return datetime
+     */
+    public function getDateinscription()
+    {
+        return $this->dateinscription;
+    }
 }

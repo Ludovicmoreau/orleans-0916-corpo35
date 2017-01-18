@@ -50,17 +50,10 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/laureats", name="laureats")
+     * @Route("/promotion", name="promotion_encours")
      */
-    public function ShowCandidatAction()
+    public function promotionAction()
     {
-        $em = $this->getDoctrine()->getManager();
-        $listCandidat = $em->getRepository('BackBundle:Candidat')->findAll();
-        return $this->render('FrontBundle:Default:laureats.html.twig', array(
-            'listCandidat' => $listCandidat
-        ));
+        return $this->render('FrontBundle:Default:promotion.html.twig');
     }
-
-
-
 }

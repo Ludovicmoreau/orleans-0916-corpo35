@@ -8,8 +8,7 @@ security:
         ROLE_PARTENAIRE: ROLE_USER
         ROLE_JURY:        ROLE_USER
         ROLE_ISIPCA:        ROLE_USER
-        ROLE_CANDIDAT:        ROLE_USER
-        ROLE_ADMIN:       ROLE_JURY, ROLE_PARTENAIRE, ROLE_ISIPCA, ROLE_CANDIDAT
+        ROLE_ADMIN:       ROLE_JURY, ROLE_PARTENAIRE, ROLE_ISIPCA, ROLE_USER
 
 
     providers:
@@ -22,6 +21,12 @@ security:
             form_login:
                 provider: fos_userbundle
                 csrf_token_generator: security.csrf.token_manager
+                login_path: fos_user_security_login
+                check_path: fos_user_security_check
+                default_target_path: index
+            logout:
+                path:   fos_user_security_logout
+                target: index
                 # if you are using Symfony < 2.8, use the following config instead:
                 # csrf_provider: form.csrf_provider
 
@@ -32,8 +37,8 @@ security:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-#        - { path: ^/candidat/new, role: ROLE_CANDIDAT }
         - { path: ^/partenaire/, role: ROLE_PARTENAIRE  }
+        - { path: ^/partenairenew/, role: ROLE_PARTENAIRE  }
         - { path: ^/isipca/, role: ROLE_ISIPCA  }
         - { path: ^/jury/, role: ROLE_JURY  }
         - { path: ^/admin, role: ROLE_ADMIN   }

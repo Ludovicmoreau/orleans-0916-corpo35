@@ -10,5 +10,16 @@ namespace BackBundle\Repository;
  */
 class CandidatRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findByMySearch($data)
+    {
+        $qb = $this->createQueryBuilder('c');
+        $qb
+            ->where('c.decision = :maRecherche')
+                ->setParameter('maRecherche', $data['maRecherche'])
+            ->orWhere('c.classement = :classement')
+                ->setParameter('classement', $data['classement']);
 
+
+        return  $qb->getQuery()->getResult();
+    }
 }

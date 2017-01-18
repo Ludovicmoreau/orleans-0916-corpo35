@@ -4,10 +4,18 @@
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/concours_style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/partners_style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/carousel.css') }}">
 {% endblock %}
 
 {% block content %}
+    {#          Flashbag message            #}
+    {% if app.session.flashBag.has('alert') %}
+        <div class="alert alert-danger message_flash alert-dismissible text-center text-uppercase" role="alert">
+            {% for msg in app.session.flashBag.get('alert') %}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <span class="text-center">{{ msg | raw }}</span>
+            {% endfor %}
+        </div>
+    {% endif %}
 <section>
     <div class="container concours">
         <h1 class="text-center"> {{ 'Présentation du concours'| trans }}</h1>
@@ -45,14 +53,14 @@
 
                         Le sourcing des candidats pourra émaner des différentes catégories ci-dessous (non-exhaustive):</p> <br/>
                         <ul>
-                            <li>Écoles et universités (chimie, parfumerie).</li>
-                            <li>Maisons de créations.</li>
-                            <li>Secteur des arômes et des fragrances.</li>
-                            <li>Producteurs d'ingrédients et de matières premières.</li>
-                            <li>Les marques.</li>
-                            <li>Parfumeurs indépendants.</li>
-                            <li>Autodidactes.</li>
-                            <li>Distributeurs.</li>
+                            <li class="liPres">Écoles et universités (chimie, parfumerie).</li>
+                            <li class="liPres">Maisons de créations.</li>
+                            <li class="liPres">Secteur des arômes et des fragrances.</li>
+                            <li class="liPres">Producteurs d'ingrédients et de matières premières.</li>
+                            <li class="liPres">Les marques.</li>
+                            <li class="liPres">Parfumeurs indépendants.</li>
+                            <li class="liPres">Autodidactes.</li>
+                            <li class="liPres">Distributeurs.</li>
                         </ul>
                     </article>
                 </div>
@@ -64,14 +72,14 @@
                         candidats et les professionnels et de lancer le compte à rebours des 6 mois de création.
                         Il y aura donc lors de cette journée :</p> <br />
                         <ul>
-                            <li>Rappel du règlement et du cadre du concours : cession des droits d'auteur, présentation quelque soit
+                            <li class="liPres">Rappel du règlement et du cadre du concours : cession des droits d'auteur, présentation quelque soit
                             la forme du processus créatif retenu par chaque candidat.</li>
-                            <li>La présentation des locaux de l'ISIPCA : en particulier les paillasses des laboratoires mises à disposition
+                            <li class="liPres">La présentation des locaux de l'ISIPCA : en particulier les paillasses des laboratoires mises à disposition
                             des 35 candidats pour effectuer les pesées si nécessaire.</li>
-                            <li>Conférence d'IFF sur les matières premières constituant l'orgue défini pour réaliser la création.</li>
-                            <li>Remise de l'orgue à parfums offert par IFF à chaque candidats comme bases de la création attendue.</li>
-                            <li>Présentation et initiation du logiciel Coptis LAB, logiciel d'aide à la rédaction de formules.</li>
-                            <li>Un portrait et une interview réalisés pour chaque candidat afin de valoriser son profil.</li>
+                            <li class="liPres">Conférence d'IFF sur les matières premières constituant l'orgue défini pour réaliser la création.</li>
+                            <li class="liPres">Remise de l'orgue à parfums offert par IFF à chaque candidats comme bases de la création attendue.</li>
+                            <li class="liPres">Présentation et initiation du logiciel Coptis LAB, logiciel d'aide à la rédaction de formules.</li>
+                            <li class="liPres">Un portrait et une interview réalisés pour chaque candidat afin de valoriser son profil.</li>
                         </ul>
                     </article>
                 </div>
@@ -79,31 +87,6 @@
          </div>
     </div>
 </section>
-
-    <!--CAROUSEL-->
-<div id="carouselFade" class="container carousel slide carousel-fade" data-ride="carousel">
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-        <div class="item active">
-            <div class="carousel-caption">
-            </div>
-        </div>
-        <div class="item">
-            <div class="carousel-caption">
-            </div>
-        </div>
-        <div class="item">
-            <div class="carousel-caption">
-            </div>
-        </div>
-    </div>
-</div>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-
-<script src="{{ asset('js/carousel.js') }}"></script>
-    <!--//CAROUSEL-->
 {% endblock %}
 
 

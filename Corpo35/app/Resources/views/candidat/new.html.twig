@@ -16,7 +16,7 @@
             <p class="hidden-lg hidden-md">{{ 'L\'inscription au concours nécessite le téléchargement de documents'| trans }}.<br/> {{ 'Veuillez passez sur la version PC du site'| trans }}.</p>
         </div>
     </div>
-    {% if is_granted ('ROLE_CANDIDAT') %}
+    {% if is_granted ('ROLE_USER') %}
     <div class="container hidden-xs hidden-sm">
                 {{ form_start(form) }}
                 <div class="form-group">
@@ -88,6 +88,13 @@
                         {{ form_label(form.competence, 'Autres formations et compétences'| trans) }}
                         {{ form_widget(form.competence,  { 'attr': {'placeholder': 'Autres formations'|trans  } }) }}</div>
                     <hr class="separe">
+                    <div class="form">{{ form_row(form.promotion, { 'attr' : { 'style':'display:none'}}) }}</div>
+                    {#<hr class="separe">#}
+                    {#{% for registration in form.fos_user %}#}
+                        {#{{ form_start(formRegistration) }}#}
+                        {#{{ form_row(form.fos_user) }}#}
+                        {#{{ form_end }}#}
+                    {#{% endfor %}#}
                     <div class="form">{{ form_row(form.promotion) }}</div>
                     <hr class="separe">
                     {% for document in form.documents %}
@@ -203,7 +210,7 @@
             }
         </script>
     </div>
-    {% else %}
+    {% elseif is_granted ('IS_AUTHENTICATED_ANONYMOUSLY') %}
         <a href="{{ path('fos_user_registration_register') }}" class="text-center">Merci de vous créer un compte avant de vous inscrire au concours</a>
     {% endif %}
 
