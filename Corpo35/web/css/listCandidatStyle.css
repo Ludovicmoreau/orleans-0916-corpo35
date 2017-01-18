@@ -3,6 +3,10 @@
     box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.3);
 }
 
+.recherche {
+    margin-bottom: 5%;
+}
+
 .linkCandidat {
     font-style: normal;
 }
