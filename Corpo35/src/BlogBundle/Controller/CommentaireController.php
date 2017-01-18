@@ -63,7 +63,6 @@ class CommentaireController extends Controller
     }
 
 
-
     /**
      * Finds and displays a commentaire entity.
      *
@@ -108,8 +107,8 @@ class CommentaireController extends Controller
     /**
      * Deletes a commentaire entity.
      *
-     * @Route("/{id}/delete", name="commentaire_delete")
-     * @Method("GET|DELETE")
+     * @Route("/{id}", name="commentaire_delete")
+     * @Method("DELETE")
      */
     public function deleteAction(Request $request, Commentaire $commentaire)
     {
@@ -123,6 +122,23 @@ class CommentaireController extends Controller
         }
 
         return $this->redirectToRoute('commentaire_index');
+    }
+
+    /**
+     * Deletes a commentaire entity.
+     *
+     * @Route("delete/{id}", name="commentaire_link_delete")
+     * @Method("GET")
+     */
+    public function deleteCommentaireAction(Commentaire $commentaire)
+    {
+            $id = $commentaire->getArticle()->getId();
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($commentaire);
+            $em->flush($commentaire);
+
+
+        return $this->redirectToRoute('article_show', ['id'=>$id]);
     }
 
     /**
@@ -140,7 +156,6 @@ class CommentaireController extends Controller
             ->getForm()
         ;
     }
-
 
 
 

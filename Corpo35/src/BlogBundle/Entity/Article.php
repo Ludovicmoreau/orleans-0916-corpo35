@@ -176,10 +176,10 @@ class Article
     /**
      * Add commentaires
      *
-     * @param \BackBundle\Entity\Commentaire $commentaires
+     * @param \BlogBundle\Entity\Commentaire $commentaires
      * @return Article
      */
-    public function addCommentaire(\BackBundle\Entity\Commentaire $commentaires)
+    public function addCommentaire(\BlogBundle\Entity\Commentaire $commentaires)
     {
         $this->commentaires[] = $commentaires;
 
@@ -189,9 +189,9 @@ class Article
     /**
      * Remove commentaires
      *
-     * @param \BackBundle\Entity\Commentaire $commentaires
+     * @param \BlogBundle\Entity\Commentaire $commentaires
      */
-    public function removeCommentaire(\BackBundle\Entity\Commentaire $commentaires)
+    public function removeCommentaire(\BlogBundle\Entity\Commentaire $commentaires)
     {
         $this->commentaires->removeElement($commentaires);
     }
