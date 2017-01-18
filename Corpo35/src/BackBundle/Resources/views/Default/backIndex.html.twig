@@ -1,4 +1,4 @@
-{% extends 'BackBundle:Default:backLayout.html.twig' %}
+    {% extends 'BackBundle:Default:backLayout.html.twig' %}
 
 {% block stylesheet %}
     {{ parent() }}
@@ -25,16 +25,13 @@
             <li><a class="linkNavAdmin fa fa-user-plus fa-1x" href="{{ path('jury_index') }}">Jury</a></li>
             <li><a class="linkNavAdmin fa fa-users fa-1x" href="{{ path('promotion_index') }}">Promotion</a></li>
             <li><a class="linkNavAdmin fa fa-calendar fa-1x" href="#agenda" data-toggle="tab">Agenda</a></li>
-<<<<<<< HEAD
             <li><a class="linkNavAdmin fa fa-rss fa-1x" href="#blog" data-toggle="tab">Blog</a></li>
             <li><a class="linkNavAdmin fa fa-newspaper-o fa-1x" href="#rpresse" data-toggle="tab">Revue de Presse</a></li>
             <li><a class="linkNavAdmin fa fa-truck fa-1x" href="#partenaire" data-toggle="tab">Partenaire</a></li>
             <li><a class="linkNavAdmin fa fa-users fa-1x" href="#user" data-toggle="tab">Utilisateurs</a></li>
-=======
             <li><a class="linkNavAdmin fa fa-rss fa-1x" href="{{ path('article_index') }}" >Blog</a></li>
             <li><a class="linkNavAdmin fa fa-newspaper-o fa-1x" href="{{ path('rpresse_index') }}">Revue de Presse</a></li>
             <li><a class="linkNavAdmin fa fa-truck fa-1x" href="{{ path('partenaire_index') }}">Partenaire</a></li>
->>>>>>> messant
             <li><a class="linkNavAdmin fa fa-sign-out fa-1x" href="{{ path('index') }}">Retour au site</a></li>
         </ul>
         <div class="tab-content">
