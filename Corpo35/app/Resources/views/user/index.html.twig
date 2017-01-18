@@ -1,5 +1,9 @@
 {% extends 'BackBundle:Default:backHeader.html.twig' %}
 
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ asset('css/back.css') }}">
+{% endblock %}
+
 {% block content %}
     <h1 class="text-center">Liste des utilisateurs</h1>
     <div class="row text-center">
