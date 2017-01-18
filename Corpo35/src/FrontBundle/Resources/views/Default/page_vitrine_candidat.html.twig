@@ -13,7 +13,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-12">
-                <h2 class="nomPrenom">{{ candidat.prenom }}<br/>{{ candidat.nom }}</h2>
+                <h2 class="nomPrenom text-center">{{ candidat.prenom }}<br/>{{ candidat.nom }}</h2>
             </div>
         </div>
         <div class="row">
@@ -29,14 +29,15 @@
                 <div class="presentation">
                     <div class="row">
                         <div class="col-xs-12">
+                            <p class="motivationTitre">Présentation</p>
                             <p>{{ candidat.presentation }}</p>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-6">
+                        <div class="col-xs-12">
                             <p>mail: <a href="mailto:{{ candidat.mail }} ">{{ candidat.mail }}</a></p>
                         </div>
-                        <div class="col-xs-6">
+                        <div class="col-xs-12">
                             <p>blog: <a href="{{ candidat.blog }}" target="_blank"> {{ candidat.blog }}</a></p>
                         </div>
                     </div>
@@ -47,7 +48,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="Logo">
+                <div class="Logo hidden-xs hidden-sm">
                     <div class="row">
                         <div class="col-xs-3">
                             <img src="{{ asset('images/CORPO35_testeur.png') }}" class="logoPageVitrine">
@@ -99,6 +100,56 @@
                 </div>
             </div>
         </div>
+                <div class="Logo hidden-lg hidden-md">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <img src="{{ asset('images/CORPO35_testeur.png') }}" class="logoPageVitrine">
+                        </div>
+                        <div class="col-xs-3">
+                            <hr class="separeLogo">
+                        </div>
+                        <div class="col-xs-6">
+                            <p>
+                                A labore modi nostrum. Optio incidunt porro voluptas quis voluptas laudantium at voluptate.
+                                Distinctio quae repellat eos nostrum voluptas dignissimos. Possimus expedita blanditiis
+                                nulla quam veritatis non asperiores dolores. Officiis ut sit similique doloribus
+                                aspernatur eum
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <img src="{{ asset('images/CORPO35_flacon.png') }}" class="logoPageVitrine">
+                        </div>
+                        <div class="col-xs-3">
+                            <hr class="separeLogo">
+                        </div>
+                        <div class="col-xs-6">
+                            <p>
+                                A labore modi nostrum. Optio incidunt porro voluptas quis voluptas laudantium at voluptate.
+                                Distinctio quae repellat eos nostrum voluptas dignissimos. Possimus expedita blanditiis
+                                nulla quam veritatis non asperiores dolores. Officiis ut sit similique doloribus
+                                aspernatur eum
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <img src="{{ asset('images/CORPO35_nez.png') }}" class="logoPageVitrine">
+                        </div>
+                        <div class="col-xs-3">
+                            <hr class="separeLogo">
+                        </div>
+                        <div class="col-xs-6">
+                            <p>
+                                A labore modi nostrum. Optio incidunt porro voluptas quis voluptas laudantium at voluptate.
+                                Distinctio quae repellat eos nostrum voluptas dignissimos. Possimus expedita blanditiis
+                                nulla quam veritatis non asperiores dolores. Officiis ut sit similique doloribus
+                                aspernatur eum
+                            </p>
+                        </div>
+                    </div>
+                </div>
         <div class="row">
                 {% for document in candidat.documents %}
                     {% if document.type == "image" %}
