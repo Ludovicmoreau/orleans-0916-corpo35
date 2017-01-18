@@ -2,126 +2,58 @@
 
 {% block stylesheet %}
     {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('css/backIndexStyle.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/backHeaderStyle.css') }}">
 {% endblock %}
 
 {% block header %}
-    <header>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-offset-4 col-xs-4">
-                    <img src="{{ asset('images/CORPO35_LOGOTYPE.png') }}" class="img-responsive center-block logoHeader" alt="Logo Corpo35">
-                </div>
-            </div>
+
+    <label for="show-menu" class="show-menu">Menu</label>
+    <input type="checkbox" id="show-menu" role="button">
+    <ul class="navbar" id="menu">
+        <div class="hidden-xs">
+            <h3>Bienvenue sur votre page d'administration</h3>
+            <img src="{{ asset('images/CORPO35_LOGOTYPE.png') }}" class="img-responsive center-block logoHeader" alt="Logo Corpo35">
         </div>
-    </header>
+        <li class="navitem"><a href="{{ path('candidat_index') }}">Candidats</a></li>
+        <li class="navitem "><a href="{{ path('promotion_index') }}">Promotions</a></li>
+        <li class="navitem"><a href="{{ path('jury_index') }}">Jury</a></li>
+        <li class="navitem"><a href="{{ path('partenaire_index') }}">Partenaires</a></li>
 
-   <h2 class="titreAdminIndex text-center">Bienvenue sur votre page d'administration</h2>
+
+        <li class="navitem"><a href="#agenda">Agenda</a>
+
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
+                <li id="#agenda"><a href="#">Evènement</a></li>
+                <li class="#agenda"><a href="#">Laboratoire</a></li>
+            </ul>
+
+        </li>
+        <li class="navitem"><a href="{{ path('article_index') }}">Blog</a></li>
+        <li class="navitem"><a href="{{ path('rpresse_index') }}">Revue de Presse</a></li>
+        <li class="navitem home"><a href="{{ path('index') }}">Retour au site</a></li>
+    </ul>
 
 
-    <div class="tabbable"> <!-- Only required for left/right tabs -->
-        <ul class="nav nav-tabs">
-            <li><a class="linkNavAdmin fa fa-user-plus fa-1x" href="{{ path('candidat_index') }}">Candidats</a></li>
-            <li><a class="linkNavAdmin fa fa-user-plus fa-1x" href="{{ path('jury_index') }}">Jury</a></li>
-            <li><a class="linkNavAdmin fa fa-users fa-1x" href="{{ path('promotion_index') }}">Promotion</a></li>
-            <li><a class="linkNavAdmin fa fa-calendar fa-1x" href="#agenda" data-toggle="tab">Agenda</a></li>
-<<<<<<< HEAD
-            <li><a class="linkNavAdmin fa fa-rss fa-1x" href="#blog" data-toggle="tab">Blog</a></li>
-            <li><a class="linkNavAdmin fa fa-newspaper-o fa-1x" href="#rpresse" data-toggle="tab">Revue de Presse</a></li>
-            <li><a class="linkNavAdmin fa fa-truck fa-1x" href="#partenaire" data-toggle="tab">Partenaire</a></li>
-            <li><a class="linkNavAdmin fa fa-users fa-1x" href="#user" data-toggle="tab">Utilisateurs</a></li>
-=======
-            <li><a class="linkNavAdmin fa fa-rss fa-1x" href="{{ path('article_index') }}" >Blog</a></li>
-            <li><a class="linkNavAdmin fa fa-newspaper-o fa-1x" href="{{ path('rpresse_index') }}">Revue de Presse</a></li>
-            <li><a class="linkNavAdmin fa fa-truck fa-1x" href="{{ path('partenaire_index') }}">Partenaire</a></li>
->>>>>>> messant
-            <li><a class="linkNavAdmin fa fa-sign-out fa-1x" href="{{ path('index') }}">Retour au site</a></li>
-        </ul>
-        <div class="tab-content">
 
-            <div class="tab-pane" id="jury">
-                <div class="container">
-                    <div class="row text-center marginBack">
-                        <div class="col-xs-6">
-                            <a class="linkNavAdmin" href="{{ path('jury_index') }}">Voir la liste des jurés</a>
-                        </div>
-                        <div class="col-xs-6">
-                            <a class="linkNavAdmin" href="{{ path('fos_user_registration_register') }}">Créer un nouveau juré</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="tab-pane" id="promotion">
-                <div class="container">
-                    <div class="row text-center marginBack">
-                        <div class="col-xs-6">
-                            <a class="linkNavAdmin" href="{{ path('promotion_index') }}">Voir la liste des promotions</a>
-                        </div>
-                        <div class="col-xs-6">
-                            <a class="linkNavAdmin" href="{{ path('promotion_new') }}">Créer une nouvelle promotion</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="tab-pane" id="agenda">
-                <div class="container">
-                    <div class="row marginBack">
-                        <div class="col-md-12">
-                            <h4>Agenda Evenements</h4>
-                            <div class="col-md-6">
-                                <a class="linkNavAdmin" href="{{ path('agenda_evenement_index') }}">Voir l'agenda</a>
-                            </div>
-                            <div class="col-md-6">
-                                <a class="linkNavAdmin" href="{{ path('agenda_evenement_new') }}">Créer un nouvel évènement</a>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <h4>Agenda Laboratoire</h4>
-                            <div class="col-md-6">
-                                <a class="linkNavAdmin" href="{{ path('agenda_labo_index') }}">Voir l'agenda</a>
-                            </div>
-                            <div class="col-md-6">
-                                <a class="linkNavAdmin" href="{{ path('agenda_labo_new') }}">Créer un nouvel évènement</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="tab-pane" id="rpresse">
-                <div class="container">
-                    <div class="row text-center marginBack">
-                        <div class="col-xs-6">
-                            <a class="linkNavAdmin" href="{{ path('rpresse_index') }}">Voir la liste des revues de presse</a>
-                        </div>
-                        <div class="col-xs-6">
-                            <a class="linkNavAdmin" href="{{ path('rpresse_new') }}">Créer une nouvelle revue de presse</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="tab-pane" id="partenaire">
-                <div class="container">
-                    <div class="row text-center marginBack">
-                        <div class="col-xs-6">
-                            <a class="linkNavAdmin" href="{{ path('partenaire_index') }}">Voir la liste des partenaires</a>
-                        </div>
-                        <div class="col-xs-6">
-                            <a class="linkNavAdmin" href="{{ path('partenaire_new') }}">Créer un nouveau partenaire</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="tab-pane" id="user">
-                <div class="container">
-                    <div class="row text-center marginBack">
-                        <div class="col-xs-12">
-                            <h2>Gestion des rôles utilisateurs</h2>
-                            <a class="linkNavAdmin" href="{{ path('user_index') }}">Voir la liste des utilisateurs</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    {#<div class="col-md-12">#}
+        {#<h4>Agenda Evenements</h4>#}
+        {#<div class="col-md-6">#}
+            {#<a class="linkNavAdmin" href="{{ path('agenda_evenement_index') }}">Voir l'agenda</a>#}
+        {#</div>#}
+        {#<div class="col-md-6">#}
+            {#<a class="linkNavAdmin" href="{{ path('agenda_evenement_new') }}">Créer un nouvel évènement</a>#}
+        {#</div>#}
+    {#</div>#}
+    {#<div class="col-md-12">#}
+        {#<h4>Agenda Laboratoire</h4>#}
+        {#<div class="col-md-6">#}
+            {#<a class="linkNavAdmin" href="{{ path('agenda_labo_index') }}">Voir l'agenda</a>#}
+        {#</div>#}
+        {#<div class="col-md-6">#}
+            {#<a class="linkNavAdmin" href="{{ path('agenda_labo_new') }}">Créer un nouvel évènement</a>#}
+        {#</div>#}
+    {#</div>#}
+
+
 {% endblock %}

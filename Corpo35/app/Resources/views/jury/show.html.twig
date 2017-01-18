@@ -1,4 +1,9 @@
-{% extends 'BackBundle:Default:backLayout.html.twig' %}
+{% extends 'FrontBundle:Default:index.html.twig' %}
+
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/listCandidatStyle.css') }}">
+{% endblock %}
 
 {% block content %}
     <h1>Jury</h1>
