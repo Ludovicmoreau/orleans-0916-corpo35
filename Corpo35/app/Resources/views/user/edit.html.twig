@@ -1,4 +1,9 @@
-{% extends 'base.html.twig' %}
+{% extends 'BackBundle:Default:backHeader.html.twig' %}
+
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/back.css') }}">
+{% endblock %}
 
 {% block body %}
     <h1>User edit</h1>

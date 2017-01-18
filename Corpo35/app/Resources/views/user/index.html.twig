@@ -1,10 +1,12 @@
 {% extends 'BackBundle:Default:backHeader.html.twig' %}
 
 {% block stylesheet %}
+    {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/back.css') }}">
 {% endblock %}
 
 {% block content %}
+    <div class="container admin">
     <h1 class="text-center">Liste des utilisateurs</h1>
     <div class="row text-center">
         <div class="col-xs-12">
@@ -25,29 +27,35 @@
             <p>ROLE_ISIPCA: A les droits pour modifier l'agenda du Labo</p>
         </div>
     </div>
-    <table class="table table-hover table-condensed">
-            <thead>
-                <tr>
-                    <th>Nom d'utilisateur</th>
-                    <th>Role</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for user in users |sortbyfield('id') %}
-                <tr>
-                    <td>{{ user.username }}</td>
-                    <td>
-                        {% for role in user.roles %}
-                            {{ role }}
-                        {% endfor %}
-                    </td>
-                    <td>
-                        <a href="{{ path('user_edit', { 'id': user.id }) }}">Changer le rôle</a>
-                    </td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-    <a href="{{ path('backHeader') }}"><input type="button" class="btn btn-primary center-block" value="Retour à l'espace d'administration" ></a>
+
+
+    {% for user in users |sortbyfield('id') %}
+        <h2>Articles  / <a href="{{ path('user_edit', { 'id': user.id }) }}">Changer le rôle</a></h2>
+
+        <div class="table-responsive-vertical shadow-z-1">
+            <table id="table" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Nom d'utilisateur</th>
+                        <th>Role</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ user.username }}</td>
+                        <td>
+                            {% for role in user.roles %}
+                                {{ role }}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        {% endfor %}
+
+        <a href="{{ path('backHeader') }}"><input type="button" class="btn btn-primary center-block" value="Retour à l'espace d'administration" ></a>
+
+        </div>
+
 {% endblock %}

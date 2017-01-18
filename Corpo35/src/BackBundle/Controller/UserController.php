@@ -90,7 +90,7 @@ class UserController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('backIndex');
+            return $this->redirectToRoute('backHeader');
         }
 
         return $this->render('user/edit.html.twig', array(

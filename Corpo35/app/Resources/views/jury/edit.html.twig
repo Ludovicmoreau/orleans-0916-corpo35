@@ -1,21 +1,25 @@
-{% extends 'BackBundle:Default:backLayout.html.twig' %}
+{% extends 'BackBundle:Default:backHeader.html.twig' %}
+
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/back.css') }}">
+{% endblock %}
 
 {% block content %}
-    <h1>Jury edit</h1>
+
+<div class="container admin">
+    <h2>Jury / <a href="{{ path('jury_index') }}"> retour à la liste</a></h2>
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
+            <button class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i></button>
+        {{ form_end(edit_form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('jury_index') }}">Back to the list</a>
-        </li>
-        <li>
+
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <button class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
             {{ form_end(delete_form) }}
-        </li>
-    </ul>
+
+
+</div>
 {% endblock %}

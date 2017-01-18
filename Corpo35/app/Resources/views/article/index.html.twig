@@ -1,6 +1,7 @@
-{% extends 'BackBundle:Default:backLayout.html.twig' %}
+{% extends 'BackBundle:Default:backHeader.html.twig' %}
 
 {% block stylesheet %}
+    {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/back.css') }}">
 {% endblock %}
 
@@ -8,7 +9,7 @@
 {% block content %}
     <div class="container admin">
 
-        <h2>Articles  / <a class="text-right" href="{{ path('article_new') }}">Créer un article </a></h2>
+        <h2>Articles  / <a href="{{ path('article_new') }}">créer un article </a></h2>
 
         <div class="table-responsive-vertical shadow-z-1">
             <!-- Table starts here -->
