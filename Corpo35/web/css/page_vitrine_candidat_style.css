@@ -1,5 +1,15 @@
 .photoProfil{
     width: 200%;
+    -webkit-filter: grayscale(200%);
+    -webkit-transition: all 1.2s ease;
+    -moz-transition: all 1.2s ease;
+    -o-transition: all 1.2s ease;
+    transition: all 1.2s ease;
+    padding-bottom: 10vh;
+}
+
+.photoProfil:hover {
+    -webkit-filter: grayscale(0%);
 }
 
 .nomPrenom {
@@ -16,8 +26,7 @@
 
 .profession {
     margin-top: 20%;
-    margin-left: 5%
-;
+    margin-left: 5%;
 }
 
 .presentation {
@@ -42,4 +51,24 @@
     height: 1px;
     width: 50%;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
+}
+
+@media screen and (max-width: 1200px ) {
+    .nomPrenom {
+        position: relative;
+        text-align: center;
+        margin: auto;
+        left: auto;
+        z-index: 1;
+        /*font-family: 'Montserrat', sans-serif;*/
+        font-family: 'Playfair Display', serif;
+        font-size: 400%;
+        font-weight: 900;
+        color: black;
+    }
+
+    .profession {
+        margin-top: 0;
+        margin-left: 5%;
+        }
 }

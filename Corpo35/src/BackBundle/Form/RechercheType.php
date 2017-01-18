@@ -38,6 +38,13 @@ class RechercheType extends AbstractType
                     'class'=>'center-block'
                 )
             ))
+            ->add('nom', SearchType::class,[
+                'required'=>false,
+                'label'=>'Nom',
+                'attr'=>array(
+                'class'=>'center-block'
+                )
+            ])
         ;
     }
 

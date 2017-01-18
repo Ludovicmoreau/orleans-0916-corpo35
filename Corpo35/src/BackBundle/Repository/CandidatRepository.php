@@ -17,7 +17,9 @@ class CandidatRepository extends \Doctrine\ORM\EntityRepository
             ->where('c.decision = :maRecherche')
                 ->setParameter('maRecherche', $data['maRecherche'])
             ->orWhere('c.classement = :classement')
-                ->setParameter('classement', $data['classement']);
+                ->setParameter('classement', $data['classement'])
+            ->orWhere('c.nom LIKE :nom')
+                ->setParameter('nom','%' . $data['nom']. '%');
 
 
         return  $qb->getQuery()->getResult();
