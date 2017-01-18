@@ -155,5 +155,21 @@ class PromotionController extends Controller
 
         ));
     }
+
+//    public function promotionCandidatAction(Candidat, $candidat)
+//    {
+//        $em = $this->getDoctrine()->getManager();
+//        $promotionCandidat = $em->getRepository('BackBundle:Candidat')->findOneByDateinscription();
+//        $em = $this->getDoctrine->getManager();
+//        $datelimiteinscription = $this->getRepository('BackBundle:Promotion')->findOneBy
+//        if ($dateinscription >= $enddate) {
+//            $promotionCandidat = $promotion;
+//            $em->persist($promotionCandidat);
+//        } else {
+//            $promotionCandidat = $em->getRepository('BackBundle:Promotion')->findOneByPromotion(ASC);
+//        }
+//
+//        $promotion->set
+//    }
 }
 
