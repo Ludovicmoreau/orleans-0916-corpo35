@@ -1,18 +1,18 @@
 {% extends 'BackBundle:Default:backLayout.html.twig' %}
 
 {% block stylesheet %}
-    <link rel="stylesheet" href="{{ asset('css/backArticle.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/back.css') }}">
 {% endblock %}
 
 
 {% block content %}
-    <div class="container article">
+    <div class="container admin">
 
         <h2>Articles  / <a class="text-right" href="{{ path('article_new') }}">Créer un article </a></h2>
 
         <div class="table-responsive-vertical shadow-z-1">
             <!-- Table starts here -->
-            <table id="table" class="table table-hover table-mc-light-grey">
+            <table id="table" class="table table-hover">
                 <thead>
                     <tr>
                         <th>Titre</th>

@@ -1,12 +1,21 @@
 {% extends 'BackBundle:Default:backLayout.html.twig' %}
 
-{% block content %}
-    <h1>Juries list</h1>
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ asset('css/back.css') }}">
+{% endblock %}
 
-    <table>
+{% block content %}
+
+<div class="container admin">
+
+    <h2>Jury liste  / <a class="text-right" href="{{ path('jury_new') }}">Créer un jury </a></h2>
+
+    <div class="table-responsive-vertical shadow-z-1">
+        <!-- Table starts here -->
+        <table id="table" class="table table-hover">
+
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Nom</th>
                 <th>Prenom</th>
                 <th>Entreprise</th>
@@ -17,29 +26,17 @@
         <tbody>
         {% for jury in juries %}
             <tr>
-                <td><a href="{{ path('jury_show', { 'id': jury.id }) }}">{{ jury.id }}</a></td>
                 <td>{{ jury.nom }}</td>
                 <td>{{ jury.prenom }}</td>
                 <td>{{ jury.entreprise }}</td>
                 <td>{{ jury.mail }}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('jury_show', { 'id': jury.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('jury_edit', { 'id': jury.id }) }}">edit</a>
-                        </li>
-                    </ul>
+                    <a href="{{ path('jury_show', { 'id': jury.id }) }}">show<i class="fa fa-eye fa-2x" aria-hidden="true"></i></a>
+                    <a href="{{ path('jury_edit', { 'id': jury.id }) }}">edit<i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('jury_new') }}">Create a new jury</a>
-        </li>
-    </ul>
+ </div>
 {% endblock %}
