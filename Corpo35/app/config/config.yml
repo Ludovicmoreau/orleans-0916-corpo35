@@ -77,7 +77,7 @@ fos_user:
     resetting:
                 email:
                     from_email:
-                        address:        admin@gmail.com
+                        address:        wildcodeschooltest@gmail.com
                         sender_name:    Administrateur du site
 
 services:
