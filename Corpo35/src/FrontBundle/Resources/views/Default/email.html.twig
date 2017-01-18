@@ -1,0 +1,19 @@
+
+{% block body %}
+
+    {% block content %}
+        <h2 class="title_mail">Bonjour,</h2>
+
+        <p>Vous avez reçu un message de
+            {{ prenom }}
+            {% filter upper %}
+                {{ nom }}
+            {% endfilter %}
+
+            Voici le contenu de son message :<br>
+        <blockquote>" {{ message }} "</blockquote>
+        Son adresse mail est la suivante : {{ email }}
+
+    {% endblock %}
+
+{% endblock %}
