@@ -1,4 +1,4 @@
-{% extends 'FrontBundle:Default:index.html.twig' %}
+{% extends 'BackBundle:Default:backIndex.html.twig' %}
 
 {% block stylesheet %}
     {{ parent() }}
@@ -81,7 +81,7 @@
         </div>
         {% if is_granted ('ROLE_ADMIN') %}
             <div class="row">
-            <a href="{{ path('backIndex') }}" class="linkBackListcandidat">Retour à l'accueil</a>
+            <a href="{{ path('backHeader') }}" class="linkBackListcandidat">Retour à l'accueil</a>
         {% else %}
             <p><a href="{{ path('backJury') }}">Retour à l'accueil</a></p>
             </div>
