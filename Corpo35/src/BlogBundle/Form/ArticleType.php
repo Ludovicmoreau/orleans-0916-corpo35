@@ -20,6 +20,7 @@ class ArticleType extends AbstractType
                 ->add('auteur')
                 ->add('date', DateType::class)
                 ->add('photo', FileType::class)
+
         ;
     }
     
