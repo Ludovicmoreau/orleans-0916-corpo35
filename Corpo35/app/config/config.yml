@@ -73,12 +73,21 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb' and 'couchdb'
     firewall_name: main
     user_class: BackBundle\Entity\User
+    registration:
+             confirmation:
+                        enabled: true
+                        from_email:
+                            address:        wildcodeschooltest@gmail.com
+                            sender_name:    Administrateur du site
+                        template:   FOSUserBundle:Registration:email.txt.twig
+
 
     resetting:
                 email:
                     from_email:
                         address:        wildcodeschooltest@gmail.com
                         sender_name:    Administrateur du site
+                    template:   FOSUserBundle:Resetting:email.txt.twig
 
 services:
     twig.extension.text:
