@@ -1,21 +1,35 @@
+{#{% extends 'BackBundle:Default:backHeader.html.twig' %}#}
 {% extends 'base.html.twig' %}
 
-{% block body %}
-    <h1>User edit</h1>
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/back.css') }}">
+{% endblock %}
 
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('user_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1 class="text-center">Edition des rôles: {{ user.username }}</h1>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-xs-12">
+                {{ form_start(edit_form) }}
+                    {{ form_row(edit_form.roles) }}
+                    <input type="submit" value="Editer" class="btn btn-success"/>
+                {{ form_end(edit_form) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                <a href="{{ path('user_index') }}"><input type="button" class="btn btn-primary center-block" value="Retour à la page d'administration" ></a></a>
+            </div>
+            <div class="col-xs-6">
+                {{ form_start(delete_form) }}
+                    <input type="submit" value="Supprimer cet utilisateur" class="btn btn-danger center-block">
+                {{ form_end(delete_form) }}
+            </div>
+        </div>
+    </div>
 {% endblock %}

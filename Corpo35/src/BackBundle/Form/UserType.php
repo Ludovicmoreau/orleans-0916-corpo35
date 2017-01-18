@@ -24,8 +24,11 @@ class UserType extends AbstractType
                     'ROLE_PARTENAIRE' => 'Partenaire',
                     'ROLE_ISIPCA' => 'ISIPCA',
                 ),
-                'expanded'=>true,
+                'expanded'=> true,
                 'multiple'  => true,
+                'attr'=>array(
+                    'class'=>'center-block'
+                )
             ))
         ;
     }
