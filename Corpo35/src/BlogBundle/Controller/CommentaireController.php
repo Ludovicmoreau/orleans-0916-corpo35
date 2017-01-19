@@ -26,7 +26,7 @@ class CommentaireController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $commentaires = $em->getRepository('BlogBundle:Commentaire')->findByOrderCommentaire($data);
+        $commentaires = $em->getRepository('BlogBundle:Commentaire')->findAll();
 
         return $this->render('commentaire/index.html.twig', array(
             'commentaires' => $commentaires,
