@@ -1,12 +1,14 @@
-{% extends 'FrontBundle:Default:index.html.twig' %}
-    {% block stylesheet %}
-            <link rel="stylesheet" href="{{ asset('css/pageArticle_style.css') }}">
-    {% endblock %}
+{% extends 'FrontBundle:Default:layout.html.twig' %}
+
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/pageArticle_style.css') }}">
+{% endblock %}
 
 {% block content %}
         {% form_theme form'bootstrap_3_layout.html.twig' %}
         <div class="container card">
-                <div class="row">
+                <div class="row card">
                         <div class="col-md-10 image">
                                 <img class="img-responsive" src="{{ asset('upload/' ~  article.photo )}}">
                         </div>
@@ -15,58 +17,84 @@
                                         <h1><span>{{ article.titre }}</span></h1>
                                 </div>
                                 <div class="intro">
-                                        <p>Le {% if article.date %}{{ article.date|date('d-m-Y') }}{% endif %} par {{ article.auteur }}</p>
+                                        <p>Le {{ article.date | localizeddate('full', 'none', app.request.attributes.get('_locale') ) }} par {{ article.auteur }}</p>
                                 </div>
                         </div>
                 </div>
         </div>
-        <div class="container">
+        <div class="container article">
                 <div class="article-container">
                         <p>{{ article.contenu }}</p>
                 </div>
+            </div>
         </div>
-        <div class="container">
-        {% for  commentaire in article.commentaires %}
-                <blockquote class="blockquote">
-                        <div class="col-md-8">
-                                <p class="mb-0">{{ commentaire.commentaire}}</p>
-                        </div>
-                        <div class="col-md-4">
-                                <footer class="blockquote-footer">Posté par <cite title="Source Title">{{ commentaire.auteur}}</cite><span class="text-right"> le {{ commentaire.date|date('d/m/Y') }}</span></footer>
-                        </div>
-                </blockquote>
-        {% endfor %}
-
-        <div class="well">
-                {{ form_start(form) }}
-                {{ form_widget(form) }}
-                <input class="btn btn-lg btn-default" type="submit" value="Poster" />
-                {{ form_end(form) }}
-        </div>
-        </div>
-        <div class="container post-article">
-                <div class="row">
-                        <div class="col-md-6">
-                                <a href="{{ path('blog') }}" class="text-left button"><i class="fa fa-long-arrow-left" aria-hidden="true"> page précédente</i></a>
-                        </div>
-                        <div class="col-md-6 hidden-xs">
-                                <a href="{{ path('blog') }}" class="text-right button">Retour <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+        <div class="container read">
+                <div class="row read-more">
+                        <div class="container">
+                                {% for  commentaire in comments %}
+                                <blockquote class="wrapper maxheight">
+                                        <p class="first">{{ commentaire.commentaire}}
+                                        <footer class="blockquote-footer">Posté par <cite title="Source Title">{{ commentaire.auteur}}</cite><span class="text-right"> le {{ commentaire.date|date('d/m/Y') }}</span></footer>
+                                        </p>
+                                </blockquote>
+                                 {% endfor %}
+                                <div class="background"></div>
                         </div>
                 </div>
+                <button>Read More (+)</button>
         </div>
-
+        <div class="container">
+                <div class="well">
+                        {{ form_start(form) }}
+                        {{ form_widget(form) }}
+                        <input class="btn btn-lg btn-default" type="submit" value="Poster" />
+                        {{ form_end(form) }}
+                </div>
+        </div>
+    </div>
+    <div class="container post-article">
+        <div class="row">
+            <div class="col-md-6">
+                <a href="{{ path('blog') }}" class="text-left button"><i class="fa fa-long-arrow-left"
+                                                                         aria-hidden="true"> page précédente</i></a>
+            </div>
+            <div class="col-md-6 hidden-xs">
+                <a href="{{ path('blog') }}" class="text-right button">Retour <i class="fa fa-long-arrow-right"
+                                                                                 aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </div>
         <script>
-                $('.expand-button').on('click', function(){
-                        $('.special-text').toggleClass('-expanded');
+                $('.wrapper').removeClass('maxheight');
+
+                $('button').click(function() {
+                        $(this).animate({
+                                top: '-10px'
+                        }, 150, 'easeInOutCubic');
+                        $(this).animate({
+                                top: '10px'
+                        }, 150, 'easeInOutCubic', function() {
+                                $(this).toggleClass('readless');
+                                $(this).parent().children('.read').children('.wrapper').children('.background').toggle();
+                                $(this).parent().children('.read').children('.wrapper').toggleClass('maxheight');
+
+                                if ($(this).hasClass('readless')) {
+                                        $(this).text("Lire moins (-)");
+                                        $(this).css('color', 'maroon');
+                                } else {
+                                        $(this).text("Voir plus (+)");
+                                        $(this).css('color', 'green');
+                                };
+                        });
+
 
                 });
         </script>
-{% endblock %}
-
-{% block JS %}
-        {{ parent() }}
 
 {% endblock %}
+
+
+
 
 
 

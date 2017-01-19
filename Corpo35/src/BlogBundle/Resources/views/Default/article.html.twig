@@ -1,12 +1,12 @@
-    {% extends 'FrontBundle:Default:index.html.twig' %}
-    {% block stylesheet %}
-        <link rel="stylesheet" href="{{ asset('css/blog_style.css') }}">
-    {% endblock %}
+{% extends 'FrontBundle:Default:layout.html.twig' %}
+
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/blog_style.css') }}">
+{% endblock %}
 
 {% block content %}
-
-
-<div class="container">
+    <div class="container">
     <h1 class="title_actu"><i class="fa fa-pagelines pagelines_title" aria-hidden="true"></i> Notre actu</h1>
 
     {% for article in articles %}
@@ -19,7 +19,10 @@
                 </div>
                 <div class="col-md-6">
                     <div class="card--info">
-                        <h3 class="category">{% if article.date %}{{ article.date|date('d F Y') }}{% endif %}</h3>
+                        <h3 class="category">{{ article.date | localizeddate('full', 'none', app.request.attributes.get('_locale') ) }}</h3>
+
+
+
                         <h2 class="title">
                             {{ article.titre }}
                         </h2>
@@ -34,19 +37,11 @@
             </div>
         </div>
     {% endfor %}
-    <p class="text-right"><a href="{{ path('list_article') }}" class="button">Anciens Posts <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+    <p class="text-right arrow"><a href="{{ path('blog', {'limit':'all'}) }}" class="button">Anciens Posts <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
 
 </div>
 {% endblock %}
 
-{% block JS %}
-    {{ parent() }}
-    <script>
-
-
-
-    </script>
-{% endblock %}
 
 
 

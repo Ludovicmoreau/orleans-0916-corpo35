@@ -1,4 +1,4 @@
-{% extends 'BackBundle:Default:backHeader.html.twig' %}
+{% extends 'FrontBundle:Default:layout.html.twig' %}
 
 {% block stylesheet %}
     {{ parent() }}
@@ -101,6 +101,7 @@
                         <h3 class="text-center titreForm">Documents</h3>
                         <p class="text-center">
                             {{ 'Vous pouvez telecharger des documents qui vous ont inspiré pour votre création.'| trans }}<br/>
+                            <span class="attention">{{ 'Pour le concours une formule de votre création vous sera demandé. Si vous en possédez déjà une, merci de la télécharger ici. Sinon vous aurez la possibilité d\'éditer votre profil ultérieurement.' | trans }}</span><br/>
                             {{ 'Les types de documents supportés sont "image", "vidéo", "musique" ou "pdf"'| trans }}.<br/>
                             <span class="attention"> {{ 'Attention les documents ne peuvent pas dépasser 2MB'| trans }}</span>.<br/>
                              {{ 'Vous pouvez également ajouter un lien vers un site externe'| trans }}.

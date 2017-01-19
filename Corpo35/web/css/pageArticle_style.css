@@ -1,32 +1,223 @@
 
+/**,*/
+/**:before,*/
+/**:after {*/
+    /*margin: 0;*/
+    /*padding: 0;*/
+/*}*/
+/*.group:after {*/
+    /*content: "";*/
+    /*display: table;*/
+    /*clear: both;*/
+/*}*/
+/*.card{*/
+    /*margin-top: 100px;*/
+/*}*/
+/*.post-article{*/
+    /*margin-bottom: 100px;*/
+    /*max-height: 350px;*/
+/*}*/
+/*img {*/
+    /*max-width: 100%;*/
+
+    /*position: relative;*/
+    /*float: left;*/
+/*}*/
+/*a {*/
+    /*text-decoration: none;*/
+/*}*/
+
+/*.top-matter {*/
+    /*position: absolute;*/
+    /*float: right;*/
+
+/*}*/
+/*.top-matter * {*/
+    /*color: transparent;*/
+/*}*/
+/*h1 {*/
+    /*font-size: 3rem;*/
+    /*line-height: 1;*/
+    /*margin-bottom: 24px;*/
+    /*text-align: right;*/
+    /*direction: rtl;*/
+    /*text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);*/
+
+/*}*/
+/*h1 span {*/
+
+    /*text-transform: uppercase;*/
+    /*font-size: 6rem;*/
+/*}*/
+/*.intro {*/
+    /*text-align: right;*/
+    /*text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);*/
+/*}*/
+/*.article-container {*/
+    /*padding-top: 25px;*/
+    /*-webkit-column-count: 5;*/
+    /*-moz-column-count: 5;*/
+    /*column-count: 5;*/
+    /*-webkit-column-width: 360px;*/
+    /*-moz-column-width: 360px;*/
+    /*column-width: 360px;*/
+    /*-webkit-column-gap: 36px;*/
+    /*-moz-column-gap: 36px;*/
+    /*column-gap: 36px;*/
+    /*-webkit-column-fill: balance;*/
+    /*-moz-column-fill: balance;*/
+    /*column-fill: balance;*/
+/*}*/
+/*.article-container p {*/
+    /*orphans: 3;*/
+    /*widows: 3;*/
+    /*position: relative;*/
+    /*text-indent: 1em;*/
+/*}*/
+/*.article-container p:after {*/
+    /*content: '';*/
+    /*display: inline-table;*/
+    /*height: 0px;*/
+    /*margin-bottom: 0;*/
+/*}*/
+/*.article-container p:first-child:first-letter {*/
+    /*float: left;*/
+    /*color: black;*/
+    /*font-size: 81px;*/
+    /*line-height: 60px;*/
+    /*padding-top: 10px;*/
+    /*padding-right: 8px;*/
+    /*padding-left: 3px;*/
+    /*font-weight: 700;*/
+/*}*/
+
+
+
+
+/*@media only screen and (min-width: 900px) {*/
+    /*.container {*/
+        /*padding: 0;*/
+
+    /*}*/
+    /*.top-matter {*/
+        /*background: #f0f0ff;*/
+
+
+    /*}*/
+    /*.top-matter .intro {*/
+        /*margin-top: auto;*/
+    /*}*/
+    /*.top-matter h1 {*/
+        /*text-shadow: none;*/
+        /*color: #111;*/
+        /*font-size: 5em;*/
+    /*}*/
+    /*.top-matter h1 span {*/
+        /*color: black;*/
+        /*font-weight: 700;*/
+        /*font-size: 136px;*/
+        /*letter-spacing: 3px;*/
+        /*text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.25);*/
+    /*}*/
+    /*.intro p {*/
+        /*text-shadow: none;*/
+        /*font-size: 2em;*/
+        /*color: #444;*/
+        /*line-height: 1.2;*/
+        /*font-style: italic;*/
+    /*}*/
+/*}*/
+
+
+
+
+.read {
+    background: transparent;
+    padding: 1em;
+}
+.wrapper {
+    position: relative;
+    max-height: 10vh;
+    overflow: hidden;
+}
+
+.maxheight {
+    max-height: 100%;
+}
+
+.background::after {
+    content: '';
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    /*background-image: linear-gradient(to bottom, transparent 0%, white 100%);*/
+}
+
+.first {
+    margin: 0px;
+    color: #444;
+    position: static;
+    padding: 1em 1em 0 1em;
+}
+
+button {
+    position: relative;
+    display: block;
+    width: 50%;
+    text-align: center;
+    margin: 0 auto;
+    padding: 1em 0;
+    font-size: 1em;
+    font-family: 'Raleway';
+    color: #444;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: green;
+    text-transform: uppercase;
+    transition: transform 150ms ease-in-out;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:hover {
+    opacity: .9;
+    transform: scale(1.2);
+}
+
 *,
 *:before,
 *:after {
-    margin: 0;
-    padding: 0;
+    box-sizing: border-box;
 }
 .group:after {
     content: "";
     display: table;
     clear: both;
 }
-.post-article{
-    max-height: 350px;
-}
 img {
     max-width: 100%;
-
-    position: relative;
+    height: auto;
+    vertical-align: baseline;
 }
 a {
     text-decoration: none;
 }
+.container {
 
+    padding: 0em 1em;
+}
 .top-matter {
-    position: absolute;
+
+    float: right;
+    max-width: 300px;
 }
 .top-matter * {
-    color: transparent;
+    color: black;
 }
 h1 {
     font-size: 3rem;
@@ -35,20 +226,29 @@ h1 {
     text-align: right;
     direction: rtl;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
-
 }
 h1 span {
-
+    display: block;
     text-transform: uppercase;
-    font-size: 6rem;
 }
 .intro {
     text-align: right;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
 }
 .article-container {
-    padding-top: 25px;
-
+    padding-top: 2em;
+    -webkit-column-count: 5;
+    -moz-column-count: 5;
+    column-count: 5;
+    -webkit-column-width: 360px;
+    -moz-column-width: 360px;
+    column-width: 360px;
+    -webkit-column-gap: 36px;
+    -moz-column-gap: 36px;
+    column-gap: 36px;
+    -webkit-column-fill: balance;
+    -moz-column-fill: balance;
+    column-fill: balance;
 }
 .article-container p:first-child:first-letter {
     float: left;
@@ -60,10 +260,20 @@ h1 span {
     padding-left: 3px;
     font-weight: 700;
 }
-
-
+.article-container p {
+    orphans: 3;
+    widows: 3;
+    position: relative;
+    text-indent: 1em;
+}
+.article-container p:after {
+    content: '';
+    display: inline-table;
+    height: 0px;
+    margin-bottom: 0;
+}
 .article-container p:first-child {
-
+    text-indent: 0;
 }
 .article-container img {
     display: block;
@@ -74,12 +284,17 @@ h1 span {
 @media only screen and (min-width: 900px) {
     .container {
         padding: 0;
-
     }
     .top-matter {
         background: #f0f0ff;
-
-
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        max-width: 450px;
     }
     .top-matter .intro {
         margin-top: auto;
@@ -87,20 +302,21 @@ h1 span {
     .top-matter h1 {
         text-shadow: none;
         color: #111;
-        font-size: 5em;
+
     }
     .top-matter h1 span {
         color: black;
         font-weight: 700;
-        font-size: 136px;
+        font-size: 80px;
         letter-spacing: 3px;
         text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.25);
     }
     .intro p {
         text-shadow: none;
-        font-size: 2em;
+        font-size: 1.5em;
         color: #444;
         line-height: 1.2;
         font-style: italic;
+        padding-top: 0;
     }
 }

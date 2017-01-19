@@ -1,17 +1,13 @@
-{% extends 'BackBundle:Default:backLayout.html.twig' %}
-
 {% block stylesheet %}
-    {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/backHeaderStyle.css') }}">
 {% endblock %}
 
-{% block header %}
-    <label for="show-menu" class="show-menu">Menu</label>
+<label for="show-menu" class="show-menu">Menu</label>
     <input type="checkbox" id="show-menu" role="button">
     <ul class="navbar" id="menu">
         <div class="hidden-xs">
             <h3>Bienvenue sur votre page d'administration</h3>
-            <img src="{{ asset('images/CORPO35_LOGOTYPE.png') }}" class="img-responsive center-block logoHeader" alt="Logo Corpo35">
+            <a href="{{ path('index') }}"><img src="{{ asset('images/CORPO35_LOGOTYPE.png') }}" class="img-responsive center-block logoHeader" alt="Logo Corpo35"></a>
         </div>
         {% if is_granted ('ROLE_ADMIN') %}
         <li class="navitem"><a href="{{ path('candidat_index') }}">Candidats</a></li>
@@ -30,9 +26,3 @@
         <li class="navitem home"><a href="{{ path('index') }}">Retour au site</a></li>
         {% endif %}
     </ul>
-
-
-
-
-{% endblock %}
-
