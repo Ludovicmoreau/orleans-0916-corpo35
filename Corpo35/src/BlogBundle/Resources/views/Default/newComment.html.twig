@@ -8,7 +8,7 @@
 {% block content %}
         {% form_theme form'bootstrap_3_layout.html.twig' %}
         <div class="container card">
-                <div class="row">
+                <div class="row card">
                         <div class="col-md-10 image">
                                 <img class="img-responsive" src="{{ asset('upload/' ~  article.photo )}}">
                         </div>
@@ -17,7 +17,7 @@
                                         <h1><span>{{ article.titre }}</span></h1>
                                 </div>
                                 <div class="intro">
-                                        <p>Le {% if article.date %}{{ article.date|date('d-m-Y') }}{% endif %} par {{ article.auteur }}</p>
+                                        <p>Le {{ article.date | localizeddate('full', 'none', app.request.attributes.get('_locale') ) }} par {{ article.auteur }}</p>
                                 </div>
                         </div>
                 </div>
@@ -34,7 +34,6 @@
                                 {% for  commentaire in comments %}
                                 <blockquote class="wrapper maxheight">
                                         <p class="first">{{ commentaire.commentaire}}
-
                                         <footer class="blockquote-footer">Posté par <cite title="Source Title">{{ commentaire.auteur}}</cite><span class="text-right"> le {{ commentaire.date|date('d/m/Y') }}</span></footer>
                                         </p>
                                 </blockquote>
