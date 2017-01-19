@@ -1,4 +1,4 @@
-{% extends 'BackBundle:Default:backIndex.html.twig' %}
+{% extends 'BackBundle:Default:backHeader.html.twig' %}
 
 {% block stylesheet %}
     {{ parent() }}
@@ -18,12 +18,15 @@
                 {{ form_start(form) }}
                 {{ form_row(form.maRecherche) }}
             </div>
-            <div class="col-xs-2">
-                <p class="text-center">Ou</p>
+            <div class="col-xs-2 text-center">
+                <p>Ou</p>
             </div>
-            <div class="col-xs-5">
+            <div class="col-xs-5 text-center">
                 {{ form_row(form.classement) }}
             </div>
+            {#<div class="col-xs-4 text-center">#}
+                {#{{ form_row(form.nom) }}#}
+            {#</div>#}
             <div class="row">
                 <div class="col-xs-12">
                     <input class="btn btn-primary center-block" type="submit">
@@ -72,7 +75,7 @@
                     {% endif %}
                     <p>
                         {% if is_granted ('ROLE_ADMIN') %}
-                            <a href="{{ path('recandidatenavant' , { 'id': candidat.id }) }}"> Mettre en avant le candidat</a>
+                            <a href="{{ path('recandidatenavant' , { 'id': candidat.id }) }}" class="linkMisEnAvant"> Mettre en avant le candidat</a>
                         {% endif %}
                     </p>
                 </div>

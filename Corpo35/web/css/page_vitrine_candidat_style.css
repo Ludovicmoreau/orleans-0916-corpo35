@@ -26,8 +26,7 @@
 
 .profession {
     margin-top: 20%;
-    margin-left: 5%
-;
+    margin-left: 5%;
 }
 
 .presentation {
@@ -52,4 +51,24 @@
     height: 1px;
     width: 50%;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
+}
+
+@media screen and (max-width: 1200px ) {
+    .nomPrenom {
+        position: relative;
+        text-align: center;
+        margin: auto;
+        left: auto;
+        z-index: 1;
+        /*font-family: 'Montserrat', sans-serif;*/
+        font-family: 'Playfair Display', serif;
+        font-size: 400%;
+        font-weight: 900;
+        color: black;
+    }
+
+    .profession {
+        margin-top: 0;
+        margin-left: 5%;
+        }
 }

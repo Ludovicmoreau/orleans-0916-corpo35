@@ -1,16 +1,17 @@
-{% extends 'BackBundle:Default:backLayout.html.twig' %}
+{% extends 'BackBundle:Default:backHeader.html.twig' %}
+
 {% block stylesheet %}
+    {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/back.css') }}">
 {% endblock %}
+
 {% block content %}
 <div class="container admin">
 
-    <h2>Partenaires / <a class="text-right" href="{{ path('partenaire_new') }}">Créer un partenaire </a></h2>
+    <h2>Partenaires / <a class="text-right" href="{{ path('partenaire_new') }}">créer un partenaire </a></h2>
 
     <div class="table-responsive-vertical shadow-z-1">
-
         <table id="table" class="table table-hover">
-
             <thead>
             <tr>
                 <th>Nom</th>
@@ -26,32 +27,22 @@
             {% for partenaire in partenaires %}
             <tbody>
             <tr>
-
-                <td data-title="Nom">{{ partenaire.nom }}</td>
-                <td data-title="Résumé">{{ partenaire.resume | truncate(100, true, "...") }}</td>
-                <td data-title="Logo">{{ partenaire.logo }}</td>
-                <td data-title="Logo">{{ partenaire.contenu | truncate(100, true, "...") }}</td>
-                <td data-title="Website">{{ partenaire.website }}</td>
-                <td data-title="Email">{{ partenaire.email }}</td>
-                <td data-title="Téléphone">{{ partenaire.phone }}</td>
-                <td data-title="Action">
-
-                            <a href="{{ path('partenaire_show', { 'id': partenaire.id }) }}) }}"><i class="fa fa-eye fa-2x" aria-hidden="true"></i></a>
-
-                            <a href="{{ path('partenaire_edit', { 'id': partenaire.id }) }}"><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a>
-
-
-
+                <td>{{ partenaire.nom }}</td>
+                <td>{{ partenaire.resume | truncate(100, true, "...") }}</td>
+                <td>{{ partenaire.logo }}</td>
+                <td>{{ partenaire.contenu | truncate(100, true, "...") }}</td>
+                <td>{{ partenaire.website }}</td>
+                <td>{{ partenaire.email }}</td>
+                <td>{{ partenaire.phone }}</td>
+                <td>
+                    <a href="{{ path('partenaire_show', { 'id': partenaire.id }) }}) }}"><i class="fa fa-eye fa-2x" aria-hidden="true"></i></a>
+                    <a href="{{ path('partenaire_edit', { 'id': partenaire.id }) }}"><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a>
                 </td>
-
             </tr>
             </tbody>
             {% endfor %}
         </table>
-
     </div>
 </div>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 {% endblock %}

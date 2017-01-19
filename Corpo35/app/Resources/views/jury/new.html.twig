@@ -1,16 +1,25 @@
-{% extends 'BackBundle:Default:backLayout.html.twig' %}
+{% extends 'BackBundle:Default:backHeader.html.twig' %}
+
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/back.css') }}">
+{% endblock %}
 
 {% block content %}
-    <h1>Jury creation</h1>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+    {% form_theme form'bootstrap_3_layout.html.twig' %}
 
-    <ul>
-        <li>
-            <a href="{{ path('jury_index') }}">Back to the list</a>
-        </li>
-    </ul>
+
+    <div class="container admin">
+        <h2>Jury /  <a href="{{ path('jury_index') }}">retour à la liste</a></h2>
+
+        {{ form_start(form) }}
+            {{ form_widget(form) }}
+        <button class="btn btn-success" type="submit"><i class="fa fa-check" aria-hidden="true"></i></button>
+
+        {{ form_end(form) }}
+
+    </div>
+
+
 {% endblock %}

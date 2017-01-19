@@ -1,43 +1,50 @@
-{% extends 'BackBundle:Default:backLayout.html.twig' %}
-{% block content %}
-    <h1>Agenda_evenement</h1>
+{% extends 'BackBundle:Default:backHeader.html.twig' %}
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ agenda_evenement.id }}</td>
-            </tr>
-            <tr>
-                <th>Date</th>
-                <td>{% if agenda_evenement.date %}{{ agenda_evenement.date|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Lieu</th>
-                <td>{{ agenda_evenement.lieu }}</td>
-            </tr>
-            <tr>
-                <th>Titre</th>
-                <td>{{ agenda_evenement.titre }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ agenda_evenement.description }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('agenda_evenement_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('agenda_evenement_edit', { 'id': agenda_evenement.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/back.css') }}">
 {% endblock %}
+
+{% block content %}
+
+    <div class="container admin">
+        <div class="table-responsive-vertical shadow-z-1">
+            <table id="table" class="table table-hover table-mc-light-grey">
+                <h2>Agenda / <a href="{{ path('agenda_evenement_index') }}">retour à la liste </a> /  <a href="{{ path('agenda_evenement_edit', { 'id': agenda_evenement.id }) }}">éditer</a></h2>
+                <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Lieu</th>
+                    <th>Titre</th>
+                    <th>Description</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{% if agenda_evenement.date %}{{ agenda_evenement.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>{{ agenda_evenement.lieu }}</td>
+                    <td>{{ agenda_evenement.titre }}</td>
+                    <td>{{ agenda_evenement.description }}</td>
+                    <td>
+                        {{ form_start(delete_form) }}
+                        <button class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                        {{ form_end(delete_form) }}
+                    </td>
+                </tr>
+                </tbody>
+                <tfoot>
+            </table>
+        </div>
+    </div>
+
+
+    <script>
+
+
+    </script>
+
+{% endblock %}
+
+
+

@@ -1,4 +1,4 @@
-{% extends 'FrontBundle:Default:index.html.twig' %}
+{% extends 'BackBundle:Default:backHeader.html.twig' %}
 
 {% block stylesheet %}
     {{ parent() }}
@@ -211,7 +211,13 @@
         </script>
     </div>
     {% elseif is_granted ('IS_AUTHENTICATED_ANONYMOUSLY') %}
-        <a href="{{ path('fos_user_registration_register') }}" class="text-center">Merci de vous créer un compte avant de vous inscrire au concours</a>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 text-center well">
+                    <a href="{{ path('fos_user_registration_register') }}" class="attention">Merci de vous créer un compte avant de vous inscrire au concours</a>
+                </div>
+            </div>
+        </div>
     {% endif %}
 
 {% endblock %}

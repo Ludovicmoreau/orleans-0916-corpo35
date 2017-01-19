@@ -13,16 +13,26 @@
             <h3>Bienvenue sur votre page d'administration</h3>
             <img src="{{ asset('images/CORPO35_LOGOTYPE.png') }}" class="img-responsive center-block logoHeader" alt="Logo Corpo35">
         </div>
+        {% if is_granted ('ROLE_ADMIN') %}
         <li class="navitem"><a href="{{ path('candidat_index') }}">Candidats</a></li>
         <li class="navitem"><a href="{{ path('jury_index') }}">Jury</a></li>
         <li class="navitem"><a href="{{ path('partenaire_index') }}">Partenaires</a></li>
         <li class="navitem "><a href="{{ path('promotion_index') }}">Promotions</a></li>
-        <li class="navitem"><a href="#agenda">Agenda</a></li>
+        <li class="dropdown navitem"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Agendas<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-content" href="{{ path('agenda_evenement_index') }}">Évènement</a></li>
+                <li><a class="dropdown-content" href="{{ path('agenda_labo_index') }}">Laboratoire</a></li>
+            </ul>
+        </li>
         <li class="navitem"><a href="{{ path('article_index') }}">Blog</a></li>
         <li class="navitem"><a href="{{ path('rpresse_index') }}">Revue de Presse</a></li>
         <li class="navitem"><a href="{{ path('user_index') }}">Utilisateurs</a></li>
         <li class="navitem home"><a href="{{ path('index') }}">Retour au site</a></li>
+        {% endif %}
     </ul>
-{% endblock %}
 
+
+
+
+{% endblock %}
 

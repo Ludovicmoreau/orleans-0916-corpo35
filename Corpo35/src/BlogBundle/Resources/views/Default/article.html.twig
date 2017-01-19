@@ -5,30 +5,38 @@
 
 {% block content %}
 
-    <div class='container article'>
-        <h1 class="title_actu"><i class="fa fa-pagelines pagelines_title" aria-hidden="true"></i> Notre actu</h1>
-        {% for article in articles %}
-            <div class='blog-posts'>
-                <div class='row post featured'>
-                    <a href="{{ path('new-comment', {'id':article.id}) }}">
-                        <div class='image'><img class="img-responsive img-article" src="{{ asset('upload/' ~  article.photo )}}">
-                            <div class='date'>{% if article.date %}{{ article.date|date('d F') }}{% endif %}</div>
-                        </div>
-                        <div class='content'>
-                            <h3>{{ article.titre }}</h3>
-                            <p>{{ article.contenu | truncate(150, true, "...")}}</p>
-                            <div class='meta'>
-                                <div class='icon-comment'><i class="fa fa-comment-o" aria-hidden="true"></i> 22 Comments</div>
-                            </div>
-                        </div>
-                    </a>
+
+<div class="container">
+    <h1 class="title_actu"><i class="fa fa-pagelines pagelines_title" aria-hidden="true"></i> Notre actu</h1>
+
+    {% for article in articles %}
+        <div class="card">
+            <div class="row">
+                <div class="col-md-6">
+                    <picture>
+                        <img class="img-responsive img-article" src="{{ asset('upload/' ~  article.photo )}}">
+                    </picture>
+                </div>
+                <div class="col-md-6">
+                    <div class="card--info">
+                        <h3 class="category">{% if article.date %}{{ article.date|date('d F Y') }}{% endif %}</h3>
+                        <h2 class="title">
+                            {{ article.titre }}
+                        </h2>
+                        <p class="teaser">
+                            {{ article.contenu | truncate(150, true, "...")}}
+                        </p>
+                        <a href="{{ path('new-comment', {'id':article.id}) }}" class="button">
+                            Lire Plus...
+                        </a>
+                    </div>
                 </div>
             </div>
-        {% endfor %}
-        <p class="text-right"><a href="{{ path('list_article') }}" class="button">Anciens Posts <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-        </p>
-    </div>
+        </div>
+    {% endfor %}
+    <p class="text-right"><a href="{{ path('list_article') }}" class="button">Anciens Posts <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
 
+</div>
 {% endblock %}
 
 {% block JS %}

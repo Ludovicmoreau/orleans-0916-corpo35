@@ -1,8 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block stylesheet %}
-    {{ parent() }}
-
 {% endblock %}
 
 {% block header %}
@@ -14,4 +12,8 @@
 
 {% block footer %}
 
+{% endblock %}
+
+{% block JS %}
+    <script src="{{ asset('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js') }}"></script>
 {% endblock %}
