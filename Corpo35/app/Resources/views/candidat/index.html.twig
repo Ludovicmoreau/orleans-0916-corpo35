@@ -14,16 +14,19 @@
     <div class="container recherche">
         <div class="row well">
             <h3 class="text-center">Recherche</h3>
-            <div class="col-xs-4 text-center">
+            <div class="col-xs-5 text-center">
                 {{ form_start(form) }}
                 {{ form_row(form.maRecherche) }}
             </div>
-            <div class="col-xs-4 text-center">
+            <div class="col-xs-2 text-center">
+                <p>Ou</p>
+            </div>
+            <div class="col-xs-5 text-center">
                 {{ form_row(form.classement) }}
             </div>
-            <div class="col-xs-4 text-center">
-                {{ form_row(form.nom) }}
-            </div>
+            {#<div class="col-xs-4 text-center">#}
+                {#{{ form_row(form.nom) }}#}
+            {#</div>#}
             <div class="row">
                 <div class="col-xs-12">
                     <input class="btn btn-primary center-block" type="submit">
