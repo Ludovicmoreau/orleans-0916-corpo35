@@ -3,20 +3,9 @@
 {% block stylesheet %}
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/footerstyle.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/backHeaderStyle.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/backIndexStyle.css') }}">
 {% endblock %}
 
 {% block header %}
     {% include 'BackBundle:Default:backHeader.html.twig' %}
-{% endblock %}
-
-{% block content %}
-{% endblock %}
-
-{% block footer %}
-    {% include '@Front/Default/footer.html.twig' %}
-{% endblock %}
-
-{% block JS %}
-    <script src="{{ asset('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js') }}"></script>
 {% endblock %}

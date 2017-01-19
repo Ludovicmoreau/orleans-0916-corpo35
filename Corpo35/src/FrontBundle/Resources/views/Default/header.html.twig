@@ -31,7 +31,7 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                         {% if is_granted ('ROLE_ADMIN') %}
-                            <li><a href="{{ path('backHeader') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Administration</a></li>
+                            <li><a href="{{ path('candidat_index') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Administration</a></li>
                         {% endif %}
                         {% if is_granted ('ROLE_JURY') %}
                             <li><a href="{{ path('backJury') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Jury</a></li>

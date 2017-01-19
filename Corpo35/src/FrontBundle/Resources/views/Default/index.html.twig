@@ -1,2 +1,18 @@
+{% extends 'FrontBundle:Default:layout.html.twig' %}
+
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/candidatEnAvant_style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/concours_style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/list_logo_style.css') }}">
+
+{% endblock %}
+
+{% block content %}
+    {% include 'FrontBundle:Default:concours.html.twig' %}
+    {% include 'FrontBundle:Default:entreprise.html.twig' %}
+    {{ render(controller('FrontBundle:MiseEnAvant:miseEnAvant')) }}
+    {% include 'FrontBundle:Default:partners.html.twig' %}
+{% endblock %}
 
 
