@@ -1,8 +1,12 @@
 {% extends 'FrontBundle:Default:layout.html.twig' %}
 
-
-{% block header %}
-    {% include 'FrontBundle:Default:header.html.twig'  %}
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/concours_style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/partners_style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/candidatEnAvant_style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/listPartenaires_style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/list_logo_style.css') }}">
 {% endblock %}
 
 {% block content %}
@@ -12,6 +16,3 @@
     {% include 'FrontBundle:Default:partners.html.twig' %}
 {% endblock %}
 
-{% block footer %}
-    {% include 'FrontBundle:Default:footer.html.twig' %}
-{% endblock %}

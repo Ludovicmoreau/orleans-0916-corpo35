@@ -1,9 +1,10 @@
-{% extends 'FrontBundle:Default:index.html.twig' %}
+{% extends 'FrontBundle:Default:layout.html.twig' %}
 
 {% block stylesheet %}
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/contact.css') }}">
 {% endblock %}
+
 {% form_theme formContact 'bootstrap_3_layout.html.twig' %}
 
 {% block content %}
@@ -18,16 +19,16 @@
         </div>
     {% endif %}
 
-<div class="container">
-    <div class="contact-form">
-        <div class="row form">
-        <h2>{{ 'Vous pouvez nous contacter via ce formulaire'| trans }}</h2>
-        </div>
-        {{ form_start(formContact) }}
-        {{ form_widget(formContact) }}
-        <input type="submit" value=" {{ 'Envoyer'| trans }}" />
-        {{ form_end(formContact) }}
+    <div class="container">
+        <div class="contact-form">
+            <div class="row form">
+            <h2>{{ 'Vous pouvez nous contacter via ce formulaire'| trans }}</h2>
+            </div>
+            {{ form_start(formContact) }}
+            {{ form_widget(formContact) }}
+            <input type="submit" value=" {{ 'Envoyer'| trans }}" />
+            {{ form_end(formContact) }}
 
+        </div>
     </div>
-</div>
 {% endblock %}

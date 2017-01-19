@@ -1,12 +1,5 @@
-{% extends 'FrontBundle:Default:layout.html.twig' %}
-
-{% block stylesheet %}
-    {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('css/candidatEnAvant_style.css') }}">
-{% endblock %}
-
 {% block content %}
-    <div class="container candidat">
+    <div class="container-fluid candidat">
         <div class="row">
             <div class="col-xs-12 text-center">
                 <h2>{{ 'Candidat du jour'| trans }}</h2>

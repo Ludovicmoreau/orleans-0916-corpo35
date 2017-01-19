@@ -1,12 +1,12 @@
-    {% extends 'FrontBundle:Default:index.html.twig' %}
-    {% block stylesheet %}
-        <link rel="stylesheet" href="{{ asset('css/blog_style.css') }}">
-    {% endblock %}
+{% extends 'FrontBundle:Default:layout.html.twig' %}
+
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/blog_style.css') }}">
+{% endblock %}
 
 {% block content %}
-
-
-<div class="container">
+    <div class="container">
     <h1 class="title_actu"><i class="fa fa-pagelines pagelines_title" aria-hidden="true"></i> Notre actu</h1>
 
     {% for article in articles %}
@@ -39,14 +39,6 @@
 </div>
 {% endblock %}
 
-{% block JS %}
-    {{ parent() }}
-    <script>
-
-
-
-    </script>
-{% endblock %}
 
 
 

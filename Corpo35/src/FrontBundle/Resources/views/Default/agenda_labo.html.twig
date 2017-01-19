@@ -1,9 +1,9 @@
-{% extends 'FrontBundle:Default:index.html.twig' %}
+{% extends 'FrontBundle:Default:layout.html.twig' %}
+
 {% block stylesheet %}
+    {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/agenda_labo_style.css') }}">
 {% endblock %}
-
-
 
 {% block content %}
     <div class="container agenda_evenement">
