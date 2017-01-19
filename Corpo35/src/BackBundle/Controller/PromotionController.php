@@ -75,6 +75,22 @@ class PromotionController extends Controller
     }
 
     /**
+     * Creates a form to delete a promotion entity.
+     *
+     * @param Promotion $promotion The promotion entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
+    private function createDeleteForm(Promotion $promotion)
+    {
+        return $this->createFormBuilder()
+            ->setAction($this->generateUrl('promotion_delete', array('id' => $promotion->getId())))
+            ->setMethod('DELETE')
+            ->getForm()
+        ;
+    }
+
+    /**
      * Displays a form to edit an existing promotion entity.
      *
      * @Route("/{id}/edit", name="promotion_edit")
@@ -120,22 +136,6 @@ class PromotionController extends Controller
     }
 
     /**
-     * Creates a form to delete a promotion entity.
-     *
-     * @param Promotion $promotion The promotion entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm(Promotion $promotion)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('promotion_delete', array('id' => $promotion->getId())))
-            ->setMethod('DELETE')
-            ->getForm()
-        ;
-    }
-
-    /**
      *
      * Activer une promotion
      *
@@ -159,24 +159,7 @@ class PromotionController extends Controller
         ));
     }
 
-//    public function promotionCandidatAction(Candidat, $candidat)
-//    {
-//        $em = $this->getDoctrine()->getManager();
-//        $promotionCandidat = $em->getRepository('BackBundle:Candidat')->findByDateinscription();
-//
-//        $em = $this->getDoctrine->getManager();
-//        $datelimiteinscription = $this->getRepository('BackBundle:Promotion')->findByDatelimite();
-//
-//        $em = $this->getDoctrine()->getManager();
-//        $promotionSuivante = $this->getRepository()('BackBundle:Promotion')->findByAnnee(ASC);
-//
-//        if ($dateinscription >= $datelimite) {
-//            $promotionCandidat = $promotion(1);
-//        } else {
-//            $promotionCandidat = $promotionSuivante;
-//        }
-//        $em->persist($promotion);
-//        $em->flush();
-//    }
+
+
 }
 

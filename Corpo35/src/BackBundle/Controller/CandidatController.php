@@ -107,14 +107,7 @@ class CandidatController extends Controller
             $em->persist($candidat);
             $em->flush();
 
-//            // Set de la promotion
-//            $promotion_id ="";
-//                if ($dateinscription > $datelimite) {
-//                    $promotion_id = $promotionEnCours;
-//                }elseif {
-//                    ($dateinscription < $datelimite )
-//                        $promotion_id = $promotion;
-//                }
+            $this->candidatToPromotion($candidat);
 
 //          Ajout FlashBag message après l'envoi du formulaire
             $this->get('session')
@@ -132,6 +125,35 @@ class CandidatController extends Controller
             'candidat' => $candidat,
             'form' => $form->createView())
         );
+    }
+
+    public function candidatToPromotion(Candidat $candidat)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $dateLimiteInscriptionPromoEnCours = $dateLimiteInscriptionPromoSuivante='';
+
+        $promos = $this->getRepository('BackBundle:Promotion')->findBy(null, ['annee'=>'ASC']);
+        foreach($promos as $key=>$promo) {
+            if ($promo->getEncours()==1) {
+                $dateLimiteInscriptionPromoEnCours = $promo->getDatelimite();
+                if (in_array(($key+1), $promos)){
+                    $dateLimiteInscriptionPromoSuivante = $promos[($key+1)]->getDatelimite();
+                }
+            }
+            $dateInscription = $candidat->getDateinscription();
+            if ($dateInscription <= $dateLimiteInscriptionPromoEnCours) {
+                $candidat -> setPromotion($promo);
+            } elseif ($dateLimiteInscriptionPromoSuivante && $dateInscription <= $dateLimiteInscriptionPromoSuivante) {
+                $candidat -> setPromotion($promos[($key+1)]);
+            } else {
+                // message erreur (flashbag)
+                //redirect
+            }
+
+        }
+
+        $em->persist($candidat);
+        $em->flush();
     }
 
     /**
