@@ -11,59 +11,78 @@ use BlogBundle\Entity\Article;
 class PageController extends Controller
 {
     /**
-     * @Route("/", name="blog")
+     * @Route("/{limit}", name="blog")
      */
-    public function BlogAction($limit = 3, $offset = null)
+    public function indexAction($limit=5)
     {
-        $em = $this->getDoctrine()->getManager();
-        $articles = $em->getRepository('BlogBundle:Article')->findBy(array(), null, $limit, $offset);
+        $em = $this->getDoctrine()
+            ->getEntityManager();
+        if ($limit=='all') {
+            $limit = null;
+        }
+        $articles = $em->getRepository('BlogBundle:Article')->findBy([], ['date'=>'DESC'], $limit, 0);
         return $this->render('BlogBundle:Default:article.html.twig', array(
-            'articles'=>$articles,
-        ));
-
-    }
-
-    /**
-     * @Route("/Articles", name="list_article")
-     */
-    public function ArticleAction()
-    {
-        $em = $this->getDoctrine()->getManager($limit = null, $offset = 3);
-        $listArticles = $em->getRepository('BlogBundle:Article')->findBy(array(), null, $limit, $offset);
-
-        return $this->render('BlogBundle:Default:listArticle.html.twig', array(
-            'listArticles'=>$listArticles,
-
+            'articles' => $articles
         ));
     }
+
+//    /**
+//     * @Route("/Articles", name="list_article")
+//     */
+//    public function ArticleAction()
+//    {
+//        $em = $this->getDoctrine()->getManager($limit = null, $offset = 3);
+//        $listArticles = $em->getRepository('BlogBundle:Article')->findBy(array(), null, $limit, $offset);
+//
+//        return $this->render('BlogBundle:Default:listArticle.html.twig', array(
+//            'listArticles' => $listArticles,
+//
+//        ));
+//    }
 
     /**
      * @Route("/pageArticle/{id}", name="page_article")
      */
-    public function ShowContentArticleAction(Article $article)
+    public function ShowContentArticleAction(Article $id)
     {
+        $em = $this->getDoctrine()->getEntityManager();
 
-        return $this->render('BlogBundle:Default:newComment.html.twig', array(
-            'article'=>$article,
+        $article = $em->getRepository('BlogBundle:Article')->findBy($id);
 
+        if (!$article) {
+            throw $this->createNotFoundException('Unable to find Blog post.');
+        }
+
+        $comments = $em->getRepository('BlogBundle:Commentaire')->findByArticle($id, ['date'=>'DESC']);
+           // ->getCommentaires($article->getId());
+
+        return $this->render('BlogBundle:Blog:show.html.twig', array(
+            'article' => $article,
+            'comments' => $comments
         ));
-
     }
+//
+//        return $this->render('BlogBundle:Default:newComment.html.twig', array(
+//            'article'=>$article,
+//
+//        ));
 
-    /**
-     * @Route("/post-commentaire/{id}", name="post-commentaire")
-     */
-    public function PostCommentAction(Article $article)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $commentaires = $em->getRepository('BlogBundle:Commentaire');
+//    }
 
-        return $this->render('BlogBundle:Default:newComment.html.twig', array(
-            'commentaires' => $commentaires,
-
-        ));
-
-    }
+//    /**
+//     * @Route("/post-commentaire/{id}", name="post-commentaire")
+//     */
+//    public function PostCommentAction(Article $article)
+//    {
+//        $em = $this->getDoctrine()->getManager();
+//        $commentaires = $em->getRepository('BlogBundle:Commentaire');
+//
+//        return $this->render('BlogBundle:Default:newComment.html.twig', array(
+//            'commentaires' => $commentaires,
+//
+//        ));
+//
+//    }
 
     /**
      * Creates a new commentaire entity.
@@ -79,22 +98,24 @@ class PageController extends Controller
 
         $form->handleRequest($request);
 
+        $em = $this->getDoctrine()->getManager();
+
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
             if (!$commentaire->getAuteur()) {
                 $commentaire->setAuteur('Anonyme');
             }
-
-            //  $hashtag = $this->get('blog.hashtag');
-            // $commentaire->setDate($hashtag->setWrite());
 
             $em->persist($commentaire);
             $em->flush($commentaire);
 
             return $this->redirectToRoute('new-comment', array('id' => $article->getId()));
         }
+
+        $comments = $em->getRepository('BlogBundle:Commentaire')->findByArticle( $article->getId(), ['date'=>'DESC']);
+
+
         return $this->render('BlogBundle:Default:newComment.html.twig', array(
-            'commentaire' => $commentaire,
+            'comments' => $comments,
             'article' => $article,
             'form' => $form->createView(),
         ));

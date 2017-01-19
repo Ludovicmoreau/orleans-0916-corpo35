@@ -10,7 +10,11 @@
     display: table;
     clear: both;
 }
+.card{
+    margin-top: 100px;
+}
 .post-article{
+    margin-bottom: 100px;
     max-height: 350px;
 }
 img {
@@ -48,7 +52,30 @@ h1 span {
 }
 .article-container {
     padding-top: 25px;
-
+    -webkit-column-count: 5;
+    -moz-column-count: 5;
+    column-count: 5;
+    -webkit-column-width: 360px;
+    -moz-column-width: 360px;
+    column-width: 360px;
+    -webkit-column-gap: 36px;
+    -moz-column-gap: 36px;
+    column-gap: 36px;
+    -webkit-column-fill: balance;
+    -moz-column-fill: balance;
+    column-fill: balance;
+}
+.article-container p {
+    orphans: 3;
+    widows: 3;
+    position: relative;
+    text-indent: 1em;
+}
+.article-container p:after {
+    content: '';
+    display: inline-table;
+    height: 0px;
+    margin-bottom: 0;
 }
 .article-container p:first-child:first-letter {
     float: left;
@@ -62,15 +89,8 @@ h1 span {
 }
 
 
-.article-container p:first-child {
 
-}
-.article-container img {
-    display: block;
-    max-width: 105%;
-    margin: 0 -5%;
-    padding: 19px 0;
-}
+
 @media only screen and (min-width: 900px) {
     .container {
         padding: 0;
@@ -104,3 +124,73 @@ h1 span {
         font-style: italic;
     }
 }
+
+
+
+
+
+
+.red-more {
+    width: 25%;
+    float: left;
+    border-right: 1px #eee solid;
+}
+
+.read {
+    background: transparent;
+    padding: 1em;
+}
+.wrapper {
+    position: relative;
+    max-height: 10vh;
+    overflow: hidden;
+}
+
+.maxheight {
+    max-height: 100%;
+}
+
+.background::after {
+    content: '';
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    /*background-image: linear-gradient(to bottom, transparent 0%, white 100%);*/
+}
+
+.first {
+    margin: 0px;
+    color: #444;
+    position: static;
+    padding: 1em 1em 0 1em;
+}
+
+button {
+    position: relative;
+    display: block;
+    width: 50%;
+    text-align: center;
+    margin: 0 auto;
+    padding: 1em 0;
+    font-size: 1em;
+    font-family: 'Raleway';
+    color: #444;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: green;
+    text-transform: uppercase;
+    transition: transform 150ms ease-in-out;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:hover {
+    opacity: .9;
+    transform: scale(1.2);
+}
+
