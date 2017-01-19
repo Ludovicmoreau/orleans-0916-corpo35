@@ -30,14 +30,7 @@ class Promotion
     private $annee;
 
     /**
-     * @var bool
-     *
-     * @ORM\Column(name="archivage", type="boolean")
-     */
-    private $archivage;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Candidat")
+     * @ORM\OneToMany(targetEntity="Candidat", mappedBy="promotion")
      */
     private $candidats;
 
@@ -61,30 +54,6 @@ class Promotion
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set archivage
-     *
-     * @param boolean $archivage
-     *
-     * @return Promotion
-     */
-    public function setArchivage($archivage)
-    {
-        $this->archivage = $archivage;
-
-        return $this;
-    }
-
-    /**
-     * Get archivage
-     *
-     * @return bool
-     */
-    public function getArchivage()
-    {
-        return $this->archivage;
     }
 
     /**
@@ -170,5 +139,36 @@ class Promotion
     public function getEncours()
     {
         return $this->encours;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->candidats = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add candidat
+     *
+     * @param \BackBundle\Entity\Candidat $candidat
+     *
+     * @return Promotion
+     */
+    public function addCandidat(\BackBundle\Entity\Candidat $candidat)
+    {
+        $this->candidats[] = $candidat;
+
+        return $this;
+    }
+
+    /**
+     * Remove candidat
+     *
+     * @param \BackBundle\Entity\Candidat $candidat
+     */
+    public function removeCandidat(\BackBundle\Entity\Candidat $candidat)
+    {
+        $this->candidats->removeElement($candidat);
     }
 }

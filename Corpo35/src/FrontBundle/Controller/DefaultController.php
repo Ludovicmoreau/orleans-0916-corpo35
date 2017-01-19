@@ -3,6 +3,7 @@
 namespace FrontBundle\Controller;
 
 use BackBundle\Entity\Candidat;
+use BackBundle\Entity\Promotion;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
@@ -41,13 +42,4 @@ class DefaultController extends Controller
         return $this->render('FrontBundle:Default:archives.html.twig');
     }
 
-
-
-    /**
-     * @Route("/promotion", name="promotion_encours")
-     */
-    public function promotionAction()
-    {
-        return $this->render('FrontBundle:Default:promotion.html.twig');
-    }
 }

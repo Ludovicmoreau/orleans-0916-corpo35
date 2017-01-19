@@ -26,12 +26,12 @@ class CandidatsChoisisController extends Controller
      */
     public function ShowPageVitrineCandidatAction(Candidat $candidat)
     {
-//        if ($candidat->getDecision()==0) {
-//            return $this->redirectToRoute('index');
-//        } else {
+        if ($candidat->getDecision()==0) {
+            return $this->redirectToRoute('index');
+        } else {
         return $this->render('FrontBundle:Default:page_vitrine_candidat.html.twig', array(
             'candidat' => $candidat,
         ));
+        }
     }
-//    }
 }

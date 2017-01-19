@@ -14,6 +14,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Role\Role;
+use BackBundle\Entity\Promotion;
 
 
 /**
@@ -57,8 +58,7 @@ class CandidatController extends Controller
         $document = new Document();
         $candidat->addDocument($document);
 
-        $idUser = $this->container->get('security.context')->getToken()->getUser();
-        $candidat->setFosUser($idUser);
+        $candidat->setFosUser($this->getUser());
 
         $form = $this->createForm('BackBundle\Form\CandidatType', $candidat);
         $form->handleRequest($request);
@@ -128,16 +128,18 @@ class CandidatController extends Controller
         );
     }
 
+//Set automatique d'une promotion à un candidat.
+
     public function candidatToPromotion(Candidat $candidat)
     {
         $em = $this->getDoctrine()->getManager();
         $dateLimiteInscriptionPromoEnCours = $dateLimiteInscriptionPromoSuivante='';
 
-        $promos = $this->getRepository('BackBundle:Promotion')->findBy(null, ['annee'=>'ASC']);
+        $promos = $em->getRepository('BackBundle:Promotion')->findBy([], ['annee'=>'ASC']);
         foreach($promos as $key=>$promo) {
             if ($promo->getEncours()==1) {
                 $dateLimiteInscriptionPromoEnCours = $promo->getDatelimite();
-                if (in_array(($key+1), $promos)){
+                if (array_key_exists(($key+1), $promos)){
                     $dateLimiteInscriptionPromoSuivante = $promos[($key+1)]->getDatelimite();
                 }
             }
@@ -147,12 +149,12 @@ class CandidatController extends Controller
             } elseif ($dateLimiteInscriptionPromoSuivante && $dateInscription <= $dateLimiteInscriptionPromoSuivante) {
                 $candidat -> setPromotion($promos[($key+1)]);
             } else {
-                // message erreur (flashbag)
-                //redirect
+                $this->get('session')
+                    ->getFlashBag()
+                    ->add('alert', 'Revenez bientôt pour l\'ouverture des inscriptions pour la prochaine session. ');
+                return $this->redirectToRoute('index');
             }
-
         }
-
         $em->persist($candidat);
         $em->flush();
     }
@@ -319,8 +321,6 @@ class CandidatController extends Controller
         }
     }
 
-
-
     /**
      * Creates a form to delete a candidat entity.
      *
@@ -336,6 +336,4 @@ class CandidatController extends Controller
             ->getForm()
         ;
     }
-
-
 }

@@ -131,7 +131,6 @@ class PromotionController extends Controller
             $em->remove($promotion);
             $em->flush($promotion);
         }
-
         return $this->redirectToRoute('promotion_index');
     }
 
@@ -158,8 +157,5 @@ class PromotionController extends Controller
 
         ));
     }
-
-
-
 }
 

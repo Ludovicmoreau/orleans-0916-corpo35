@@ -30,14 +30,7 @@ class Promotion
     private $annee;
 
     /**
-     * @var bool
-     *
-     * @ORM\Column(name="archivage", type="boolean")
-     */
-    private $archivage;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Candidat")
+     * @ORM\OneToMany(targetEntity="Candidat", mappedBy="promotion")
      */
     private $candidats;
 
@@ -61,30 +54,6 @@ class Promotion
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set archivage
-     *
-     * @param boolean $archivage
-     *
-     * @return Promotion
-     */
-    public function setArchivage($archivage)
-    {
-        $this->archivage = $archivage;
-
-        return $this;
-    }
-
-    /**
-     * Get archivage
-     *
-     * @return bool
-     */
-    public function getArchivage()
-    {
-        return $this->archivage;
     }
 
     /**

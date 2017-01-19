@@ -17,7 +17,6 @@ class PromotionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('archivage')
             ->add('annee', DateType::class, array('label'=>'année', 'attr'=>array('choice'=>'years')))
             ->add('datelimite', DateType::class, array('label'=>"date de fin d'inscription"))
         ;
