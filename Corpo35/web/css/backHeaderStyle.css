@@ -26,8 +26,7 @@
 
 .navitem {
     float: left;
-    font-family: Tahoma, Arial;
-    font-size: 1em;
+
     color: grey;
     margin-left: 2px;
     margin-right: 2px;
@@ -65,7 +64,6 @@
 /*MAKING THE NAVBAR RESPONSIVE*/
 /*Style 'show menu' label button and hide it by default*/
 .show-menu {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-decoration: none;
     color: lightgrey;
     background: #151515;
@@ -167,7 +165,7 @@ img {
 
 @media screen and (max-width : 620px) {
     #text {
-        font-size: .90em;
+
         margin: .6em;
     }
 

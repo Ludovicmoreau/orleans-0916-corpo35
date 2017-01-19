@@ -16,6 +16,7 @@ class Article
     /**
      * @var string
      * @ORM\OneToMany(targetEntity="Commentaire", mappedBy="article")
+     * @ORM\OrderBy({"date" = "ASC"})
      */
     private $commentaires;
 
