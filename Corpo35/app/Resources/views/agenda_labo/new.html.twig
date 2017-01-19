@@ -1,20 +1,25 @@
+{% extends 'BackBundle:Default:backHeader.html.twig' %}
 
-{% extends 'BackBundle:Default:backLayout.html.twig' %}
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/back.css') }}">
+{% endblock %}
+
 {% block content %}
 
-    <h1>Agenda_labo creation</h1>
+    {% form_theme form'bootstrap_3_layout.html.twig' %}
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="{{ 'Créer'| trans }}" />
-    {{ form_end(form) }}
+    <div class="container admin">
+        <h2>Agenda création /  <a href="{{ path('agenda_labo_index') }}">{{ 'retour à la liste'| trans }}</a></h2>
+        <div class="table-responsive-vertical shadow-z-1">
+            <table id="table" class="table table-hover">
+                {{ form_start(form) }}
+                {{ form_widget(form) }}
+                <button class="btn btn-success" type="submit"><i class="fa fa-check" aria-hidden="true"></i></button>
+                {{ form_end(form) }}
+            </table>
+        </div>
+        {#<a  href="{{ path('index') }}">{{ 'Retour au site'| trans }}</a>#}
+    </div>
 
-    <ul>
-        <li>
-            <a href="{{ path('agenda_labo_index') }}">{{ 'Retour à la liste'| trans }}</a>
-        </li>
-        <li>
-            <a  href="{{ path('index') }}">{{ 'Retour au site'| trans }}</a>
-        </li>
-    </ul>
 {% endblock %}

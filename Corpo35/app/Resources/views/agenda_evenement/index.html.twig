@@ -1,44 +1,45 @@
-{% extends 'BackBundle:Default:backLayout.html.twig' %}
+{% extends 'BackBundle:Default:backHeader.html.twig' %}
+
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/back.css') }}">
+{% endblock %}
+
+
 {% block content %}
-    <h1>Agenda_evenements list</h1>
+    <div class="container admin">
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Date</th>
-                <th>Lieu</th>
-                <th>Titre</th>
-                <th>Description</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for agenda_evenement in agenda_evenements %}
-            <tr>
-                <td><a href="{{ path('agenda_evenement_show', { 'id': agenda_evenement.id }) }}">{{ agenda_evenement.id }}</a></td>
-                <td>{% if agenda_evenement.date %}{{ agenda_evenement.date|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ agenda_evenement.lieu }}</td>
-                <td>{{ agenda_evenement.titre }}</td>
-                <td>{{ agenda_evenement.description }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('agenda_evenement_show', { 'id': agenda_evenement.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('agenda_evenement_edit', { 'id': agenda_evenement.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        <h2>Agenda  / <a href="{{ path('agenda_evenement_new') }}">créer un article </a></h2>
 
-    <ul>
-        <li>
-            <a href="{{ path('agenda_evenement_new') }}">Create a new agenda_evenement</a>
-        </li>
-    </ul>
+        <div class="table-responsive-vertical shadow-z-1">
+            <!-- Table starts here -->
+            <table id="table" class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Lieu</th>
+                    <th>Titre</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for agenda_evenement in agenda_evenements %}
+                    <tr>
+                        {#<td><a href="{{ path('agenda_evenement_show', { 'id': agenda_evenement.id }) }}">{{ agenda_evenement.id }}</a></td>#}
+                        <td>{% if agenda_evenement.date %}{{ agenda_evenement.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                        <td>{{ agenda_evenement.lieu }}</td>
+                        <td>{{ agenda_evenement.titre }}</td>
+                        <td>{{ agenda_evenement.description }}</td>
+                        <td data-title="Actions">
+                            <a href="{{ path('agenda_evenement_show', { 'id': agenda_evenement.id }) }}"><i class="fa fa-eye fa-2x" aria-hidden="true"></i></a>
+                            <a href="{{ path('agenda_evenement_edit', { 'id': agenda_evenement.id }) }}"><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
 {% endblock %}

@@ -4,81 +4,60 @@
     {% endblock %}
 
 {% block content %}
-
-<div class="container">
-        <main>
-                <article>
-                        <div class="wrap-div wrap-div-right">
-                                <img class="img-responsive text-left" src="{{ asset('upload/' ~  article.photo )}}">
-                                <p class="post-end clearfix">{% if article.date %}{{ article.date|date('d-m-Y') }}{% endif %}<span>{{ article.auteur }}</span></p>
+        {% form_theme form'bootstrap_3_layout.html.twig' %}
+        <div class="container card">
+                <div class="row">
+                        <div class="col-md-10 image">
+                                <img class="img-responsive" src="{{ asset('upload/' ~  article.photo )}}">
                         </div>
-                        <h1 class="titre_page_article">{{ article.titre }}</h1>
-                        <p>{{ article.contenu }}</p>
-                </article>
-
-                <section class="container list-comment">
-                        <div class="special-text">
-                                {% for  commentaire in article.commentaires %}
-                                        <blockquote class="blockquote">
-                                                <div class="col-md-8">
-                                                        <p class="mb-0">{{ commentaire.commentaire}}</p>
-                                                </div>
-                                                <div class="col-md-4">
-                                                        <footer class="blockquote-footer">Posté par <cite title="Source Title">{{ commentaire.auteur}}</cite><span class="text-right"> le {{ commentaire.date|date('d/m/Y') }}</span></footer>
-                                                </div>
-                                        </blockquote>
-                                {% endfor %}
-                        </div>
-                        <a class="expand-button"><i class="fa fa-chevron-down fa-2x" aria-hidden="true"></i></a>
-
-
-                </section>
-
-
-                <div id="form-main">
-                        <div id="form-div">
-                                <form class="form" id="form1">
-
-                                        <p class="name">
-                                                <input name="name" value="" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Utilisateur" id="name" />
-                                        </p>
-                                        <p class="text">
-                                                <textarea name="text" class="validate[required,length[6,300]] feedback-input" id="comment" placeholder="Commentaire *"></textarea>
-                                        </p>
-                                        <div class="submit">
-                                                <input type="submit" value="Envoyer" id="button-blue"/>
-                                                <div class="ease"></div>
-                                        </div>
-
-                                </form>
-
-                                <div class="well">
-                                        {{ form_start(form) }}
-                                        {{ form_widget(form) }}
-                                        <input class="btn btn-lg btn-success" type="submit" value="Create" />
-                                        {{ form_end(form) }}
+                        <div class="col-md-2 top-matter">
+                                <div class="title">
+                                        <h1><span>{{ article.titre }}</span></h1>
                                 </div>
-
-
+                                <div class="intro">
+                                        <p>Le {% if article.date %}{{ article.date|date('d-m-Y') }}{% endif %} par {{ article.auteur }}</p>
+                                </div>
                         </div>
-                </div>
-        </main>
-</div>
-<div class="container">
-        <div class="row">
-                <div class="col-md-6">
-                        <a href="{{ path('blog') }}" class="text-left button"><i class="fa fa-long-arrow-left" aria-hidden="true"> page précédente</i></a>
-                </div>
-                <div class="col-md-6 hidden-xs">
-                        <a href="{{ path('blog') }}" class="text-right button">Retour <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                 </div>
         </div>
-</div>
+        <div class="container">
+                <div class="article-container">
+                        <p>{{ article.contenu }}</p>
+                </div>
+        </div>
+        <div class="container">
+        {% for  commentaire in article.commentaires %}
+                <blockquote class="blockquote">
+                        <div class="col-md-8">
+                                <p class="mb-0">{{ commentaire.commentaire}}</p>
+                        </div>
+                        <div class="col-md-4">
+                                <footer class="blockquote-footer">Posté par <cite title="Source Title">{{ commentaire.auteur}}</cite><span class="text-right"> le {{ commentaire.date|date('d/m/Y') }}</span></footer>
+                        </div>
+                </blockquote>
+        {% endfor %}
+
+        <div class="well">
+                {{ form_start(form) }}
+                {{ form_widget(form) }}
+                <input class="btn btn-lg btn-default" type="submit" value="Poster" />
+                {{ form_end(form) }}
+        </div>
+        </div>
+        <div class="container post-article">
+                <div class="row">
+                        <div class="col-md-6">
+                                <a href="{{ path('blog') }}" class="text-left button"><i class="fa fa-long-arrow-left" aria-hidden="true"> page précédente</i></a>
+                        </div>
+                        <div class="col-md-6 hidden-xs">
+                                <a href="{{ path('blog') }}" class="text-right button">Retour <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                </div>
+        </div>
 
         <script>
                 $('.expand-button').on('click', function(){
                         $('.special-text').toggleClass('-expanded');
-
 
                 });
         </script>

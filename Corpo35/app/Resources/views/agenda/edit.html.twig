@@ -2,7 +2,7 @@
 
 
 {% block content %}
-    {{ parent() }}
+    {% form_theme edit_form'bootstrap_3_layout.html.twig' %}
     <h1>Agenda edit</h1>
 
     {{ form_start(edit_form) }}

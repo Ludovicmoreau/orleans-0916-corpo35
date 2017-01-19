@@ -7,13 +7,17 @@
 
 {% block content %}
 
+    {% form_theme form'bootstrap_3_layout.html.twig' %}
+
     <div class="container admin">
 
         <h2>Promotion /  <a href="{{ path('promotion_index') }}">retour à la liste</a></h2>
 
         {{ form_start(form) }}
         {{ form_widget(form) }}
-        <input type="submit" value="{{ 'Créer'| trans }}" />
+        {#<input type="submit" value="{{ 'Créer'| trans }}" />#}
+        <button class="btn btn-success" type="submit"><i class="fa fa-check" aria-hidden="true"></i></button>
+
         {{ form_end(form) }}
 
     </div>

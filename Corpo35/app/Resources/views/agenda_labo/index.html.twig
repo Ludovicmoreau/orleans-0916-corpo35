@@ -1,48 +1,48 @@
-{% extends 'BackBundle:Default:backLayout.html.twig' %}
+{% extends 'BackBundle:Default:backHeader.html.twig' %}
+
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/back.css') }}">
+{% endblock %}
+
+
 {% block content %}
+    <div class="container admin">
 
-    <h1>Agenda_labos list</h1>
+        <h2>Agenda laboratoire / <a href="{{ path('agenda_labo_new') }}">créer un agenda </a></h2>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Date</th>
-                <th>Heuredebutam</th>
-                <th>Heurefinam</th>
-                <th>Heuredebutpm</th>
-                <th>Heurefinpm</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for agenda_Labo in agenda_Labos %}
-            <tr>
-                <td><a href="{{ path('agenda_labo_show', { 'id': agenda_Labo.id }) }}">{{ agenda_Labo.id }}</a></td>
-                <td>{% if agenda_Labo.date %}{{ agenda_Labo.date|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if agenda_Labo.heureDebutAM %}{{ agenda_Labo.heureDebutAM|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if agenda_Labo.heureFinAM %}{{ agenda_Labo.heureFinAM|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if agenda_Labo.heureDebutPM %}{{ agenda_Labo.heureDebutPM|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if agenda_Labo.heureFinPM %}{{ agenda_Labo.heureFinPM|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('agenda_labo_show', { 'id': agenda_Labo.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('agenda_labo_edit', { 'id': agenda_Labo.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        <div class="table-responsive-vertical shadow-z-1">
 
-    <ul>
-        <li>
-            <a href="{{ path('agenda_labo_new') }}">Create a new agenda_Labo</a>
-        </li>
-        <a  href="{{ path('index') }}">Retour au site</a>
-    </ul>
+            <table id="table" class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Heure début AM</th>
+                    <th>Heure fin AM</th>
+                    <th>Heure début PM</th>
+                    <th>Heure fin PM</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for agenda_Labo in agenda_Labos %}
+                    <tr>
+                        {#<td><a href="{{ path('agenda_labo_show', { 'id': agenda_Labo.id }) }}">{{ agenda_Labo.id }}</a></td>#}
+                        <td>{% if agenda_Labo.date %}{{ agenda_Labo.date|date('d-m-Y') }}{% endif %}</td>
+                        <td>{% if agenda_Labo.heureDebutAM %}{{ agenda_Labo.heureDebutAM|date('d-m-Y') }}{% endif %}</td>
+                        <td>{% if agenda_Labo.heureFinAM %}{{ agenda_Labo.heureFinAM|date('d-m-Y') }}{% endif %}</td>
+                        <td>{% if agenda_Labo.heureDebutPM %}{{ agenda_Labo.heureDebutPM|date('d-m-Y') }}{% endif %}</td>
+                        <td>{% if agenda_Labo.heureFinPM %}{{ agenda_Labo.heureFinPM|date('d-m-Y') }}{% endif %}</td>
+                        <td data-title="Actions">
+                            <a href="{{ path('agenda_labo_show', { 'id': agenda_Labo.id }) }}"><i class="fa fa-eye fa-2x" aria-hidden="true"></i></a>
+                            <a href="{{ path('agenda_labo_edit', { 'id': agenda_Labo.id }) }}"><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {#<a  href="{{ path('index') }}">Retour au site</a>#}
+    </div>
+
 {% endblock %}

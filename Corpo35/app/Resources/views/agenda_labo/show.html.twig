@@ -1,47 +1,49 @@
-{% extends 'BackBundle:Default:backLayout.html.twig' %}
+{% extends 'BackBundle:Default:backHeader.html.twig' %}
+
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/back.css') }}">
+{% endblock %}
+
 {% block content %}
-    <h1>Agenda_labo</h1>
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ agenda_Labo.id }}</td>
-            </tr>
-            <tr>
-                <th>Date</th>
-                <td>{% if agenda_Labo.date %}{{ agenda_Labo.date|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Heuredebutam</th>
-                <td>{% if agenda_Labo.heureDebutAM %}{{ agenda_Labo.heureDebutAM|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Heurefinam</th>
-                <td>{% if agenda_Labo.heureFinAM %}{{ agenda_Labo.heureFinAM|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Heuredebutpm</th>
-                <td>{% if agenda_Labo.heureDebutPM %}{{ agenda_Labo.heureDebutPM|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Heurefinpm</th>
-                <td>{% if agenda_Labo.heureFinPM %}{{ agenda_Labo.heureFinPM|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="container admin">
+        <div class="table-responsive-vertical shadow-z-1">
+            <table id="table" class="table table-hover table-mc-light-grey">
+                <h2>Agenda / <a href="{{ path('agenda_labo_index') }}">retour à la liste </a> /  <a href="{{ path('agenda_labo_edit', { 'id': agenda_Labo.id }) }}">éditer</a></h2>
+                <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Heure début AM</th>
+                    <th>Heure fin AM</th>
+                    <th>Heure début PM</th>
+                    <th>Heure fin PM</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{% if agenda_Labo.date %}{{ agenda_Labo.date|date('d-m-Y') }}{% endif %}</td>
+                    <td>{% if agenda_Labo.heureDebutAM %}{{ agenda_Labo.heureDebutAM|date('H:i') }}{% endif %}</td>
+                    <td>{% if agenda_Labo.heureFinAM %}{{ agenda_Labo.heureFinAM|date('H:i') }}{% endif %}</td>
+                    <td>{% if agenda_Labo.heureDebutPM %}{{ agenda_Labo.heureDebutPM|date('H:i') }}{% endif %}</td>
+                    <td>{% if agenda_Labo.heureFinPM %}{{ agenda_Labo.heureFinPM|date('H:i') }}{% endif %}</td>
+                    <td>
+                        {{ form_start(delete_form) }}
+                        <button class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                        {{ form_end(delete_form) }}
+                    </td>
+                </tr>
+                </tbody>
+                <tfoot>
+            </table>
+        </div>
+    </div>
 
-    <ul>
-        <li>
-            <a href="{{ path('agenda_labo_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('agenda_labo_edit', { 'id': agenda_Labo.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+
+    <script>
+
+
+    </script>
+
 {% endblock %}
