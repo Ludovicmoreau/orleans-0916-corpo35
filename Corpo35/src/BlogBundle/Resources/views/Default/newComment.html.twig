@@ -19,38 +19,31 @@
                                 <div class="intro">
                                         <p>Le {% if article.date %}{{ article.date|date('d-m-Y') }}{% endif %} par {{ article.auteur }}</p>
                                 </div>
-
                         </div>
-
                 </div>
         </div>
-
         <div class="container article">
                 <div class="article-container">
                         <p>{{ article.contenu }}</p>
                 </div>
             </div>
         </div>
-<div class="container read">
-        <div class="row read-more">
-                <div class="container">
-                        {% for  commentaire in comments %}
-                        <blockquote class="wrapper maxheight">
+        <div class="container read">
+                <div class="row read-more">
+                        <div class="container">
+                                {% for  commentaire in comments %}
+                                <blockquote class="wrapper maxheight">
+                                        <p class="first">{{ commentaire.commentaire}}
 
-
-                                <p class="first">{{ commentaire.commentaire}}
-
-                                <footer class="blockquote-footer">Posté par <cite title="Source Title">{{ commentaire.auteur}}</cite><span class="text-right"> le {{ commentaire.date|date('d/m/Y') }}</span></footer>
-                                </p>
-                                        </blockquote>
+                                        <footer class="blockquote-footer">Posté par <cite title="Source Title">{{ commentaire.auteur}}</cite><span class="text-right"> le {{ commentaire.date|date('d/m/Y') }}</span></footer>
+                                        </p>
+                                </blockquote>
                                  {% endfor %}
                                 <div class="background"></div>
+                        </div>
                 </div>
-        </div>
                 <button>Read More (+)</button>
         </div>
-
-
         <div class="container">
                 <div class="well">
                         {{ form_start(form) }}
@@ -58,7 +51,6 @@
                         <input class="btn btn-lg btn-default" type="submit" value="Poster" />
                         {{ form_end(form) }}
                 </div>
-
         </div>
     </div>
     <div class="container post-article">
@@ -95,9 +87,13 @@
                                         $(this).css('color', 'green');
                                 };
                         });
-        });
-    </script>
+
+
+                });
+        </script>
+
 {% endblock %}
+
 
 
 
