@@ -23,15 +23,6 @@ td, th {
     vertical-align: middle;
 }
 
-td {
-
-
-}
-
-a {
-    font-size: 0.8em;
-}
-
 @media all and (max-width: 768px) {
 
     table, thead, tbody, th, td, tr {

@@ -11,4 +11,26 @@ namespace BlogBundle\Repository;
 class CommentaireRepository extends \Doctrine\ORM\EntityRepository
 {
 
+    public function getCommentsForBlog($article)
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->select('c')
+            ->where('c.article = :article')
+            ->addOrderBy('c.date')
+            ->setParameter('article', $article);
+
+        return $qb->getQuery()
+            ->getResult();
+
+    }
+
+    public function getLatestComments()
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->select('c')
+            ->addOrderBy('c.id', 'ASC');
+
+        return $qb->getQuery()
+            ->getResult();
+    }
 }

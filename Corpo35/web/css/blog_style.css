@@ -31,10 +31,10 @@ p {
     -webkit-transition: opacity .2s;
     -moz-transition: opacity .2s;
     transition: opacity .2s;
-    opacity: 0.6;
+    -webkit-filter: grayscale(200%);
 }
 .card:hover picture {
-    opacity: 1;
+    -webkit-filter: grayscale(0%);
 
 }
 .card img {
@@ -103,4 +103,8 @@ p {
 
 .btn{
    color: black;
+}
+
+.arrow{
+    margin-bottom: 100px;
 }

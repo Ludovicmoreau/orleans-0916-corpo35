@@ -12,12 +12,14 @@ use Doctrine\ORM\EntityRepository;
  */
 class ArticleRepository extends EntityRepository
 {
-    public function findByOrderArticle($data) {
-
+    public function getCommentaires($id)
+    {
         $qb = $this->createQueryBuilder('a')
-            ->where('a.date = :article')
-                ->setParameter('a.article', $data['date'])
-            ->orderBy('a.date', 'ASC');
+            ->where('id = :id')
+            ->setParameter('id', $id)
+            ->leftJoin('a.commentaires', 'c')
+            ->orderBy('c.date', 'DESC')
+            ;
 
         return $qb->getQuery()
             ->getResult();
