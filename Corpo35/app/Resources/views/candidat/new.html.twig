@@ -212,7 +212,7 @@
         </script>
     </div>
     {% elseif is_granted ('IS_AUTHENTICATED_ANONYMOUSLY') %}
-        <div class="container">
+        <div class="container hidden-xs hidden-sm">
             <div class="row">
                 <div class="col-xs-12 text-center well">
                     <a href="{{ path('fos_user_registration_register') }}" class="attention">Merci de vous créer un compte avant de vous inscrire au concours</a>
