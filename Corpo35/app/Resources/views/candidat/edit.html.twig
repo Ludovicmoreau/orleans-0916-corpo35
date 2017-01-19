@@ -1,4 +1,4 @@
-{% extends 'BackBundle:Default:backHeader.html.twig' %}
+{% extends 'FrontBundle:Default:header.html.twig' %}
 
 {% block stylesheet %}
     {{ parent() }}
@@ -8,7 +8,7 @@
 
 {% block content %}
 <h1 class="text-center">Edition de mon profil</h1>
-<p class="attention text-center">Attention pour éditer votre profil vous devez telecherger à nouveau votre CV, votre photo ainsi que vos documents.</p>
+<p class="attention text-center">Attention pour éditer votre profil vous devez telecharger à nouveau votre CV, votre photo ainsi que vos documents.</p>
 
 {{ form_start(form) }}
 <div class="form-group">
