@@ -1,24 +1,28 @@
 {% extends 'BackBundle:Default:backLayout.html.twig' %}
 
-{% block content %}
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/back.css') }}">
+{% endblock %}
 
+{% block content %}
     {% form_theme edit_form'bootstrap_3_layout.html.twig' %}
 
-    <h1>Rpresse edit</h1>
+<div class="container admin">
+    <h2>Rpresse / <a href="{{ path('rpresse_index') }}">retour à la liste</a></h2>
 
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
+    {{ form_widget(edit_form) }}
+
+    {{ form_widget(edit_form) }}
+    <button class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i></button>
     {{ form_end(edit_form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('rpresse_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+
+
+    {{ form_start(delete_form) }}
+    <button class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+    {{ form_end(delete_form) }}
+
+ </div>
+
 {% endblock %}
