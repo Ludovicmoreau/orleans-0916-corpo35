@@ -19,24 +19,26 @@
                 {% for candidat in candidats | sortbyfield('classement') if candidat.classement != null and candidat.decision == 1 %}
                     <div class="col-xs-12 col-sm-6 col-lg-4 portfolio-item">
                         <a href="{{ path('page_vitrine_candidat', {'id':candidat.id}) }}" class="portfolio-link">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <p class="nomCandidat">
-                                        {{ candidat.nom }} {{ candidat.prenom }}<br/>
-                                        {% if candidat.classement != null %}
-                                        {% if candidat.classement == 1 %}
-                                    <p class="nomCandidat">{{ candidat.classement }}er</p>
-                                    {% else %}
-                                        <p class="nomCandidat">{{ candidat.classement }}ème</p>
-                                    {% endif %}
-                                    {% endif %}
-                                    </p>
-                                </div>
+                        <div class="caption">
+                            <div class="caption-content">
+                                <p class="nomCandidat">
+                                    {{ candidat.nom }} {{ candidat.prenom }}<br/>
+                                    {% if candidat.classement != null %}
+                                    {% if candidat.classement == 1 %}
+                                <p class="nomCandidat">{{ candidat.classement }}er</p>
+                                {% else %}
+                                    <p class="nomCandidat">{{ candidat.classement }}ème</p>
+                                {% endif %}
+                                {% endif %}
+                                </p>
                             </div>
-                            <img src="{{ asset('upload/'~candidat.photo|e) }}" class="img-responsive profil" id="profil" alt="">
+                        </div>
+                        <img src="{{ asset('upload/'~candidat.photo|e) }}" class="img-responsive profil" id="profil" alt="">
                         </a>
                     </div>
                 {% endfor %}
             </div>
         </div>
+    </div>
+</section>
 {% endblock %}

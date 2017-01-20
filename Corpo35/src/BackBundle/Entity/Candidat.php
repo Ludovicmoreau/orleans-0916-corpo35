@@ -225,7 +225,7 @@ class Candidat
     /**
      * @var string
      *
-     * @ORM\Column(name="competence", type="text")
+     * @ORM\Column(name="competence", type="text", nullable=true)
      */
     private $competence;
 

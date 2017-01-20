@@ -8,9 +8,7 @@
 
 {% block content %}
 <div class="container admin">
-
     <h2>Promotions / <a href="{{ path('promotion_new') }}">créer une promotion </a></h2>
-
     <div class="table-responsive-vertical shadow-z-1">
         <table id="table" class="table table-hover">
         <thead>
@@ -25,14 +23,12 @@
                 {#<td><a href="{{ path('promotion_show', { 'id': promotion.id }) }}">{{ promotion.id }}</a></td>#}
                 <td>{{ promotion.year }}</td>
                 <td>
-                            <a href="{{ path('promotion_show', { 'id': promotion.id }) }}"><i class="fa fa-eye fa-2x" aria-hidden="true"></i></a>
-
-                            {% if promotion.encours %}
-                                Promo en cours
-                            {% else  %}
-                                <a href="{{ path('passer_promotion_encours', {'id': promotion.id}) }}" >Passer la promotion en cours</a>
-                            {% endif %}
-
+                    <a href="{{ path('promotion_show', { 'id': promotion.id }) }}"><i class="fa fa-eye fa-2x" aria-hidden="true"></i></a>
+                    {% if promotion.encours %}
+                        Promo en cours
+                    {% else  %}
+                        <a href="{{ path('passer_promotion_encours', {'id': promotion.id}) }}" >Passer la promotion en cours</a>
+                    {% endif %}
                 </td>
             </tr>
         {% endfor %}
@@ -40,5 +36,4 @@
     </table>
    </div>
 </div>
-
 {% endblock %}
