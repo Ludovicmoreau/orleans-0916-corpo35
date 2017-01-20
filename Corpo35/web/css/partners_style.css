@@ -3,7 +3,7 @@
     margin-bottom: 100px;
 }
 .img{
-    float: left;
+
    
 }
 
@@ -38,14 +38,9 @@ h1{
     text-align: center;
 }
 p{
-    line-height: 3rem;
-    text-align: justify;
-}
-.border-bot{
-    padding-bottom:8px;
-    margin:5px 0px 5px 0px;
 
 }
+
 
 @media screen and (max-width:1198px){
     body{
@@ -56,17 +51,17 @@ p{
 h3{
     text-align: center;
 }
-h2 {
+h3 {
     font: 33px sans-serif;
     margin-top: 30px;
     text-align: center;
     text-transform: uppercase;
 }
-h2.background {
+h3.background {
     position: relative;
     z-index: 1;
 }
-h2.background:before {
+h3.background:before {
     content: "";
     margin: 0 auto;
     /* this centers the line to the full width specified */
@@ -79,16 +74,16 @@ h2.background:before {
     width: 95%;
     z-index: -1;
 }
-h2.background span {
+h3.background span {
     /* to hide the lines from behind the text, you have to set the background color the same as the container */
     background: #fff;
     padding: 0 15px;
 }
-h2.double:before {
+h3.double:before {
     /* this is just to undo the :before styling from above */
     border-top: none;
 }
-h2.double:after {
+h3.double:after {
     border-bottom: 1px solid lightgrey;
     -webkit-box-shadow: 0 1px 0 0 red;
     -moz-box-shadow: 0 1px 0 0 red;
@@ -103,11 +98,11 @@ h2.double:after {
     width: 95%;
     z-index: -1;
 }
-h2.no-background {
+h3.no-background {
     position: relative;
     overflow: hidden;
 }
-h2.no-background span {
+h3.no-background span {
     display: inline-block;
     vertical-align: baseline;
     zoom: 1;
@@ -115,8 +110,8 @@ h2.no-background span {
     position: relative;
     padding: 0 20px;
 }
-h2.no-background span:before,
-h2.no-background span:after {
+h3.no-background span:before,
+h3.no-background span:after {
     content: '';
     display: block;
     width: 1000px;
@@ -124,18 +119,18 @@ h2.no-background span:after {
     top: 0.73em;
     border-top: 1px solid lightgrey;
 }
-h2.no-background span:before {
+h3.no-background span:before {
     right: 100%;
 }
-h2.no-background span:after {
+h3.no-background span:after {
     left: 100%;
 }
-h2.no-span {
+h3.no-span {
     display: table;
     white-space: nowrap;
 }
-h2.no-span:before,
-h2.no-span:after {
+h3.no-span:before,
+h3.no-span:after {
     border-top: 1px solid green;
     content: '';
     display: table-cell;
@@ -143,10 +138,10 @@ h2.no-span:after {
     top: 0.5em;
     width: 45%;
 }
-h2.no-span:before {
+h3.no-span:before {
     right: 1.5%;
 }
-h2.no-span:after {
+h3.no-span:after {
     left: 1.5%;
 }
 

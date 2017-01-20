@@ -1,5 +1,3 @@
-
-
 .list_logo{
     margin-top: 50px;
     margin-bottom: 50px;
@@ -9,8 +7,4 @@
 
 .list_logo:hover{
     -webkit-filter: grayscale(0%);
-}
-
-.row{
-    margin: 0;
 }
