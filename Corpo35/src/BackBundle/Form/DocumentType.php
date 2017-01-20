@@ -49,6 +49,7 @@ class DocumentType extends AbstractType
                 'required'=>false,
                 'attr'=>array(
                     'placeholder'=>'http://...',
+                    'aria-label'=> 'Lien externe'
                 )
                 ))
         ;

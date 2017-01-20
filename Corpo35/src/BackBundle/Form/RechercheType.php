@@ -21,7 +21,8 @@ class RechercheType extends AbstractType
                 ),
                 'label'=> 'Rechercher par validation/non-validation',
                 'attr'=>array(
-                    'class'=>'center-block'
+                    'class'=>'center-block',
+                    'aria-label'=> 'Rechercher par validation/non-validation'
                 )
             ))
             ->add('classement', ChoiceType::class, array(
@@ -35,7 +36,8 @@ class RechercheType extends AbstractType
                 ),
                 'label'=> 'Rechercher par classement',
                 'attr'=>array(
-                    'class'=>'center-block'
+                    'class'=>'center-block',
+                    'aria-label'=> 'Rechercher par classement'
                 )
             ))
 //            ->add('nom', SearchType::class,[

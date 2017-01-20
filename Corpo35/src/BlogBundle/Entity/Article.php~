@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Article
  *
  * @ORM\Table(name="article")
- * @ORM\Entity(repositoryClass="BackBundle\Repository\ArticleRepository")
+ * @ORM\Entity(repositoryClass="BlogBundle\Repository\ArticleRepository")
  */
 class Article
 {
@@ -16,6 +16,7 @@ class Article
     /**
      * @var string
      * @ORM\OneToMany(targetEntity="Commentaire", mappedBy="article")
+     * @ORM\OrderBy({"date" = "ASC"})
      */
     private $commentaires;
 
@@ -176,10 +177,10 @@ class Article
     /**
      * Add commentaires
      *
-     * @param \BackBundle\Entity\Commentaire $commentaires
+     * @param \BlogBundle\Entity\Commentaire $commentaires
      * @return Article
      */
-    public function addCommentaire(\BackBundle\Entity\Commentaire $commentaires)
+    public function addCommentaire(\BlogBundle\Entity\Commentaire $commentaires)
     {
         $this->commentaires[] = $commentaires;
 
@@ -189,9 +190,9 @@ class Article
     /**
      * Remove commentaires
      *
-     * @param \BackBundle\Entity\Commentaire $commentaires
+     * @param \BlogBundle\Entity\Commentaire $commentaires
      */
-    public function removeCommentaire(\BackBundle\Entity\Commentaire $commentaires)
+    public function removeCommentaire(\BlogBundle\Entity\Commentaire $commentaires)
     {
         $this->commentaires->removeElement($commentaires);
     }

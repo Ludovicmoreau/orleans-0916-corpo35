@@ -27,7 +27,8 @@ class UserType extends AbstractType
                 'expanded'=> true,
                 'multiple'  => true,
                 'attr'=>array(
-                    'class'=>'center-block'
+                    'class'=>'center-block',
+                    'aria-label'=> 'Changer le rôle d\'un user'
                 )
             ))
         ;
