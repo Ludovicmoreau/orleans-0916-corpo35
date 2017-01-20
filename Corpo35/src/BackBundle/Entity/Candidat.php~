@@ -785,4 +785,28 @@ class Candidat
     {
         $this->promotion->removeElement($promotion);
     }
+
+    /**
+     * Set promotion
+     *
+     * @param \BackBundle\Entity\Promotion $promotion
+     *
+     * @return Candidat
+     */
+    public function setPromotion(\BackBundle\Entity\Promotion $promotion = null)
+    {
+        $this->promotion = $promotion;
+
+        return $this;
+    }
+
+    /**
+     * Get promotion
+     *
+     * @return \BackBundle\Entity\Promotion
+     */
+    public function getPromotion()
+    {
+        return $this->promotion;
+    }
 }

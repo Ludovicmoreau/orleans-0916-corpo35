@@ -2,12 +2,12 @@
 namespace BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use BackBundle\Entity\Artiste;
+
 /**
  * Commentaire
  *
  * @ORM\Table(name="commentaire")
- * @ORM\Entity(repositoryClass="BackBundle\Repository\CommentaireRepository")
+ * @ORM\Entity(repositoryClass="BlogBundle\Repository\CommentaireRepository")
  */
 class Commentaire
 {
@@ -34,7 +34,7 @@ class Commentaire
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="date")
+     * @ORM\Column(name="date", type="datetime")
      */
     private $date;
 
@@ -100,10 +100,10 @@ class Commentaire
     /**
      * Set article
      *
-     * @param \BackBundle\Entity\Article $article
+     * @param \BlogBundle\Entity\Article $article
      * @return Commentaire
      */
-    public function setArticle(\BackBundle\Entity\Article $article = null)
+    public function setArticle(\BlogBundle\Entity\Article $article = null)
     {
         $this->article = $article;
         return $this;
@@ -133,4 +133,13 @@ class Commentaire
     {
         return $this->date;
     }
+
+    /**
+     * @return \DateTime
+     */
+    public function __construct()
+    {
+        $this->date= new \DateTime();
+    }
+
 }
