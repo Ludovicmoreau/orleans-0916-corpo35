@@ -60,19 +60,23 @@ class CandidatType extends AbstractType
                 'label'=> 'Photo*',
                 'data_class'=>null,
                 'attr'=>array(
-                    'class'=>'center-block'
+                    'class'=>'center-block',
+                    'aria-label'=> 'photo'
                 )
             ))
             ->add('cv', FileType::class, array(
                 'data_class'=>null,
                 'attr'=>array(
-                    'class'=>'center-block'
+                    'class'=>'center-block',
+                    'aria-label'=> 'CV'
                 )
             ))
             ->add('numrue', TextType::class, array(
                 'data_class'=>null,
                 'attr'=>array(
                     'class'=>'form-control',
+                    'aria-label'=> 'numéro de rue'
+
 
                 )
             ))
