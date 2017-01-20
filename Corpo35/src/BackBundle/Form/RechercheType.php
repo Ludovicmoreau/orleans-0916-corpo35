@@ -38,13 +38,18 @@ class RechercheType extends AbstractType
                     'class'=>'center-block'
                 )
             ))
-//            ->add('nom', SearchType::class,[
-//                'required'=>false,
-//                'label'=>'Nom',
-//                'attr'=>array(
-//                    'class'=>'center-block'
-//                )
-//            ])
+            ->add('promo', ChoiceType::class, array(
+                'required'=>false,
+                'choices' => array(
+                    3 => '2016',
+                    4 => '2017',
+                    5 => '2018',
+                ),
+                'label'=> 'Rechercher par promotion',
+                'attr'=>array(
+                    'class'=>'center-block'
+                )
+            ))
         ;
     }
 
