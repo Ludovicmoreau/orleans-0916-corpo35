@@ -1,44 +1,50 @@
 {% extends 'BackBundle:Default:backLayout.html.twig' %}
 
-{% block content %}
-    <h1>Rpresse</h1>
+    {% block stylesheet %}
+        {{ parent() }}
+        <link rel="stylesheet" href="{{ asset('css/back.css') }}">
+    {% endblock %}
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ rpresse.id }}</td>
-            </tr>
-            <tr>
-                <th>Document</th>
-                <td>{{ rpresse.document }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ rpresse.description }}</td>
-            </tr>
-            <tr>
-                <th>Source</th>
-                <td><img src="{{ asset('upload/'~rpresse.document|e) }}" class="img-responsive profil" alt=""></td>
-            </tr>
-            <tr>
-                <th>Date</th>
-                <td>{% if rpresse.date %}{{ rpresse.date|date('Y-m-d') }}{% endif %}</td>
-            </tr>
-        </tbody>
-    </table>
+    {% block content %}
 
-    <ul>
-        <li>
-            <a href="{{ path('rpresse_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('rpresse_edit', { 'id': rpresse.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
-{% endblock %}
+        <div class="container admin">
+            <div class="table-responsive-vertical shadow-z-1">
+                <table id="table" class="table table-hover table-mc-light-grey">
+                    <h2>Revue de presse / <a href="{{ path('rpresse_index') }}">retour à la liste </a> /  <a href="{{ path('rpresse_edit', { 'id': rpresse.id }) }}">éditer</a></h2>
+                    <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Source</th>
+                        <th>Description</th>
+                        <th>Document</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>{% if rpresse.date %}{{ rpresse.date|date('Y-m-d') }}{% endif %}</td>
+                        <td><img src="{{ asset('upload/'~rpresse.document|e) }}" class="img-responsive profil" alt=""></td>
+                        <td>{{ rpresse.description }}</td>
+                        <td>{{ rpresse.document }}</td>
+                        <td>
+                            {{ form_start(delete_form) }}
+                            <button class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                            {{ form_end(delete_form) }}
+                        </td>
+                    </tr>
+                    </tbody>
+                    <tfoot>
+                </table>
+            </div>
+        </div>
+
+
+        <script>
+
+        </script>
+
+    {% endblock %}
+
+
+
+

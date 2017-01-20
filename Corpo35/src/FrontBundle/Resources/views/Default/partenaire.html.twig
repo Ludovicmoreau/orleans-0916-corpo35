@@ -6,32 +6,64 @@
 {% endblock %}
 
 {% block content %}
-<div class="container partners">
-    <div class="row content">
-        <div class="row ">
-            <div class="col-md-4">
-                <img class="imm-responsive content_left" src="{{ asset('upload/' ~  partenaire.logo )}}" alt="image partenaire 35 rue Damiette"/>
-            </div>
-            <div class="col-md-8 col-centered">
-                <p class="lead text-responsive content_right"><i class="fa fa-quote-left" aria-hidden="true"></i> {{ partenaire.resume }} <i class="fa fa-quote-right" aria-hidden="true"></i></p>
-                <p>{{ partenaire.contenu }}</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4 content_center">
-                <h5 class="title">{{ partenaire.website }} </h5>
-            </div>
-            <div class="col-md-4 content_center">
-                <h5 class="title">{{ partenaire.email }} </h5>
+
+    <div class="container partner">
+
+        <h1 class="partner-nom">{{ partenaire.nom }}</h1>
+        <div class="container-fluid">
+            <div class="border-bot">
+
+                    <p class="resume">{{ partenaire.resume }}</p>
 
             </div>
-            <div class="col-md-4 content_center">
-                <h5 class="title">{{ partenaire.phone }} </h5>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="partner-body">
+                        <img class="img" src="{{ asset('upload/' ~  partenaire.logo )}}" alt="image partenaire 35 rue Damiette"/>
+                        <p class="partner-content">{{ partenaire.contenu }}</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="row contact">
+                        <div class="col-md-12 partner-contact">
+                            <a href="{{ partenaire.website }}" target=_blank><i class="fa fa-globe fa-2x" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="col-md-12  partner-contact">
+                           <i class="fa fa-paper-plane-o fa-2x" aria-hidden="true"></i><h5> {{ partenaire.email }} </h5>
+                        </div>
+                        <div class="col-md-12 partner-contact">
+                            <h5><i class="fa fa-phone fa-2x" aria-hidden="true"></i>
+                                {{ partenaire.phone }} </h5>
 
+                        </div>
+                    </div>
+                </div>
             </div>
+
         </div>
     </div>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {% endblock %}
 
 
