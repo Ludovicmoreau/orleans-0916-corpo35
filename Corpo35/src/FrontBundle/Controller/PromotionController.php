@@ -22,16 +22,17 @@ class PromotionController extends Controller
         ));
     }
 
-//    /**
-//     * @Route("/promotions/{id}", name="promotion_annee")
-//     */
-//    public function promotionAnneeAction(Promotion $candidat)
-//    {
-//        $candidatsPromotion = "";
-//        $em = $this->getDoctrine()->getManager();
-//        $candidatsPromotion = $em->getRepository('BackBundle:Promotion')->findByCandidats($candidat->getId());
-//        return $this->render('FrontBundle:Default:promotion_annee.html.twig', [
-//            'candidatspromotion' => $candidatsPromotion,
-//        ]);
-//    }
+    /**
+     * @Route("/promotions/{id}", name="promotion_annee")
+     */
+    public function promotionAnneeAction(Promotion $promotion)
+    {
+        $em = $this->getDoctrine()->getManager();
+//        $candidats = $em ->getRepository('BackBundle:Candidat')->findByDecision(1);
+//        $candidats = $em->getRepository('BackBundle:Candidat')->findByPromotion($promotion->getId());
+//        dump($candidats);die;
+        return $this->render('FrontBundle:Default:promotion_annee.html.twig', [
+            'candidats' => $promotion->getCandidats(),
+        ]);
+        }
 }

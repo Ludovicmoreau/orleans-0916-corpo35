@@ -13,18 +13,17 @@
             <thead>
                 <tbody>
                     <tr>
-                        <th>Archivage</th>
                         <th>Année</th>
-                        <th>Action</th>
+                        {#<th>Action</th>#}
 
                     </tr>
                     <tr>
-                        <td>{% if promotion.archivage %}Yes{% else %}No{% endif %}</td>
+                        {#<td>{% if promotion.archivage %}Yes{% else %}No{% endif %}</td>#}
                         <td>{{ promotion.year }}</td>
-                        <td>  {{ form_start(delete_form) }}
-                            <button class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                            {{ form_end(delete_form) }}
-                        </td>
+                        {#<td>  {{ form_start(delete_form) }}#}
+                            {#<button class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>#}
+                            {#{{ form_end(delete_form) }}#}
+                        {#</td>#}
                     </tr>
                     <tr>
                         {% if promotion.encours == 1 %}

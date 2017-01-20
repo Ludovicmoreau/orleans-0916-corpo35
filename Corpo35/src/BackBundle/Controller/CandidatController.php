@@ -139,20 +139,21 @@ class CandidatController extends Controller
         foreach($promos as $key=>$promo) {
             if ($promo->getEncours()==1) {
                 $dateLimiteInscriptionPromoEnCours = $promo->getDatelimite();
-                if (array_key_exists(($key+1), $promos)){
-                    $dateLimiteInscriptionPromoSuivante = $promos[($key+1)]->getDatelimite();
+                if (array_key_exists(($key + 1), $promos)) {
+                    $dateLimiteInscriptionPromoSuivante = $promos[($key + 1)]->getDatelimite();
                 }
-            }
-            $dateInscription = $candidat->getDateinscription();
-            if ($dateInscription <= $dateLimiteInscriptionPromoEnCours) {
-                $candidat -> setPromotion($promo);
-            } elseif ($dateLimiteInscriptionPromoSuivante && $dateInscription <= $dateLimiteInscriptionPromoSuivante) {
-                $candidat -> setPromotion($promos[($key+1)]);
-            } else {
-                $this->get('session')
-                    ->getFlashBag()
-                    ->add('alert', 'Revenez bientôt pour l\'ouverture des inscriptions pour la prochaine session. ');
-                return $this->redirectToRoute('index');
+
+                $dateInscription = $candidat->getDateinscription();
+                if ($dateInscription <= $dateLimiteInscriptionPromoEnCours) {
+                    $candidat->setPromotion($promo);
+                } elseif ($dateLimiteInscriptionPromoSuivante && $dateInscription <= $dateLimiteInscriptionPromoSuivante) {
+                    $candidat->setPromotion($promos[($key + 1)]);
+                } else {
+                    $this->get('session')
+                        ->getFlashBag()
+                        ->add('alert', 'Revenez bientôt pour l\'ouverture des inscriptions pour la prochaine session. ');
+                    return $this->redirectToRoute('index');
+                }
             }
         }
         $em->persist($candidat);

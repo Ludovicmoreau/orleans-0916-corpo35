@@ -46,6 +46,7 @@ class PromotionController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $promotion->setEncours(0);
             $em->persist($promotion);
             $em->flush($promotion);
 

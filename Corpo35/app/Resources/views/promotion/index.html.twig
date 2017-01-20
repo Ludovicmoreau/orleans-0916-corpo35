@@ -15,7 +15,6 @@
         <table id="table" class="table table-hover">
         <thead>
             <tr>
-                <th>Archivage</th>
                 <th>Année</th>
                 <th>Actions</th>
             </tr>
@@ -24,7 +23,6 @@
         {% for promotion in promotions %}
             <tr>
                 {#<td><a href="{{ path('promotion_show', { 'id': promotion.id }) }}">{{ promotion.id }}</a></td>#}
-                <td>{% if promotion.archivage %}Yes{% else %}No{% endif %}</td>
                 <td>{{ promotion.year }}</td>
                 <td>
                             <a href="{{ path('promotion_show', { 'id': promotion.id }) }}"><i class="fa fa-eye fa-2x" aria-hidden="true"></i></a>
