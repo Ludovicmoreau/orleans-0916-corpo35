@@ -11,12 +11,12 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ path('contact') }}" class="linkNavbar"><i class="fa fa-envelope-o fa-1x linkNavbar" aria-hidden="true"></i> Contact</a></li>
-                    <li><a href="{{ path('list_partenaire') }}" class="linkNavbar"><i class="fa fa-handshake-o fa-1x linkNavbar" aria-hidden="true"></i> {{ 'Partenaires'| trans }}</a></li>
-                    <li><a href="{{ path('revuedepresse') }}" class="linkNavbar"><i class="fa fa-newspaper-o fa-1x linkNavbar" aria-hidden="true"></i> {{ 'La revue de presse'| trans }}</a></li>
-                    <li><a href="{{ path('list_agenda_labo') }}" class="linkNavbar"><i class="fa fa-calendar fa-1x linkNavbar" aria-hidden="true"></i>  {{ 'Agenda'| trans }}</a></li>
-                    <li><a href="{{ 'http://www.maisondeparfumberry.com/fr/'| trans }}" target="_blank" class="linkNavbar"><i class="fa fa-shopping-basket fa-1x linkNavbar" aria-hidden="true"></i>  {{ 'Maison de parfum Berry'| trans }}</a></li>
-                    <li><a href="{{ 'https://corpo35.slack.com/'| trans }}" target="_blank" class="linkNavbar"><i class="fa fa-address-book fa-1x linkNavbar" aria-hidden="true"></i>Chat</a></li>
+                    <li class="police "><a href="{{ path('contact') }}" class="linkNavbar"><i class="fa fa-envelope-o fa-1x linkNavbar" aria-hidden="true"></i> Contact</a></li>
+                    <li class="police "><a href="{{ path('list_partenaire') }}" class="linkNavbar"><i class="fa fa-handshake-o fa-1x linkNavbar" aria-hidden="true"></i> {{ 'Partenaires'| trans }}</a></li>
+                    <li class="police "><a href="{{ path('revuedepresse') }}" class="linkNavbar"><i class="fa fa-newspaper-o fa-1x linkNavbar" aria-hidden="true"></i> {{ 'La revue de presse'| trans }}</a></li>
+                    <li class="police "><a href="{{ path('list_agenda_labo') }}" class="linkNavbar"><i class="fa fa-calendar fa-1x linkNavbar" aria-hidden="true"></i>  {{ 'Agenda'| trans }}</a></li>
+                    <li class="police "><a href="{{ 'http://www.maisondeparfumberry.com/fr/'| trans }}" target="_blank" class="linkNavbar"><i class="fa fa-shopping-basket fa-1x linkNavbar" aria-hidden="true"></i>  {{ 'Maison de parfum Berry'| trans }}</a></li>
+                    <li class="police "><a href="{{ 'https://corpo35.slack.com/'| trans }}" target="_blank" class="linkNavbar"><i class="fa fa-address-book fa-1x linkNavbar" aria-hidden="true"></i>Chat</a></li>
                 </ul>
                 <!-- Single button -->
                 <div class="btn-group langues">
@@ -31,24 +31,24 @@
 
                 <ul class="nav navbar-nav navbar-right">
                         {% if is_granted ('ROLE_ADMIN') %}
-                            <li><a href="{{ path('candidat_index') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Administration</a></li>
+                            <li class="police "><a href="{{ path('candidat_index') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Administration</a></li>
                         {% endif %}
                         {% if is_granted ('ROLE_JURY') %}
-                            <li><a href="{{ path('backJury') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Jury</a></li>
+                            <li class="police "><a href="{{ path('backJury') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Jury</a></li>
                         {% endif %}
                         {% if is_granted ('ROLE_PARTENAIRE') %}
-                            <li><a href="{{ path('backPartenaire') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> {{ 'Partenaires'| trans }}</a></li>
+                            <li class="police "><a href="{{ path('backPartenaire') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> {{ 'Partenaires'| trans }}</a></li>
                         {% endif %}
                         {% if is_granted ('ROLE_ISIPCA') %}
-                             <li><a href="{{ path('backIsipca') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Isipca</a></li>
+                             <li class="police "><a href="{{ path('backIsipca') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Isipca</a></li>
                         {% endif %}
                         {% if is_granted ('ROLE_USER') and app.user.candidat.id is defined %}
-                            <li><a href="{{ path('candidat_edit', { 'id': app.user.candidat.id }) }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Editer mon profil</a></li>
+                            <li class="police "><a href="{{ path('candidat_edit', { 'id': app.user.candidat.id }) }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> Editer mon profil</a></li>
                         {% endif %}
                         {% if is_granted ('ROLE_USER') %}
-                            <li><a href="{{ path('fos_user_security_logout') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> {{ 'Se déconnecter'| trans }}</a></li>
+                            <li class="police "><a href="{{ path('fos_user_security_logout') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i> {{ 'Se déconnecter'| trans }}</a></li>
                         {% else %}
-                            <li><a href="{{ path('fos_user_security_login') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i>  {{ 'Se connecter'| trans }}</a></li>
+                            <li class="police "><a href="{{ path('fos_user_security_login') }}" class="linkNavbar"><i class="fa fa-user fa-1x linkNavbar" aria-hidden="true"></i>  {{ 'Se connecter'| trans }}</a></li>
                         {% endif %}
                 </ul>
             </div>
