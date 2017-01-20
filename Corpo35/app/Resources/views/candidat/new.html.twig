@@ -9,11 +9,13 @@
     <div class="container-fluid">
         <div class="col-xs-12 text-center">
             <h2> {{ 'Bienvenue sur la page d\'inscription au concours Corpo35'| trans }}</h2>
-            <p>  <a href="{{ path('reglement') }}" target="_blank">{{ 'Le règlement du concours'| trans }}</a> {{ 'est à télécharger, signer et à nous renvoyer'| trans }}.</p>
-            <p> {{ 'L\'inscription au concours peut prendre 10 à 15 minutes et nécessite de télécharger quelques documents comme une photo, un cv etc...'| trans }}<br/>
+            <p class="hidden-xs hidden-sm">  <a href="{{ path('reglement') }}" target="_blank">{{ 'Le règlement du concours'| trans }}</a> {{ 'est à télécharger, signer et à nous renvoyer'| trans }}.</p>
+            <p class="hidden-xs hidden-sm"> {{ 'L\'inscription au concours peut prendre 10 à 15 minutes et nécessite de télécharger quelques documents comme une photo, un cv etc...'| trans }}<br/>
                  {{ 'Vérifiez bien que vous avez ces documents avec vous avant de commencer l\'inscription'| trans }}.</p>
-            <p> {{ 'Les champs avec un * sont obligatoires'| trans }}</p>
-            <p class="hidden-lg hidden-md">{{ 'L\'inscription au concours nécessite le téléchargement de documents'| trans }}.<br/> {{ 'Veuillez passez sur la version PC du site'| trans }}.</p>
+            <p class="hidden-xs hidden-sm"> {{ 'Les champs avec un * sont obligatoires'| trans }}</p>
+        </div>
+        <div class="col-xs-12 text-center hidden-lg hidden-md">
+            <p>{{ 'L\'inscription au concours nécessite le téléchargement de documents'| trans }}.<br/> {{ 'Veuillez passez sur la version PC du site'| trans }}.</p>
         </div>
     </div>
     {% if is_granted ('ROLE_USER') %}

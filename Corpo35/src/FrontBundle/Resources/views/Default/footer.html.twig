@@ -1,19 +1,62 @@
-<footer id="footer">
-    <div class="container-fluid well text-center ">
+<footer>
+    <div class="container-fluid well text-center">
        <div class="row">
-           <div class=" borderfooterleft contactfooter footertext col-md-offset-1 col-md-2  col-xs-offset-4 col-xs-4">
+           <div class=" borderfooterleft contactfooter footertext col-xs-3">
                <a class="lienfooter"  href="{{ path('contact') }}"> {{ 'Nous contacter'| trans }} </a>
             </div>
-            <div class=" mentionlegalesfooter footertext col-md-2 col-xs-12">
-                <a class="lienfooter"  href="#"> {{ 'Mentions légales'| trans }} </a>
+            <div class=" mentionlegalesfooter footertext col-xs-3">
+                <a class="lienFooter" href="#myModal1" data-toggle="modal" data-target="#myModal1">{{ 'Mentions légales'| trans }}</a>
+                <!-- Modal Crédit-->
+                <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h2 class="modal-title" id="myModalLabel">Mentions légales</h2>
+                            </div>
+                            <div class="modal-body ">
+                                <h3>Maison de Parfum Berry pour Corpo35</h3>
+                                <p>
+                                    Denomination: MAISON DE PARFUMS BERRY, société par actions simplifiée à associé unique au capital de 16 000€.<br/>
+                                    Adresse: MAISON DE PARFUMS BERRY, 35 RUE DAMIETTE 76000 ROUEN.<br/>
+                                    Tél : 02 35 71 16 54<br/>
+                                    Email : contact@35ruedamiette.com<br/>
+                                </p>
+                                <hr class="separe">
+
+                                <h3 class="titreMention">Publication</h3>
+                                <p>
+                                    Responsable de la publivation: M. Charles Berry.
+                                </p>
+                                <hr class="separe">
+
+                                <h3>Hébergement du site web</h3>
+                                <p>
+                                    OVH<br/>
+                                    2 rue Kellermann<br/>
+                                    59100 Roubaix – France<br/>
+                                    Contact : www.ovh.com/fr/support
+                                </p>
+                                <hr class="separe">
+
+                                <h3 class="titreMention">Icônes et pictogrammes</h3>
+                                <p>
+                                    Les icônes et pictogrammes utilisés sur le site sont libres de droits et
+                                    issus du site <a href="http://fontawesome.io/" target="_blank">www.fontawesome.io</a>
+                                </p>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default pMentionblanc" data-dismiss="modal">Fermer</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-             <div class="paddingfooter  footertext col-md-2 col-xs-4">
-                 <a class="lienfooter" href="#"> {{ 'Galerie d\'images'| trans }} </a>
-             </div>
-              <div class="paddingfooter footertext col-md-2 col-xs-4">
+              <div class="paddingfooter footertext col-xs-3">
                   <a class="lienfooter"  href="{{ path('reglement') }}"> {{ 'Règlements du concours'| trans }} </a>
               </div>
-              <div class="paddingfooter footertext col-md-2 col-xs-4">
+              <div class="paddingfooter footertext col-xs-3">
                   <a class="lienfooter"  href="#"> {{ 'Plan du site'| trans }} </a>
               </div>
         </div>

@@ -1,5 +1,8 @@
 {% if is_granted ('ROLE_JURY') %}
     <div class="row">
+        <div class="attention">
+            <h3>Attention Chaque vote est définitif.</h3>
+        </div>
         {{ form_start(formCommentaire, {'action': path('jure_vote', {id:candidat.id})}) }}
         {{ form_row(formCommentaire.note) }}
         {{ form_row(formCommentaire.commentaire) }}

@@ -18,8 +18,8 @@ class CandidatRepository extends \Doctrine\ORM\EntityRepository
                 ->setParameter('maRecherche', $data['maRecherche'])
             ->orWhere('c.classement = :classement')
                 ->setParameter('classement', $data['classement'])
-//            ->orWhere('c.nom LIKE :nom')
-//                ->setParameter('nom','%' . $data['nom']. '%')
+            ->orWhere('c.promotion = :promo')
+                ->setParameter('promo', $data['promo'])
                 ;
 
 
