@@ -21,84 +21,78 @@
                                 </div>
                         </div>
                 </div>
-                <div class="intro">
-                    <p>Le {% if article.date %}{{ article.date|date('d-m-Y') }}{% endif %} par {{ article.auteur }}</p>
-                </div>
             </div>
         </div>
-    </div>
-    <div class="container article">
-        <div class="article-container">
-            <p>{{ article.contenu }}</p>
-        </div>
-    </div>
-    </div>
-    <div class="container read">
-        <div class="row read-more">
-            <div class="container">
+
+        <section class="container">
+            <h3>Commentaires <i class="fa fa-comment-o" aria-hidden="true"></i></h3>
+            <div class="special-text">
                 {% for  commentaire in comments %}
                     <blockquote class="wrapper maxheight">
-                        <p class="first">{{ commentaire.commentaire }}
-
-                            <footer class="blockquote-footer">Posté par <cite
-                                        title="Source Title">{{ commentaire.auteur }}</cite><span
-                                        class="text-right"> le {{ commentaire.date|date('d/m/Y') }}</span></footer>
+                        <p class="first">{{ commentaire.commentaire}}
+                            <footer class="blockquote-footer">Posté par <cite title="Source Title">{{ commentaire.auteur}}</cite><span class="text-right"> le {{ commentaire.date|date('d/m/Y à H:i') }}</span></footer>
                         </p>
                     </blockquote>
                 {% endfor %}
-                <div class="background"></div>
             </div>
+            <button class="expand-button">
+                <i class="fa fa-chevron-down fa-3x fa-arrow-down" aria-hidden="true"></i>
+            </button>
+            {#<i class="fa fa-chevron-up" aria-hidden="true"></i>#}
+
+        </section>
+        <div class="container post-article">
+                <div class="well">
+                        {{ form_start(form) }}
+                        {{ form_widget(form) }}
+                        <input class="btn btn-lg btn-default" type="submit" value="Poster" />
+                        {{ form_end(form) }}
+                </div>
         </div>
-        <button>Read More (+)</button>
-    </div>
-    <div class="container">
-        <div class="well">
-            {{ form_start(form) }}
-            {{ form_widget(form) }}
-            <input class="btn btn-lg btn-default" type="submit" value="Poster"/>
-            {{ form_end(form) }}
+        <div class="container retour">
+                <div class="col-md-12">
+                    <a href="{{ path('blog') }}" class="arrow-long">Retour <i class="fa fa-long-arrow-right fa-long-arrow-down" aria-hidden="true"></i></a>
+                </div>
         </div>
-    </div>
-    </div>
-    <div class="container post-article">
-        <div class="row">
-            <div class="col-md-6">
-                <a href="{{ path('blog') }}" class="text-left button"><i class="fa fa-long-arrow-left"
-                                                                         aria-hidden="true"> page précédente</i></a>
-            </div>
-            <div class="col-md-6 hidden-xs">
-                <a href="{{ path('blog') }}" class="text-right button">Retour <i class="fa fa-long-arrow-right"
-                                                                                 aria-hidden="true"></i></a>
-            </div>
-        </div>
-    </div>
-    <script>
-        $('.wrapper').removeClass('maxheight');
 
-        $('button').click(function () {
-            $(this).animate({
-                top: '-10px'
-            }, 150, 'easeInOutCubic');
-            $(this).animate({
-                top: '10px'
-            }, 150, 'easeInOutCubic', function () {
-                $(this).toggleClass('readless');
-                $(this).parent().children('.read').children('.wrapper').children('.background').toggle();
-                $(this).parent().children('.read').children('.wrapper').toggleClass('maxheight');
+        <script>
+                $('.wrapper').removeClass('maxheight');
 
-                if ($(this).hasClass('readless')) {
-                    $(this).text("Lire moins (-)");
-                    $(this).css('color', 'maroon');
-                } else {
-                    $(this).text("Voir plus (+)");
-                    $(this).css('color', 'green');
-                }
-                ;
-            });
+                $('button').click(function() {
+                        $(this).animate({
+                                top: '-10px'
+                        }, 150, 'easeInOutCubic');
+                        $(this).animate({
+                                top: '10px'
+                        }, 150, 'easeInOutCubic', function() {
+                                $(this).toggleClass('readless');
+                                $(this).parent().children('.read').children('.wrapper').children('.background').toggle();
+                                $(this).parent().children('.read').children('.wrapper').toggleClass('maxheight');
+
+                                if ($(this).hasClass('readless')) {
+                                        $(this).text("Lire moins (-)");
+                                        $(this).css('color', 'maroon');
+                                } else {
+                                        $(this).text("Voir plus (+)");
+                                        $(this).css('color', 'green');
+                                };
+                        });
 
 
-        });
-    </script>
+                });
+
+
+                $('.expand-button').on('click', function(){
+                    $('.special-text').toggleClass('-expanded');
+
+//                    if ($('.special-text').hasClass('-expanded')) {
+//                        $('.expand-button').html('Collapse Content');
+//                    } else {
+//                        $('.expand-button').html('Continue Reading');
+//                    }
+                });
+        </script>
+
 
 {% endblock %}
 

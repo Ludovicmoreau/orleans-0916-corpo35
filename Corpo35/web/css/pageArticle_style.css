@@ -129,8 +129,26 @@
 /*}*/
 
 
+.card{
+    margin-top: 100px;
 
-
+}
+.post-article{
+    margin-bottom: 50px;
+    margin-top: 20px;
+}
+section{
+    margin-top: 20px;
+}
+.retour{
+    margin-bottom: 50px;
+    text-align: center;
+}
+.arrow-long{
+    margin-top: 20px;
+    text-align: center;
+    text-align: center;
+}
 .read {
     background: transparent;
     padding: 1em;
@@ -170,7 +188,6 @@ button {
     margin: 0 auto;
     padding: 1em 0;
     font-size: 1em;
-    font-family: 'Raleway';
     color: #444;
     cursor: pointer;
     border: none;
@@ -199,11 +216,30 @@ button:hover {
     display: table;
     clear: both;
 }
-img {
+.partner-content {
+    font-family: Open Sans, sans-serif;
+    margin: 2rem;
+}
+.partner-content p {
+    line-height: 1.8;
+}
+.partner-content .curve {
+    width: 33%; height: auto;
+    min-width: 150px;
+    float: left;
+    margin-right:2rem;
+    border-radius: 50%;
+    -webkit-shape-outside:circle();
+    shape-outside:circle();
+}
+.img {
     max-width: 100%;
     height: auto;
     vertical-align: baseline;
+    float: right;
+    margin: 0 0 1em 1em;
 }
+
 a {
     text-decoration: none;
 }
@@ -320,3 +356,69 @@ h1 span {
         padding-top: 0;
     }
 }
+
+
+section,
+.form-field {
+    margin-bottom: 25px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    line-height: 1.5;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.hint-text {
+
+}
+.fa-arrow-down{
+    color: black;
+}
+button {
+    padding: 0.5rem;
+}
+button:hover, button:active, button:focus {
+    cursor: pointer;
+    -webkit-transform: translate(1px, 1px);
+    transform: translate(1px, 1px);
+}
+
+.expand-button {
+    cursor: pointer;
+    display: block;
+    width: 50%;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.5rem;
+}
+.expand-button:hover, .expand-button:active, .expand-button:focus {
+}
+
+.special-text {
+    position: relative;
+    max-height: 250px;
+    overflow: hidden;
+    -webkit-transition: max-height 1s ease;
+    transition: max-height 1s ease;
+}
+.special-text.-expanded {
+    max-height: 100vh;
+}
+
+.special-text:not(.-expanded)::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: -webkit-linear-gradient(rgba(255, 255, 255, 0), white);
+    background: linear-gradient(rgba(255, 255, 255, 0), white);
+}
+
+
+

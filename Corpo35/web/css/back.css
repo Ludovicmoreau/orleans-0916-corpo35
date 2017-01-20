@@ -1,7 +1,9 @@
 .admin{
     margin-top: 50px;
 }
-
+a{
+    color: purple;
+}
 table {
     width: 100%;
     border-collapse: collapse;

@@ -1,30 +1,35 @@
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ asset('css/partners_style.css') }}">
+{% endblock %}
+
 {% block content %}
 <div class="container partners">
     <div class="row content">
                 <div class="row ">
+                    <div class="col-md-8 col-centered">
+                        <h1>La maison de Parfums</h1><h2 class="background double"><span> « 35 rue Damiette » </span></h2>
+                        <p class="lead"><i class="fa fa-quote-left" aria-hidden="true"></i> située dans le quartier des Antiquaires à Rouen, est le lieu des expériences olfactives, un lieu de rencontres où l’on vient avec ses souvenirs et ses désirs pour découvrir un parfum, lesien. La boutique propose en exclusivité des fragrances d’exception, des parfums chargés d’histoire, les dernières créations des nez et parfumeurs de renom <i class="fa fa-quote-right" aria-hidden="true"></i></p>
+                    </div>
                     <div class="col-md-4">
                         <img class="content_left" src="{{ asset('images/35.jpeg') }}" alt="image partenaire 35 rue Damiette"/>
-                    </div>
-                    <div class="col-md-8 col-centered">
-                        <p class="lead text-responsive content_right"><i class="fa fa-quote-left" aria-hidden="true"></i> La maison de Parfums « 35 rue Damiette » située dans le quartier des Antiquaires à Rouen, est le lieu des expériences olfactives, un lieu de rencontres où l’on vient avec ses souvenirs et ses désirs pour découvrir un parfum, lesien. La boutique propose en exclusivité des fragrances d’exception, des parfums chargés d’histoire, les dernières créations des nez et parfumeurs de renom <i class="fa fa-quote-right" aria-hidden="true"></i></p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4 content_center">
-                        <h5 class="title">UN VOYAGE VERS L’EXCELLENCE, À FLORENCE </h5>
+                        <h4 class="title">UN VOYAGE VERS L’EXCELLENCE, À FLORENCE </h4>
                         <p class="paragraphe">La gamme de la maison Santa Maria Novella datant de 1612 et dont les cosmétiques, essences et parfums célèbres, sont aujourd’hui encore produits en grande partie selon les formules élaborées au cours du XVIe siècle pour Catherine de Medicis.</p>
                     </div>
                     <div class="col-md-4 content_center">
-                        <h5 class="title">LE LUXE À LA FRANÇAISE </h5>
-                        <dd>Les parfums Lubin, maison créée en 1798 à Paris et qui, avec L’Eau de Lubin, reçut les faveurs de l’impératrice Joséphine et de la cour impériale mais aussi ORIZA L.Legrand, Houbigant,</dd>
-                        <dd>Les parfums de la maison d’Orsay, fragrances mythiques du chevalier d’Orsay, artiste complet, alchimiste du luxe et de l’élégance aux flacons de cristal de Lalique ou de Baccarat.</dd>
-                        <dd>La gamme de bougies, de bain, et eaux de parfums Jardins d’Écrivains. Les parfums Lalique, Volnay, <dd>
+                        <h4 class="title">LE LUXE À LA FRANÇAISE </h4>
+                        <p class="paragraphe">Les parfums Lubin, maison créée en 1798 à Paris et qui, avec L’Eau de Lubin, reçut les faveurs de l’impératrice Joséphine et de la cour impériale mais aussi ORIZA L.Legrand, Houbigant,</p>
+                        <p class="paragraphe">Les parfums de la maison d’Orsay, fragrances mythiques du chevalier d’Orsay, artiste complet, alchimiste du luxe et de l’élégance aux flacons de cristal de Lalique ou de Baccarat.</p>
+                        <p class="paragraphe">La gamme de bougies, de bain, et eaux de parfums Jardins d’Écrivains. Les parfums Lalique, Volnay, <p>
                     </div>
                     <div class="col-md-4 content_center">
-                        <h5 class="title">L’ÉLÉGANCE À L’ANGLAISE </h5>
-                        <dd>Le pointu avec les créations contemporaines de James Heeley, parfumeur et designer anglais.<dd>
-                        <dd>Les parfums Floris, parfumeur de la Reine d’Angleterre et dont les secrets olfactifs sont bien gardés depuis 1730.<dd>
-                        <dd>Ainsi que beaucoup d’autres marques confidentielles.</dd>
+                        <h4 class="title">L’ÉLÉGANCE À L’ANGLAISE </h4>
+                        <p class="paragraphe">Le pointu avec les créations contemporaines de James Heeley, parfumeur et designer anglais.<p>
+                        <p class="paragraphe">Les parfums Floris, parfumeur de la Reine d’Angleterre et dont les secrets olfactifs sont bien gardés depuis 1730.<p>
+                        <p class="paragraphe">Ainsi que beaucoup d’autres marques confidentielles.</p>
                     </div>
                 </div>
         </div>
@@ -34,7 +39,7 @@
         {{ render(controller('FrontBundle:FrontPartenaire:ShowLogo')) }}
         </div>
     </div>
-</div>
+
 {% endblock %}
 
 

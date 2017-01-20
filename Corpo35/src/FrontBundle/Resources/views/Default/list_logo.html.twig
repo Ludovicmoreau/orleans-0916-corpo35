@@ -1,9 +1,24 @@
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ asset('css/list_logo_style.css') }}">
+{% endblock %}
+
 {% block content %}
     <div class="container">
-        <div class="row">
+        <div class="row text-center">
         {% for partenaire in listPartenaires %}
             <a href="{{ path('list_partenaire') }}"/><img class="list_logo" src="{{ asset('upload/' ~  partenaire.logo )}}"></a>
         {% endfor %}
         </div>
     </div>
+
+
+
+
+    <script>
+
+    </script>
 {% endblock %}
+
+ {% block JS %}
+
+ {% endblock %}
