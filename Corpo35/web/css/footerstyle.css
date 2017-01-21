@@ -9,17 +9,26 @@
 .footertext{
     border-right: 1px solid black;
 }
-.well{
+
+.footer{
     margin: 0;
+    background-color: white;
 }
+
 .logolinkedin{
     padding-top:20px;
 }
+
 .borderfooterleft{
     border-left: 1px solid black;
 }
+
 .lienfooter{
     text-decoration: none;
     color: black;
     font-size: 90%;
+}
+
+.lienfooter:hover{
+    color: black;
 }
