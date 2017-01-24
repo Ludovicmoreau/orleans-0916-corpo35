@@ -16,7 +16,7 @@
         </div>
         <div class="row">
             <div class="col-xs-12">
-                {% for candidat in candidats | sortbyfield('classement') if candidat.classement != null and candidat.decision == 1 %}
+                {% for candidat in candidats | sortbyfield('classement') if candidat.classement != null %}
                     <div class="col-xs-12 col-sm-6 col-lg-4 portfolio-item">
                         <a href="{{ path('page_vitrine_candidat', {'id':candidat.id}) }}" class="portfolio-link">
                         <div class="caption">
@@ -46,7 +46,7 @@
             </div>
         </div>
         <div class="row">
-            {% for candidat in candidatsChoisis  %}
+            {% for candidat in candidats  %}
                 <div class="col-xs-12 col-sm-6 col-lg-4 portfolio-item">
                     <a href="{{ path('page_vitrine_candidat', {'id':candidat.id}) }}" class="portfolio-link">
                         <div class="caption">
