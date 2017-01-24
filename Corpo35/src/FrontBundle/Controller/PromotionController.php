@@ -28,11 +28,14 @@ class PromotionController extends Controller
     public function promotionAnneeAction(Promotion $promotion)
     {
         $em = $this->getDoctrine()->getManager();
-//        $candidats = $em ->getRepository('BackBundle:Candidat')->findByDecision(1);
-//        $candidats = $em->getRepository('BackBundle:Candidat')->findByPromotion($promotion->getId());
-//        dump($candidats);die;
+        $candidatsChoisis = $em ->getRepository('BackBundle:Candidat')->findByDecision(1);
+        $candidats = $em->getRepository('BackBundle:Candidat')->findAll();
+        $promotions = $em->getRepository('BackBundle:Promotion')->findAll();
+
         return $this->render('FrontBundle:Default:promotion_annee.html.twig', [
-            'candidats' => $promotion->getCandidats(),
+            'candidatsChoisis' => $candidatsChoisis,
+            'candidats'=> $candidats,
+            'promotions'=> $promotions,
         ]);
         }
 }
