@@ -92,6 +92,11 @@
                         {{ form_label(form.competence, 'Autres formations et compétences'| trans) }}
                         {{ form_widget(form.competence,  { 'attr': {'placeholder': 'Autres formations'|trans  } }) }}</div>
                     <hr class="separe">
+                    <div class="form">
+                        <span class="attention">{{ 'Pour le concours une formule de votre création vous sera demandé. Si vous en possédez déjà une, merci de la télécharger ici. Sinon vous aurez la possibilité d\'éditer votre profil ultérieurement.' | trans }}</span><br/>
+                        {{ form_label(form.formule, 'Votre Formule'| trans) }}</div>
+                        {{ form_widget(form.formule) }}</div>
+                    <hr class="separe">
                     {#<div class="form">{{ form_row(form.promotion) }}</div>#}
                     {#<hr class="separe">#}
                     {% for document in form.documents %}
