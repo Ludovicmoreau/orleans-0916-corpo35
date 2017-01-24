@@ -1,5 +1,10 @@
 .list_logo{
-  margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
    width: 150px;
+    -webkit-filter: grayscale(200%);
 }
 
+.list_logo:hover{
+    -webkit-filter: grayscale(0%);
+}

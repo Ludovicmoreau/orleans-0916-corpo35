@@ -81,24 +81,19 @@
                         {{ form_widget(form.motivation) }}</div>
                     <hr class="separe">
                     <div class="form">
-                        {{ form_label(form.profession, 'Profession* (ou étudiant le cas échéant)'| trans) }}
+                        {{ form_label(form.profession, 'Statut (profession ou étudiant)'| trans) }}
                         {{ form_widget(form.profession) }}</div>
                     <hr class="separe">
-                    <div class="form">{{ form_row(form.formation) }}</div>
+                    <div class="form">
+                        {{ form_label(form.formation, 'Formation liée au secteur de la parfumerie') }}
+                        {{ form_widget(form.formation) }}</div>
                     <hr class="separe">
                     <div class="form">
                         {{ form_label(form.competence, 'Autres formations et compétences'| trans) }}
                         {{ form_widget(form.competence,  { 'attr': {'placeholder': 'Autres formations'|trans  } }) }}</div>
                     <hr class="separe">
-                    <div class="form">{{ form_row(form.promotion, { 'attr' : { 'style':'display:none'}}) }}</div>
+                    {#<div class="form">{{ form_row(form.promotion) }}</div>#}
                     {#<hr class="separe">#}
-                    {#{% for registration in form.fos_user %}#}
-                        {#{{ form_start(formRegistration) }}#}
-                        {#{{ form_row(form.fos_user) }}#}
-                        {#{{ form_end }}#}
-                    {#{% endfor %}#}
-                    <div class="form">{{ form_row(form.promotion) }}</div>
-                    <hr class="separe">
                     {% for document in form.documents %}
                         <h3 class="text-center titreForm">Documents</h3>
                         <p class="text-center">
@@ -127,13 +122,13 @@
                         </ul>
                     {% endfor %}
                     </div>
-                    <div class="row">
+                    <div class="row bouton">
                         <div class="col-xs-6">
-                            <input type="submit" value=" {{ 'Créer'| trans }}" class="btn-success btn-lg center-block"/>
+                            <input type="submit" value=" {{ 'Créer'| trans }}" class="btn btn-secondary center-block creer"/>
                         </div>
                         <div class="col-xs-6">
                             <a href="{{ path('index') }}">
-                            <input type="button" class="btn-danger btn-lg center-block" value="{{ 'Retour'| trans }}">
+                            <input type="button" class="btn btn-secondary center-block" value="{{ 'Retour'| trans }}">
                             </a>
                         </div>
                     </div>

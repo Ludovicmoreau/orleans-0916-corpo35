@@ -48,7 +48,7 @@
                 <div class="row">
                     <div class="col-xs-6 text-center">
                         <p><i class="fa fa-map-marker" aria-hidden="true"></i> {{ candidat.numrue }} {{ candidat.adresse }} {{ candidat.cp }} {{ candidat.ville }}</p>
-                        <p><i class="fa fa-envelope-o" aria-hidden="true"></i> {{ candidat.mail }}</p>
+                        <p><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:{{ candidat.mail }}">{{ candidat.mail }}</a></p>
                         <p><i class="fa fa-phone" aria-hidden="true"></i> {{ candidat.tel }}</p>
                     </div>
                     <div class="col-xs-6 text-center">
@@ -228,10 +228,10 @@
             </div>
                 <div class="row buttonAdmin">
                     <div class="col-xs-6 text-center">
-                        <a href="{{ path('candidat_index') }}"><input type="button" class="btn-primary btn center-block" value="Voir la liste des inscrits"></a>
+                        <a href="{{ path('candidat_index') }}"><input type="button" class="btn btn-secondary center-block" value="Voir la liste des inscrits"></a>
                     </div>
                     <div class="col-xs-6">
-                        <a href="{{ path('index') }}"><input type="button" class="btn-primary btn center-block" value="Retour à la page d'accueil"></a>
+                        <a href="{{ path('index') }}"><input type="button" class="btn btn-secondary center-block" value="Retour à la page d'accueil"></a>
                     </div>
                 </div>
             {% endif %}

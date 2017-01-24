@@ -7,24 +7,27 @@
 
 {% block content %}
     <div class="container partenaire">
+        <h1 class="at-section__title">Partenaires</h1>
         <div class="at-section">
-            <div class="at-section__title">Partenaires</div>
-            <p class="lead content-partner">
+            <p class="text-center lead ">
                 {{ 'Voici l\'ensemble de nos incroyables partenaires.'| trans}}<br/>
                 {{ 'Merci à eux pour leurs soutiens et leurs confiances.'| trans }}
             </p>
         </div>
+
         <div class="at-grid" data-column="3">
             {% for partenaire in listPartenaires %}
                 <div class="at-column">
                     <div class="at-partner">
                         <a href="{{ path('page_partenaire', {'id':partenaire.id}) }}">
-                        <div class="at-partner__logo"><img class="img-responsive" src="{{ asset('upload/' ~  partenaire.logo )}}"></div>
+                        <div class="at-partner__logo"><img class="img-responsive logo" src="{{ asset('upload/' ~  partenaire.logo )}}"></div>
                         </a>
                     </div>
                 </div>
             {% endfor %}
         </div>
+
     </div>
+
 {% endblock %}
 

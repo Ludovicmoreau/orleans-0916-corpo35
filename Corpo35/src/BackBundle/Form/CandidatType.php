@@ -165,11 +165,7 @@ class CandidatType extends AbstractType
                     'aria-label'=>'Vos motivations'
                 )
             ))
-            ->add('promotion', EntityType::class, array(
-                'data_class'=>null,
-                'class'=>'BackBundle\Entity\Promotion',
-                'choice_label'=>'year',
-            ))
+            ->add('promotion', HiddenType::class)
             ->add('documents', CollectionType::class, array(
                 'data_class'=>null,
                 'entry_type'=>DocumentType::class,

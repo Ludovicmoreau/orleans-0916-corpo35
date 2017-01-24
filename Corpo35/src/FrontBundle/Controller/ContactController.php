@@ -34,6 +34,7 @@ class ContactController extends Controller
                 $email = $formContact["email"]->getData();
                 $message = $formContact["message"]->getData();
 
+
                 // create the message
                 $message = \Swift_Message::newInstance()
                     ->setSubject('Mail envoyé depuis votre site Corpo35')
@@ -51,6 +52,7 @@ class ContactController extends Controller
                             )
                         ));
                 // send mail
+
 
                 $this->get('mailer')->send($message);
                 $this->get('session')
