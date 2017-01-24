@@ -21,6 +21,11 @@
 }
 
 
+.linkCandidatEnAvant {
+    text-decoration: underline;
+    font-style: normal;
+}
+
 .nomPrenom {
     position: absolute;
     margin: auto;
@@ -46,9 +51,14 @@
 
 .motivation {
     margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 .motivationTitre {
+    font-weight: bold;
+}
+
+.FormationTitre {
     font-weight: bold;
 }
 
