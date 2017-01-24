@@ -9,13 +9,9 @@
 
     <div class="container partner">
 
-        <h1 class="partner-nom">{{ partenaire.nom }}</h1>
+        <h3 class="background double"><span>{{ partenaire.nom }}</span></h3>
         <div class="container-fluid">
-            <div class="border-bot">
-
-                    <p class="resume">{{ partenaire.resume }}</p>
-
-            </div>
+                <p class=" lead resume">{{ partenaire.resume }}</p>
             <div class="row">
                 <div class="col-md-8">
                     <div class="partner-body">
@@ -23,18 +19,16 @@
                         <p class="partner-content">{{ partenaire.contenu }}</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="row contact">
-                        <div class="col-md-12 partner-contact">
-                            <a href="{{ partenaire.website }}" target=_blank><i class="fa fa-globe fa-2x" aria-hidden="true"></i></a>
+                <div class="col-md-4 ">
+                    <div class="row partner-body">
+                        <div class="col-md-12 centreVerticalement">
+                            <p class="centreVerticalement"><a href="{{ partenaire.website }}" target=_blank><i class="fa fa-globe" aria-hidden="true">  Site web</i></a></p>
                         </div>
-                        <div class="col-md-12  partner-contact">
-                           <i class="fa fa-paper-plane-o fa-2x" aria-hidden="true"></i><h5> {{ partenaire.email }} </h5>
+                        <div class="col-md-12 centreVerticalement">
+                            <p class="centreVerticalement"><i class="fa fa-paper-plane-o" aria-hidden="true"> {{ partenaire.email }} </i></p>
                         </div>
-                        <div class="col-md-12 partner-contact">
-                            <h5><i class="fa fa-phone fa-2x" aria-hidden="true"></i>
-                                {{ partenaire.phone }} </h5>
-
+                        <div class="col-md-12 centreVerticalement">
+                            <p class="centreVerticalement"><i class="fa fa-phone" aria-hidden="true">{{ partenaire.phone }} </i></p>
                         </div>
                     </div>
                 </div>
