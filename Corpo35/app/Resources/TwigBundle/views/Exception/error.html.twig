@@ -1,0 +1,11 @@
+{% extends 'FrontBundle:Default:layout.html.twig' %}
+
+{% block content %}
+    <h1 class="text-center">Page non trouvée !</h1>
+
+
+    <p style="min-height: 300px" class="text-center">
+        La page recherchée n'a pas pu être localisée. Il y a peut être une faute dans l'URL que vous avez choisie ou
+        <a href="{{ path('index') }}">retourner à l'accueil</a>.
+    </p>
+{% endblock %}
