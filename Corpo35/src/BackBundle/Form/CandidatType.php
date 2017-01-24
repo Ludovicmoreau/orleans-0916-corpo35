@@ -165,7 +165,6 @@ class CandidatType extends AbstractType
                     'aria-label'=>'Vos motivations'
                 )
             ))
-            ->add('promotion', HiddenType::class)
             ->add('documents', CollectionType::class, array(
                 'data_class'=>null,
                 'entry_type'=>DocumentType::class,

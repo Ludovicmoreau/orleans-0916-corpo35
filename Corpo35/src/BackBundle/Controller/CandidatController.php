@@ -290,9 +290,13 @@ class CandidatController extends Controller
             }
 //            Fin de l'ajout des documents
 
+
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($candidat);
             $em->flush();
+
+
 
             return $this->redirectToRoute('index', array('id' => $candidat->getId()));
         }
