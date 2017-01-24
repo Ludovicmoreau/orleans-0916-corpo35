@@ -11,8 +11,10 @@
 }
 
 .footer{
-    margin: 0;
+
     background-color: white;
+    position:relative;
+    margin-bottom: 0;
 }
 
 .logolinkedin{
