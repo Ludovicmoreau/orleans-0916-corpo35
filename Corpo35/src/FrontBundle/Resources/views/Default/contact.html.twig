@@ -1,5 +1,7 @@
 {% extends 'FrontBundle:Default:layout.html.twig' %}
 
+
+
 {% block stylesheet %}
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/contact.css') }}">
@@ -26,7 +28,7 @@
             </div>
             {{ form_start(formContact) }}
             {{ form_widget(formContact) }}
-            <input type="submit" value=" {{ 'Envoyer'| trans }}" />
+            <input class="send-msg" type="submit" value=" {{ 'Envoyer'| trans }}" />
             {{ form_end(formContact) }}
 
         </div>

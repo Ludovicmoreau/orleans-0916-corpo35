@@ -5,6 +5,16 @@
 
 .recherche {
     margin-bottom: 5%;
+    box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.3);
+}
+
+.recherche:hover {
+    box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.8);
+}
+
+.btnRecherche {
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
 
 .linkCandidat {

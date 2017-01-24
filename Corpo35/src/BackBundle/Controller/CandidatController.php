@@ -76,6 +76,18 @@ class CandidatController extends Controller
             $candidat->setCv($cvName);
 //            Fin de l'ajout du cv
 
+//          ajout de la formule en pdf
+            $formule = $candidat->getFormule();
+            if ($formule) {
+                $formuleName = md5(uniqid()) . '.' . $formule->guessExtension();
+                $formule->move(
+                    $this->getParameter('upload_directory'),
+                    $formuleName
+                );
+                $candidat->setFormule($formuleName);
+            }
+//          Fin de l'ajout de la forumle
+
 //            Ajout de la photo
             $photo = $candidat->getPhoto();
             $photoName = md5(uniqid()).'.'.$photo->guessExtension();
@@ -104,6 +116,7 @@ class CandidatController extends Controller
 
             $candidat->setMiseEnAvant(0);
             $candidat->setDecision(false);
+//            $candidat->setCandidatToPromotion();
             $em = $this->getDoctrine()->getManager();
             $em->persist($candidat);
             $em->flush();
@@ -289,9 +302,13 @@ class CandidatController extends Controller
             }
 //            Fin de l'ajout des documents
 
+
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($candidat);
             $em->flush();
+
+
 
             return $this->redirectToRoute('index', array('id' => $candidat->getId()));
         }
