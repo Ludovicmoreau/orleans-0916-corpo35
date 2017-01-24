@@ -165,6 +165,15 @@ class CandidatType extends AbstractType
                     'aria-label'=>'Vos motivations'
                 )
             ))
+            ->add('formule', FileType::class, array(
+                'data_class'=>null,
+                'required'=>false,
+                'label'=>'Votre Formule',
+                'attr'=>array(
+                    'class'=>'center-block',
+                    'aria-label'=> 'CV'
+                )
+            ))
             ->add('promotion', HiddenType::class)
             ->add('documents', CollectionType::class, array(
                 'data_class'=>null,
@@ -175,9 +184,6 @@ class CandidatType extends AbstractType
                 'required'=>false,
             ))
 
-//            ->add('fos_user', CollectionType::class, array(
-//                'entry_type'=>RegistrationFormType::class,
-//            ))
         ;
     }
 
