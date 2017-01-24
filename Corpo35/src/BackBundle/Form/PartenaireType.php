@@ -21,8 +21,10 @@ class PartenaireType extends AbstractType
     {
         $builder->add('nom', TextType::class)
                 ->add('logo', FileType::class)
-                ->add('resume', TextareaType::class)
+                ->add('resume', TextareaType::class, array('required' => false,))
+                ->add('resumeEn', TextareaType::class, array('required' => false,))
                 ->add('contenu', TextareaType::class, array('required' => false,))
+                ->add('contenuEn', TextareaType::class, array('required' => false,))
                 ->add('website', UrlType::class)
                 ->add('email', EmailType::class, array('required' => false,))
                 ->add('phone', NumberType::class)
