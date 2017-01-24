@@ -31,11 +31,13 @@
                             <p>{{ candidat.presentation | truncate(50, true, '...')}}<a href="{{ path('page_vitrine_candidat', { 'id': candidat.id }) }}"> {{ 'En lire plus'| trans }}</a></p>
                         </div>
                     </div>
+                    {% if candidat.blog is not null %}
                     <div class="row">
                         <div class="col-xs-12">
                             <p>blog: <a href="{{ candidat.blog }}" target="_blank"> {{ candidat.blog }}</a></p>
                         </div>
                     </div>
+                    {% endif %}
                     <div class="row">
                         <div class="col-xs-12 motivation">
                             <p class="motivationTitre"> {{ 'Motivations pour le concours'| trans }}</p>

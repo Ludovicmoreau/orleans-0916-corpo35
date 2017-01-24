@@ -239,6 +239,13 @@ class Candidat
     /**
      * @var string
      *
+     * @ORM\Column(name="formule", type="string", length=255, nullable=true)
+     */
+    private $formule;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="photo", type="string", length=255)
      */
     private $photo;
@@ -808,5 +815,29 @@ class Candidat
     public function getPromotion()
     {
         return $this->promotion;
+    }
+
+    /**
+     * Set formule
+     *
+     * @param string $formule
+     *
+     * @return Candidat
+     */
+    public function setFormule($formule)
+    {
+        $this->formule = $formule;
+
+        return $this;
+    }
+
+    /**
+     * Get formule
+     *
+     * @return string
+     */
+    public function getFormule()
+    {
+        return $this->formule;
     }
 }

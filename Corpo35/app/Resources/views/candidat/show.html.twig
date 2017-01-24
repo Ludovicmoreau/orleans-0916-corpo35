@@ -109,6 +109,20 @@
                     </div>
                 </div>
             </div>
+            {% if candidat.formule %}
+                <div class="ombre">
+                    <div class="row text-center">
+                        <div class="col-xs-12">
+                            <h3>Formule du parfum</h3>
+                        </div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-xs-12">
+                            <p><a href="{{ asset('upload/' ~ candidat.formule) }}" target="_blank"> Telecharger la formule au format pdf</a></p>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
             <div class="ombre">
                 <div class="row text-center">
                     <div class="col-xs-12">
