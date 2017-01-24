@@ -8,7 +8,7 @@
 {% block content %}
     <div class="container-fluid">
         <div class="col-xs-12 text-center">
-            <h2> {{ 'Bienvenue sur la page d\'inscription au concours Corpo trente cinq'| trans }}</h2>
+            <h2> {{ 'Bienvenue sur la page d\'inscription au concours Corpo35'| trans }}</h2>
             <p class="hidden-xs hidden-sm">  <a href="{{ path('reglement') }}" target="_blank">{{ 'Le règlement du concours'| trans }}</a> {{ 'est à télécharger, signer et à nous renvoyer'| trans }}.</p>
             <p class="hidden-xs hidden-sm"> {{ 'L\'inscription au concours peut prendre 10 à 15 minutes et nécessite de télécharger quelques documents comme une photo, un cv etc...'| trans }}<br/>
                  {{ 'Vérifiez bien que vous avez ces documents avec vous avant de commencer l\'inscription'| trans }}.</p>
@@ -71,7 +71,7 @@
                         {{ form_widget(form.presentation) }}</div>
                     <hr class="separe">
                     <div class="form">
-                        {{ form_label(form.blog, 'Blog/site personnel ou autres'| trans) }}
+                        {{ form_label(form.blog, 'Blog/site(s) personnel(s) ou autres'| trans) }}
                         {{ form_widget(form.blog) }}</div>
                     <hr class="separe">
                     <h3 class="text-center titreForm"> {{ 'Informations concernant le concours'| trans }}</h3>
@@ -81,11 +81,11 @@
                         {{ form_widget(form.motivation) }}</div>
                     <hr class="separe">
                     <div class="form">
-                        {{ form_label(form.profession, 'Statut (profession ou étudiant)'| trans) }}
+                        {{ form_label(form.profession, 'Profession (statut professionnel ou étudiant)'| trans) }}
                         {{ form_widget(form.profession) }}</div>
                     <hr class="separe">
                     <div class="form">
-                        {{ form_label(form.formation, 'Formation liée au secteur de la parfumerie') }}
+                        {{ form_label(form.formation, 'Formation(s) en lien avec la parfumerie') }}
                         {{ form_widget(form.formation) }}</div>
                     <hr class="separe">
                     <div class="form">
@@ -102,7 +102,8 @@
                     {% for document in form.documents %}
                         <h3 class="text-center titreForm">Documents</h3>
                         <p class="text-center">
-                            {{ 'Vous pouvez telecharger des documents qui vous ont inspiré pour votre création.'| trans }}<br/>
+                            {{ 'Vous pouvez télécharger des documents qui vous ont inspiré pour votre création.'| trans }}<br/>
+                            <span class="attention">{{ 'Pour le concours une formule de votre création vous sera demandé. Si vous en possédez déjà une, merci de la télécharger ici. Sinon vous aurez la possibilité d\'éditer votre profil ultérieurement.' | trans }}</span><br/>
                             {{ 'Les types de documents supportés sont "image", "vidéo", "musique" ou "pdf"'| trans }}.<br/>
                             <span class="attention"> {{ 'Attention les documents ne peuvent pas dépasser 2MB'| trans }}</span>.<br/>
                              {{ 'Vous pouvez également ajouter un lien vers un site externe'| trans }}.
@@ -126,13 +127,13 @@
                         </ul>
                     {% endfor %}
                     </div>
-                    <div class="row bouton">
+                    <div class="row bouton creer">
                         <div class="col-xs-6">
-                            <input type="submit" value=" {{ 'Créer'| trans }}" class="btn btn-secondary center-block creer"/>
+                            <input type="submit" value=" {{ 'Créer'| trans }}" class="btn btn-secondary center-block "/>
                         </div>
                         <div class="col-xs-6">
                             <a href="{{ path('index') }}">
-                            <input type="button" class="btn btn-secondary center-block" value="{{ 'Retour'| trans }}">
+                            <input type="button" class="btn btn-secondary center-block " value="{{ 'Retour'| trans }}">
                             </a>
                         </div>
                     </div>
