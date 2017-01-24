@@ -104,6 +104,7 @@ class CandidatController extends Controller
 
             $candidat->setMiseEnAvant(0);
             $candidat->setDecision(false);
+//            $candidat->setCandidatToPromotion();
             $em = $this->getDoctrine()->getManager();
             $em->persist($candidat);
             $em->flush();
