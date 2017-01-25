@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use BlogBundle\Entity\Commentaire;
 use BlogBundle\Entity\Article;
 
+
 class PageController extends Controller
 {
     /**
@@ -25,6 +26,9 @@ class PageController extends Controller
             'articles' => $articles
         ));
     }
+
+
+
 
 //    /**
 //     * @Route("/Articles", name="list_article")

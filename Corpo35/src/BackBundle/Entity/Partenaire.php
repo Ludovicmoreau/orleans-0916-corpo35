@@ -37,9 +37,16 @@ class Partenaire
     /**
      * @var string
      *
-     * @ORM\Column(name="resume", type="text")
+     * @ORM\Column(name="resume", type="text", nullable=true)
      */
     private $resume;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="resumeEn", type="text", nullable=true)
+     */
+    private $resumeEn;
 
     /**
      * @var string
@@ -48,6 +55,12 @@ class Partenaire
      */
     private $contenu;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="contenu_en", type="text", nullable=true)
+     */
+    private $contenuEn;
 
 
     /**
@@ -240,5 +253,37 @@ class Partenaire
     public function setNom($nom)
     {
         $this->nom = $nom;
+    }
+
+    /**
+     * @return string
+     */
+    public function getContenuEn()
+    {
+        return $this->contenuEn;
+    }
+
+    /**
+     * @param string $contenu_en
+     */
+    public function setContenuEn($contenuEn)
+    {
+        $this->contenuEn = $contenuEn;
+    }
+
+    /**
+     * @return string
+     */
+    public function getResumeEn()
+    {
+        return $this->resumeEn;
+    }
+
+    /**
+     * @param string $resume_en
+     */
+    public function setResumeEn($resumeEn)
+    {
+        $this->resumeEn = $resumeEn;
     }
 }

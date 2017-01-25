@@ -4,6 +4,7 @@ namespace BlogBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 
+
 /**
  * CandidatRepository
  *
@@ -12,16 +13,6 @@ use Doctrine\ORM\EntityRepository;
  */
 class ArticleRepository extends EntityRepository
 {
-    public function getCommentaires($id)
-    {
-        $qb = $this->createQueryBuilder('a')
-            ->where('id = :id')
-            ->setParameter('id', $id)
-            ->leftJoin('a.commentaires', 'c')
-            ->orderBy('c.date', 'DESC')
-            ;
 
-        return $qb->getQuery()
-            ->getResult();
-    }
+
 }

@@ -27,7 +27,7 @@
                 {% for agenda_evenement in agenda_evenements %}
                     <tr>
                         {#<td><a href="{{ path('agenda_evenement_show', { 'id': agenda_evenement.id }) }}">{{ agenda_evenement.id }}</a></td>#}
-                        <td>{% if agenda_evenement.date %}{{ agenda_evenement.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                        <td>{% if agenda_evenement.date %}{{ agenda_evenement.date|date('d-m-Y') }}{% endif %}</td>
                         <td>{{ agenda_evenement.lieu }}</td>
                         <td>{{ agenda_evenement.titre }}</td>
                         <td>{{ agenda_evenement.description }}</td>

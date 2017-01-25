@@ -11,18 +11,26 @@
 
         <h3 class="background double"><span>{{ partenaire.nom }}</span></h3>
         <div class="container-fluid">
-                <p class=" lead resume">{{ partenaire.resume }}</p>
+                {% if app.request.locale =='fr' %}
+                    <p class=" lead resume">{{ partenaire.resume }}</p>
+                {% else %}
+                    <p class="partner-content">{{ partenaire.resumeEn}}</p>
+                {% endif %}
             <div class="row">
                 <div class="col-md-8">
                     <div class="partner-body">
                         <img class="img" src="{{ asset('upload/' ~  partenaire.logo )}}" alt="image partenaire 35 rue Damiette"/>
-                        <p class="partner-content">{{ partenaire.contenu }}</p>
+                        {% if app.request.locale =='fr' %}
+                            <p class="partner-content">{{ partenaire.contenu}}</p>
+                        {% else %}
+                            <p class="partner-content">{{ partenaire.contenuEn}}</p>
+                        {% endif %}
                     </div>
                 </div>
                 <div class="col-md-4 ">
                     <div class="row partner-body">
                         <div class="col-md-12 centreVerticalement">
-                            <p class="centreVerticalement"><a href="{{ partenaire.website }}" target=_blank><i class="fa fa-globe" aria-hidden="true">  Site web</i></a></p>
+                            <p class="centreVerticalement"><a href="{{ partenaire.website | trans }}" target=_blank><i class="fa fa-globe" aria-hidden="true">  Site web</i></a></p>
                         </div>
                         <div class="col-md-12 centreVerticalement">
                             <p class="centreVerticalement"><i class="fa fa-paper-plane-o" aria-hidden="true"> {{ partenaire.email }} </i></p>
@@ -33,29 +41,8 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 {% endblock %}
