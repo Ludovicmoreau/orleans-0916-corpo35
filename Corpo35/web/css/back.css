@@ -1,74 +1,78 @@
-.admin{
-    margin-top: 50px;
-}
-a{
-    color: purple;
-}
-table {
-    width: 100%;
-    border-collapse: collapse;
-    border-radius: 5px;
-    overflow: hidden;
-    margin-top: 50px;
-}
+/*.admin{*/
+    /*margin-top: 50px;*/
+/*}*/
 
-th {
-    text-align: left;
-}
+/*.logoHeader {*/
+    /*width: 10%;*/
+/*}*/
 
-thead {
-    font-weight: bold;
-}
+/*a{*/
+    /*color: purple;*/
+/*}*/
+/*table {*/
+    /*width: 100%;*/
+    /*border-collapse: collapse;*/
+    /*overflow: hidden;*/
+    /*margin-top: 50px;*/
+/*}*/
 
-td, th {
-    padding: 1em .5em;
-    vertical-align: middle;
-}
+/*th {*/
+    /*text-align: left;*/
+/*}*/
 
-@media all and (max-width: 768px) {
+/*thead {*/
+    /*font-weight: bold;*/
+/*}*/
 
-    table, thead, tbody, th, td, tr {
-        display: block;
-    }
+/*td, th {*/
+    /*padding: 1em .5em;*/
+    /*vertical-align: middle;*/
+/*}*/
 
-    th {
-        text-align: right;
-    }
+/*@media all and (max-width: 768px) {*/
 
-    table {
-        position: relative;
-        padding-bottom: 0;
-        border: none;
+    /*table, thead, tbody, th, td, tr {*/
+        /*display: block;*/
+    /*}*/
 
-    }
+    /*th {*/
+        /*text-align: right;*/
+    /*}*/
 
-    thead {
-        float: left;
-        white-space: nowrap;
-    }
+    /*table {*/
+        /*position: relative;*/
+        /*padding-bottom: 0;*/
+        /*border: none;*/
 
-    tbody {
-        overflow-x: auto;
-        overflow-y: hidden;
-        position: relative;
-        white-space: nowrap;
-    }
+    /*}*/
 
-    tr {
-        display: inline-block;
-        vertical-align: top;
-    }
+    /*thead {*/
+        /*float: left;*/
+        /*white-space: nowrap;*/
+    /*}*/
 
-    th {
-        border-top: none;
-    }
+    /*tbody {*/
+        /*overflow-x: auto;*/
+        /*overflow-y: hidden;*/
+        /*position: relative;*/
+        /*white-space: nowrap;*/
+    /*}*/
 
-    td {
+    /*tr {*/
+        /*display: inline-block;*/
+        /*vertical-align: top;*/
+    /*}*/
 
-    }
+    /*th {*/
+        /*border-top: none;*/
+    /*}*/
+
+    /*td {*/
+
+    /*}*/
 
 
-}
+/*}*/
 
 
 
