@@ -40,7 +40,7 @@
                     <h3 class="text-center">{{ candidat.nom }} {{ candidat.prenom }}</h3>
                     <p><img src="{{ asset('upload/' ~ candidat.photo) }}" class="img-responsive photoCandidat center-block"></p>
                     <div class="well">
-                        <p class="text-center">Candidat validé: {% if candidat.decision %}Yes{% else %}No{% endif %}</p>
+                        <p class="text-center">Candidat validé: {% if candidat.decision %}Oui{% else %}Non{% endif %}</p>
                         {% if is_granted ('ROLE_ADMIN') %}
                             {% set totalNote = 0  %}
                             {% for vote in candidat.votes %}
@@ -64,9 +64,17 @@
                     <p>{{ candidat.blog }}</p>
                     <p>{{ candidat.presentation |truncate(50, true,'...')}}</p>
                     <p>{{ candidat.motivation |truncate(50, true,'...')}}</p>
-                    <p>{{ candidat.formation }}</p>
-                    <p>{{ candidat.competence }}</p>
                     <p>{{ candidat.profession }}</p>
+                    {% if candidat.formation is not null %}
+                        <p>{{ candidat.formation }}</p>
+                    {% else %}
+                        <p>Pas de formation liée à la parfumerie</p>
+                    {% endif %}
+                    {% if candidat.competence is not null %}
+                        <p>{{ candidat.competence }}</p>
+                    {% else %}
+                        <p>Pas d'autres formations</p>
+                    {% endif %}
                     {% if candidat.promotion.year is defined %}
                         <p>{{ candidat.promotion.year }}</p>
                     {% endif %}
