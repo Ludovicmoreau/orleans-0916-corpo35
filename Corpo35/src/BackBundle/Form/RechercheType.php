@@ -43,15 +43,18 @@ class RechercheType extends AbstractType
             ->add('promo', ChoiceType::class, array(
                 'required'=>false,
                 'choices' => array(
-                    3 => '2016',
-                    4 => '2017',
-                    5 => '2018',
+                    '2016' => '2016',
+                    '2017' => '2017',
+                    '2018' => '2018',
                 ),
                 'label'=> 'Rechercher par promotion',
                 'attr'=>array(
                     'class'=>'center-block'
                 )
             ))
+//            ->add('nom', SearchType::class, array(
+//                'required'=>false,
+//            ))
         ;
     }
 

@@ -1,7 +1,43 @@
 file-source: en
 
 #concours
-Présentation du concours: Presentation of the course
+Présentation du concours: Presentation of the contest
+Pourquoi ce concours: Why this contest
+Le secteur de la haute parfumerie, tout comme celui de la gastronomie, voit émerger des talents au nom souvent peu connu du grand public et dont les créations sont de toute beauté: The sector of high perfumery, like that of gastronomy, sees emerging talents with the name little known by the general public and whose creations are beautiful
+La parfumerie d'art: The perfumery of art
+(Maisons historiques constitutives de la parfumerie moderne, marques de niche et de créateurs, collections exclusives des grands couturieurs et joailliers): (historic houses constituting modern perfumery, brands of niche and creators, exclusive collections of the great couturiers and jewelers)
+est mal connue en France et n'est pas aussi diffusée que dans d'autres pays du monde à la pointe dans ce secteur: is not well known in France and is not as diffused as in other countries of the world
+tels que l'Italie, la Grande Bretagne, les pays de l'Est européen, la Russie, l'Ukraine, les Etats Unis, le Moyen Orient: to Such as Italy, Great Britain, the countries of Eastern Europe, Russia, Ukraine, the United States and the Middle East
+Elle y rencontre pourtant un vif succès en répondant tout à la fois aux attentes culturelles et affectives des amateurs de parfums; qu'aux exigences qualitatives et artistiques d'un marché en plein essor: It nevertheless met with a great success by responding at the same time to the cultural and affective expectations of the amateurs of perfumes; Qualitative and artistic demands of a booming market
+La France riche de son savoir-faire, représente, à elle seule, plus de la moitié des marques présentes sur le marché de la parfumerie rare: France, with its know-how, represents more than half of the brands on the rare perfume market
+Ce concours a pour vocation de faire connaître au grand public des parfums rares et inédits, issus de matières premières nobles. À l'initiative du "35 Rue Damiette", l'ISIPCA, Coptis, IFF, Au Parfum, Saverglass, soutiennent ce concours: The aim of this contest is to make the general public aware of rare and unusual perfumes from noble raw materials. At the initiative of "35 Rue Damiette", ISIPCA, Coptis, IFF, Au Parfum, Saverglass, support this competition
+Pour quel type de concourants: For who
+Le concours est ouvert à toute personne sachant composer un parfum et capable de rédiger une formule. Le Logiciel Coptis LAB, sera mis à disposition de chacun des 35 candidats sélectionnés à participer au concours: The contest is open to anyone who knows how to compose a perfume and is able to write a formula. The Coptis LAB Software will be made available to each of the 35 selected candidates to participate in the contest
+Une session de formation est incluse dans le programme offert aux candidats: A training session is included in the program offered to candidates
+Le comité de pilotage constitué des professionnels partenaires, étudira chaque candidature déposée sur le site internet et retiendra 35 candidats par session, et donc par année: The steering committee made up of professional partners, will study each application filed on the website and will retain 35 candidates per session, and therefore per year
+Les critères discriminantes seront le parcours, l'expérience et la motivation de chaque candidat: The discriminating criteria will be the background, experience and motivation of each candidate
+Le sourcing des candidats pourra émaner des différentes catégories ci-dessous (non-exhaustive): The sourcing of candidates may come from the following categories (non-exhaustive)
+Écoles et universités (chimie, parfumerie): Schools and universities (chemistry, perfumery)
+Maisons de créations: Creative Houses
+Secteur des arômes et des fragrances: Fragrance Sector
+Producteurs d'ingrédients et de matières premières: Ingredients's producers and raw materials
+Les marques: Brands
+Parfumeurs indépendants: Independent perfumers
+Autodidactes: Self-taught
+Distributeurs: Distributors
+La journée d'intégration: Integration day
+La journée d'intégration au concours Corpo 35 à l'ISIPCA, a comme objectif de favoriser les échanges entre les candidats et les professionnels et de lancer le compte à rebours des 6 mois de création. Il y aura donc lors de cette journée: The integration day in the Corpo 35 contest at ISIPCA aims to promote exchanges between candidates and professionals and to launch the countdown of the 6 months of creation. There will be during this day
+Rappel du règlement et du cadre du concours: Reminder of the rules and the framework of the contest
+cession des droits d'auteur, présentation quelque soit la forme du processus créatif retenu par chaque candidat: assignment of copyright, presentation regardless of the form of the creative process chosen by each candidate
+La présentation des locaux de l'ISIPCA: Presentation of the ISIPCA place
+en particulier les paillasses des laboratoires mises à disposition des 35 candidats pour effectuer les pesées si nécessaire: in particular laboratory benches made available to the 35 candidates to carry out the weighing if necessary
+Conférence d'IFF sur les matières premières: IFF Conference on Raw Materials
+constituant l'orgue défini pour réaliser la création: constituting the defined range to realize the creation
+Remise de l'orgue à parfums offert par IFF à chaque candidats: Presentation of the perfume range offered by IFF to each candidate
+comme bases de la création attendue: as the basis of the expected creation
+Présentation et initiation du logiciel Coptis LAB: Presentation and initiation of Coptis LAB's software
+logiciel d'aide à la rédaction de formules: software for writing formulas
+Un portrait et une interview réalisés pour chaque candidat afin de valoriser son profil: A portrait and an interview carried out for each candidate in order to enhance his / her profile
 
 #header
 Partenaires: Partners
@@ -12,6 +48,7 @@ Se connecter: Login
 Agenda: Events
 Langues: Languages
 http://www.maisondeparfumberry.com/fr/: http://www.maisondeparfumberry.com/en/
+Editer mon profil: Edit my profile
 
 #navbar2
 Accueil: Home
@@ -28,10 +65,11 @@ Plan du site: Sitemap
 #mis en avant
 Candidat du jour:  Candidate of the day
 Retrouvez ici un de nos candidats au concours Corpo 35: Find here one of the contest's candidate
-Motivations pour le concours: Motivations of the candidate
+Motivations pour le concours: Motivations for the competition
 Cliquez ici pour en savoir plus sur ce candidat: Click here to learn more about this candidate
 Cliquez ici pour voir tous les candidats séléctionnés: Click here to see all selected candidates
 En lire plus: Read more
+Blog/Site web: Blog / Website
 
 #formulaire de contact
 Envoyer: Send
@@ -91,6 +129,18 @@ Pour le concours une formule de votre création vous sera demandé. Si vous en p
 #candidat
 Classement: Ranking
 Le concours, n'est pas fini pour le moment, les résultats seront affichés prochainement: The contest is not finished yet, the results will be posted soon
+er: st
+
+#page_vitrine_candidat
+Motivations pour le concours: Motivations for the competition
+Formations liées à la parfumerie: Training related to perfumery
+Ce candidat n'a pas de formation liée à la parfumerie: This candidate has no training related to perfumery
+Ce candidat n'a pas d'autre formation: This candidate has no other training
+Formations liées à la parfumerie: Training related to perfumery
+Autres formations: Others training
+Voir son CV: View the Resume
+CV: Resume
+
 
 #partenaires et agenda new
 Retour à la liste: Back to the list
@@ -106,3 +156,14 @@ Mot de passe oublié ?: Forgot your password ?
 
 #FOS
 Cliquer ici pour revenir à l'acceuil: Click here to return to the homepage
+
+#Parters
+La maison de Parfums: The Perfume House Berry
+située dans le quartier des Antiquaires à Rouen, est le lieu des expériences olfactives, un lieu de rencontres où l’on vient avec ses souvenirs et ses désirs pour découvrir un parfum, lesien. La boutique propose en exclusivité des fragrances d’exception, des parfums chargés d’histoire, les dernières créations des nez et parfumeurs de renom: Located in the district of Antiquaires in Rouen, is the place of the olfactory experiments, a place of encounters where one comes with his memories and his desires to discover a perfume, lesien. The boutique offers exclusive fragrances, fragrances full of history, the latest creations from renowned nose and perfumers
+UN VOYAGE VERS L’EXCELLENCE, À FLORENCE: A TRIP TO EXCELLENCE, FLORENCE
+LE LUXE À LA FRANÇAISE: FRENCH LUXURY
+L’ÉLÉGANCE À L’ANGLAISE: ELEGANCE IN ENGLISH
+Charles et Cécile Berry, ont ouvert leur Maison de parfums Berry en 2010, rue Damiette à Rouen en Normandie. Le couple, autodidacte, a un goût prononcé pour les patrimoines olfactifs et culturels, et souhaite mettre en valeur la belle et traditionnelle parfumerie française. : Charles and Cécile Berry opened the Maison de Parfums Berry, located on rue Damiette in Rouen, Normandy, in 2010. The self-taught couple, who have an intense passion for olfactory and cultural heritage, aims to showcase the beauty and traditions of the French perfumery.
+Les parfums de la Maison Berry sont produits avec des matières premières d'exception, ce qui leur apportent prestige et élégance. Ils sont produits exclusivement et intégralement en France.: Maison Berry produces its perfumes using the highest-quality ingredients, which lends them their prestige and elegance. They are made entirely and exclusively in France.
+Créer un parfum c'est avant toutune façon intime d'écrire des émotions, mettre en forme des images, des souvenirs, qui dévoilent peu à peu.: Creating a perfume is, above all, a way to create emotions and shape images and memories, which reveal themselves gradually.
+Les parfums de la Maison Berry invitent les "voyageurs" à suivre leurs auteurs à travers les belles matières, une sensibilité originale, un univers unique.: Maison Berry’s perfumes invite “travellers” to follow their creators on a journey across beautiful places, distinct feelings and a unique universe.

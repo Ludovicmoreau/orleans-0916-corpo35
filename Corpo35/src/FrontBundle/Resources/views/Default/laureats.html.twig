@@ -25,7 +25,7 @@
                                                     {{ candidat.nom }} {{ candidat.prenom }}<br/>
                                                     {% if candidat.classement != null %}
                                                         {% if candidat.classement == 1 %}
-                                                            <p class="nomCandidat">{{ candidat.classement }}er</p>
+                                                            <p class="nomCandidat">{{ candidat.classement }}{{ 'er'|trans }}</p>
                                                         {% else %}
                                                             <p class="nomCandidat">{{ candidat.classement }}ème</p>
                                                         {% endif %}
@@ -57,7 +57,7 @@
                                         {{ candidat.nom }} {{ candidat.prenom }}<br/>
                                         {% if candidat.classement != null %}
                                             {% if candidat.classement == 1 %}
-                                                <p class="nomCandidat">{{ candidat.classement }}er</p>
+                                                <p class="nomCandidat">{{ candidat.classement }}{{ 'er'|trans }}</p>
                                             {% else %}
                                                 <p class="nomCandidat">{{ candidat.classement }}ème</p>
                                             {% endif %}
