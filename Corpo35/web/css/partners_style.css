@@ -83,9 +83,9 @@ h3.double:before {
 }
 h3.double:after {
     border-bottom: 1px solid lightgrey;
-    -webkit-box-shadow: 0 1px 0 0 red;
-    -moz-box-shadow: 0 1px 0 0 red;
-    box-shadow: 0 1px 0 0 red;
+    -webkit-box-shadow: 0 1px 0 0 lightgrey;
+    -moz-box-shadow: 0 1px 0 0 lightgrey;
+
     content: "";
     margin: 0 auto;
     /* this centers the line to the full width specified */
@@ -129,7 +129,7 @@ h3.no-span {
 }
 h3.no-span:before,
 h3.no-span:after {
-    border-top: 1px solid green;
+    border-top: 1px solid lightgrey;
     content: '';
     display: table-cell;
     position: relative;
@@ -171,9 +171,6 @@ h3.no-span:after {
         margin: 0 auto;
         padding-top: 10px;
         width: 100%;
-    }
-    .row-contact{
-
     }
     .img{
         border: 1px solid lightgrey;

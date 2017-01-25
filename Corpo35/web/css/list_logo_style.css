@@ -1,7 +1,24 @@
+.logo-partenaire{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
 .rio-promos {
     width: auto;
     margin: 0 auto;
 }
+.rio-promos img {
+    margin : 0 auto;
+    width: 150px;
+    -webkit-filter: grayscale(200%);
+
+}
+
+.rio-promos img:hover {
+    -webkit-filter: grayscale(0%);
+}
+
+
 
 button.slick-next, button.slick-next:hover {
     position: absolute;
@@ -25,18 +42,7 @@ button.slick-prev, button.slick-prev:hover {
     line-height: inherit;
     font-weight: bold;
 }
-.rio-promos img {
-    margin-top: 50px;
-    margin-bottom: 50px;
-    width: 150px;
-    -webkit-filter: grayscale(200%);
-}
 
-.rio-promos img:hover {
-    -webkit-filter: grayscale(0%);
-}
-
-/* Slick Slider Styles -- Provided by http://kenwheeler.github.io/slick/ */
 /* Slider */
 .slick-slider
 {
@@ -153,27 +159,20 @@ button.slick-prev, button.slick-prev:hover {
 }
 
 
-/* Icons */
-
 /* Arrows */
 .slick-prev,
 .slick-next
 {
     font-size: 0;
     line-height: 0;
-
     position: absolute;
     top: 50%;
-
     display: block;
-
     width: 20px;
     height: 20px;
     margin-top: -10px;
     padding: 0;
-
     cursor: pointer;
-
     color: transparent;
     border: none;
     outline: none;
