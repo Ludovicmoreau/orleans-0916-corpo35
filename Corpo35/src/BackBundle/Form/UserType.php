@@ -23,6 +23,7 @@ class UserType extends AbstractType
                     'ROLE_JURY' => 'Jury',
                     'ROLE_PARTENAIRE' => 'Partenaire',
                     'ROLE_ISIPCA' => 'ISIPCA',
+                    'ROLE_ADMIN' => 'ADMIN',
                 ),
                 'expanded'=> true,
                 'multiple'  => true,
