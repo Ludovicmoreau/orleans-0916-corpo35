@@ -25,8 +25,7 @@ class ArticleController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $articles = $em->getRepository('BlogBundle:Article')->findAll();
-
+        $articles = $em->getRepository('BlogBundle:Article')->findBy([], ['date'=>'DESC']);
         return $this->render('article/index.html.twig', array(
             'articles' => $articles,
         ));

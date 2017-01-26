@@ -27,7 +27,8 @@
                                 <td data-title="Titre">{{ article.titre }}</td>
                                 <td data-title="Auteur">{{ article.auteur }}</td>
                                 <td data-title="Contenu">{{ article.contenu }}</td>
-                                <td data-title="Photo">{{ article.photo }}</td>
+                                <td data-title="Photo"><img src="{{ asset('upload/' ~ article.photo) }}"></td>
+
                                 <td>
                                     {{ form_start(delete_form) }}
                                     <button class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
@@ -44,7 +45,7 @@
                     <div class="col-md-10">
                         <blockquote class="blockquote">
                             <p>{{ commentaire.commentaire}}</p>
-                            <footer class="blockquote-footer">Posté par <cite title="Source Title">{{ commentaire.auteur}}</cite><span class="text-right"> le {{ commentaire.date|date('d/m/Y') }}</span></footer>
+                            <footer class="blockquote-footer">Posté par <cite title="Source Title">{{ commentaire.utilisateur}}</cite><span class="text-right"> le {{ commentaire.date|date('d/m/Y') }}</span></footer>
                         </blockquote>
                     </div>
                     <div class="col-md-2">

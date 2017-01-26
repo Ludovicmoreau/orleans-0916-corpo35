@@ -33,6 +33,7 @@
                 <td>{{ partenaire.resume | truncate(150, true, "...")  }}</td>
                 <td>{{ partenaire.resumeEn | truncate(150, true, "...")  }}</td>
                 <td>{{ partenaire.logo }}</td>
+                <td><img src="{{ asset('upload/' ~ partenaire.logo) }}"></td>
                 <td>{{ partenaire.contenu | truncate(150, true, "...") }}</td>
                 <td>{{ partenaire.contenuEn | truncate(150, true, "...") }}</td>
                 <td>{{ partenaire.website }}</td>

@@ -23,12 +23,10 @@ class PageController extends Controller
         }
         $articles = $em->getRepository('BlogBundle:Article')->findBy([], ['date'=>'DESC'], $limit, 0);
         return $this->render('BlogBundle:Default:article.html.twig', array(
-            'articles' => $articles
+            'articles' => $articles,
+            'limit'=> $limit,
         ));
     }
-
-
-
 
 //    /**
 //     * @Route("/Articles", name="list_article")
@@ -65,28 +63,6 @@ class PageController extends Controller
             'comments' => $comments
         ));
     }
-//
-//        return $this->render('BlogBundle:Default:newComment.html.twig', array(
-//            'article'=>$article,
-//
-//        ));
-
-//    }
-
-//    /**
-//     * @Route("/post-commentaire/{id}", name="post-commentaire")
-//     */
-//    public function PostCommentAction(Article $article)
-//    {
-//        $em = $this->getDoctrine()->getManager();
-//        $commentaires = $em->getRepository('BlogBundle:Commentaire');
-//
-//        return $this->render('BlogBundle:Default:newComment.html.twig', array(
-//            'commentaires' => $commentaires,
-//
-//        ));
-//
-//    }
 
     /**
      * Creates a new commentaire entity.
@@ -105,9 +81,6 @@ class PageController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         if ($form->isSubmitted() && $form->isValid()) {
-            if (!$commentaire->getAuteur()) {
-                $commentaire->setAuteur('Anonyme');
-            }
 
             $em->persist($commentaire);
             $em->flush($commentaire);

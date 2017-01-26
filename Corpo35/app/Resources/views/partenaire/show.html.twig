@@ -24,7 +24,7 @@
             <tbody>
             <tr>
                 <td>{{ partenaire.nom }}</td>
-                <td>{{ partenaire.logo }}</td>
+                <td><img src="{{ asset('upload/' ~ partenaire.logo) }}"></td>
                 <td>{{ partenaire.resume }}</td>
                 <td>{{ partenaire.website }}</td>
                 <td>{{ partenaire.email }}</td>
@@ -41,7 +41,6 @@
 </div>
 
     {#<a  href="{{ path('index') }}">{{ 'Retour au site'| trans }}</a>#}
-
 
 
 {% endblock %}

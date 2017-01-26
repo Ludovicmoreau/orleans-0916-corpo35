@@ -28,7 +28,8 @@
         "twig/extensions": "^1.4",
         "snilius/twig-sort-by-field": "^0.1.5",
         "gregwar/captcha-bundle": "^2.0",
-        "symfony/intl": "2.6.*@dev"
+        "symfony/intl": "2.6.*@dev",
+        "vich/uploader-bundle": "^1.4"
     },
     "require-dev": {
         "sensio/generator-bundle": "~3.0",
