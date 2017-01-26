@@ -18,16 +18,23 @@
         <div class="at-grid" data-column="3">
             {% for partenaire in listPartenaires %}
                 <div class="at-column">
+
+
                     <div class="at-partner">
                         <a href="{{ path('page_partenaire', {'id':partenaire.id}) }}">
-                        <div class="at-partner__logo"><img class="img-responsive logo" src="{{ asset('upload/' ~  partenaire.logo )}}"></div>
+                        <div class="at-partner__logo">
+                            <img class="img-responsive logo" src="{{ asset('upload/' ~  partenaire.logo )}}">
+                        </div>
                         </a>
+
                     </div>
+
                 </div>
             {% endfor %}
         </div>
 
     </div>
+
 
 {% endblock %}
 

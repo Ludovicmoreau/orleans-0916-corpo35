@@ -21,16 +21,20 @@
                                 </div>
                         </div>
                 </div>
+            <div class="article-container">
+                <p>{{ article.contenu }}</p>
             </div>
+            </div>
+
         </div>
 
         <section class="container">
-            <h3>Commentaires <i class="fa fa-comment-o" aria-hidden="true"></i></h3>
+            <h4>Commentaires <i class="fa fa-comment-o" aria-hidden="true"></i></h4>
             <div class="special-text">
                 {% for  commentaire in comments %}
                     <blockquote class="wrapper maxheight">
                         <p class="first">{{ commentaire.commentaire}}
-                            <footer class="blockquote-footer">Posté par <cite title="Source Title">{{ commentaire.auteur}}</cite><span class="text-right"> le {{ commentaire.date|date('d/m/Y à H:i') }}</span></footer>
+                            <footer class="blockquote-footer">Posté par <cite title="Source Title">{{ commentaire.utilisateur}}</cite><span class="text-right"> le {{ commentaire.date|date('d/m/Y à H:i') }}</span></footer>
                         </p>
                     </blockquote>
                 {% endfor %}

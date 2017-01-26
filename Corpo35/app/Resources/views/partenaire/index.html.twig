@@ -8,8 +8,7 @@
 {% block content %}
 <div class="container admin">
 
-    <h2>Partenaires / <a class="text-right" href="{{ path('partenaire_new') }}">créer un partenaire </a>/ <a
-                href="{{ path('index') }}">Retour au site</a></h2>
+    <h2>Partenaires / <a class="text-right" href="{{ path('partenaire_new') }}">créer un partenaire </a></h2>
 
     <div class="table-responsive-vertical shadow-z-1">
         <table id="table" class="table table-hover">
@@ -33,7 +32,7 @@
                 <td>{{ partenaire.nom }}</td>
                 <td>{{ partenaire.resume | truncate(150, true, "...")  }}</td>
                 <td>{{ partenaire.resumeEn | truncate(150, true, "...")  }}</td>
-                <td>{{ partenaire.logo }}</td>
+                <td><img src="{{ asset('upload/' ~ partenaire.logo) }}"></td>
                 <td>{{ partenaire.contenu | truncate(150, true, "...") }}</td>
                 <td>{{ partenaire.contenuEn | truncate(150, true, "...") }}</td>
                 <td>{{ partenaire.website }}</td>

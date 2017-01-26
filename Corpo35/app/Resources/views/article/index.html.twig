@@ -31,7 +31,7 @@
                         <td data-title="Contenu">{{ article.contenu | truncate(150, true, "...") }}</td>
                         <td data-title="Auteur">{{ article.auteur }}</td>
                         <td data-title="Date">{% if article.date %}{{ article.date|date('Y-m-d') }}{% endif %}</td>
-                        <td data-title="Photo">{{ article.photo }}</td>
+                        <td><img class="img-back" src="{{ asset('upload/' ~ article.photo) }}"></td>
                         <td data-title="Actions">
                             <a href="{{ path('article_show', { 'id': article.id }) }}"><i class="fa fa-eye fa-2x" aria-hidden="true"></i></a>
                             <a href="{{ path('article_edit', { 'id': article.id }) }}"><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a>

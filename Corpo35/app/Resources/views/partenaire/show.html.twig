@@ -9,15 +9,14 @@
 <div class="container admin">
     <div class="table-responsive-vertical shadow-z-1">
         <table id="table" class="table table-hover table-mc-light-grey">
-            <h2>Partenaire / <a href="{{ path('partenaire_index') }}">retour à la liste </a> /  <a href="{{ path('partenaire_edit', { 'id': partenaire.id }) }}">éditer</a>/ <a
-                        href="{{ path('index') }}">Retour au site</a></h2>
+            <h2>Partenaire / <a href="{{ path('partenaire_index') }}">retour à la liste </a> /  <a href="{{ path('partenaire_edit', { 'id': partenaire.id }) }}">éditer</a></h2>
             <thead>
             <tr>
                 <th>Titre</th>
+                <th>Photo</th>
                 <th>Contenu</th>
                 <th>Auteur</th>
                 <th>Date</th>
-                <th>Photo</th>
                 <th>Téléphone</th>
                 <th>Action</th>
             </tr>
@@ -25,7 +24,7 @@
             <tbody>
             <tr>
                 <td>{{ partenaire.nom }}</td>
-                <td>{{ partenaire.logo }}</td>
+                <td><img src="{{ asset('upload/' ~ partenaire.logo) }}"></td>
                 <td>{{ partenaire.resume }}</td>
                 <td>{{ partenaire.website }}</td>
                 <td>{{ partenaire.email }}</td>
@@ -43,8 +42,5 @@
 
 
     {#<a  href="{{ path('index') }}">{{ 'Retour au site'| trans }}</a>#}
-
-
-
 
 {% endblock %}

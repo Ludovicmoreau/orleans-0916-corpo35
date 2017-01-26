@@ -2,10 +2,13 @@
     margin-top: 50px;
     margin-bottom: 50px;
 }
+.partenaire{
 
+}
 .rio-promos {
     width: auto;
     margin: 0 auto;
+
 }
 .rio-promos img {
     margin : 0 auto;
@@ -17,7 +20,6 @@
 .rio-promos img:hover {
     -webkit-filter: grayscale(0%);
 }
-
 
 
 button.slick-next, button.slick-next:hover {

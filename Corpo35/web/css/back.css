@@ -4,6 +4,9 @@
 a{
     color: purple;
 }
+.img-back{
+    width: 10%;
+}
 table {
     width: 100%;
     border-collapse: collapse;

@@ -4,11 +4,13 @@ namespace BackBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+
 /**
  * Partenaire
  *
  * @ORM\Table(name="partenaire")
  * @ORM\Entity(repositoryClass="BackBundle\Repository\PartenaireRepository")
+
  */
 class Partenaire
 {
@@ -33,6 +35,7 @@ class Partenaire
      * @ORM\Column(name="logo", type="text")
      */
     private $logo;
+
 
     /**
      * @var string
@@ -286,4 +289,6 @@ class Partenaire
     {
         $this->resumeEn = $resumeEn;
     }
+
+
 }

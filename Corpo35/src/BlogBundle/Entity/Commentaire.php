@@ -27,9 +27,9 @@ class Commentaire
     /**
      * @var string
      *
-     * @ORM\Column(name="auteur", type="string", length=255)
+     * @ORM\Column(name="utilisateur", type="string", length=255)
      */
-    private $auteur;
+    private $utilisateur;
 
     /**
      * @var \DateTime
@@ -54,24 +54,24 @@ class Commentaire
         return $this->id;
     }
     /**
-     * Set auteur
+     * Set utilisateur
      *
-     * @param string $auteur
+     * @param string $utilisateur
      * @return Commentaire
      */
-    public function setAuteur($auteur)
+    public function setUtilisateur($utilisateur)
     {
-        $this->auteur = $auteur;
+        $this->utilisateur = $utilisateur;
         return $this;
     }
     /**
-     * Get auteur
+     * Get utilisateur
      *
      * @return string
      */
-    public function getAuteur()
+    public function getUtilisateur()
     {
-        return $this->auteur;
+        return $this->utilisateur;
     }
 
 
