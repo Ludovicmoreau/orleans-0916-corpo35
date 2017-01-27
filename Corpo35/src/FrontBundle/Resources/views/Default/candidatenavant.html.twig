@@ -1,12 +1,11 @@
 {% block content %}
+        {%  if candidat is not null %}
     <div class="container candidat">
         <div class="row">
             <div class="col-xs-12 text-center">
                 <h2>{{ 'Candidat du jour'| trans }}</h2>
                     <p>{{ 'Retrouvez ici un de nos candidats au concours Corpo 35'| trans }}.</p>
-                {#{% if candidat.miseenavant is not null %}#}
                     <p class="linkCandidatEnAvant"><a href="{{ path('page_vitrine_candidat', { 'id': candidat.id }) }}"> {{ 'Cliquez ici pour en savoir plus sur ce candidat'| trans }}.</a></p>
-                {#{% endif %}#}
                     <p class="linkCandidatEnAvant"><a href="{{ path('candidats_choisis') }}"> {{ 'Cliquez ici pour voir tous les candidats séléctionnés'| trans }}</a></p>
             </div>
         </div>
@@ -61,5 +60,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>{% endif %}
 {% endblock %}

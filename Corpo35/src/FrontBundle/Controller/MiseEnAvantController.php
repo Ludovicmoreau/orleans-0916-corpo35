@@ -30,8 +30,10 @@ class MiseEnAvantController extends Controller
         $em = $this->getDoctrine()->getManager();
         $oldCandidat = $em ->getRepository('BackBundle:Candidat')
             ->findOneByMiseEnAvant(true);
-        $oldCandidat ->setMiseEnAvant(false);
-        $em->persist($oldCandidat);
+        if ($oldCandidat) {
+            $oldCandidat->setMiseEnAvant(false);
+            $em->persist($oldCandidat);
+        }
         $candidat = $em ->getRepository('BackBundle:Candidat')
             ->find($id);
         $candidat ->setMiseEnAvant(true);
