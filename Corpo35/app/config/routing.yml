@@ -1,3 +1,7 @@
+back_concours:
+    resource: "@BackBundle/Controller/ConcoursController.php"
+    type:     annotation
+
 back_user:
     resource: "@BackBundle/Controller/UserController.php"
     type:     annotation

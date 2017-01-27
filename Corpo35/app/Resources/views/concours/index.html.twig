@@ -1,0 +1,42 @@
+{% extends 'BackBundle:Default:backLayout.html.twig' %}
+
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/back.css') }}">
+{% endblock %}
+
+
+{% block content %}
+<div class="container admin">
+    <h2>Concours / <a href="{{ path('concours_new') }}">créer un paragraphe</a></h2>
+    <div class="table-responsive-vertical shadow-z-1">
+        <table id="table" class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Titre</th>
+                    <th>Soustitres</th>
+                    <th>Paragraphe</th>
+                    <th>Puces</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for concour in concours %}
+                <tr>
+                    {#<td><a href="{{ path('concours_show', { 'id': concour.id }) }}">{{ concour.id }}</a></td>#}
+                    <td>{{ concour.titre }}</td>
+                    <td>{{ concour.soustitres }}</td>
+                    <td>{{ concour.paragraphe }}</td>
+                    <td>{{ concour.puces }}</td>
+                    <td data-title="Actions">
+                        <a href="{{ path('concours_show', { 'id': concour.id }) }}">show</a>
+                        <a href="{{ path('concours_edit', { 'id': concour.id }) }}">edit</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
