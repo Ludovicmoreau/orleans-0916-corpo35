@@ -1,5 +1,5 @@
-back_concours:
-    resource: "@BackBundle/Controller/ConcoursController.php"
+back_presentation:
+    resource: "@BackBundle/Controller/PresentationController.php"
     type:     annotation
 
 back_user:
