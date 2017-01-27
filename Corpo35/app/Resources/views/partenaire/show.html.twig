@@ -13,10 +13,10 @@
             <thead>
             <tr>
                 <th>Titre</th>
+                <th>Photo</th>
                 <th>Contenu</th>
                 <th>Auteur</th>
                 <th>Date</th>
-                <th>Photo</th>
                 <th>Téléphone</th>
                 <th>Action</th>
             </tr>
@@ -24,7 +24,7 @@
             <tbody>
             <tr>
                 <td>{{ partenaire.nom }}</td>
-                <td><img src="{{ asset('upload/'~partenaire.logo|e) }}" class="img-responsive profil" alt=""></td>
+                <td><img src="{{ asset('upload/' ~ partenaire.logo) }}"></td>
                 <td>{{ partenaire.resume }}</td>
                 <td>{{ partenaire.website }}</td>
                 <td>{{ partenaire.email }}</td>
@@ -39,5 +39,5 @@
         </table>
     </div>
 </div>
-    <a  href="{{ path('index') }}">{{ 'Retour au site'| trans }}</a>
+    {#<a  href="{{ path('index') }}">{{ 'Retour au site'| trans }}</a>#}
 {% endblock %}

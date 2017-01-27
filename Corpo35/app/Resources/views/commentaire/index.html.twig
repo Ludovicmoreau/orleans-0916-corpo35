@@ -6,7 +6,7 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Auteur</th>
+                <th>Utilisateur</th>
                 <th>Commentaire</th>
                 <th>Actions</th>
             </tr>
@@ -15,7 +15,7 @@
         {% for commentaire in commentaires %}
             <tr>
                 <td><a href="{{ path('commentaire_show', { 'id': commentaire.id }) }}">{{ commentaire.id }}</a></td>
-                <td>{{ commentaire.auteur }}</td>
+                <td>{{ commentaire.utilisateur }}</td>
                 <td>{{ commentaire.commentaire }}</td>
                 <td>
                     <ul>

@@ -35,7 +35,7 @@ class CandidatController extends Controller
         $form = $this->createForm(\BackBundle\Form\RechercheType::class);
         $form->handleRequest($request);
         $em = $this->getDoctrine()->getManager();
-        $candidats = $em->getRepository('BackBundle:Candidat')->findAll();
+        $candidats = $em->getRepository('BackBundle:Candidat')->findBy(array(), array('promotion'=>'desc'));
 
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();

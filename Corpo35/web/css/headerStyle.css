@@ -58,7 +58,14 @@
 .langues{
     margin-top: 18px;
     font-size:11px;
+
 }
 .police{
     font-size:11px;
+}
+a.nounderline{
+    text-decoration: none;
+}
+a.nounderline:hover{
+    cursor:  pointer;
 }

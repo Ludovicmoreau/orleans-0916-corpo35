@@ -1,78 +1,77 @@
-/*.admin{*/
-    /*margin-top: 50px;*/
-/*}*/
+.admin{
+    margin-top: 50px;
+}
+a{
+    color: purple;
+}
+.img-back{
+    width: 10%;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 50px;
+}
 
-/*.logoHeader {*/
-    /*width: 10%;*/
-/*}*/
+th {
+    text-align: left;
+}
 
-/*a{*/
-    /*color: purple;*/
-/*}*/
-/*table {*/
-    /*width: 100%;*/
-    /*border-collapse: collapse;*/
-    /*overflow: hidden;*/
-    /*margin-top: 50px;*/
-/*}*/
+thead {
+    font-weight: bold;
+}
 
-/*th {*/
-    /*text-align: left;*/
-/*}*/
+td, th {
+    padding: 1em .5em;
+    vertical-align: middle;
+}
 
-/*thead {*/
-    /*font-weight: bold;*/
-/*}*/
+@media all and (max-width: 768px) {
 
-/*td, th {*/
-    /*padding: 1em .5em;*/
-    /*vertical-align: middle;*/
-/*}*/
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
 
-/*@media all and (max-width: 768px) {*/
+    th {
+        text-align: right;
+    }
 
-    /*table, thead, tbody, th, td, tr {*/
-        /*display: block;*/
-    /*}*/
+    table {
+        position: relative;
+        padding-bottom: 0;
+        border: none;
 
-    /*th {*/
-        /*text-align: right;*/
-    /*}*/
+    }
 
-    /*table {*/
-        /*position: relative;*/
-        /*padding-bottom: 0;*/
-        /*border: none;*/
+    thead {
+        float: left;
+        white-space: nowrap;
+    }
 
-    /*}*/
+    tbody {
+        overflow-x: auto;
+        overflow-y: hidden;
+        position: relative;
+        white-space: nowrap;
+    }
 
-    /*thead {*/
-        /*float: left;*/
-        /*white-space: nowrap;*/
-    /*}*/
+    tr {
+        display: inline-block;
+        vertical-align: top;
+    }
 
-    /*tbody {*/
-        /*overflow-x: auto;*/
-        /*overflow-y: hidden;*/
-        /*position: relative;*/
-        /*white-space: nowrap;*/
-    /*}*/
+    th {
+        border-top: none;
+    }
 
-    /*tr {*/
-        /*display: inline-block;*/
-        /*vertical-align: top;*/
-    /*}*/
+    td {
 
-    /*th {*/
-        /*border-top: none;*/
-    /*}*/
-
-    /*td {*/
-
-    /*}*/
+    }
 
 
-/*}*/
+}
 
 
 
