@@ -12,9 +12,11 @@ h2 {
 div.header-title {
     margin-top: 10vh;
     margin-bottom: 10vh;
-    height: 20vh;
+    height: 5vh;
 }
-
+.reglement{
+    padding-bottom: 100px;
+}
 a {
     text-decoration: none;
 }
@@ -35,4 +37,23 @@ a {
     h2 {
         font-size: 1.2em;
     }
+}
+
+.btn-pdf{
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.btn-reglement{
+    border: 1px solid lavender;
+    padding: 10px;
+    text-decoration: none;
+    background: black;
+    color: white;
+
+}
+.btn-reglement:hover{
+    background: white;
+    color: black;
+    border: 1px solid black;
 }
