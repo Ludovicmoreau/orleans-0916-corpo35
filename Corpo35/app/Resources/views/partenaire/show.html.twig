@@ -24,7 +24,7 @@
             <tbody>
             <tr>
                 <td>{{ partenaire.nom }}</td>
-                <td>{{ partenaire.logo }}</td>
+                <td><img src="{{ asset('upload/'~partenaire.logo|e) }}" class="img-responsive profil" alt=""></td>
                 <td>{{ partenaire.resume }}</td>
                 <td>{{ partenaire.website }}</td>
                 <td>{{ partenaire.email }}</td>

@@ -12,7 +12,7 @@
                 <div class="tile">
                     <img src="{{ asset('upload/'~Rpresse.document|e) }}" class="img-responsive profil" alt="">
                     <div class="text">
-                        <h1 class="animate-text" style="color: white">{{ Rpresse.date|localizeddate('medium', 'none', app.request.attributes.get('_locale')) }}</h1>
+                        <h1 class="animate-text" style="color: white">{{ Rpresse.date|localizeddate('none', 'none', null, null, 'MMMM Y',  app.request.attributes.get('_locale')) }}</h1>
                         {% if Rpresse.source matches '/http|https/' %}
                             <h2 class="animate-text" style="color: white"><a href="{{ Rpresse.source }}" target="_blank" style="color: white; text-decoration: none">Lien vers l'article</a></h2>
                             {% else %}
