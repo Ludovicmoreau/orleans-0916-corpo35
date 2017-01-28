@@ -101,3 +101,8 @@ services:
             class: Snilius\Twig\SortByFieldExtension
             tags:
                 - { name: twig.extension }
+
+knp_snappy:
+    pdf:
+        enabled:    true
+        binary:     %kernel.root_dir%/../bin/wkhtmltopdf-amd64

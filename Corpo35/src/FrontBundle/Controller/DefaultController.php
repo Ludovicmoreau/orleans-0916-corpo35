@@ -6,6 +6,7 @@ use BackBundle\Entity\Candidat;
 use BackBundle\Entity\Promotion;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller
 {
@@ -30,7 +31,7 @@ class DefaultController extends Controller
      */
     public function reglementAction()
     {
-        return $this->render('FrontBundle:Default:reglement.html.twig');
+      return $this->render('FrontBundle:Default:reglement.html.twig');
 
     }
 
@@ -42,4 +43,26 @@ class DefaultController extends Controller
         return $this->render('FrontBundle:Default:archives.html.twig');
     }
 
+
+    /**
+     * Export to PDF
+     *
+     * @Route("/reglement/pdf", name="reglement_pdf")
+     */
+    public function pdfAction()
+    {
+        $html = $this->renderView('FrontBundle:Default:reglement_pdf.html.twig', array(
+
+        ));
+
+        return new Response(
+            $this->get('knp_snappy.pdf')->getOutputFromHtml($html),
+            200,
+            array(
+                'Content-Type'          => 'application/pdf',
+                'Content-Disposition'   => 'attachment; filename="file.pdf"'
+            )
+        );
+
+    }
 }

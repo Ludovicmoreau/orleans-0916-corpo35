@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new BlogBundle\BlogBundle(),
             new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
+            new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
 
         );
 

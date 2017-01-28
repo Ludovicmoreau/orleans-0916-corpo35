@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block content %}
-    {% include 'FrontBundle:Default:concours.html.twig' %}
+    {{ render(controller('FrontBundle:PresentationConcours:showPresentationConcours')) }}
     {{ render(controller('FrontBundle:MiseEnAvant:miseEnAvant')) }}
     {% include 'FrontBundle:Default:partners.html.twig' %}
 {% endblock %}
