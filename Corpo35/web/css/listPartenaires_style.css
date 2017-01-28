@@ -38,11 +38,10 @@
     width: 60%;
     margin: 0 auto;
     text-align: center;
+    box-sizing: border-box;
 }
 .at-section__title {
     margin: 0 0 40px;
-    /*color: #000;*/
-
     font-weight: 300;
     line-height: 2.625rem;
     text-align: center;
@@ -69,10 +68,9 @@
 
 .at-column {
     position: relative;
-    background: #FFF;
-    /*box-shadow: 0 0 0 1px #E2E9ED;*/
+    box-shadow: 0 0 0 1px #E2E9ED;
     padding-top: 0;
-    /*box-sizing: border-box;*/
+    box-sizing: border-box;
     -webkit-transition: box-shadow 0.2s ease, -webkit-transform 0.2s ease;
     transition: box-shadow 0.2s ease, -webkit-transform 0.2s ease;
     transition: box-shadow 0.2s ease, transform 0.2s ease;
