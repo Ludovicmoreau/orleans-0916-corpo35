@@ -1,43 +1,48 @@
 div.text {
     text-align: justify;
 }
+.img{
+    width: 20%;
+
+}
 
 h2 {
-    position: relative;
-    font-size: 2em;
     text-align: center;
-    overflow: hidden;
+    margin-bottom: 50px;
+}
+.container.reglement{
+    margin-top: 100px;
+    margin-bottom: 100px;
+
+}
+.title-reglement{
+    font-size: 1.3em;
+}
+.title{
+    border-bottom: 1px solid lavender;
+    margin-bottom: 10px;
+}
+.signature{
+    margin-top: 50px;
+
 }
 
-div.header-title {
-    margin-top: 10vh;
-    margin-bottom: 10vh;
-    height: 5vh;
-}
-.reglement{
-    padding-bottom: 100px;
-}
-a {
-    text-decoration: none;
-}
-
-@media screen and (max-width: 450px) {
-    h2 {
-        font-size: 1.7em;
+@media screen and (max-width: 900px) {
+    .container.reglement {
+        margin: 10px;
     }
 }
 
-@media screen and (max-width: 365px) {
-    h2 {
-        font-size: 1.4em;
+@media screen and (max-width: 600px) {
+    .container.reglement {
+        margin: 10px;
+    }
+    h2{
+        margin-bottom: 20px;
     }
 }
 
-@media screen and (max-width: 265px) {
-    h2 {
-        font-size: 1.2em;
-    }
-}
+
 
 .btn-pdf{
     text-align: center;

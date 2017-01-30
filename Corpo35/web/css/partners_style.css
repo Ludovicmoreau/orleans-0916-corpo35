@@ -10,7 +10,7 @@ div.partners {
 }
 
 .partner-nom{
-    font-size:4em;
+
     text-align: center;
     margin-bottom: 20px;
 }
@@ -24,7 +24,7 @@ div.partners {
     margin-top: 40px;
 }
 .partner-content{
-    padding: 10px 0px 10px 0px;
+
 }
 
 .contact{
@@ -38,15 +38,6 @@ div.partners {
     text-align: center;
     width: 80%;
     margin: 0 auto;
-
-}
-
-
-@media screen and (max-width:1198px){
-    body{
-        margin:5px;
-        padding:5px;
-    }
 }
 
 h3 {
@@ -150,7 +141,7 @@ h3.no-span:after {
     }
     h1{
         padding: 0;
-        font-size: 2em;
+
         margin: 0 auto;
     }
 
@@ -158,14 +149,8 @@ h3.no-span:after {
 @media (max-width: 600px) {
     .partner-content{
         text-align: left;
-        font-size: 1em;
-        margin: 0;
         padding: 0;
         border: none;
-    }
-    .partner-nom{
-        font-size: 2em;
-        margin: 0;
     }
     .lead{
         margin: 0 auto;
@@ -199,7 +184,8 @@ h3.no-span:after {
     display: flex;
     flex-direction: row;
     height: 50px;
-    padding: 5px;
+    padding: 0;
+
 }
 .centreVerticalement > [class^=col-],
 .centreVerticalement > [class*= col-] {

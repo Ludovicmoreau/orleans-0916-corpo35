@@ -30,11 +30,11 @@
             <tbody>
             <tr>
                 <td>{{ partenaire.nom }}</td>
-                <td>{{ partenaire.resume | truncate(150, true, "...")  }}</td>
-                <td>{{ partenaire.resumeEn | truncate(150, true, "...")  }}</td>
+                <td>{{ partenaire.resume | truncate(100, true, "...")  }}</td>
+                <td>{{ partenaire.resumeEn | truncate(100, true, "...")  }}</td>
                 <td><img src="{{ asset('upload/' ~ partenaire.logo) }}"></td>
-                <td>{{ partenaire.contenu | truncate(150, true, "...") }}</td>
-                <td>{{ partenaire.contenuEn | truncate(150, true, "...") }}</td>
+                <td>{{ partenaire.contenu | truncate(100, true, "...") }}</td>
+                <td>{{ partenaire.contenuEn | truncate(100, true, "...") }}</td>
                 <td>{{ partenaire.website }}</td>
                 <td>{{ partenaire.email }}</td>
                 <td>{{ partenaire.phone }}</td>
