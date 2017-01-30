@@ -1,3 +1,7 @@
+back_reglement:
+    resource: "@BackBundle/Controller/ReglementController.php"
+    type:     annotation
+
 back_presentation:
     resource: "@BackBundle/Controller/PresentationController.php"
     type:     annotation

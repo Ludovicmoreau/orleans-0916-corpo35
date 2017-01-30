@@ -97,6 +97,14 @@ class RpresseController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+            $document = $rpresse->getDocument();
+
+            $documentName = md5(uniqid()).'.'.$document->guessExtension();
+            $document->move(
+                $this->getParameter('upload_directory'),
+                $documentName
+            );
+            $rpresse->setDocument($documentName);
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('rpresse_edit', array('id' => $rpresse->getId()));
