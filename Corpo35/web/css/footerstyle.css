@@ -1,35 +1,20 @@
 .footer{
-    padding: 3vh 0 3vh 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
-.underline {
-    text-decoration: underline;
-}
-
-.liModal {
-    list-style: square;
-}
-
-.footertext{
+.onglet-footer{
     border-right: 1px solid black;
 }
-
-.footer{
-
-    background-color: white;
-    position:relative;
-    margin: 0 auto;
-}
-
-.borderfooterleft{
-    border-left: 1px solid black;
-}
-
-.lienfooter{
-    text-decoration: none;
-    color: black;
-    font-size: 90%;
-}
-
 .lienfooter:hover{
     color: black;
+}
+
+@media (max-width: 900px) {
+    .onglet-footer {
+        border-right: none;
+    }
+    .footer{
+        border-top: 1px solid lightgrey;
+        padding-top: 15px;
+    }
 }

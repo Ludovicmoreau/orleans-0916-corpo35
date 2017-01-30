@@ -38,8 +38,8 @@ class ContactController extends Controller
                 // create the message
                 $message = \Swift_Message::newInstance()
                     ->setSubject('Mail envoyé depuis votre site Corpo35')
-                    ->setFrom(array('wildcodeschooltest@gmail.com' => 'Un visiteur'))
-                    ->setTo(array('wildcodeschooltest@gmail.com' => 'Corpo35'))
+                    ->setFrom(array('contactcorpo35@gmail.com' => 'Un visiteur'))
+                    ->setTo(array('contactcorpo35@gmail.com' => 'Corpo35'))
                     ->setCharset('UTF-8')
                     ->setContentType('text/html')
                     ->setBody(
@@ -52,8 +52,6 @@ class ContactController extends Controller
                             )
                         ));
                 // send mail
-
-
                 $this->get('mailer')->send($message);
                 $this->get('session')
                     ->getFlashBag()

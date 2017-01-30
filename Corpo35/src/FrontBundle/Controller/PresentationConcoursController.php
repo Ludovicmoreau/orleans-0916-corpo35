@@ -13,7 +13,7 @@ class PresentationConcoursController extends Controller
     public function showPresentationConcoursAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $presentation = $em->getRepository('BackBundle:Presentation')->findAll();
+        $presentation = $em->getRepository('BackBundle:Presentation')->findById(1);
         return $this->render('FrontBundle:Default:concours.html.twig', [
             'presentation' => $presentation,
         ]);
