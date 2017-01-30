@@ -15,8 +15,8 @@
                             <tr>
                                 <th>Date</th>
                                 <th>Titre</th>
-                                <th>Contenu</th>
                                 <th>Auteur</th>
+                                <th>Contenu</th>
                                 <th>Photo</th>
                                 <th>Action</th>
                             </tr>
@@ -28,7 +28,6 @@
                                 <td data-title="Auteur">{{ article.auteur }}</td>
                                 <td data-title="Contenu">{{ article.contenu }}</td>
                                 <td data-title="Photo"><img src="{{ asset('upload/' ~ article.photo) }}"></td>
-
                                 <td>
                                     {{ form_start(delete_form) }}
                                     <button class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
