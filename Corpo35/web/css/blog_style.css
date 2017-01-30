@@ -1,5 +1,8 @@
-p {
+.blog{
+    margin-bottom: 50px ;
+}
 
+p {
     line-height: 24px;
     text-align: center;
 }
@@ -23,7 +26,6 @@ p {
     -moz-box-shadow: 0 80px 45px -88px #000;
     box-shadow: 0 80px 45px -88px #000;
     opacity: 1;
-
 }
 
 .card picture {
@@ -49,16 +51,14 @@ p {
 
 }
 .card .category {
-
     margin-top: 50px;
 }
 .category {
     text-transform: uppercase;
-    font-size: 11px;
+    font-size: 15px;
     font-weight: bold;
     letter-spacing: .12em;
     text-align: center;
-    color: #A5A5A5;
 }
 .category:after {
     content: "";
@@ -70,31 +70,23 @@ p {
     left: 37%;
 }
 .title {
-
     top: 20px;
-    font-size: 35px;
-    text-align: center;
 
+    text-align: center;
     font-weight: 100;
 }
-.teaser {
 
-    top: 24px;
-    color: #909090;
-
-
-}
 .card .button {
-    border: 1px solid #929191;
+    border: 1px solid ;
     padding: 10px;
     border-radius: 20px;
     text-decoration: none;
-    color: #999;
     display: block;
     text-align: center;
     top: 35px;
     width: 60%;
     margin: 0 auto;
+    margin-bottom: 20px;
 }
 
 .card .button:hover{
@@ -106,4 +98,10 @@ p {
     margin-bottom: 100px;
 }
 
+@media (max-width: 600px) {
+    .card .category {
+       margin-top: 20px;
+    }
+
+}
 

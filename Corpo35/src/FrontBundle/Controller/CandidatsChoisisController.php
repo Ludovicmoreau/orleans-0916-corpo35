@@ -15,10 +15,11 @@ class CandidatsChoisisController extends Controller
     public function ShowCandidatsChoisisAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $candidatsChoisis = $em ->getRepository('BackBundle:Candidat')->findByDecision(1);
-        return $this->render('FrontBundle:Default:laureats.html.twig', array(
-            'candidatsChoisis' => $candidatsChoisis,
-        ));
+        $promotion = $em->getRepository('BackBundle:Promotion')->findOneByEncours(1);
+        return $this->redirectToRoute('promotion_annee', array(
+            'id' => $promotion->getId(),
+            ))
+        ;
     }
 
     /**

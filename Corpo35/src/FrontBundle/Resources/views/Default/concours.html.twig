@@ -1,4 +1,5 @@
 {% block content %}
+    {% for presentation in presentation %}
     {#          Flashbag message            #}
     {% if app.session.flashBag.has('alert') %}
         <div class="alert alert-danger message_flash alert-dismissible text-center text-uppercase" role="alert"
@@ -12,61 +13,94 @@
 
     <section>
         <div class="container concours">
-            <h1 class="text-center"> {{ 'Présentation du concours'| trans }}</h1>
+            {% if app.request.locale == 'fr' %}
+            <h1 class="text-center"> {{ presentation.titre }}</h1>
+            {% else %}
+            <h1 class="text-center"> {{ presentation.title }}</h1>
+            {% endif %}
             <div class="row">
                 <aside>
                     <div class="col-lg-4 col-md-4 col-sm-4">
                         <article>
-                            <h2 class="titre-concours">{{ 'Pourquoi ce concours'|trans }} ?</h2>
-                            <p class="text-concours">
-                                {{ 'Le secteur de la haute parfumerie, tout comme celui de la gastronomie, voit émerger des talents au nom souvent peu connu du grand public et dont les créations sont de toute beauté'|trans}}.<br />
-                            {{ 'La parfumerie d\'art'|trans }}<span class="hidden-xs hidden-sm">{{ '(Maisons historiques constitutives de la parfumerie moderne, marques de niche et de créateurs, collections exclusives des grands couturieurs et joailliers)'|trans}}</span> {{ 'est mal connue en France et n\'est pas aussi diffusée que dans d\'autres pays du monde à la pointe dans ce secteur'|trans}}
-                                <span class="hidden-xs hidden-sm">, {{ 'tels que l\'Italie, la Grande Bretagne, les pays de l\'Est européen, la Russie, l\'Ukraine, les Etats Unis, le Moyen Orient'|trans }}</span>. <br />
-                                <span class="hidden-xs hidden-sm">{{ 'Elle y rencontre pourtant un vif succès en répondant tout à la fois aux attentes culturelles et affectives des amateurs de parfums; qu\'aux exigences qualitatives et artistiques d\'un marché en plein essor'|trans }}. <br />
-                            {{ 'La France riche de son savoir-faire, représente, à elle seule, plus de la moitié des marques présentes sur le marché de la parfumerie rare'|trans }}.</span>
-                            {{ 'Ce concours a pour vocation de faire connaître au grand public des parfums rares et inédits, issus de matières premières nobles. À l\'initiative du "35 Rue Damiette", l\'ISIPCA, Coptis, IFF, Au Parfum, Saverglass, soutiennent ce concours'|trans }}.</p>
+                            {% if app.request.locale == 'fr' %}
+                            <h2 class="titre-concours">{{ presentation.soustitreun }}</h2>
+                            {% else %}
+                            <h2 class="titre-concours">{{ presentation.subtitleone }}</h2>
+                            {% endif %}
+                                {% if app.request.locale == 'fr' %}
+                                <p class="text-concours">
+                                    {{ presentation.paragrapheun }}
+                                </p>
+                                {% else %}
+                                <p class="text-concours">
+                                    {{ presentation.sectionone }}
+                                </p>
+                                {% endif %}
                         </article>
                     </div>
 
                     <div class="col-lg-4 col-md-4 col-sm-4">
                         <article>
-                            <h2 class="titre-concours">{{ 'Pour quel type de concourants'|trans }} ?</h2>
-                            <p>{{ 'Le concours est ouvert à toute personne sachant composer un parfum et capable de rédiger une formule. Le Logiciel Coptis LAB, sera mis à disposition de chacun des 35 candidats sélectionnés à participer au concours'|trans }}.
-                                <span class="hidden-xs hidden-sm">{{ 'Une session de formation est incluse dans le programme offert aux candidats'|trans }}.</span>
-                            {{ 'Le comité de pilotage constitué des professionnels partenaires, étudira chaque candidature déposée sur le site internet et retiendra 35 candidats par session, et donc par année'|trans }}. {{ 'Les critères discriminantes seront le parcours, l\'expérience et la motivation de chaque candidat'|trans }}.
+                            {% if app.request.locale == 'fr' %}
+                            <h2 class="titre-concours">{{ presentation.soustitredeux }}</h2>
+                            {% else %}
+                            <h2 class="titre-concours">{{ presentation.subtitletwo }}</h2>
+                            {% endif %}
+                            {% if app.request.locale == 'fr' %}
+                            <p>
+                                {{ presentation.paragraphedeux }}
+                            </p>
+                            {% else %}
+                            <p>
+                                {{ presentation.sectiontwo }}
+                            </p>
+                            {% endif %}
 
-                                <span class="hidden-xs hidden-sm">{{ 'Le sourcing des candidats pourra émaner des différentes catégories ci-dessous (non-exhaustive)' }}:</p> <br/></span>
-                            <ul class="hidden-xs hidden-sm">
-                                <li class="liPres">{{ 'Écoles et universités (chimie, parfumerie)'|trans }}.</li>
-                                <li class="liPres">{{ 'Maisons de créations'|trans }}.</li>
-                                <li class="liPres">{{ 'Secteur des arômes et des fragrances'|trans }}.</li>
-                                <li class="liPres">{{ 'Producteurs d\'ingrédients et de matières premières'|trans }}.</li>
-                                <li class="liPres">{{ 'Les marques'|trans }}.</li>
-                                <li class="liPres">{{ 'Parfumeurs indépendants'|trans }}.</li>
-                                <li class="liPres">{{ 'Autodidactes'|trans }}.</li>
-                                <li class="liPres">{{ 'Distributeurs'|trans }}.</li>
-                            </ul>
+                            {% if app.request.locale == 'fr' %}
+                            <p>
+                                {{ presentation.paragraphetrois }}
+                            </p>
+                            {% else %}
+                            <p>
+                                {{ presentation.sectionthree }}
+                            </p>
+                            {% endif %}
                         </article>
                     </div>
 
                     <div class="col-lg-4 col-md-4 col-sm-4">
                         <article>
-                            <h2 class="titre-concours">{{ 'La journée d\'intégration'|trans }}.</h2>
-                            <p>{{ 'La journée d\'intégration au concours Corpo 35 à l\'ISIPCA, a comme objectif de favoriser les échanges entre les candidats et les professionnels et de lancer le compte à rebours des 6 mois de création. Il y aura donc lors de cette journée'|trans }} :</p> <br />
-                            <ul>
-                                <li class="liPres">{{ 'Rappel du règlement et du cadre du concours'|trans }} <span class="hidden-xs hidden-sm">: {{ 'cession des droits d\'auteur, présentation quelque soit la forme du processus créatif retenu par chaque candidat'|trans }}.</span></li>
-                                <li class="liPres">{{ 'La présentation des locaux de l\'ISIPCA'|trans }} <span class="hidden-xs hidden-sm">: {{ 'en particulier les paillasses des laboratoires mises à disposition des 35 candidats pour effectuer les pesées si nécessaire'|trans }}.</span></li>
-                                <li class="liPres">{{ 'Conférence d\'IFF sur les matières premières'|trans }}<span class="hidden-xs hidden-sm"> {{ 'constituant l\'orgue défini pour réaliser la création'|trans }}.</span></li>
-                                <li class="liPres">{{ 'Remise de l\'orgue à parfums offert par IFF à chaque candidats'|trans }}<span class="hidden-xs hidden-sm"> {{ 'comme bases de la création attendue'|trans }}.</span></li>
-                                <li class="liPres">{{ 'Présentation et initiation du logiciel Coptis LAB'|trans }}<span class="hidden-xs hidden-sm">, {{ 'logiciel d\'aide à la rédaction de formules'|trans }}.</span></li>
-                                <li class="liPres">{{ 'Un portrait et une interview réalisés pour chaque candidat afin de valoriser son profil'|trans }}.</li>
-                            </ul>
+                            {% if app.request.locale == 'fr' %}
+                            <h2 class="titre-concours">{{ presentation.soustitretrois }}</h2>
+                            {% else %}
+                            <h2 class="titre-concours">{{ presentation.subtitlethree }}</h2>
+                            {% endif %}
+                            {% if app.request.locale == 'fr' %}
+                            <p>
+                                {{ presentation.paragraphequatre }}
+                            </p>
+                            {% else %}
+                            <p>
+                                {{ presentation.sectionfour }}
+                            </p>
+                            {% endif %}
+                            <br />
+                            {% if app.request.locale == 'fr' %}
+                            <p>
+                                {{ presentation.paragraphecinq }}
+                            </p>
+                            {% else %}
+                            <p>
+                                {{ presentation.sectionfive }}
+                            </p>
+                            {% endif %}
                         </article>
                     </div>
                 </aside>
              </div>
         </div>
     </section>
+{% endfor %}
 {% endblock %}
 
 

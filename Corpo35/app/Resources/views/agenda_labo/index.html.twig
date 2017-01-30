@@ -10,7 +10,7 @@
     <div class="container admin">
 
 
-        <h2>Agenda laboratoire / <a href="{{ path('agenda_labo_new') }}">créer un créneau d'accès au labo</a>/ <a  href="{{ path('index') }}">{{ 'retour au site'| trans }}</a></h2>
+        <h2>Agenda laboratoire / <a href="{{ path('agenda_labo_new') }}">créer un créneau d'accès au labo </a>/ <a  href="{{ path('index') }}">{{ 'retour au site'| trans }}</a></h2>
 
 
         <div class="table-responsive-vertical shadow-z-1">
@@ -31,10 +31,10 @@
                     <tr>
                         {#<td><a href="{{ path('agenda_labo_show', { 'id': agenda_Labo.id }) }}">{{ agenda_Labo.id }}</a></td>#}
                         <td>{% if agenda_Labo.date %}{{ agenda_Labo.date|date('d-m-Y') }}{% endif %}</td>
-                        <td>{% if agenda_Labo.heureDebutAM %}{{ agenda_Labo.heureDebutAM|date('d-m-Y') }}{% endif %}</td>
-                        <td>{% if agenda_Labo.heureFinAM %}{{ agenda_Labo.heureFinAM|date('d-m-Y') }}{% endif %}</td>
-                        <td>{% if agenda_Labo.heureDebutPM %}{{ agenda_Labo.heureDebutPM|date('d-m-Y') }}{% endif %}</td>
-                        <td>{% if agenda_Labo.heureFinPM %}{{ agenda_Labo.heureFinPM|date('d-m-Y') }}{% endif %}</td>
+                        <td>{% if agenda_Labo.heureDebutAM %}{{ agenda_Labo.heureDebutAM|date('H:i') }}{% endif %}</td>
+                        <td>{% if agenda_Labo.heureFinAM %}{{ agenda_Labo.heureFinAM|date('H:i') }}{% endif %}</td>
+                        <td>{% if agenda_Labo.heureDebutPM %}{{ agenda_Labo.heureDebutPM|date('H:i') }}{% endif %}</td>
+                        <td>{% if agenda_Labo.heureFinPM %}{{ agenda_Labo.heureFinPM|date('H:i') }}{% endif %}</td>
                         <td data-title="Actions">
                             <a href="{{ path('agenda_labo_show', { 'id': agenda_Labo.id }) }}"><i class="fa fa-eye fa-2x" aria-hidden="true"></i></a>
                             <a href="{{ path('agenda_labo_edit', { 'id': agenda_Labo.id }) }}"><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a>

@@ -26,7 +26,7 @@ class CommentaireController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $commentaires = $em->getRepository('BlogBundle:Commentaire')->findAll();
+        $commentaires = $em->getRepository('BlogBundle:Commentaire')->findBy([], ['date'=>'DESC']);
 
         return $this->render('commentaire/index.html.twig', array(
             'commentaires' => $commentaires,
@@ -47,9 +47,7 @@ class CommentaireController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            if (!$commentaire->getAuteur()) {
-                $commentaire->setAuteur('Anonyme');
-            }
+
             $em->persist($commentaire);
             $em->flush($commentaire);
 

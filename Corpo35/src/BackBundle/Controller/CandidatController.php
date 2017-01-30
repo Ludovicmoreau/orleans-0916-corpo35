@@ -116,11 +116,9 @@ class CandidatController extends Controller
 
             $candidat->setMiseEnAvant(0);
             $candidat->setDecision(false);
-//            $candidat->setCandidatToPromotion();
             $em = $this->getDoctrine()->getManager();
             $em->persist($candidat);
             $em->flush();
-
             $this->candidatToPromotion($candidat);
 
 //          Ajout FlashBag message après l'envoi du formulaire
@@ -141,7 +139,7 @@ class CandidatController extends Controller
         );
     }
 
-//Set automatique d'une promotion à un candidat.
+    //Set automatique d'une promotion à un candidat.
 
     public function candidatToPromotion(Candidat $candidat)
     {

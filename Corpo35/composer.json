@@ -27,7 +27,11 @@
         "components/jquery": "^3.1",
         "twig/extensions": "^1.4",
         "snilius/twig-sort-by-field": "^0.1.5",
-        "gregwar/captcha-bundle": "^2.0"
+        "gregwar/captcha-bundle": "^2.0",
+        "symfony/intl": "2.6.*@dev",
+        "vich/uploader-bundle": "^1.4",
+        "knplabs/knp-snappy-bundle": "^1.4",
+        "h4cc/wkhtmltopdf-amd64": "^0.12.3"
     },
     "require-dev": {
         "sensio/generator-bundle": "~3.0",

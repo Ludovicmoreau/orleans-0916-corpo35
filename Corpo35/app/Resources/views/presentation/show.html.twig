@@ -1,0 +1,65 @@
+{% extends 'BackBundle:Default:backLayout.html.twig' %}
+
+    {% block stylesheet %}
+        {{ parent() }}
+        <link rel="stylesheet" href="{{ asset('css/back.css') }}">
+    {% endblock %}
+
+{% block content %}
+<div class="container admin">
+    <div class="table-responsive-vertical shadow-z-1">
+        <table id="table" class="table table-hover table-mc-light-grey">
+        <h2>Présentation du concours / <a href="{{ path('presentation_index') }}">retour à la liste </a> /  <a href="{{ path('presentation_edit', { 'id': presentation.id }) }}">éditer</a></h2>
+
+        <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Title (pour la version anglaise)</th>
+                <th>Sous-titre un</th>
+                <th>Subtitle one (pour la version anglaise)</th>
+                <th>Paragraphe un</th>
+                <th>Section one (pour la version anglaise)</th>
+                <th>Sous-titre deux</th>
+                <th>Subtitle two (pour la version anglaise)</th>
+                <th>Paragraphe deux</th>
+                <th>Section two (pour la version anglaise)</th>
+                <th>Paragraphe trois</th>
+                <th>Section three (pour la version anglaise)</th>
+                <th>Sous-titre trois</th>
+                <th>Subtitle three (pour la version anglaise)</th>
+                <th>Paragraphe quatre</th>
+                <th>Section four (pour la version anglaise)</th>
+                <th>Paragraphe cinq</th>
+                <th>Section five (pour la version anglaise)</th>
+            </tr>
+        </thead>
+            <tbody>
+                <tr>
+                    <td>{{ presentation.titre }}</td>
+                    <td>{{ presentation.title }}</td>
+                    <td>{{ presentation.soustitreun }}</td>
+                    <td>{{ presentation.subtitleone }}</td>
+                    <td>{{ presentation.paragrapheun }}</td>
+                    <td>{{ presentation.sectionone }}</td>
+                    <td>{{ presentation.soustitredeux }}</td>
+                    <td>{{ presentation.subtitletwo }}</td>
+                    <td>{{ presentation.paragraphedeux }}</td>
+                    <td>{{ presentation.sectiontwo }}</td>
+                    <td>{{ presentation.paragraphetrois }}</td>
+                    <td>{{ presentation.sectionthree }}</td>
+                    <td>{{ presentation.soustitretrois }}</td>
+                    <td>{{ presentation.subtitlethree }}</td>
+                    <td>{{ presentation.paragraphequatre }}</td>
+                    <td>{{ presentation.sectionfour }}</td>
+                    <td>{{ presentation.paragraphecinq }}</td>
+                    <td>{{ presentation.sectionfive }}</td>
+                    <td>{{ form_start(delete_form) }}
+                        <button class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                        {{ form_end(delete_form) }}</td>
+                </tr>
+            </tbody>
+            <tfoot>
+        </table>
+    </div>
+</div>
+{% endblock %}

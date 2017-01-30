@@ -1,38 +1,80 @@
 div.text {
     text-align: justify;
 }
+.img{
+    width: 20%;
 
+}
+.text-center{
+    width: 20%;
+    margin: 0 auto;
+}
 h2 {
-    position: relative;
-    font-size: 2em;
     text-align: center;
-    overflow: hidden;
+    margin-bottom: 50px;
+}
+.container.reglement{
+    margin-top: 100px;
+    margin-bottom: 100px;
+
+}
+.title-reglement{
+    font-size: 1.3em;
+}
+.title{
+    border-bottom: 1px solid lavender;
+    margin-bottom: 10px;
+}
+/*div.header-title {*/
+    /*margin-top: 10vh;*/
+    /*margin-bottom: 10vh;*/
+    /*height: 5vh;*/
+/*}*/
+/*.reglement{*/
+    /*padding-bottom: 100px;*/
+/*}*/
+/*a {*/
+    /*text-decoration: none;*/
+/*}*/
+
+/*!*@media screen and (max-width: 450px) {*!*/
+    /*!*h2 {*!*/
+        /*!*font-size: 1.7em;*!*/
+    /*!*}*!*/
+/*!*}*!*/
+
+@media screen and (max-width: 900px) {
+    .container.reglement {
+        margin: 10px;
+    }
 }
 
-div.header-title {
-    margin-top: 10vh;
-    margin-bottom: 10vh;
-    height: 20vh;
+@media screen and (max-width: 600px) {
+    .container.reglement {
+        margin: 10px;
+    }
+    h2{
+        margin-bottom: 20px;
+    }
 }
 
-a {
+
+
+.btn-pdf{
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.btn-reglement{
+    border: 1px solid lavender;
+    padding: 10px;
     text-decoration: none;
-}
+    background: black;
+    color: white;
 
-@media screen and (max-width: 450px) {
-    h2 {
-        font-size: 1.7em;
-    }
 }
-
-@media screen and (max-width: 365px) {
-    h2 {
-        font-size: 1.4em;
-    }
-}
-
-@media screen and (max-width: 265px) {
-    h2 {
-        font-size: 1.2em;
-    }
+.btn-reglement:hover{
+    background: white;
+    color: black;
+    border: 1px solid black;
 }
