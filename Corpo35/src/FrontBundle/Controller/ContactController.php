@@ -52,9 +52,10 @@ class ContactController extends Controller
                             )
                         ));
                 // send mail
-
-
                 $this->get('mailer')->send($message);
+
+
+
                 $this->get('session')
                     ->getFlashBag()
                     ->add('success', 'Votre message à bien été envoyé. Nous vous ferons un retour dans les plus brefs délais. Merci!');
