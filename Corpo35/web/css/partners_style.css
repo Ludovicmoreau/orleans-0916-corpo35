@@ -8,9 +8,10 @@ div.partners {
 .img{
    float:left;
 }
-
-.partner-nom{
-
+h1{
+    font-family: 'Playfair Display-Black';
+}
+.title-partners{
     text-align: center;
     margin-bottom: 20px;
 }
@@ -23,9 +24,6 @@ div.partners {
     border-top:1px lightgrey solid;
     margin-top: 40px;
 }
-.partner-content{
-
-}
 
 .contact{
     text-align: center;
@@ -34,10 +32,11 @@ div.partners {
     text-align: center;
 
 }
-.lead{
+.resume-partners{
     text-align: center;
     width: 80%;
     margin: 0 auto;
+    font-style: italic;
 }
 
 h3 {
@@ -139,7 +138,7 @@ h3.no-span:after {
         width: 100% !important;
         margin: 0 auto;
     }
-    h1{
+    .title-partners{
         padding: 0;
 
         margin: 0 auto;
