@@ -1,5 +1,6 @@
 .blog{
     margin-bottom: 50px ;
+    margin-top: 100px ;
 }
 
 p {
@@ -19,6 +20,7 @@ p {
     -webkit-transition: box-shadow .2s;
     -moz-transition: box-shadow .2s;
     transition: box-shadow .2s;
+
 
 }
 .card:hover {
@@ -51,7 +53,7 @@ p {
 
 }
 .card .category {
-    margin-top: 50px;
+    margin-top: 80px;
 }
 .category {
     text-transform: uppercase;
@@ -68,6 +70,9 @@ p {
     background: #ddd;
     top: 22px;
     left: 37%;
+}
+.title_actu{
+    font-family: 'Playfair Display-Black';
 }
 .title {
     top: 20px;

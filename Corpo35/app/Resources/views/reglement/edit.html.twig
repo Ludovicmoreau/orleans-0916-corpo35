@@ -1,0 +1,26 @@
+{% extends 'BackBundle:Default:backLayout.html.twig' %}
+
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/back.css') }}">
+{% endblock %}
+
+{% block content %}
+    {% form_theme edit_form'bootstrap_3_layout.html.twig' %}
+
+<div class="container admin">
+    <h2>Règlement / <a href="{{ path('reglement_index') }}">retour à la liste</a></h2>
+
+    {{ form_start(edit_form) }}
+        {{ form_widget(edit_form) }}
+    <button class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i></button>
+    {{ form_end(edit_form) }}
+
+
+
+            {#{{ form_start(delete_form) }}#}
+                {#<input type="submit" value="Delete">#}
+            {#{{ form_end(delete_form) }}#}
+</div>
+
+{% endblock %}

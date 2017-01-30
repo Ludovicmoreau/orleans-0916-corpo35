@@ -21,7 +21,7 @@ class PageController extends Controller
         if ($limit=='all') {
             $limit = null;
         }
-        $articles = $em->getRepository('BlogBundle:Article')->findBy([], ['date'=>'DESC'], $limit, 0);
+        $articles = $em->getRepository('BlogBundle:Article')->findBy([], ['date'=>'DESC'], $limit);
         return $this->render('BlogBundle:Default:article.html.twig', array(
             'articles' => $articles,
             'limit'=> $limit,
