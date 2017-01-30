@@ -155,6 +155,7 @@
                     </div>
                 </div>
             </div>
+            {% if is_granted ('ROLE_JURY') %}
             <div class="ombre text-center">
                 {{ render(controller('BackBundle:Candidat:oneVote', {'id':candidat.id})) }}
             </div>
@@ -170,6 +171,7 @@
                     <p>pas encore de classement pour ce candidat</p>
                 {% endif %}
             </div>
+            {% endif %}
             {% if is_granted ('ROLE_ADMIN') %}
             <div class="ombre text-center">
                     <a href="{{ path('recandidatenavant' , { 'id': candidat.id }) }}" class="linkMisEnAvant"> Mettre en avant le candidat</a>
