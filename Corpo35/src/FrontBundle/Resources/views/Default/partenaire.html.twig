@@ -14,10 +14,10 @@
                 {% if app.request.locale =='fr' %}
                     <p class=" lead resume">{{ partenaire.resume }}</p>
                 {% else %}
-                    <p class="partner-content">{{ partenaire.resumeEn}}</p>
+                    <p class="lead resume">{{ partenaire.resumeEn}}</p>
                 {% endif %}
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-9">
                     <div class="partner-body">
                         <img class="img" src="{{ asset('upload/' ~  partenaire.logo )}}" alt="image partenaire 35 rue Damiette"/>
                         {% if app.request.locale =='fr' %}
@@ -27,8 +27,8 @@
                         {% endif %}
                     </div>
                 </div>
-                <div class="col-md-4 ">
-                    <div class="row partner-body">
+                <div class="col-md-3 ">
+                    <div class="row partner-contact">
                         <div class="col-md-12 centreVerticalement">
                             <p class="centreVerticalement"><a href="{{ partenaire.website | trans }}" target=_blank><i class="fa fa-globe" aria-hidden="true">  Site web</i></a></p>
                         </div>
