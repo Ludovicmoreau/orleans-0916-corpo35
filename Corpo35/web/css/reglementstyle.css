@@ -1,14 +1,14 @@
 div.text {
     text-align: justify;
 }
-.img{
+.img-pdf{
     width: 20%;
-
 }
 
-h2 {
+.title-pdf{
     text-align: center;
     margin-bottom: 50px;
+    margin-top: 80px;
 }
 .container.reglement{
     margin-top: 100px;
@@ -55,6 +55,7 @@ h2 {
     text-decoration: none;
     background: black;
     color: white;
+    margin: 0 auto;
 
 }
 .btn-reglement:hover{
