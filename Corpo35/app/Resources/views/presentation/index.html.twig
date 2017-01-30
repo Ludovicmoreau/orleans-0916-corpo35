@@ -8,105 +8,95 @@
 
 {% block content %}
     {% for presentation in presentations %}
-<div class="container">
-    <h2>Présentation du concours /  <a href="{{ path('presentation_new') }}">créer une présentation de concours </a></h2>
-    <div class="row">
-        <div class="col-md-12">
-            <p class="intitule">Titre</p>
-            <p class="entree">{{ presentation.titre }}</p>
-            <p class="intitule">Title (pour la version anglaise)</p>
-            <p class="entree">{{ presentation.title }}</p>
-            <p class="intitule">Sous-titre 1</p>
-            <p class="entree">{{ presentation.soustitreun }}</p>
-            <p class="intitule">Subtitle 1 (pour la version anglaise)</p>
-            <p class="entree">{{ presentation.subtitleone }}</p>
-            <p class="intitule">Paragraphe 1</p>
-            <p class="entree">{{ presentation.paragrapheun }}</p>
-            <p class="intitule">Section 1 (pour la version anglaise)</p>
-            <p class="entree">{{ presentation.sectionone }}</p>
-            <p class="intitule">Sous-titre 2</p>
-            <p class="entree">{{ presentation.soustitredeux }}</p>
-            <p class="intitule">Section 2 (pour la version anglaise)</p>
-            <p class="entree">{{ presentation.sectiontwo }}</p>
-            <p class="intitule">Paragraphe 3</p>
-            <p class="entree">{{ presentation.paragraphetrois }}</p>
-            <p class="intitule">Section 3 (pour la version anglaise)</p>
-            <p class="entree">{{ presentation.sectionthree }}</p>
-            <p class="intitule">Sous-titre 3</p>
-            <p class="entree">{{ presentation.soustitretrois }}</p>
-            <p class="intitule">Subtitle 3 (pour la version anglaise)</p>
-            <p class="entree">{{ presentation.subtitlethree }}</p>
-            <p class="intitule">Paragraphe 4</p>
-            <p class="entree">{{ presentation.paragraphequatre }}</p>
-            <p class="intitule">Section 4 (pour la version anglaise)</p>
-            <p class="entree">{{ presentation.sectionfour }}</p>
-            <p class="intitule">Paragraphe 5</p>
-            <p class="entree">{{ presentation.paragraphecinq }}</p>
-            <p class="intitule">Section 5 (pour la version anglaise)</p>
-            <p class="entree">{{ presentation.sectionfive }}</p>
-        </div>
-        <div class="col-md-12">
-        <a href="{{ path('presentation_show', { 'id': presentation.id }) }}"><i class="fa fa-eye fa-2x" aria-hidden="true"></i></a>
-        <a href="{{ path('presentation_edit', { 'id': presentation.id }) }}"><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a>
+    <div class="container admin">
+        <div class="table-responsive-vertical shadow-z-1">
+            <table id="table" class="table table-hover table-mc-light-grey">
+            <h2>Présentation du concours / </h2>
+            <thead>
+
+                <tr>
+                    <th>Titre</th>
+                    <td>{{ presentation.titre }}</td>
+                </tr>
+                <tr>
+                    <th>Title (pour la version anglaise)
+                    <td>{{ presentation.title }}</td>
+                </tr>
+                <tr>
+                    <th>Sous-titre 1</th>
+                    <td>{{ presentation.soustitreun }}</td>
+                </tr>
+                <tr>
+                    <th>Subtitle 1 (pour la version anglaise)</th>
+                    <td>{{ presentation.subtitleone }}</td>
+                </tr>
+                <tr>
+                    <th>Paragraphe 1</th>
+                    <td>{{ presentation.paragrapheun }}</td>
+                </tr>
+                <tr>
+                    <th>Section 1 (pour la version anglaise)</th>
+                    <td>{{ presentation.sectionone }}</td>
+                </tr>
+                <tr>
+                    <th>Sous-titre 2</th>
+                    <td>{{ presentation.soustitredeux }}</td>
+                </tr>
+                <tr>
+                    <th>Subtitle 2</th>
+                    <td>{{ presentation.subtitletwo }}</td>
+                </tr>
+                <tr>
+                    <th>Paragraphe 2</th>
+                    <td>{{ presentation.paragraphedeux }}</td>
+                </tr>
+                <tr>
+                    <th>Section 2 (pour la version anglaise)</th>
+                    <td>{{ presentation.sectiontwo }}</td>
+                </tr>
+                <tr>
+                    <th>Paragraphe 3</th>
+                    <td>{{ presentation.paragraphetrois }}</td>
+                </tr>
+                <tr>
+                    <th>Section 3 (pour la version anglaise)</th>
+                    <td>{{ presentation.sectionthree }}</td>
+                </tr>
+                <tr>
+                    <th>Sous-titre 3</th>
+                    <td>{{ presentation.soustitretrois }}</td>
+                </tr>
+                <tr>
+                    <th>Subtitle 3 (pour la version anglaise)</th>
+                    <td>{{ presentation.subtitlethree }}</td>
+                </tr>
+                <tr>
+                    <th>Paragraphe 4</th>
+                    <td>{{ presentation.paragraphequatre }}</td>
+                </tr>
+                <tr>
+                    <th>Section 4 (pour la version anglaise)</th>
+                    <td>{{ presentation.sectionfour }}</td>
+                </tr>
+                <tr>
+                    <th>Paragraphe 5</th>
+                    <td>{{ presentation.paragraphecinq }}</td>
+                </tr>
+                <tr>
+                    <th>Section 5 (pour la version anglaise)</th>
+                    <td>{{ presentation.sectionfive }}</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        {#<a href="{{ path('presentation_show', { 'id': presentation.id }) }}"><i class="fa fa-eye fa-2x" aria-hidden="true"></i></a>#}
+                        <a href="{{ path('presentation_edit', { 'id': presentation.id }) }}"><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
         </div>
     </div>
-</div>
     {% endfor %}
-        {#<!-- Table starts here -->#}
-        {#<table id="table" class="table table-hover">#}
-            {#<thead>#}
-                {#<tr>#}
-                    {#<th></th>#}
-                    {#<th>Title (pour version anglaise)</th>#}
-                    {#<th>Sous-titre un</th>#}
-                    {#<th>Subtitle one (pour version anglaise)</th>#}
-                    {#<th>Paragraphe un</th>#}
-                    {#<th>Section one (pour version anglaise)</th>#}
-                    {#<th>Sous-titre deux</th>#}
-                    {#<th>Subtitle two (pour version anglaise)</th>#}
-                    {#<th>Paragraphe deux</th>#}
-                    {#<th>Section two (pour version anglaise)</th>#}
-                    {#<th>Paragraphe trois</th>#}
-                    {#<th>Section three (pour version anglaise)</th>#}
-                    {#<th>Sous-titre trois </th>#}
-                    {#<th>Subtitle three (pour version anglaise)</th>#}
-                    {#<th>Paragraphe quatre</th>#}
-                    {#<th>Section four (pour version anglaise)</th>#}
-                    {#<th>Paragraphe cinq</th>#}
-                    {#<th>Section five (pour version anglaise)</th>#}
-                    {#<th>Actions</th>#}
-                {#</tr>#}
-            {#</thead>#}
-            {#<tbody>#}
-            {#{% for presentation in presentations %}#}
-                {#<tr>#}
-                    {#<td><a href="{{ path('presentation_show', { 'id': presentation.id }) }}">{{ presentation.id }}</a></td>#}
-                    {#<td></td>#}
-                    {#<td>{{ presentation.title }}</td>#}
-                    {#<td>{{ presentation.soustitreun }}</td>#}
-                    {#<td>{{ presentation.subtitleone }}</td>#}
-                    {#<td>{{ presentation.paragrapheun }}</td>#}
-                    {#<td>{{ presentation.sectionone }}</td>#}
-                    {#<td>{{ presentation.soustitredeux }}</td>#}
-                    {#<td>{{ presentation.subtitletwo }}</td>#}
-                    {#<td>{{ presentation.paragraphedeux }}</td>#}
-                    {#<td>{{ presentation.sectiontwo }}</td>#}
-                    {#<td>{{ presentation.paragraphetrois }}</td>#}
-                    {#<td>{{ presentation.sectionthree }}</td>#}
-                    {#<td>{{ presentation.soustitretrois }}</td>#}
-                    {#<td>{{ presentation.subtitlethree }}</td>#}
-                    {#<td>{{ presentation.paragraphequatre }}</td>#}
-                    {#<td>{{ presentation.sectionfour }}</td>#}
-                    {#<td>{{ presentation.paragraphecinq }}</td>#}
-                    {#<td>{{ presentation.sectionfive }}</td>#}
-                    {#<td data-title="Actions">#}
-                        {#<a href="{{ path('presentation_show', { 'id': presentation.id }) }}"><i class="fa fa-eye fa-2x" aria-hidden="true"></i></a>#}
-                        {#<a href="{{ path('presentation_edit', { 'id': presentation.id }) }}"><i class="fa fa-pencil fa-2x" aria-hidden="true"></a>#}
-                    {#</td>#}
-                {#</tr>#}
-            {#{% endfor %}#}
-            {#</tbody>#}
-        {#</table>#}
-    {#</div>#}
-{#</div>#}
 {% endblock %}
