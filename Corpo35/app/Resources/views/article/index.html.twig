@@ -27,11 +27,11 @@
                 <tbody>
                 {% for article in articles %}
                     <tr>
-                        <td data-title="Titre">{{ article.titre }}</td>
-                        <td data-title="Contenu">{{ article.contenu | truncate(150, true, "...") }}</td>
-                        <td data-title="Auteur">{{ article.auteur }}</td>
-                        <td data-title="Date">{% if article.date %}{{ article.date|date('Y-m-d') }}{% endif %}</td>
-                        <td><img class="img-back" src="{{ asset('upload/' ~ article.photo) }}"></td>
+                        <td>{{ article.titre }}</td>
+                        <td>{{ article.contenu | truncate(150, true, "...") }}</td>
+                        <td>{{ article.auteur }}</td>
+                        <td>{% if article.date %}{{ article.date|date('d-m-Y') }}{% endif %}</td>
+                        <td><img src="{{ asset('upload/' ~ article.photo) }}"></td>
                         <td data-title="Actions">
                             <a href="{{ path('article_show', { 'id': article.id }) }}"><i class="fa fa-eye fa-2x" aria-hidden="true"></i></a>
                             <a href="{{ path('article_edit', { 'id': article.id }) }}"><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a>
