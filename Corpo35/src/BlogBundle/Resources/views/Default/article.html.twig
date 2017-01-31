@@ -28,7 +28,8 @@
                             <p class="teaser">
                                 {{ article.contenu | truncate(150, true, "...")}}
                             </p>
-                            <p class="count-comment">Commentaire {{ article.commentaires | length }}</p>
+                            <p class="count-comment"><i class="fa fa-comments"> {{ article.commentaires | length }} commentaires </i></p>
+
 
                             <a href="{{ path('new-comment', {'id':article.id}) }}" class="button">
                                 Lire Plus...
