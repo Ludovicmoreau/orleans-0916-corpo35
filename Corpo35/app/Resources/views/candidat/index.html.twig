@@ -66,12 +66,12 @@
                     <p>{{ candidat.motivation |truncate(50, true,'...')}}</p>
                     <p>{{ candidat.profession }}</p>
                     {% if candidat.formation is not null %}
-                        <p>{{ candidat.formation }}</p>
+                        <p>{{ candidat.formation |truncate(50, true,'...')}}</p>
                     {% else %}
                         <p>Pas de formation liée à la parfumerie</p>
                     {% endif %}
                     {% if candidat.competence is not null %}
-                        <p>{{ candidat.competence }}</p>
+                        <p>{{ candidat.competence |truncate(50, true,'...') }}</p>
                     {% else %}
                         <p>Pas d'autres formations</p>
                     {% endif %}
