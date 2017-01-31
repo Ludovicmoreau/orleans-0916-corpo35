@@ -11,9 +11,11 @@
 <div class="container admin">
 
     <h2>Partenaire/ <a href="{{ path('partenaire_index') }}">retour à la liste</a></h2>
+    <h2 style="font-size: 1.3em">Attention pour le logo, ne pas mettre des images de grandes tailles et les photos ne doivent pas dépasser 2Mo.</h2>
 
 
-        {{ form_start(edit_form) }}
+
+    {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
             <button class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i></button>
         {{ form_end(edit_form) }}
