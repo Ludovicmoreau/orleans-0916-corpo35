@@ -190,7 +190,9 @@ h3.no-span:after {
         height: 0;
         padding: 0;
     }
-
+    .content_center{
+        padding: 10px;
+    }
 }
 
 .centreVerticalement {

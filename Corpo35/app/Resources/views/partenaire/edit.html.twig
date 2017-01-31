@@ -10,7 +10,7 @@
 
 <div class="container admin">
 
-    <h2>Partenaire/ <a href="{{ path('partenaire_index') }}">retour à la liste</a></h2>
+    <h2>Partenaire {% if is_granted ('ROLE_ADMIN') %}/ <a href="{{ path('partenaire_index') }}">retour à la liste</a> {% endif %} </h2>
 
 
         {{ form_start(edit_form) }}

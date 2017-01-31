@@ -11,13 +11,12 @@
 
     <div class="container admin">
 
-        <h2>Partenaire /  <a href="{{ path('partenaire_index') }}">retour à la liste</a>/</h2>
+        <h2>Partenaire {% if is_granted ('ROLE_ADMIN') %} <a href="{{ path('partenaire_index') }}"> / retour à la liste</a>{% endif %}  </h2>
 
         {{ form_start(form) }}
             {{ form_widget(form) }}
             {#<input type="submit" value="{{ 'Créer'| trans }}" />#}
         <button class="btn btn-success" type="submit"><i class="fa fa-check" aria-hidden="true"></i></button>
-
         {{ form_end(form) }}
 
     </div>
