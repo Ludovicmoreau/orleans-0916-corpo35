@@ -18,15 +18,41 @@ class PartenaireType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom', TextType::class)
+        $builder->add('nom', TextType::class, [
+            'label' => 'Nom du partenaire'
+        ])
                 ->add('logo', FileType::class)
-                ->add('resume', TextareaType::class, array('required' => false,))
-                ->add('resumeEn', TextareaType::class, array('required' => false,))
-                ->add('contenu', TextareaType::class, array('required' => false,))
-                ->add('contenuEn', TextareaType::class, array('required' => false,))
-                ->add('website', UrlType::class)
-                ->add('email', EmailType::class, array('required' => false,))
-                ->add('phone', TextareaType::class)
+                ->add('resume', TextareaType::class, array(
+                    'required' => false,
+                    'label' => 'Courte description'
+                    ))
+                ->add('resumeEn', TextareaType::class, array(
+                    'required' => false,
+                    'label' => 'Courte description (pour la version anglaise)'
+                    ))
+                ->add('contenu', TextareaType::class, array(
+                    'required' => false,
+                    'label' => 'Description complète'
+                    ))
+                ->add('contenuEn', TextareaType::class, array(
+                    'required' => false,
+                    'label' => 'Description complète (pour la version anglaise'
+                    ))
+                ->add('website', UrlType::class, [
+                    'label' => 'Site internet',
+                    'attr' => [
+                        'placeholder' => 'http ou https://www.example.com'
+                        ]
+                ])
+                ->add('email', EmailType::class, array(
+                    'required' => false,
+                    'attr' => [
+                        'placeholder' => 'example@gmail.com'
+                    ]
+                    ))
+                ->add('phone', TextType::class, [
+                    'label' => 'Numéro de téléphone'
+                ])
             ;
         }
     

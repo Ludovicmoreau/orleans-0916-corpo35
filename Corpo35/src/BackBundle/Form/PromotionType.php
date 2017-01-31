@@ -18,11 +18,11 @@ class PromotionType extends AbstractType
     {
         $builder
             ->add('annee', DateType::class, [
-                'label'=>'année',
+                'label'=>'Année',
                 'attr' => [
                     'choice'=>'years']])
             ->add('datelimite', DateType::class, [
-                'label'=>"date de fin d'inscription"
+                'label'=>"Date de fin d'inscription au concours pour l'année sélectionnée juste au-dessus"
             ])
         ;
     }

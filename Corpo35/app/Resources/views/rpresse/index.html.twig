@@ -9,7 +9,7 @@
 {% block content %}
     <div class="container admin">
 
-        <h2>Revue de presse  / <a href="{{ path('rpresse_new') }}">créer un article </a></h2>
+        <h2>Revue de presse  / <a href="{{ path('rpresse_new') }}">créer une parution presse </a></h2>
 
         <div class="table-responsive-vertical shadow-z-1">
             <!-- Table starts here -->
@@ -27,8 +27,7 @@
                 {% for rpresse in rpresses %}
                     <tr>
                         {#<td><a href="{{ path('rpresse_show', { 'id': rpresse.id }) }}">{{ rpresse.id }}</a></td>#}
-                        <td>{{ rpresse.document }}</td>
-                        <td>{{ rpresse.description }}</td>
+                        <td><img src="{{ asset('upload/' ~ rpresse.document) }}"></td>                        <td>{{ rpresse.description }}</td>
                         <td>{{ rpresse.source }}</td>
                         <td>{% if rpresse.date %}{{ rpresse.date|date('Y-m-d') }}{% endif %}</td>
                         <td data-title="Actions">

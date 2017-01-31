@@ -43,5 +43,13 @@ class DefaultController extends Controller
         return $this->render('FrontBundle:Default:archives.html.twig');
     }
 
+    /**
+     * @Route("/sitemap", name="sitemap")
+     */
+    public function siteMapAction()
+    {
+        return $this->render('FrontBundle:Default:sitemap.xml.twig');
+    }
+
 
 }

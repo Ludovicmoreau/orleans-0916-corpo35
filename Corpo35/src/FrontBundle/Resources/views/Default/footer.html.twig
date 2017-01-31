@@ -2,7 +2,7 @@
 <div class="container-fluid footer">
     <div class="row text-center">
         <div class="col-md-3 onglet-footer"><a class="lienfooter"  href="{{ path('contact') }}"> {{ 'Nous contacter'| trans }} </a></div>
-        <div class="col-md-3 onglet-footer"><a class="lienfooter"  href="{{ path('reglement') }}"> {{ 'Règlements du concours'| trans }} </a></div>
+        <div class="col-md-3 onglet-footer"><a class="lienfooter"  href="{{ path('reglement') }}"> {{ 'Règlement du concours'| trans }} </a></div>
         <div class="col-md-3 onglet-footer"><a class="lienfooter" href="#myModal1" data-toggle="modal" data-target="#myModal1">{{ 'Mentions légales'| trans }}</a></div>
         <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
@@ -14,7 +14,7 @@
                     <div class="modal-body ">
                         <h2>Maison de Parfum Berry pour Corpo35</h2>
                         <p>
-                            Denomination: MAISON DE PARFUMS BERRY, société par actions simplifiée à associé unique au capital de 16 000€.<br/>
+                            Dénomination: MAISON DE PARFUMS BERRY, société par actions simplifiée à associé unique au capital de 16 000€.<br/>
                             Adresse: MAISON DE PARFUMS BERRY, 35 RUE DAMIETTE 76000 ROUEN.<br/>
                             Tél : 02 35 71 16 54<br/>
                             Email : contact@35ruedamiette.com<br/>
@@ -59,6 +59,6 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3"> <a class="lienfooter"  href="#"> {{ 'Plan du site'| trans }} </a></div>
+        <div class="col-md-3"> <a class="lienfooter"  href="{{ path('sitemap') }}"> {{ 'Plan du site'| trans }} </a></div>
     </div>
 </div>

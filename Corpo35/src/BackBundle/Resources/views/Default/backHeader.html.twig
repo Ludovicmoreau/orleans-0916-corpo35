@@ -6,7 +6,7 @@
     <input type="checkbox" id="show-menu" role="button">
     <ul class="navbar" id="menu">
         <div class="hidden-xs">
-            <h3>Bienvenue sur votre page d'administration</h3>
+            <h3 style="font-size: 1.5em">Bienvenue sur votre page d'administration</h3>
             <a href="{{ path('index') }}"><img src="{{ asset('images/CORPO35_LOGOTYPE.png') }}" class="img-responsive center-block logoHeader" alt="Logo Corpo35"></a>
         </div>
         {% if is_granted ('ROLE_ADMIN') %}
@@ -16,7 +16,7 @@
         <li class="navitem "><a href="{{ path('promotion_index') }}">Promotions</a></li>
         <li class="dropdown navitem"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Agendas<span class="caret"></span></a>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-content" href="{{ path('agenda_evenement_index') }}">Évènement</a></li>
+                <li><a class="dropdown-content" href="{{ path('agenda_evenement_index') }}">Événement</a></li>
                 <li><a class="dropdown-content" href="{{ path('agenda_labo_index') }}">Laboratoire</a></li>
             </ul>
         </li>

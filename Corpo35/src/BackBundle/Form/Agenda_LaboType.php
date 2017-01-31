@@ -16,10 +16,18 @@ class Agenda_LaboType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('date', DateType::class)
-                ->add('heureDebutAM', TimeType::class)
-                ->add('heureFinAM', TimeType::class)
-                ->add('heureDebutPM', TimeType::class)
-                ->add('heureFinPM', TimeType::class)
+                ->add('heureDebutAM', TimeType::class, [
+                    'label' => 'Heure de début (AM/matin)'
+                ])
+                ->add('heureFinAM', TimeType::class, [
+                    'label' => 'Heure de fin (AM/matin)'
+                ])
+                ->add('heureDebutPM', TimeType::class, [
+                    'label' => 'Heure de début (PM/après-midi)'
+                ])
+                ->add('heureFinPM', TimeType::class, [
+                    'label' => 'Heure de fin (PM/après-midi)'
+                ])
         ;
     }
     
