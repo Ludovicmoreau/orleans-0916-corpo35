@@ -1,12 +1,45 @@
+.inscription{
+    margin-top: 50px;
+}
+
+.btn-reglement {
+    color:black;
+    border:1px solid black;
+    height:40px;
+    background-color:transparent;
+    transition: all 0.8s ease-out;
+    margin-top:40px;
+    margin-bottom:5vh
+}
+
+.btn-reglement:hover{
+    text-decoration: none;
+    color:#fff;
+    border:1px solid #fff;
+    height:40px;
+    background-color:black;
+}
+
+.linkInscription {
+    font-style: normal;
+}
+
+.linkInscription:hover{
+    text-decoration: none;
+}
+
 .titreForm {
-    text-decoration: underline;
+   padding-bottom: 10px;
 }
 
 .form {
-    width: 40%;
-    margin: auto;
+    width: 50%;
     text-align: center;
     padding: 1%;
+    margin: 0 auto;
+}
+.form-group{
+    margin-top: 0px;
 }
 
 .linkRegister {
@@ -24,8 +57,9 @@ li {
 
 .separe {
     height: 1px;
-    width: 50%;
+    width: 100%;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    margin: 0 auto;
 }
 
 /*.bouton {*/
@@ -34,5 +68,5 @@ li {
 
 .creer {
     font-weight: bold;
-    margin-bottom: 30px;
+    margin-bottom: 100px;
 }

@@ -6,100 +6,110 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container-fluid">
-        <div class="col-xs-12 text-center">
-            <h2> {{ 'Bienvenue sur la page d\'inscription au concours Corpo35'| trans }}</h2>
-            <p class="hidden-xs hidden-sm">  <a href="{{ path('reglement') }}" target="_blank">{{ 'Le règlement du concours'| trans }}</a> {{ 'est à télécharger, signer et à nous renvoyer'| trans }}.</p>
-            <p class="hidden-xs hidden-sm"> {{ 'L\'inscription au concours peut prendre 10 à 15 minutes et nécessite de télécharger quelques documents comme une photo, un cv etc...'| trans }}<br/>
-                 {{ 'Vérifiez bien que vous avez ces documents avec vous avant de commencer l\'inscription'| trans }}.</p>
-            <p class="hidden-xs hidden-sm"> {{ 'Les champs avec un * sont obligatoires'| trans }}</p>
-        </div>
-        <div class="col-xs-12 text-center hidden-lg hidden-md">
-            <p>{{ 'L\'inscription au concours nécessite le téléchargement de documents'| trans }}.<br/> {{ 'Veuillez passez sur la version PC du site'| trans }}.</p>
+    <div class="container-fluid inscription">
+        <div class="row inscription">
+            <div class="col-xs-12 text-center">
+                <h2> {{ 'Bienvenue sur la page d\'inscription au concours Corpo35'| trans }}</h2>
+                <p class="hidden-xs hidden-sm">  <a href="{{ path('reglement') }}" target="_blank">{{ 'Le règlement du concours'| trans }}</a> {{ 'est à télécharger, signer et à nous renvoyer'| trans }}.</p>
+                <p class="hidden-xs hidden-sm"> {{ 'L\'inscription au concours peut prendre 10 à 15 minutes et nécessite de télécharger quelques documents comme une photo, un cv etc...'| trans }}<br/>
+                     {{ 'Vérifiez bien que vous avez ces documents avec vous avant de commencer l\'inscription'| trans }}.</p>
+                <p class="hidden-xs hidden-sm"> {{ 'Les champs avec un * sont obligatoires'| trans }}</p>
+            </div>
+            <div class="col-xs-12 text-center hidden-lg hidden-md">
+                <p>{{ 'L\'inscription au concours nécessite le téléchargement de documents'| trans }}.<br/> {{ 'Veuillez passez sur la version PC du site'| trans }}.</p>
+            </div>
         </div>
     </div>
     {% if is_granted ('ROLE_USER') %}
     <div class="container hidden-xs hidden-sm">
-                {{ form_start(form) }}
+        <div class="row inscription">
+            {{ form_start(form) }}
                 <div class="form-group">
+                    <hr class="separe">
                     <h3 class="text-center titreForm"> {{ 'Informations générales'| trans }}</h3>
                     <hr class="separe">
                     <div class="form">
                         {{ form_label(form.nom, 'Nom*'| trans) }}
                         {{ form_widget(form.nom , { 'attr': {   'placeholder': 'Votre nom ici'|trans} }) }} </div>
-                    <hr class="separe">
+                    {#<hr class="separe">#}
                     <div class="form">
                         {{ form_label(form.prenom, 'Prénom*'| trans) }}
                         {{ form_widget(form.prenom , { 'attr': { 'placeholder': 'Votre prénom ici'|trans} }) }}</div>
-                    <hr class="separe">
+                    {#<hr class="separe">#}
                     <div class="form">
                         {{ form_label(form.date_naissance, 'Date de naissance*'| trans) }}
                         {{ form_widget(form.date_naissance) }}</div>
-                    <hr class="separe">
+                    {#<hr class="separe">#}
                     <div class="form">
                         {{ form_row(form.photo) }}</div>
-                    <hr class="separe">
+                    {#<hr class="separe">#}
                     <div class="form">
                         {{ form_label(form.cv, 'CV (au format PDF)*'| trans) }}
                         {{ form_widget(form.cv )   }}</div>
-                    <hr class="separe">
+                    {#<hr class="separe">#}
                     <div class="form">
                         {{ form_label(form.numrue, 'Numéro de rue*'| trans) }}
                         {{ form_widget(form.numrue , { 'attr': {   'placeholder': 'Votre numéro de rue ici'|trans} } ) }}</div>
-                    <hr class="separe">
+                    {#<hr class="separe">#}
                     <div class="form">
                         {{ form_label(form.adresse, 'Adresse*'| trans) }}
                         {{ form_widget(form.adresse  , { 'attr': { 'placeholder': 'Votre adresse ici'|trans  } }) }}</div>
-                    <hr class="separe">
+                    {#<hr class="separe">#}
                     <div class="form">
                         {{ form_label(form.ville, 'Ville*'| trans) }}
                         {{ form_widget(form.ville , { 'attr': {'placeholder': 'Votre ville ici'|trans  } }) }}</div>
-                    <hr class="separe">
+                    {#<hr class="separe">#}
                     <div class="form">
                         {{ form_label(form.cp, 'Code postal*'| trans) }}
                         {{ form_widget(form.cp , { 'attr': {'placeholder': 'Votre code postal'|trans  } }) }}</div>
-                    <hr class="separe">
+                    {#<hr class="separe">#}
                     <div class="form">
                         {{ form_label(form.tel, 'Téléphone*'| trans) }}
                         {{ form_widget(form.tel , { 'attr': {'placeholder': 'Votre numéro de téléphone ici'|trans  } }) }}</div>
-                    <hr class="separe">
+                    {#<hr class="separe">#}
                     <div class="form">
                         {{ form_row(form.mail) }}</div>
-                    <hr class="separe">
+                    {#<hr class="separe">#}
                     <div class="form">
                         {{ form_label(form.presentation, 'Présentation générale*'| trans) }}
                         {{ form_widget(form.presentation) }}</div>
-                    <hr class="separe">
+                    {#<hr class="separe">#}
                     <div class="form">
                         {{ form_label(form.blog, 'Blog/site(s) personnel(s) ou autres'| trans) }}
                         {{ form_widget(form.blog) }}</div>
+            </div>
+
+            <div class="row inscription">
                     <hr class="separe">
                     <h3 class="text-center titreForm"> {{ 'Informations concernant le concours'| trans }}</h3>
                     <hr class="separe">
                     <div class="form">
                         {{ form_label(form.motivation, 'Vos motivations pour le concours*'| trans) }}
                         {{ form_widget(form.motivation) }}</div>
-                    <hr class="separe">
+                    {#<hr class="separe">#}
                     <div class="form">
                         {{ form_label(form.profession, 'Profession (statut professionnel ou étudiant)'| trans) }}
                         {{ form_widget(form.profession) }}</div>
-                    <hr class="separe">
+                    {#<hr class="separe">#}
                     <div class="form">
                         {{ form_label(form.formation, 'Formation(s) en lien avec la parfumerie') }}
                         {{ form_widget(form.formation) }}</div>
-                    <hr class="separe">
+                    {#<hr class="separe">#}
                     <div class="form">
                         {{ form_label(form.competence, 'Autres formations et compétences'| trans) }}
                         {{ form_widget(form.competence,  { 'attr': {'placeholder': 'Autres formations'|trans  } }) }}</div>
-                    <hr class="separe">
+                    {#<hr class="separe">#}
                     <div class="form">
                         <span class="attention">{{ 'Pour le concours une formule de votre création vous sera demandé. Si vous en possédez déjà une, merci de la télécharger ici. Sinon vous aurez la possibilité d\'éditer votre profil ultérieurement.' | trans }}</span><br/>
                         {{ form_label(form.formule, 'Votre Formule'| trans) }}</div>
                         {{ form_widget(form.formule) }}</div>
-                    <hr class="separe">
+                    {#<hr class="separe">#}
                     {#<div class="form">{{ form_row(form.promotion) }}</div>#}
                     {#<hr class="separe">#}
+            </div>
+            <div class="row inscription">
                     {% for document in form.documents %}
+                        <hr class="separe">
                         <h3 class="text-center titreForm">Documents</h3>
                         <p class="text-center">
                             {{ 'Vous pouvez télécharger des documents qui vous ont inspiré pour votre création.'| trans }}<br/>
@@ -112,31 +122,33 @@
                             <div class="form"><li>
                                     {{ form_label(document.type, 'Type de documents'| trans) }}
                                     {{ form_widget(document.type) }}</li></div>
-                            <hr class="separe">
+                            {#<hr class="separe">#}
                             <div class="form"><li>
                                     {{ form_label(document.contenu, 'Contenu'| trans) }}
                                     {{ form_widget(document.contenu) }}</li></div>
-                            <hr class="separe">
+                            {#<hr class="separe">#}
                             <div class="form"><li> {{ 'Et/ou'| trans }}</li></div>
-                            <hr class="separe">
+                            {#<hr class="separe">#}
                             <div class="form"><li>
                                     {{ form_label(document.lien, 'Lien externe'| trans) }}
                                     {{ form_widget(document.lien, { 'attr': {'label': ''| trans } }) }}</li></div>
-                            <hr class="separe">
+                            {#<hr class="separe">#}
                         </ul>
                     {% endfor %}
-                    </div>
-                    <div class="row bouton creer">
-                        <div class="col-xs-6">
-                            <input type="submit" value=" {{ 'Créer'| trans }}" class="btn btn-secondary center-block "/>
-                        </div>
-                        <div class="col-xs-6">
-                            <a href="{{ path('index') }}">
-                            <input type="button" class="btn btn-secondary center-block " value="{{ 'Retour'| trans }}">
-                            </a>
-                        </div>
-                    </div>
-                {{ form_end(form) }}
+            </div>
+            <div class="row bouton creer">
+                <div class="col-xs-6">
+                    <input type="submit" value=" {{ 'Créer'| trans }}" class="btn btn-reglement center-block "/>
+                </div>
+                <div class="col-xs-6">
+                    <a href="{{ path('index') }}" class="linkInscription">
+                    <input type="button" class="btn btn-reglement center-block " value="{{ 'Retour'| trans }}">
+                    </a>
+                </div>
+            </div>
+        {{ form_end(form) }}
+        </div>
+
         <script>
             var $collectionHolder;
 

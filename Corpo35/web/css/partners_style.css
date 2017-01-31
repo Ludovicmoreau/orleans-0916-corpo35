@@ -7,10 +7,12 @@ div.partners {
 }
 .img{
    float:left;
+    padding: 10px;
 }
-
-.partner-nom{
-
+h1{
+    font-family: 'Playfair Display-Black';
+}
+.title-partners{
     text-align: center;
     margin-bottom: 20px;
 }
@@ -21,23 +23,27 @@ div.partners {
 }
 .partner-body{
     border-top:1px lightgrey solid;
-    margin-top: 40px;
+    padding-top: 15px;
 }
 .partner-content{
-
+    padding: 0;
+    text-align: justify;
 }
-
-.contact{
+.partner-contact{
     text-align: center;
+    padding-top: 15px;
+    border-top: 1px solid lightgrey;
 }
 .resume{
     text-align: center;
+    padding: 15px;
 
 }
-.lead{
+.resume-partners{
     text-align: center;
     width: 80%;
     margin: 0 auto;
+    font-style: italic;
 }
 
 h3 {
@@ -136,10 +142,11 @@ h3.no-span:after {
 
 @media (max-width: 800px) {
     .img {
-        width: 100% !important;
+        width: 50% !important;
         margin: 0 auto;
+
     }
-    h1{
+    .title-partners{
         padding: 0;
 
         margin: 0 auto;
@@ -149,8 +156,10 @@ h3.no-span:after {
 @media (max-width: 600px) {
     .partner-content{
         text-align: left;
-        padding: 0;
+
         border: none;
+        padding: 0px;
+        text-align: justify;
     }
     .lead{
         margin: 0 auto;
@@ -161,11 +170,15 @@ h3.no-span:after {
         border: 1px solid lightgrey;
         margin-top: 10px;
         margin-bottom: 10px;
+        margin-right: 10px;
         width: 50%;
     }
     .partner-body{
-        border-top: none;
         margin-top: 10px;
+    }
+    .partner-contact{
+        border-top: 1px solid lightgrey;
+        padding-top: 15px;
     }
     .partner{
         margin-top: 50px;

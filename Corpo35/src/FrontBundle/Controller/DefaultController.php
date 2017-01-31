@@ -52,25 +52,4 @@ class DefaultController extends Controller
     }
 
 
-    /**
-     * Export to PDF
-     *
-     * @Route("/reglement/pdf", name="reglement_pdf")
-     */
-    public function pdfAction()
-    {
-        $html = $this->renderView('FrontBundle:Default:reglement_pdf.html.twig', array(
-
-        ));
-
-        return new Response(
-            $this->get('knp_snappy.pdf')->getOutputFromHtml($html),
-            200,
-            array(
-                'Content-Type'          => 'application/pdf',
-                'Content-Disposition'   => 'attachment; filename="file.pdf"'
-            )
-        );
-
-    }
 }

@@ -1,14 +1,18 @@
 div.text {
     text-align: justify;
 }
-.img{
-    width: 20%;
-
+.img-pdf{
+    width: 15%;
+    margin-bottom: 50px;
 }
-
-h2 {
+.big-title{
+    text-align: center;
+    margin-top: 100px;
+}
+.title-pdf{
     text-align: center;
     margin-bottom: 50px;
+    margin-top: 80px;
 }
 .container.reglement{
     margin-top: 100px;
@@ -23,7 +27,7 @@ h2 {
     margin-bottom: 10px;
 }
 .signature{
-    margin-top: 50px;
+    margin-top: 100px;
 
 }
 
@@ -55,6 +59,7 @@ h2 {
     text-decoration: none;
     background: black;
     color: white;
+    margin: 0 auto;
 
 }
 .btn-reglement:hover{

@@ -7,16 +7,18 @@
 
 {% block content %}
     <div class="container">
-        <h1 class="title_actu"><i class="fa fa-pagelines pagelines_title" aria-hidden="true"></i> Notre actu</h1>
+        {% if limit != null %}
+        <h1 class="title_actu"><i class="fa fa-pagelines pagelines_title" aria-hidden="true"></i>  Toutes nos actu</h1>
+        {% endif %}
         {% for article in listArticles %}
             <div class="card">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <picture>
-                            <img class="img-responsive img-article" src="{{ asset('upload/' ~  article.photo )}}">
+                            <img class="img-article" src="{{ asset('upload/' ~  article.photo )}}">
                         </picture>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="card--info">
                             <h3 class="category">{{ article.date | localizeddate('medium', 'none', app.request.attributes.get('_locale') ) }}</h3>
                             <h2 class="title">
