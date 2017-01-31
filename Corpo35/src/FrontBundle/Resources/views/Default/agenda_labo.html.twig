@@ -32,13 +32,13 @@
                         <tr>
                             <th>DATE</th>
                             <th>MATIN</th>
-                            <th>APRES-MIDI</th>
+                            <th>APRÈS-MIDI</th>
                         </tr>
                         </thead>
                         <tbody>
                           {% for agenda_Labo in listAgendas %}
                         <tr>
-                            <td data-title="DATE">{{ agenda_Labo.date|date('d-m-Y') }}</td>
+                            <td data-title="DATE">{{ agenda_Labo.date | localizeddate('short', 'none', app.request.attributes.get('_locale') ) }}</td>
                             <td data-title="HORAIRE AM">{{ agenda_Labo.heureDebutAm|date('H:i')}} à {{ agenda_Labo.heureFinAm|date('H:i')}}</td>
                             <td data-title="HORAIRE PM">{{ agenda_Labo.heureDebutPm|date('H:i')}} à {{ agenda_Labo.heureFinPm|date('H:i')}}</td>
                         </tr>

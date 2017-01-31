@@ -7,49 +7,51 @@
 
 
 {% block content %}
+<div class="container">
+    <hr class="separe">
 <h1 class="text-center">Edition de mon profil</h1>
 <p class="attention text-center">Attention pour éditer votre profil vous devez telecharger à nouveau votre CV, votre photo ainsi que vos documents.</p>
-
+    <hr class="separe">
 {{ form_start(form) }}
 <div class="form-group">
     <h3 class="text-center titreForm"> {{ 'Informations générales'| trans }}</h3>
-    <hr class="separe">
-    <div class="text-center">{{ form_row(form.nom , { 'attr': {'label': 'Nom*'| trans,   'placeholder': 'Votre nom ici'|trans} }) }} </div>
-    <hr class="separe">
+    {#<hr class="separe">#}
+    <div class="form text-center">{{ form_row(form.nom , { 'attr': {'label': 'Nom*'| trans,   'placeholder': 'Votre nom ici'|trans} }) }} </div>
+    {#<hr class="separe">#}
     <div class="form">{{ form_row(form.prenom , { 'attr': {'label': 'Prénom'| trans,   'placeholder': 'Votre prénom ici'|trans} }) }}</div>
-    <hr class="separe">
+    {#<hr class="separe">#}
     <div class="form">{{ form_row(form.date_naissance , { 'attr': {'label': 'Date de naissance'| trans } } ) }}</div>
-    <hr class="separe">
+    {#<hr class="separe">#}
     <div class="form">{{ form_row(form.photo) }}</div>
-    <hr class="separe">
+    {#<hr class="separe">#}
     <div class="form">{{ form_row(form.cv, { 'attr': {'label': 'CV (au format PDF)'| trans } } ) }}</div>
-    <hr class="separe">
+    {#<hr class="separe">#}
     <div class="form">{{ form_row(form.numrue , { 'attr': {'label': 'Numéro de rue'| trans ,   'placeholder': 'Votre numéro de rue ici'|trans  } }) }}</div>
-    <hr class="separe">
+    {#<hr class="separe">#}
     <div class="form">{{ form_row(form.adresse  , { 'attr': {'label': 'Adresse'| trans ,   'placeholder': 'Votre adresse ici'|trans  } }) }}</div>
-    <hr class="separe">
+    {#<hr class="separe">#}
     <div class="form">{{ form_row(form.ville , { 'attr': {'label': 'Ville'| trans ,   'placeholder': 'Votre ville ici'|trans  } }) }}</div>
-    <hr class="separe">
+    {#<hr class="separe">#}
     <div class="form">{{ form_row(form.cp , { 'attr': {'label': 'Code postal'| trans ,   'placeholder': 'Votre code postal'|trans  } }) }}</div>
-    <hr class="separe">
+    {#<hr class="separe">#}
     <div class="form">{{ form_row(form.tel , { 'attr': {'label': 'Téléphone'| trans ,   'placeholder': 'Votre numéro de téléphone ici'|trans  } }) }}</div>
-    <hr class="separe">
+    {#<hr class="separe">#}
     <div class="form">{{ form_row(form.mail) }}</div>
-    <hr class="separe">
+    {#<hr class="separe">#}
     <div class="form">{{ form_row(form.presentation , { 'attr': {'label': 'Présentation générale'| trans  } }) }}</div>
-    <hr class="separe">
+    {#<hr class="separe">#}
     <div class="form">{{ form_row(form.blog , { 'attr': {'label': 'Blog/site personnel ou autres'| trans  } }) }}</div>
     <hr class="separe">
     <h3 class="text-center titreForm"> {{ 'Informations concernant le concours'| trans }}</h3>
     <hr class="separe">
     <div class="form">{{ form_row(form.motivation) }}</div>
-    <hr class="separe">
+    {#<hr class="separe">#}
     <div class="form">{{ form_row(form.profession) }}</div>
-    <hr class="separe">
+    {#<hr class="separe">#}
     <div class="form">{{ form_row(form.formation) }}</div>
-    <hr class="separe">
+    {#<hr class="separe">#}
     <div class="form">{{ form_row(form.competence) }}</div>
-    <hr class="separe">
+    {#<hr class="separe">#}
     <span class="attention">{{ 'Pour le concours une formule de votre création vous sera demandé. Si vous en possédez déjà une, merci de la télécharger ici. Sinon vous aurez la possibilité d\'éditer votre profil ultérieurement.' | trans }}</span><br/>
     <div class="form">{{ form_row(form.formule) }}</div>
     <hr class="separe">
@@ -66,19 +68,19 @@
             <div class="form">
                 <li>{{ form_row(document.type) }}</li>
             </div>
-            <hr class="separe">
+            {#<hr class="separe">#}
             <div class="form">
                 <li>{{ form_row(document.contenu) }}</li>
             </div>
-            <hr class="separe">
+            {#<hr class="separe">#}
             <div class="form">
                 <li>Et/ou</li>
             </div>
-            <hr class="separe">
+            {#<hr class="separe">#}
             <div class="form">
                 <li>{{ form_row(document.lien) }}</li>
             </div>
-            <hr class="separe">
+            {#<hr class="separe">#}
         </ul>
     {% endfor %}
 
@@ -100,7 +102,8 @@
         </div>
     </div>
     {{ form_end(form) }}
-
+</div>
+</div>
     <script>
         var $collectionHolder;
 
