@@ -10,36 +10,35 @@
     <div class="container partner">
 
         <h1 class="text-center"><span>{{ partenaire.nom }}</span></h1>
-        <div class="container-fluid">
-                {% if app.request.locale =='fr' %}
-                    <p class=" lead resume">{{ partenaire.resume }}</p>
-                {% else %}
-                    <p class="lead resume">{{ partenaire.resumeEn}}</p>
-                {% endif %}
-            <div class="row">
-                <div class="col-md-9">
-                    <div class="partner-body">
-                        <img class="img" src="{{ asset('upload/' ~  partenaire.logo )}}" alt="image partenaire 35 rue Damiette"/>
-                        {% if app.request.locale =='fr' %}
-                            <p class="partner-content">{{ partenaire.contenu}}</p>
-                        {% else %}
-                            <p class="partner-content">{{ partenaire.contenuEn}}</p>
-                        {% endif %}
-                    </div>
+
+            {% if app.request.locale =='fr' %}
+                <p class=" lead resume">{{ partenaire.resume }}</p>
+            {% else %}
+                <p class="lead resume">{{ partenaire.resumeEn}}</p>
+            {% endif %}
+
+        <div class="row">
+            <div class="col-md-9">
+                <div class="partner-body">
+                    <img class="img" src="{{ asset('upload/' ~  partenaire.logo )}}" alt="image partenaire 35 rue Damiette"/>
+                    {% if app.request.locale =='fr' %}
+                        <p class="partner-content">{{ partenaire.contenu}}</p>
+                    {% else %}
+                        <p class="partner-content">{{ partenaire.contenuEn}}</p>
+                    {% endif %}
                 </div>
-                <div class="col-md-3 ">
-                    <div class="row partner-contact">
-                        <div class="col-md-12 centreVerticalement">
-                            <p class="centreVerticalement"><a href="{{ partenaire.website | trans }}" target=_blank><i class="fa fa-globe" aria-hidden="true">  Site web</i></a></p>
-                        </div>
-                        <div class="col-md-12 centreVerticalement">
-                            <p class="centreVerticalement"><i class="fa fa-paper-plane-o" aria-hidden="true"> {{ partenaire.email }} </i></p>
-                        </div>
-                        <div class="col-md-12 centreVerticalement">
-                            <p class="centreVerticalement"><i class="fa fa-phone" aria-hidden="true">{{ partenaire.phone }} </i></p>
-                        </div>
+            </div>
+            <div class="col-md-3 partner-contact">
+                    <div class="col-md-12 centreVerticalement">
+
+                        <p class="centreVerticalement"><a href="{{ partenaire.website | trans }}" target=_blank><i class="fa fa-globe" aria-hidden="true">  Site web</i></a></p>
                     </div>
-                </div>
+                    <div class="col-md-12 centreVerticalement">
+                        <p class="centreVerticalement"><i class="fa fa-paper-plane-o" aria-hidden="true"> {{ partenaire.email }} </i></p>
+                    </div>
+                    <div class="col-md-12 centreVerticalement">
+                        <p class="centreVerticalement"><i class="fa fa-phone" aria-hidden="true"> {{ partenaire.phone }} </i></p>
+                    </div>
             </div>
         </div>
     </div>

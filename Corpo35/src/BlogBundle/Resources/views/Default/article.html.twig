@@ -15,7 +15,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <picture>
-                            <img class="img-responsive img-article" src="{{ asset('upload/' ~  article.photo )}}">
+                            <img class="img-blog" src="{{ asset('upload/' ~  article.photo )}}">
                         </picture>
                     </div>
                     <div class="col-md-6">
@@ -28,6 +28,8 @@
                             <p class="teaser">
                                 {{ article.contenu | truncate(150, true, "...")}}
                             </p>
+                            <p class="count-comment">Commentaire {{ article.commentaires | length }}</p>
+
                             <a href="{{ path('new-comment', {'id':article.id}) }}" class="button">
                                 Lire Plus...
                             </a>
