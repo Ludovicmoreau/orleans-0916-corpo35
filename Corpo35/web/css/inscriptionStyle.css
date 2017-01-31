@@ -1,6 +1,31 @@
 .inscription{
     margin-top: 50px;
+}
 
+.btn-reglement {
+    color:black;
+    border:1px solid black;
+    height:40px;
+    background-color:transparent;
+    transition: all 0.8s ease-out;
+    margin-top:40px;
+    margin-bottom:5vh
+}
+
+.btn-reglement:hover{
+    text-decoration: none;
+    color:#fff;
+    border:1px solid #fff;
+    height:40px;
+    background-color:black;
+}
+
+.linkInscription {
+    font-style: normal;
+}
+
+.linkInscription:hover{
+    text-decoration: none;
 }
 
 .titreForm {
