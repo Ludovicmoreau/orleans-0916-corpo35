@@ -1,4 +1,9 @@
 {% if is_granted ('ROLE_JURY') %}
+
+    {% block stylesheet %}
+        <link rel="stylesheet" href="{{ asset('css/backvote.css') }}">
+    {% endblock %}
+
     <div class="row">
         <div class="attention">
             <h3>Attention Chaque vote est définitif.</h3>
@@ -6,7 +11,7 @@
         {{ form_start(formCommentaire, {'action': path('jure_vote', {id:candidat.id})}) }}
         {{ form_row(formCommentaire.note) }}
         {{ form_row(formCommentaire.commentaire) }}
-        <input type="submit" value="Voter" class="btn-success btn center-block"/>
+        <input type="submit" value="Voter" class="btn-reglement center-block"/>
         {{ form_end(formCommentaire) }}
     </div>
 {% endif %}

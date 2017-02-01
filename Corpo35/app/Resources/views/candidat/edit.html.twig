@@ -92,13 +92,14 @@
             </label>
         </div>
     {% endif %}
-    <div class="row creer">
+    <div class="row bouton creer">
         <div class="col-xs-6">
-            <input type="submit" value="Editer" class="btn-success btn center-block"/>
+            <input type="submit" value=" {{ 'Editer'| trans }}" class="btn btn-reglement center-block "/>
         </div>
         <div class="col-xs-6">
-            <a href="{{ path('index') }}"><input type="button" value="Retourner à l'accueil"
-                                                 class="btn-primary btn center-block"></a>
+            <a href="{{ path('index') }}" class="linkInscription">
+                <input type="button" class="btn btn-reglement center-block " value="{{ 'Retour'| trans }}">
+            </a>
         </div>
     </div>
     {{ form_end(form) }}
