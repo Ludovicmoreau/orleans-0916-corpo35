@@ -17,6 +17,7 @@ a {
     font-family: 'Montserrat-bold', sans-serif;
     color: black;
     font-style: italic;
+    font-size: 1em;
 }
 
 a:hover {
