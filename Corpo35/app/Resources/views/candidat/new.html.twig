@@ -98,43 +98,6 @@
                     <div class="form">
                         {{ form_label(form.competence, 'Autres formations et compétences'| trans) }}
                         {{ form_widget(form.competence,  { 'attr': {'placeholder': 'Autres formations'|trans  } }) }}</div>
-                    {#<hr class="separe">#}
-                    <div class="form">
-                        <span class="attention">{{ 'Pour le concours une formule de votre création vous sera demandé. Si vous en possédez déjà une, merci de la télécharger ici. Sinon vous aurez la possibilité d\'éditer votre profil ultérieurement.' | trans }}</span><br/>
-                        {{ form_label(form.formule, 'Votre Formule'| trans) }}</div>
-                        {{ form_widget(form.formule) }}</div>
-                    {#<hr class="separe">#}
-                    {#<div class="form">{{ form_row(form.promotion) }}</div>#}
-                    {#<hr class="separe">#}
-            </div>
-            <div class="row inscription">
-                    {% for document in form.documents %}
-                        <hr class="separe">
-                        <h3 class="text-center titreForm">Documents</h3>
-                        <p class="text-center">
-                            {{ 'Vous pouvez télécharger des documents qui vous ont inspiré pour votre création.'| trans }}<br/>
-                            {{ 'Les types de documents supportés sont "image", "vidéo", "musique" ou "pdf"'| trans }}.<br/>
-                            <span class="attention"> {{ 'Attention les documents ne peuvent pas dépasser 2MB'| trans }}</span>.<br/>
-                             {{ 'Vous pouvez également ajouter un lien vers un site externe'| trans }}.
-                        </p>
-                        <hr class="separe">
-                        <ul class="documents" data-prototype="{{ form_widget(form.documents.vars.prototype)|e('html_attr') }}">
-                            <div class="form"><li>
-                                    {{ form_label(document.type, 'Type de documents'| trans) }}
-                                    {{ form_widget(document.type) }}</li></div>
-                            {#<hr class="separe">#}
-                            <div class="form"><li>
-                                    {{ form_label(document.contenu, 'Contenu'| trans) }}
-                                    {{ form_widget(document.contenu) }}</li></div>
-                            {#<hr class="separe">#}
-                            <div class="form"><li> {{ 'Et/ou'| trans }}</li></div>
-                            {#<hr class="separe">#}
-                            <div class="form"><li>
-                                    {{ form_label(document.lien, 'Lien externe'| trans) }}
-                                    {{ form_widget(document.lien, { 'attr': {'label': ''| trans } }) }}</li></div>
-                            {#<hr class="separe">#}
-                        </ul>
-                    {% endfor %}
             </div>
             <div class="row bouton creer">
                 <div class="col-xs-6">

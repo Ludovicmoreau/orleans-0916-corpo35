@@ -279,7 +279,7 @@ class CandidatController extends Controller
         }
 
         $deleteForm = $this->createDeleteForm($candidat);
-        $form = $this->createForm('BackBundle\Form\CandidatType', $candidat);
+        $form = $this->createForm('BackBundle\Form\CandidatEditType', $candidat);
         $form->handleRequest($request);
 
         $document = new Document();
