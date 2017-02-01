@@ -4,7 +4,7 @@
 
 .linkNavbar {
     color: white!important;
-    font-size: 90%;
+    font-size: 1em;
 }
 
 .linkNavbar:hover {
@@ -47,6 +47,7 @@
 
 .linkNavbar2 {
     color: black;
+    font-size: 0.9em;
 }
 
 .linkNavbar2:hover {

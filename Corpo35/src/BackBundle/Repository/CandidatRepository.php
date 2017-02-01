@@ -20,6 +20,7 @@ class CandidatRepository extends \Doctrine\ORM\EntityRepository
                 ->setParameter('classement', $data['classement'])
             ->orWhere('c.promotion = :promo')
                 ->setParameter('promo', $data['promo'])
+            ->OrderBy('')
 //            ->orWhere('c.nom LIKE :nom')
 //                ->setParameter('nom', '%' . $data['nom'] . '%')
                 ;
