@@ -3,10 +3,14 @@
     padding: 0;
 }
 
+/*div.titre-concours {*/
+    /*font-family: 'Montserrat', serif; !important;*/
+    /*color: black;*/
+/*}*/
+
 .title {
     color:white;
-   padding: 30px;
-
+    padding: 30px;
 }
 a:hover{
     color: rgb(190,190,190);
