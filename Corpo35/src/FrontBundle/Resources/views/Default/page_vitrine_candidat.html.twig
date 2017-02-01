@@ -35,13 +35,12 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12">
-                            <p>Mail : <a href="mailto:{{ candidat.mail }} ">{{ candidat.mail }}</a></p>
+                            <p>Mail: <a href="mailto:{{ candidat.mail }} ">{{ candidat.mail }}</a></p>
                         </div>
                         <div class="col-xs-12">
-                            {% if candidat.blog is not null %}
-                            <p>Blog : <a href="{{ candidat.blog }}" target="_blank"> {{ candidat.blog }}</a></p>
-                                {% else %}
-                                    {% endif %}
+                            {% if candidat.blog %}
+                                <p>Blog: <a href="{{ candidat.blog }}" target="_blank"> {{ candidat.blog }}</a></p>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="row">
