@@ -7,10 +7,10 @@
     <div class="container logo-partenaire">
         <div class="row partenaire">
             <div class="col-xs-12">
-                <div class="rio-promos">
+                <div class="align-middle">
                     {% for partenaire in listPartenaires %}
                         <a href="{{ path('page_partenaire', {'id':partenaire.id})}}">
-                            <img src="{{asset('upload/' ~  partenaire.logo )}}">
+                            <img class="align-baseline" style="vertical-align: middle; text-align: center;" src="{{asset('upload/' ~  partenaire.logo )}}">
                         </a>
                     {% endfor %}
                 </div>
@@ -21,7 +21,7 @@
 
     <script>
         jQuery(document).ready(function($) {
-            $('.rio-promos').slick({
+            $('.align-middle').slick({
                 dots: false,
                 infinite: true,
                 speed: 1500,
