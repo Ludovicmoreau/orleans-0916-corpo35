@@ -32,60 +32,107 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid candidat">
-        <div class="row">
-            {% for candidat in candidats %}
-            <a href="{{ path('candidat_show', { 'id': candidat.id }) }}" class="linkCandidat">
-                <div class="col-xs-offset-1 col-xs-3  col-md-3 blockCandidat">
-                    <h3 class="text-center">{{ candidat.nom }} {{ candidat.prenom }}</h3>
-                    <p><img src="{{ asset('upload/' ~ candidat.photo) }}" class="img-responsive photoCandidat center-block"></p>
-                    <div class="well">
-                        <p class="text-center">Candidat validé: {% if candidat.decision %}Oui{% else %}Non{% endif %}</p>
-                        {% if is_granted ('ROLE_ADMIN') %}
-                            {% set totalNote = 0  %}
-                            {% for vote in candidat.votes %}
-                                {% set totalNote = totalNote + vote.note %}
-                            {% endfor %}
-                            <p class="text-center">Total des notes: {{ totalNote }}</p>
-                            {% if candidat.classement != null %}
-                                {% if candidat.classement == 1 %}
-                                    <p class="text-center">Classement du candidat: <br/>{{ candidat.classement }}er</p>
-                                {% else %}
-                                    <p class="text-center">Classement du candidat: <br/>{{ candidat.classement }}ème</p>
-                                {% endif %}
-                            {% else %}
-                                <p class="text-center">Classement du candidat: <br/>Pas encore de classement pour ce candidat</p>
-                            {% endif %}
-                        {% endif %}
-                    </div>
-                    <p>{{ candidat.numrue }} {{ candidat.adresse }} {{ candidat.ville }} {{ candidat.cp }}</p>
-                    <p>{{ candidat.mail }}</p>
-                    <p>{{ candidat.tel }}</p>
-                    <p>{{ candidat.blog }}</p>
-                    <p>{{ candidat.presentation |truncate(50, true,'...')}}</p>
-                    <p>{{ candidat.motivation |truncate(50, true,'...')}}</p>
-                    <p>{{ candidat.profession }}</p>
-                    {% if candidat.formation is not null %}
-                        <p>{{ candidat.formation |truncate(50, true,'...')}}</p>
+<div class="container">
+    <table class="table table-hover table-condensed">
+        <thead>
+        <tr>
+            <th class="text-center">Nom</th>
+            <th class="text-center">Prénom</th>
+            <th class="text-center">Statut</th>
+            <th class="text-center">Note</th>
+            <th class="text-center">Classement</th>
+            <th class="text-center">Mise en avant</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for candidat in candidats %}
+            <tr class="text-center">
+                <td>
+                    <a href="{{ path('candidat_show', { 'id': candidat.id }) }}" class="linkCandidat">{{ candidat.nom }}</a>
+                </td>
+                <td>
+                    <a href="{{ path('candidat_show', { 'id': candidat.id }) }}" class="linkCandidat">{{ candidat.prenom }}</a>
+                </td>
+                <td>{% if candidat.decision == 1 %}
+                        Validé
+                    {% elseif candidat.decision == 0%}
+                        Non-Validé
                     {% else %}
-                        <p>Pas de formation liée à la parfumerie</p>
+                        En attente
                     {% endif %}
-                    {% if candidat.competence is not null %}
-                        <p>{{ candidat.competence |truncate(50, true,'...') }}</p>
-                    {% else %}
-                        <p>Pas d'autres formations</p>
-                    {% endif %}
-                    {% if candidat.promotion.year is defined %}
-                        <p>{{ candidat.promotion.year }}</p>
-                    {% endif %}
-                    <p>
-                        {% if is_granted ('ROLE_ADMIN') %}
-                            <a href="{{ path('recandidatenavant' , { 'id': candidat.id }) }}" class="linkMisEnAvant"> Mettre en avant le candidat</a>
-                        {% endif %}
-                    </p>
-                </div>
-                </a>
-            {% endfor %}
-        </div>
-    </div>
+                </td>
+                <td>
+                    {% set totalNote = 0  %}
+                        {% for vote in candidat.votes %}
+                            {% set totalNote = totalNote + vote.note %}
+                        {% endfor %}
+                    {{ totalNote }}
+                </td>
+                <td>{{ candidat.classement }}</td>
+                <td>
+                    <a href="{{ path('recandidatenavant' , { 'id': candidat.id }) }}" class="linkMisEnAvant"> Mettre en avant le candidat</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot></tfoot>
+    </table>
+</div>
+
+    {#<div class="container-fluid candidat">#}
+        {#<div class="row">#}
+            {#{% for candidat in candidats %}#}
+            {#<a href="{{ path('candidat_show', { 'id': candidat.id }) }}" class="linkCandidat">#}
+                {#<div class="col-xs-offset-1 col-xs-3  col-md-3 blockCandidat">#}
+                    {#<h3 class="text-center">{{ candidat.nom }} {{ candidat.prenom }}</h3>#}
+                    {#<p><img src="{{ asset('upload/' ~ candidat.photo) }}" class="img-responsive photoCandidat center-block"></p>#}
+                    {#<div class="well">#}
+                        {#<p class="text-center">Candidat validé: {% if candidat.decision %}Oui{% else %}Non{% endif %}</p>#}
+                        {#{% if is_granted ('ROLE_ADMIN') %}#}
+                            {#{% set totalNote = 0  %}#}
+                            {#{% for vote in candidat.votes %}#}
+                                {#{% set totalNote = totalNote + vote.note %}#}
+                            {#{% endfor %}#}
+                            {#<p class="text-center">Total des notes: {{ totalNote }}</p>#}
+                            {#{% if candidat.classement != null %}#}
+                                {#{% if candidat.classement == 1 %}#}
+                                    {#<p class="text-center">Classement du candidat: <br/>{{ candidat.classement }}er</p>#}
+                                {#{% else %}#}
+                                    {#<p class="text-center">Classement du candidat: <br/>{{ candidat.classement }}ème</p>#}
+                                {#{% endif %}#}
+                            {#{% else %}#}
+                                {#<p class="text-center">Classement du candidat: <br/>Pas encore de classement pour ce candidat</p>#}
+                            {#{% endif %}#}
+                        {#{% endif %}#}
+                    {#</div>#}
+                    {#<p>{{ candidat.numrue }} {{ candidat.adresse }} {{ candidat.ville }} {{ candidat.cp }}</p>#}
+                    {#<p>{{ candidat.mail }}</p>#}
+                    {#<p>{{ candidat.tel }}</p>#}
+                    {#<p>{{ candidat.blog }}</p>#}
+                    {#<p>{{ candidat.presentation |truncate(50, true,'...')}}</p>#}
+                    {#<p>{{ candidat.motivation |truncate(50, true,'...')}}</p>#}
+                    {#<p>{{ candidat.profession }}</p>#}
+                    {#{% if candidat.formation is not null %}#}
+                        {#<p>{{ candidat.formation |truncate(50, true,'...')}}</p>#}
+                    {#{% else %}#}
+                        {#<p>Pas de formation liée à la parfumerie</p>#}
+                    {#{% endif %}#}
+                    {#{% if candidat.competence is not null %}#}
+                        {#<p>{{ candidat.competence |truncate(50, true,'...') }}</p>#}
+                    {#{% else %}#}
+                        {#<p>Pas d'autres formations</p>#}
+                    {#{% endif %}#}
+                    {#{% if candidat.promotion.year is defined %}#}
+                        {#<p>{{ candidat.promotion.year }}</p>#}
+                    {#{% endif %}#}
+                    {#<p>#}
+                        {#{% if is_granted ('ROLE_ADMIN') %}#}
+                            {#<a href="{{ path('recandidatenavant' , { 'id': candidat.id }) }}" class="linkMisEnAvant"> Mettre en avant le candidat</a>#}
+                        {#{% endif %}#}
+                    {#</p>#}
+                {#</div>#}
+                {#</a>#}
+            {#{% endfor %}#}
+        {#</div>#}
+    {#</div>#}
 {% endblock %}
