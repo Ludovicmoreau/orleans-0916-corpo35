@@ -2,22 +2,19 @@
     margin-top: 50px;
     margin-bottom: 50px;
 }
-.partenaire{
+
+.align-middle {
 
 }
-.rio-promos {
-    width: auto;
-    margin: 0 auto;
-
-}
-.rio-promos img {
-    margin : 0 auto;
+.align-middle img {
     width: 150px;
     -webkit-filter: grayscale(200%);
+    alignment-baseline: middle;
+    margin : 0 auto;
 
 }
 
-.rio-promos img:hover {
+.align-middle img:hover {
     -webkit-filter: grayscale(0%);
 }
 
