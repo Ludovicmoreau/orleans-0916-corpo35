@@ -64,36 +64,28 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-12 text-center">
+                    <div class="col-xs-12">
                         <p>{{ candidat.presentation }}</p>
                     </div>
                 </div>
             </div>
             <div class="ombre">
-                <div class="row text-center">
-                    <div class="col-xs-4">
-                        <h3>Profession</h3>
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <p><i class="fa fa-briefcase" aria-hidden="true"></i> {{ candidat.profession }}</p>
-                            </div>
-                        </div>
+                <div class="row">
+                    <div class="col-xs-12 ">
+                        <h3 class="text-center">Profession</h3>
+                            <p><i class="fa fa-briefcase" aria-hidden="true"></i> {{ candidat.profession }}</p>
                     </div>
-                    <div class="col-xs-4">
-                        <h3>Formation</h3>
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <i class="fa fa-graduation-cap" aria-hidden="true"></i> {{ candidat.formation }}</p>
-                            </div>
-                        </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h3 class="text-center">Formation</h3>
+                            <p><i class="fa fa-graduation-cap" aria-hidden="true"></i> {{ candidat.formation }}</p>
                     </div>
-                    <div class="col-xs-4">
-                        <h3>Autres compétences/formations</h3>
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <p><i class="fa fa-graduation-cap" aria-hidden="true"></i> {{ candidat.competence }}</p>
-                            </div>
-                        </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h3 class="text-center">Autres compétences/formations</h3>
+                            <p><i class="fa fa-graduation-cap" aria-hidden="true"></i> {{ candidat.competence }}</p>
                     </div>
                 </div>
             </div>
@@ -238,7 +230,8 @@
                             {{ form_start(form) }}
                                 {{ form_row(form.decision) }}
                                 {{ form_row(form.classement) }}
-                                <input type="submit" value="Valider" class="btn-success btn center-block"/>
+                            <p class="attention">Attention lors de la validation, ou non du candidat un mail lui sera automatiquement envoyé afin de lui faire part de votre décision.</p>
+                            <input type="submit" value="Valider" class="btn-success btn center-block"/>
                             {{ form_end(form) }}
                         </div>
             </div>

@@ -181,7 +181,6 @@ class CandidatController extends Controller
 
         $em = $this->getDoctrine()->getManager();
         $users = $em->getRepository('BackBundle:User')->findAll();
-        $votes = $em->getRepository('BackBundle:Vote')->findAll();
 
 
         $form = $this->createForm('BackBundle\Form\DecisionType', $candidat);
@@ -190,10 +189,36 @@ class CandidatController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
+            if($candidat->getDecision(1)) {
+                $message = \Swift_Message::newInstance()
+                    ->setSubject('Concours Corpo35')
+                    ->setFrom(array('contactcorpo35@gmail.com' => 'Les jurés du concours Corpo35'))
+                    ->setTo(array($candidat->getMail() => $candidat->getPrenom()))
+                    ->setCharset('UTF-8')
+                    ->setContentType('text/html')
+                    ->setBody(
+                        $this->renderView('BackBundle:Default:validationEmail.html.twig'));
+                // send mail
+                $this->get('mailer')->send($message);
+            }
+            else  {
+                $message = \Swift_Message::newInstance()
+                    ->setSubject('Concours Corpo35')
+                    ->setFrom(array('contactcorpo35@gmail.com' => 'Les jurés du concours Corpo35'))
+                    ->setTo(array($candidat->getMail() => $candidat->getPrenom()))
+                    ->setCharset('UTF-8')
+                    ->setContentType('text/html')
+                    ->setBody(
+                        $this->renderView('BackBundle:Default:nonValidationEmail.html.twig'));
+                // send mail
+                $this->get('mailer')->send($message);
+            }
+
             return $this->redirectToRoute('candidat_index');
         }
 
         $deleteForm = $this->createDeleteForm($candidat);
+
         return $this->render('candidat/show.html.twig', array(
             'users'=>$users,
             'candidat' => $candidat,
@@ -254,7 +279,7 @@ class CandidatController extends Controller
         }
 
         $deleteForm = $this->createDeleteForm($candidat);
-        $form = $this->createForm('BackBundle\Form\CandidatType', $candidat);
+        $form = $this->createForm('BackBundle\Form\CandidatEditType', $candidat);
         $form->handleRequest($request);
 
         $document = new Document();

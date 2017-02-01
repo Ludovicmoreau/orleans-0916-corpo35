@@ -27,7 +27,7 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Validator\Constraints\Choice;
 use FOS\UserBundle\Entity\User;
 
-class CandidatType extends AbstractType
+class CandidatEditType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -165,6 +165,24 @@ class CandidatType extends AbstractType
                     'aria-label'=>'Vos motivations'
                 )
             ))
+            ->add('formule', FileType::class, array(
+                'data_class'=>null,
+                'required'=>false,
+                'label'=>'Votre Formule',
+                'attr'=>array(
+                    'class'=>'center-block',
+                    'aria-label'=> 'CV'
+                )
+            ))
+            ->add('documents', CollectionType::class, array(
+                'data_class'=>null,
+                'entry_type'=>DocumentType::class,
+                'allow_add'=>true,
+                'allow_delete'=>true,
+                'by_reference'=>false,
+                'required'=>false,
+            ))
+
         ;
     }
 
