@@ -8,7 +8,6 @@ a.active {
 
 .nomCandidat {
     font-family: 'Playfair Display', serif;
-    font-size: 200%;
     color: white;
 }
 
@@ -21,11 +20,7 @@ section {
 }
 section h2 {
     margin: 0;
-    font-size: 2.5em;
-}
-section.success {
-    background: #221616;
-    color: white;
+    font-size: 2em;
 }
 @media (max-width: 767px) {
     section {
@@ -35,9 +30,8 @@ section.success {
         padding-top: 75px;
     }
 }
-
 #profil {
-    height: 30vw;
+    height: 100%;
 }
 
 #portfolio .portfolio-item {

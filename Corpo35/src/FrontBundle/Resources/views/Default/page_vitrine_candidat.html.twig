@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col-xs-12">
                 <h2 class="nomPrenom text-center">{{ candidat.prenom }}<br/>{{ candidat.nom }}</h2>
@@ -35,10 +35,13 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12">
-                            <p>mail: <a href="mailto:{{ candidat.mail }} ">{{ candidat.mail }}</a></p>
+                            <p>Mail : <a href="mailto:{{ candidat.mail }} ">{{ candidat.mail }}</a></p>
                         </div>
                         <div class="col-xs-12">
-                            <p>blog: <a href="{{ candidat.blog }}" target="_blank"> {{ candidat.blog }}</a></p>
+                            {% if candidat.blog is not null %}
+                            <p>Blog : <a href="{{ candidat.blog }}" target="_blank"> {{ candidat.blog }}</a></p>
+                                {% else %}
+                                    {% endif %}
                         </div>
                     </div>
                     <div class="row">
