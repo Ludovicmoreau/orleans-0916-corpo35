@@ -10,96 +10,194 @@
             {% endfor %}
         </div>
     {% endif %}
-
-    <section>
-        <div class="container concours">
-            {% if app.request.locale == 'fr' %}
-            <h1 class="text-center"> {{ presentation.titre }}</h1>
-            {% else %}
-            <h1 class="text-center"> {{ presentation.title }}</h1>
-            {% endif %}
+        <div class="container">
             <div class="row">
-                <aside>
-                    <div class="col-lg-4 col-md-4 col-sm-4">
-                        <article>
-                            {% if app.request.locale == 'fr' %}
-                            <h2 class="titre-concours">{{ presentation.soustitreun }}</h2>
-                            {% else %}
-                            <h2 class="titre-concours">{{ presentation.subtitleone }}</h2>
-                            {% endif %}
+                <div class="col-xs-12">
+                    {% if app.request.locale == 'fr' %}
+                        <h1 class="text-center"> {{ presentation.titre }}</h1>
+                    {% else %}
+                        <h1 class="text-center"> {{ presentation.title }}</h1>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="panel-body">
+                        {% if app.request.locale == 'fr' %}
+                        <p class="text-concours">{{ presentation.paragrapheun }}</p>
+                        {% else %}
+                        <p class="text-concours">{{ presentation.sectionone }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="panel-group" id="accordion">
+                    <div class="panel">
+                        <div class="col-xs-6">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                                    {% if app.request.locale == 'fr' %}
+                                    <h2 class="titre-concours text-center">{{ presentation.soustitredeux }}</h2>
+                                    {% else %}
+                                    <h2 class="titre-concours text-center">{{ presentation.subtitletwo }}</h2>
+                                    {% endif %}
+                                </a>
+                            </h4>
+                            <div class="enLirePlus">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                                    {% if app.request.locale == 'fr' %}
+                                        <p class="text-center">En lire plus...</p>
+                                    {% else %}
+                                        <p class="text-center">Read more...</p>
+                                    {% endif %}
+                                </a>
+                            </div>
+                            <div id="collapse2" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    {% if app.request.locale == 'fr' %}
+                                    <p>{{ presentation.paragraphedeux }}</p>
+                                    {% else %}
+                                    <p>{{ presentation.sectiontwo }}</p>
+                                    {% endif %}
+                                    {% if app.request.locale == 'fr' %}
+                                    <p>{{ presentation.paragraphetrois }}</p>
+                                    {% else %}
+                                    <p>{{ presentation.sectionthree }}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
                                 {% if app.request.locale == 'fr' %}
-                                <p class="text-concours">
-                                    {{ presentation.paragrapheun }}
-                                </p>
+                                <h2 class="titre-concours text-center">{{ presentation.soustitretrois }}</h2>
                                 {% else %}
-                                <p class="text-concours">
-                                    {{ presentation.sectionone }}
-                                </p>
+                                <h2 class="titre-concours text-center">{{ presentation.subtitlethree }}</h2>
                                 {% endif %}
-                        </article>
+                            </a>
+                        </h4>
+                        <div class="enLirePlus">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                                {% if app.request.locale == 'fr' %}
+                                    <p class="text-center">En lire plus...</p>
+                                {% else %}
+                                    <p class="text-center">Read more...</p>
+                                {% endif %}
+                            </a>
+                        </div>
+                        <div id="collapse3" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                {% if app.request.locale == 'fr' %}
+                                <p>{{ presentation.paragraphequatre }}</p>
+                                {% else %}
+                                <p>{{ presentation.sectionfour }}</p>
+                                {% endif %}
+                                <br />
+                                {% if app.request.locale == 'fr' %}
+                                <p>{{ presentation.paragraphecinq }}</p>
+                                {% else %}
+                                <p>{{ presentation.sectionfive }}</p>
+                                {% endif %}
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="col-lg-4 col-md-4 col-sm-4">
-                        <article>
-                            {% if app.request.locale == 'fr' %}
-                            <h2 class="titre-concours">{{ presentation.soustitredeux }}</h2>
-                            {% else %}
-                            <h2 class="titre-concours">{{ presentation.subtitletwo }}</h2>
-                            {% endif %}
-                            {% if app.request.locale == 'fr' %}
-                            <p>
-                                {{ presentation.paragraphedeux }}
-                            </p>
-                            {% else %}
-                            <p>
-                                {{ presentation.sectiontwo }}
-                            </p>
-                            {% endif %}
-
-                            {% if app.request.locale == 'fr' %}
-                            <p>
-                                {{ presentation.paragraphetrois }}
-                            </p>
-                            {% else %}
-                            <p>
-                                {{ presentation.sectionthree }}
-                            </p>
-                            {% endif %}
-                        </article>
-                    </div>
-
-                    <div class="col-lg-4 col-md-4 col-sm-4">
-                        <article>
-                            {% if app.request.locale == 'fr' %}
-                            <h2 class="titre-concours">{{ presentation.soustitretrois }}</h2>
-                            {% else %}
-                            <h2 class="titre-concours">{{ presentation.subtitlethree }}</h2>
-                            {% endif %}
-                            {% if app.request.locale == 'fr' %}
-                            <p>
-                                {{ presentation.paragraphequatre }}
-                            </p>
-                            {% else %}
-                            <p>
-                                {{ presentation.sectionfour }}
-                            </p>
-                            {% endif %}
-                            <br />
-                            {% if app.request.locale == 'fr' %}
-                            <p>
-                                {{ presentation.paragraphecinq }}
-                            </p>
-                            {% else %}
-                            <p>
-                                {{ presentation.sectionfive }}
-                            </p>
-                            {% endif %}
-                        </article>
-                    </div>
-                </aside>
-             </div>
+                </div>
+            </div>
         </div>
-    </section>
+
+        {#<section>#}
+        {#<div class="container concours">#}
+            {#{% if app.request.locale == 'fr' %}#}
+            {#<h1 class="text-center"> {{ presentation.titre }}</h1>#}
+            {#{% else %}#}
+            {#<h1 class="text-center"> {{ presentation.title }}</h1>#}
+            {#{% endif %}#}
+            {#<div class="row">#}
+                {#<aside>#}
+                    {#<div class="col-lg-4 col-md-4 col-sm-4">#}
+                        {#<article>#}
+                            {#{% if app.request.locale == 'fr' %}#}
+                            {#<h2 class="titre-concours">{{ presentation.soustitreun }}</h2>#}
+                            {#{% else %}#}
+                            {#<h2 class="titre-concours">{{ presentation.subtitleone }}</h2>#}
+                            {#{% endif %}#}
+                                {#{% if app.request.locale == 'fr' %}#}
+                                {#<p class="text-concours">#}
+                                    {#{{ presentation.paragrapheun }}#}
+                                {#</p>#}
+                                {#{% else %}#}
+                                {#<p class="text-concours">#}
+                                    {#{{ presentation.sectionone }}#}
+                                {#</p>#}
+                                {#{% endif %}#}
+                        {#</article>#}
+                    {#</div>#}
+
+                    {#<div class="col-lg-4 col-md-4 col-sm-4">#}
+                        {#<article>#}
+                            {#{% if app.request.locale == 'fr' %}#}
+                            {#<h2 class="titre-concours">{{ presentation.soustitredeux }}</h2>#}
+                            {#{% else %}#}
+                            {#<h2 class="titre-concours">{{ presentation.subtitletwo }}</h2>#}
+                            {#{% endif %}#}
+                            {#{% if app.request.locale == 'fr' %}#}
+                            {#<p>#}
+                                {#{{ presentation.paragraphedeux }}#}
+                            {#</p>#}
+                            {#{% else %}#}
+                            {#<p>#}
+                                {#{{ presentation.sectiontwo }}#}
+                            {#</p>#}
+                            {#{% endif %}#}
+
+                            {#{% if app.request.locale == 'fr' %}#}
+                            {#<p>#}
+                                {#{{ presentation.paragraphetrois }}#}
+                            {#</p>#}
+                            {#{% else %}#}
+                            {#<p>#}
+                                {#{{ presentation.sectionthree }}#}
+                            {#</p>#}
+                            {#{% endif %}#}
+                        {#</article>#}
+                    {#</div>#}
+
+                    {#<div class="col-lg-4 col-md-4 col-sm-4">#}
+                        {#<article>#}
+                            {#{% if app.request.locale == 'fr' %}#}
+                            {#<h2 class="titre-concours">{{ presentation.soustitretrois }}</h2>#}
+                            {#{% else %}#}
+                            {#<h2 class="titre-concours">{{ presentation.subtitlethree }}</h2>#}
+                            {#{% endif %}#}
+                            {#{% if app.request.locale == 'fr' %}#}
+                            {#<p>#}
+                                {#{{ presentation.paragraphequatre }}#}
+                            {#</p>#}
+                            {#{% else %}#}
+                            {#<p>#}
+                                {#{{ presentation.sectionfour }}#}
+                            {#</p>#}
+                            {#{% endif %}#}
+                            {#<br />#}
+                            {#{% if app.request.locale == 'fr' %}#}
+                            {#<p>#}
+                                {#{{ presentation.paragraphecinq }}#}
+                            {#</p>#}
+                            {#{% else %}#}
+                            {#<p>#}
+                                {#{{ presentation.sectionfive }}#}
+                            {#</p>#}
+                            {#{% endif %}#}
+                        {#</article>#}
+                    {#</div>#}
+                {#</aside>#}
+             {#</div>#}
+        {#</div>#}
+    {#</section>#}
 {% endfor %}
 {% endblock %}
 

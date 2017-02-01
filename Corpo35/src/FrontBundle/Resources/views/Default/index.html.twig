@@ -11,6 +11,7 @@
 
 {% block content %}
     {{ render(controller('FrontBundle:PresentationConcours:showPresentationConcours')) }}
+    {{ render(controller('FrontBundle:FrontPartenaire:ShowLogo')) }}
     {{ render(controller('FrontBundle:MiseEnAvant:miseEnAvant')) }}
     {% include 'FrontBundle:Default:partners.html.twig' %}
 {% endblock %}
