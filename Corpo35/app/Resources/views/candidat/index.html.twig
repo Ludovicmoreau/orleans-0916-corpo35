@@ -42,7 +42,9 @@
             <th class="text-center">Statut<span class="caret"></span></th>
             <th class="text-center">Note<span class="caret"></span></th>
             <th class="text-center">Classement<span class="caret"></span></th>
+            {% if is_granted ('ROLE_ADMIN') %}
             <th class="text-center">Mettre en avant</th>
+            {% endif %}
         </tr>
         </thead>
         <tbody>
@@ -70,9 +72,11 @@
                     {{ totalNote }}
                 </td>
                 <td>{{ candidat.classement }}</td>
+                {% if is_granted ('ROLE_ADMIN') %}
                 <td>
                     <a href="{{ path('recandidatenavant' , { 'id': candidat.id }) }}"><input type="button" value="OK" class="linkMisEnAvant"></a>
                 </td>
+                {% endif %}
             </tr>
         {% endfor %}
         </tbody>
