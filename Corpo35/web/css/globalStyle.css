@@ -1,3 +1,15 @@
+h1 {
+    font-size: 2.2em; !important;
+}
+h2 {
+    font-size: 1.7em; !important;
+}
+h3 {
+    font-size: 1.5em; !important;
+}
+h4 {
+    font-size: 1.2em; !important;
+}
 p {
     font-family: 'Playfair Display-Regular',Serif;
     color: black;
@@ -7,6 +19,8 @@ h1, h2, h3, h4, h5, h6, li, a {
     font-family: 'Montserrat', serif; !important;
     color: black;
 }
+
+
 
 li {
     font-family: 'Playfair Display-Regular', serif;
