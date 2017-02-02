@@ -12,9 +12,6 @@
 .at-partner__logo {
     width: 35%;
     margin: 0 auto;
-    -webkit-filter: grayscale(200%);
-
-
 }
 .at-partner__logo img {
     display: block;
@@ -47,7 +44,6 @@
     font-weight: 300;
     line-height: 2.625rem;
     text-align: center;
-    font-family: 'Playfair Display-Black';
 }
 
 .at-grid {

@@ -3,10 +3,14 @@
     padding: 0;
 }
 
+/*div.titre-concours {*/
+    /*font-family: 'Montserrat', serif; !important;*/
+    /*color: black;*/
+/*}*/
+
 .title {
     color:white;
-   padding: 30px;
-
+    padding: 30px;
 }
 a:hover{
     color: rgb(190,190,190);
@@ -15,11 +19,8 @@ a:hover{
 h2{
     margin-bottom: .4em;
     padding: 0;
-    font-size: 1.5em;
 }
-.titre-concours{
-    font-size: 1.4em;
-}
+
 div.text-concours+div.text-concours{
     margin-top: 0;
 }
@@ -34,7 +35,6 @@ article{
     list-style: square;
     margin: 0;
     padding: 0;
-
     color: black;
 }
 

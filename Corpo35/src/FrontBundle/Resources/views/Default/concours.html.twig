@@ -1,3 +1,4 @@
+
 {% block content %}
     {% for presentation in presentation %}
     {#          Flashbag message            #}
@@ -14,9 +15,9 @@
             <div class="row">
                 <div class="col-xs-12">
                     {% if app.request.locale == 'fr' %}
-                        <h1 class="text-center"> {{ presentation.titre }}</h1>
+                        <h1 class="text-center titre-concours"> {{ presentation.titre }}</h1>
                     {% else %}
-                        <h1 class="text-center"> {{ presentation.title }}</h1>
+                        <h1 class="text-center titre-concours"> {{ presentation.title }}</h1>
                     {% endif %}
                 </div>
             </div>

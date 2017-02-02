@@ -48,6 +48,7 @@
 .linkNavbar2 {
     color: black;
     font-size: 0.9em;
+    font-style: normal;
 }
 
 .linkNavbar2:hover {

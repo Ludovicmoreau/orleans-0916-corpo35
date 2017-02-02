@@ -8,7 +8,6 @@
 .lienfooter:hover{
     color: black;
 }
-
 @media (max-width: 900px) {
     .onglet-footer {
         border-right: none;
@@ -18,4 +17,7 @@
         padding-top: 15px;
 
     }
+}
+a {
+    font-style: normal; !important;
 }
