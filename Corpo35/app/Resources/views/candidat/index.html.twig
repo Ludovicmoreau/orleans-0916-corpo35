@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="{{ asset('css/listCandidatStyle.css') }}">
 {% endblock %}
 
+
 {% block content %}
     <div class="container">
         <div class="row">
@@ -26,22 +27,22 @@
             </div>
             <div class="row">
                 <div class="col-xs-12">
-                    <input class="btn btn-secondary center-block btnRecherche" type="submit" value="Rechercher">
+                    <input class="center-block linkMisEnAvant1" type="submit" value="Rechercher">
                     {{ form_end(form) }}
                 </div>
             </div>
         </div>
     </div>
 <div class="container">
-    <table class="table table-hover table-condensed">
+    <table id="myTable" class="table table-hover table-condensed tablesorter">
         <thead>
         <tr>
-            <th class="text-center">Nom</th>
-            <th class="text-center">Prénom</th>
-            <th class="text-center">Statut</th>
-            <th class="text-center">Note</th>
-            <th class="text-center">Classement</th>
-            <th class="text-center">Mise en avant</th>
+            <th class="text-center">Nom<span class="caret"></span></th>
+            <th class="text-center">Prénom<span class="caret"></span></th>
+            <th class="text-center">Statut<span class="caret"></span></th>
+            <th class="text-center">Note<span class="caret"></span></th>
+            <th class="text-center">Classement<span class="caret"></span></th>
+            <th class="text-center">Mettre en avant</th>
         </tr>
         </thead>
         <tbody>
@@ -70,7 +71,7 @@
                 </td>
                 <td>{{ candidat.classement }}</td>
                 <td>
-                    <a href="{{ path('recandidatenavant' , { 'id': candidat.id }) }}" class="linkMisEnAvant"> Mettre en avant le candidat</a>
+                    <a href="{{ path('recandidatenavant' , { 'id': candidat.id }) }}"><input type="button" value="OK" class="linkMisEnAvant"></a>
                 </td>
             </tr>
         {% endfor %}
@@ -78,6 +79,13 @@
         <tfoot></tfoot>
     </table>
 </div>
+    <script>
+        $(document).ready(function()
+                {
+                    $("#myTable").tablesorter();
+                }
+        );
+    </script>
 
     {#<div class="container-fluid candidat">#}
         {#<div class="row">#}
