@@ -45,7 +45,7 @@
         </tr>
         </thead>
         <tbody>
-        {% for candidat in candidats  %}
+        {% for candidat in candidats |sortbyfield('nom')  %}
             <tr class="text-center">
                 <td>
                     <a href="{{ path('candidat_show', { 'id': candidat.id }) }}" class="linkCandidat">{{ candidat.nom }}</a>
