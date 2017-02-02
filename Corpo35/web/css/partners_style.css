@@ -49,10 +49,8 @@ h1{
 }
 
 h3 {
-    font: 33px sans-serif;
     margin-top: 30px;
     text-align: center;
-    text-transform: uppercase;
 }
 h3.background {
     position: relative;

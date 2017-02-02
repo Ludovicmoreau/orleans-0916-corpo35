@@ -27,7 +27,7 @@
                 <div class="presentation">
                     <div class="row">
                         <div class="col-xs-12">
-                            <p>{{ candidat.presentation | truncate(50, true, '...')}}<a href="{{ path('page_vitrine_candidat', { 'id': candidat.id }) }}"> {{ 'En lire plus'| trans }}</a></p>
+                            <p>{{ candidat.presentation | truncate(50, true, '...')}}<a href="{{ path('page_vitrine_candidat', { 'id': candidat.id }) }}"></a></p>
                         </div>
                     </div>
                     {% if candidat.blog is not null %}
@@ -40,7 +40,7 @@
                     <div class="row">
                         <div class="col-xs-12 motivation">
                             <p class="motivationTitre"> {{ 'Motivations pour le concours'| trans }}</p>
-                            <p>{{ candidat.motivation | truncate(50, true, '...')}}<a href="{{ path('page_vitrine_candidat', { 'id': candidat.id }) }}"> {{ 'En lire plus'| trans }}</a></p>
+                            <p>{{ candidat.motivation | truncate(50, true, '...')}}<a href="{{ path('page_vitrine_candidat', { 'id': candidat.id }) }}"></a></p>
                         </div>
                     </div>
                     <div class="row">
@@ -48,11 +48,11 @@
                             {% if candidat.formation is not null or candidat.competence is not null %}
                                 {% if candidat.formation is not null %}
                                     <p class="FormationTitre"> {{ 'Formations liées à la parfumerie:'| trans }}</p>
-                                    <p>{{ candidat.formation | truncate(50, true, '...')}}<a href="{{ path('page_vitrine_candidat', { 'id': candidat.id }) }}"> {{ 'En lire plus'| trans }}</a></p>
+                                    <p>{{ candidat.formation | truncate(50, true, '...')}}<a href="{{ path('page_vitrine_candidat', { 'id': candidat.id }) }}"></a></p>
                                 {% endif %}
                                 {% if candidat.competence is not null %}
                                     <p class="FormationTitre"> {{ 'Autres formations:'| trans }}</p>
-                                    <p class="">{{ candidat.competence | truncate(50, true, '...')}}<a href="{{ path('page_vitrine_candidat', { 'id': candidat.id }) }}"> {{ 'En lire plus'| trans }}</a></p>
+                                    <p class="">{{ candidat.competence | truncate(50, true, '...')}}<a href="{{ path('page_vitrine_candidat', { 'id': candidat.id }) }}"></a></p>
                                 {% endif %}
                             {% endif %}
                         </div>

@@ -37,6 +37,7 @@ class Candidat
 
     /**
      * @ORM\OneToMany(targetEntity="Vote", mappedBy="candidat")
+     *
      */
     private $votes;
 
