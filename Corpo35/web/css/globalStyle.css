@@ -9,6 +9,7 @@ h3 {
 }
 h4 {
     font-size: 1.2em; !important;
+    font-style: normal; !important;
 }
 p {
     font-family: 'Playfair Display-Regular',Serif;
