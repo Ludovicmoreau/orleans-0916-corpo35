@@ -1,4 +1,6 @@
-
+th {
+    cursor: pointer;
+}
 
 .blockCandidat {
     padding-bottom: 1%;
@@ -33,7 +35,37 @@
 }
 
 .linkMisEnAvant {
-    text-decoration: underline;
+    color:black;
+    border:1px solid black;
+    height:40px;
+    background-color:transparent;
+    transition: all 0.8s ease-out;
+}
+
+.linkMisEnAvant:hover {
+    text-decoration: none;
+    color:#fff;
+    border:1px solid #fff;
+    height:40px;
+    background-color:black;
+}
+
+.linkMisEnAvant1 {
+    color:black;
+    border:1px solid black;
+    height:40px;
+    background-color:transparent;
+    transition: all 0.8s ease-out;
+    margin-top:40px;
+    margin-bottom:5vh
+}
+
+.linkMisEnAvant1:hover {
+    text-decoration: none;
+    color:#fff;
+    border:1px solid #fff;
+    height:40px;
+    background-color:black;
 }
 
 .blockCandidat:hover {
